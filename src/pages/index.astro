@@ -86,7 +86,12 @@ body {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 38px; line-height: 1.05; letter-spacing: 1px; margin-bottom: 8px;
 }
-.hero-text-overlay h1 .accent { color: #ef4444; }
+.hero-text-overlay h1 .accent {
+  display: inline-block;
+  background: #dc2626; color: #fff;
+  padding: 8px 16px; border-radius: 8px;
+  margin-top: 4px;
+}
 .hero-text-overlay .hero-sub {
   font-size: 17px; font-weight: 600; opacity: 0.95;
 }
@@ -366,7 +371,7 @@ body {
     <div class="hero-image-overlay"></div>
     <div class="hero-sold-badge">EVENT #1 SOLD OUT</div>
     <div class="hero-text-overlay">
-      <h1>Event #1 Sold Out.<br/><span class="accent">Don't Miss #2.</span></h1>
+      <h1>Event #1 Sold Out.<br/><span class="accent">DON'T MISS #2</span></h1>
       <p class="hero-sub"><strong>Friday, Feb 27</strong> &nbsp;&bull;&nbsp; 9:30 PM &nbsp;&bull;&nbsp; Alpharetta, GA</p>
     </div>
   </div>
@@ -404,7 +409,7 @@ body {
 <section class="video-section">
   <h3>The Event #1 Experience</h3>
   <div class="video-wrap" id="videoWrap" onclick="toggleVideo()">
-    <video id="heroVideo" playsinline preload="metadata" muted poster="/images/hero_line_cropped.jpg">
+    <video id="heroVideo" autoplay playsinline preload="metadata" muted poster="/images/hero_line_cropped.jpg">
       <source src="/video/EloteKing_HeroReel_LandingPage.mp4" type="video/mp4" />
     </video>
     <div class="video-play-btn">
@@ -508,7 +513,7 @@ body {
 <section class="bottom-section">
   <div class="bottom-form-wrap" id="waitlist-bottom">
     <h2>Don't Wait For Feb 24.</h2>
-    <p class="form-sub">Waitlist members see everything first. Flights, pricing, menu â€” before anyone else.</p>
+    <p class="form-sub">Waitlist members see everything first. Flights, pricing, menu – before anyone else.</p>
     <form class="waitlist-form" action="#" method="POST">
       <input type="email" name="email" placeholder="Email" required autocomplete="email" />
       <input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel" />
@@ -573,8 +578,16 @@ function toggleVideo() {
   const v = document.getElementById('heroVideo');
   const w = document.getElementById('videoWrap');
   if (v.paused) { v.muted = false; v.play(); w.classList.add('playing'); }
-  else { v.pause(); w.classList.remove('playing'); }
+  else { v.pause(); v.muted = true; w.classList.remove('playing'); }
 }
+// Hide play button when video starts autoplay
+document.addEventListener('DOMContentLoaded', function() {
+  const v = document.getElementById('heroVideo');
+  const w = document.getElementById('videoWrap');
+  if (!v.paused) { w.classList.add('playing'); }
+  v.addEventListener('play', function() { w.classList.add('playing'); });
+  v.addEventListener('pause', function() { w.classList.remove('playing'); });
+});
 </script>
 
 </body>
