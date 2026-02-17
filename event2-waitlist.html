@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Elote King Event #2 — Waitlist | Halal Mexican Street Food | Feb 27</title>
+<meta name="description" content="Event #1 sold out. Don't miss Event #2. Join the waitlist for Atlanta's only halal Mexican street food tasting experience. Friday Feb 27, Alpharetta GA." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f7f7f7;
+  --bg-card: #ffffff;
+  --text-primary: #111111;
+  --text-body: #333333;
+  --text-secondary: #444444;
+  --text-muted: #555555;
+  --green: #16a34a;
+  --green-light: #22c55e;
+  --green-bg: rgba(22, 163, 74, 0.08);
+  --border: #e0e0e0;
+  --border-light: #eeeeee;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --radius: 12px;
+  --radius-lg: 16px;
+}
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg); color: var(--text-body);
+  line-height: 1.6; font-size: 16px;
+  -webkit-font-smoothing: antialiased; overflow-x: hidden;
+}
+
+/* ===== BADGE BAR ===== */
+.badge-bar {
+  background: var(--text-primary); color: #fff;
+  text-align: center; padding: 10px 16px;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+}
+.badge-bar span { color: var(--green-light); }
+
+/* ===== LOGO BAR ===== */
+.logo-bar {
+  text-align: center;
+  padding: 14px 20px;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border-light);
+}
+.logo-bar img {
+  height: 52px;
+  width: auto;
+  display: inline-block;
+}
+
+/* ===== HERO ===== */
+.hero { position: relative; overflow: hidden; }
+.hero-image-wrap {
+  position: relative; width: 100%; aspect-ratio: 3/2; overflow: hidden;
+}
+.hero-image-wrap img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.hero-image-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 65%;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.35) 55%, transparent 100%);
+}
+.hero-sold-badge {
+  position: absolute; top: 16px; right: 16px;
+  background: #dc2626; color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px; letter-spacing: 1.5px;
+  padding: 6px 14px; border-radius: 6px;
+}
+.hero-text-overlay {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: 24px 20px; color: #fff;
+}
+.hero-text-overlay h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38px; line-height: 1.05; letter-spacing: 1px; margin-bottom: 8px;
+}
+.hero-text-overlay .hero-sub {
+  font-size: 17px; font-weight: 600; opacity: 0.95;
+}
+.hero-text-overlay .hero-sub strong { color: var(--green-light); }
+
+/* ===== FORM ===== */
+.form-section { padding: 28px 20px 32px; background: var(--bg); }
+.form-section h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px; letter-spacing: 0.5px; margin-bottom: 6px;
+  color: var(--text-primary);
+}
+.form-sub {
+  font-size: 16px; color: var(--text-secondary); margin-bottom: 20px;
+  line-height: 1.5;
+}
+.waitlist-form { display: flex; flex-direction: column; gap: 12px; }
+.waitlist-form input {
+  width: 100%; padding: 15px 16px;
+  border: 2px solid var(--border); border-radius: 10px;
+  font-size: 16px; font-family: 'DM Sans', sans-serif;
+  background: var(--bg); color: var(--text-primary);
+  transition: border-color 0.2s;
+}
+.waitlist-form input:focus { outline: none; border-color: var(--green); }
+.waitlist-form input::placeholder { color: #999; }
+.btn-primary {
+  width: 100%; padding: 16px;
+  background: var(--green); color: #fff; border: none; border-radius: 10px;
+  font-size: 17px; font-weight: 700; font-family: 'DM Sans', sans-serif;
+  cursor: pointer; transition: background 0.2s, transform 0.1s;
+}
+.btn-primary:hover { background: #15803d; }
+.btn-primary:active { transform: scale(0.98); }
+.form-microcopy {
+  font-size: 15px; color: var(--text-secondary); text-align: center; margin-top: 10px;
+}
+.form-microcopy strong { color: var(--text-primary); }
+
+/* ===== SOCIAL PROOF STRIP ===== */
+.proof-strip {
+  display: flex; border-top: 1px solid var(--border-light);
+  border-bottom: 1px solid var(--border-light); background: var(--bg-soft);
+}
+.proof-item {
+  flex: 1; text-align: center; padding: 16px 8px;
+  border-right: 1px solid var(--border-light);
+}
+.proof-item:last-child { border-right: none; }
+.proof-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px; color: var(--green); line-height: 1;
+}
+.proof-label {
+  font-size: 13px; color: var(--text-secondary); margin-top: 3px; line-height: 1.3;
+  font-weight: 500;
+}
+
+/* ===== VIDEO SECTION ===== */
+.video-section { padding: 28px 20px; background: var(--bg); }
+.video-section h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px; margin-bottom: 14px; text-align: center;
+  color: var(--text-primary);
+}
+.video-wrap {
+  position: relative; width: 100%;
+  aspect-ratio: 1/1;
+  border-radius: var(--radius-lg); overflow: hidden;
+  background: #111; cursor: pointer;
+  box-shadow: var(--shadow-md);
+}
+.video-wrap video {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.video-play-btn {
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 72px; height: 72px;
+  background: rgba(255,255,255,0.95); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
+  pointer-events: none; z-index: 2;
+  transition: transform 0.2s;
+}
+.video-play-btn svg { width: 28px; height: 28px; fill: var(--green); margin-left: 4px; }
+.video-wrap.playing .video-play-btn { display: none; }
+
+/* ===== MENU ===== */
+.menu-section { padding: 36px 20px; background: var(--bg-soft); }
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px; margin-bottom: 20px; text-align: center;
+  color: var(--text-primary);
+}
+.menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.menu-card {
+  background: var(--bg-card); border-radius: var(--radius);
+  overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--border-light);
+}
+.menu-card-img {
+  width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; background: #f0f0f0;
+}
+.menu-card-body { padding: 12px; }
+.menu-card-name {
+  font-size: 15px; font-weight: 700; color: var(--text-primary);
+  line-height: 1.25; margin-bottom: 5px;
+}
+.menu-card-desc {
+  font-size: 14px; color: var(--text-secondary); line-height: 1.45;
+}
+.menu-card-tag {
+  display: inline-block; font-size: 11px; font-weight: 700;
+  color: var(--green); background: var(--green-bg);
+  padding: 3px 8px; border-radius: 4px; margin-top: 6px;
+}
+.menu-closing {
+  text-align: center; margin-top: 22px;
+  font-size: 16px; color: var(--text-body); font-weight: 500;
+}
+.menu-closing strong { color: var(--green); }
+
+/* ===== TIMELINE ===== */
+.timeline-section { padding: 36px 20px; background: var(--bg); }
+.timeline { max-width: 400px; margin: 0 auto; }
+.timeline-step { display: flex; gap: 16px; position: relative; padding-bottom: 28px; }
+.timeline-step:last-child { padding-bottom: 0; }
+.timeline-rail { display: flex; flex-direction: column; align-items: center; flex-shrink: 0; }
+.timeline-dot {
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--green); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-weight: 800; font-size: 16px; flex-shrink: 0; z-index: 1;
+}
+.timeline-dot.future { background: var(--bg-soft); border: 2px solid var(--border); color: var(--text-muted); }
+.timeline-line { width: 2px; flex: 1; background: var(--border); margin-top: 4px; }
+.timeline-step:last-child .timeline-line { display: none; }
+.timeline-content { padding-top: 6px; }
+.timeline-label {
+  font-size: 18px; font-weight: 700; color: var(--text-primary); line-height: 1.3;
+}
+.timeline-date { font-size: 15px; font-weight: 700; color: var(--green); margin-top: 2px; }
+.timeline-desc {
+  font-size: 15px; color: var(--text-secondary); margin-top: 4px; line-height: 1.55;
+}
+
+/* ===== BOTTOM SECTION ===== */
+.bottom-section { padding: 36px 20px 120px; background: var(--bg-soft); }
+.bottom-form-wrap {
+  background: var(--bg-card); border-radius: var(--radius-lg);
+  padding: 28px 20px; box-shadow: var(--shadow-md);
+  border: 1px solid var(--border-light); margin-bottom: 36px;
+}
+.bottom-form-wrap h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 28px; margin-bottom: 6px; color: var(--text-primary);
+}
+
+/* ===== FAQ ===== */
+.faq-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px; margin-bottom: 16px; text-align: center;
+  color: var(--text-primary);
+}
+.faq-item {
+  border: 1px solid var(--border); border-radius: var(--radius);
+  margin-bottom: 10px; background: var(--bg-card); overflow: hidden;
+}
+.faq-item summary {
+  padding: 16px; font-size: 16px; font-weight: 600;
+  cursor: pointer; list-style: none;
+  display: flex; justify-content: space-between; align-items: center;
+  color: var(--text-primary);
+}
+.faq-item summary::-webkit-details-marker { display: none; }
+.faq-item summary::after {
+  content: '+'; font-size: 22px; font-weight: 400;
+  color: var(--text-muted); flex-shrink: 0; margin-left: 12px;
+}
+.faq-item[open] summary::after { content: '\2212'; }
+.faq-answer {
+  padding: 0 16px 16px;
+  font-size: 15px; color: var(--text-secondary); line-height: 1.65;
+}
+
+/* ===== TRUST BAR ===== */
+.trust-bar {
+  text-align: center; padding: 24px 20px;
+  font-size: 14px; color: var(--text-secondary); font-weight: 600;
+  border-top: 1px solid var(--border-light);
+}
+.trust-bar span { color: var(--green); margin: 0 6px; }
+
+/* ===== STICKY BAR ===== */
+.sticky-bar {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: rgba(255,255,255,0.97);
+  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+  padding: 12px 20px; border-top: 1px solid var(--border);
+  z-index: 100; box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
+}
+.sticky-bar a {
+  display: block; width: 100%; padding: 15px;
+  background: var(--green); color: #fff;
+  text-align: center; text-decoration: none;
+  border-radius: 10px; font-size: 17px; font-weight: 700;
+}
+.sticky-bar a:active { background: #15803d; }
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 24px 20px 16px; text-align: center;
+  font-size: 14px; color: var(--text-muted);
+  background: var(--bg); border-top: 1px solid var(--border-light);
+}
+.footer a { color: var(--green); text-decoration: none; font-weight: 600; }
+
+/* ===== DESKTOP ===== */
+@media (min-width: 640px) {
+  .hero-image-wrap { aspect-ratio: 16/9; }
+  .hero-text-overlay h1 { font-size: 52px; }
+  .hero-text-overlay { padding: 40px; }
+  .form-section, .video-section, .menu-section, .timeline-section, .bottom-section {
+    max-width: 560px; margin-left: auto; margin-right: auto;
+  }
+  .menu-grid { grid-template-columns: repeat(3, 1fr); }
+  .logo-bar img { height: 56px; }
+}
+</style>
+</head>
+<body>
+
+<!-- BADGE BAR -->
+<div class="badge-bar">
+  <span>&#10003;</span> 100% Zabiha Halal &nbsp;&bull;&nbsp; Muslim-Owned &nbsp;&bull;&nbsp; Zero Alcohol
+</div>
+
+<!-- LOGO BAR -->
+<div class="logo-bar">
+  <img src="elote-king-logo-transparent.png" alt="Elote King Atlanta" />
+</div>
+
+<!-- SCREEN 1: HERO -->
+<section class="hero">
+  <div class="hero-image-wrap">
+    <img src="hero_line_cropped.jpg" alt="Event #1 crowd lined up at Elote King food truck in Alpharetta" />
+    <div class="hero-image-overlay"></div>
+    <div class="hero-sold-badge">EVENT #1 SOLD OUT</div>
+    <div class="hero-text-overlay">
+      <h1>Event #1 Sold Out.<br/>Don't Miss #2.</h1>
+      <p class="hero-sub"><strong>Friday, Feb 27</strong> &nbsp;&bull;&nbsp; 9:30 PM &nbsp;&bull;&nbsp; Alpharetta, GA</p>
+    </div>
+  </div>
+</section>
+
+<!-- FORM -->
+<section class="form-section" id="waitlist">
+  <h2>Get On The Waitlist</h2>
+  <p class="form-sub">Waitlist sees the menu, pricing, and flights first. Everyone else waits.</p>
+  <form class="waitlist-form" action="#" method="POST">
+    <input type="email" name="email" placeholder="Email" required autocomplete="email" />
+    <input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel" />
+    <button type="submit" class="btn-primary">Get Early Access &rarr;</button>
+  </form>
+  <p class="form-microcopy"><strong>Event #1 sold out in 48 hours.</strong> Waitlist members get first pick.</p>
+</section>
+
+<!-- SOCIAL PROOF -->
+<div class="proof-strip">
+  <div class="proof-item">
+    <div class="proof-number">50</div>
+    <div class="proof-label">Flights claimed<br/>at Event #1</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-number">48hr</div>
+    <div class="proof-label">Until every<br/>flight sold out</div>
+  </div>
+  <div class="proof-item">
+    <div class="proof-number">$0</div>
+    <div class="proof-label">Ad spend.<br/>All organic.</div>
+  </div>
+</div>
+
+<!-- VIDEO SECTION -->
+<section class="video-section">
+  <h3>The Event #1 Experience</h3>
+  <div class="video-wrap" id="videoWrap" onclick="toggleVideo()">
+    <video id="heroVideo" playsinline preload="metadata" muted poster="hero_line_cropped.jpg">
+      <source src="EloteKing_HeroReel_LandingPage.mp4" type="video/mp4" />
+    </video>
+    <div class="video-play-btn">
+      <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- SCREEN 2: MENU -->
+<section class="menu-section">
+  <h2 class="section-title">What's On The Menu</h2>
+  <div class="menu-grid">
+    <div class="menu-card">
+      <img class="menu-card-img" src="king-smash-burger-branded-final.jpg" alt="King Smash Burger" />
+      <div class="menu-card-body">
+        <div class="menu-card-name">King Smash Burger</div>
+        <div class="menu-card-desc">Seared like it owes you money. Halal smashed patty, Mexican street toppings, crispy fries.</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" />
+      <div class="menu-card-body">
+        <div class="menu-card-name">Taquito Michelada</div>
+        <div class="menu-card-desc">Sip it. Dip it. Devour it. Crispy taquitos stacked on a halal michelada. One hand, full flex.</div>
+        <div class="menu-card-tag">FIRST IN ATLANTA</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" />
+      <div class="menu-card-body">
+        <div class="menu-card-name">Chorizo Drip Fries</div>
+        <div class="menu-card-desc">Crispy fries dripping in bold Mexican-seasoned beef, melted cheese, fresh toppings. Zero regrets.</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="gold-flan-royale-branded-final.jpg" alt="Gold Flan Royale" />
+      <div class="menu-card-body">
+        <div class="menu-card-name">Gold Flan Royale</div>
+        <div class="menu-card-desc">Shuts everything down. Creamy caramel custard made from scratch. 100% halal, always.</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="mango-loca-branded-final.jpg" alt="Mango Loca" />
+      <div class="menu-card-body">
+        <div class="menu-card-name">Mango Loca</div>
+        <div class="menu-card-desc">Sweet heat in every sip. Fresh mango, chili rim, lime. Made in-house, no syrup shortcuts.</div>
+      </div>
+    </div>
+    <div class="menu-card">
+      <img class="menu-card-img" src="michelada-branded-final.jpg" alt="Halal Michelada" />
+      <div class="menu-card-body">
+        <div class="menu-card-name">Michelada</div>
+        <div class="menu-card-desc">Spice. Lime. No alcohol. The classic Mexican drink made 100% halal. Nobody else has this.</div>
+        <div class="menu-card-tag">NOBODY ELSE HAS THIS</div>
+      </div>
+    </div>
+  </div>
+  <p class="menu-closing">3 tasting flights. Details unlock for <strong>waitlist members first</strong>.</p>
+</section>
+
+<!-- SCREEN 3: TIMELINE -->
+<section class="timeline-section">
+  <h2 class="section-title">How The Drop Works</h2>
+  <div class="timeline">
+    <div class="timeline-step">
+      <div class="timeline-rail">
+        <div class="timeline-dot">1</div>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-content">
+        <div class="timeline-label">Join the Waitlist</div>
+        <div class="timeline-date">Now</div>
+        <div class="timeline-desc">Takes 10 seconds. Drop your email and phone. You're in.</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-rail">
+        <div class="timeline-dot future">2</div>
+        <div class="timeline-line"></div>
+      </div>
+      <div class="timeline-content">
+        <div class="timeline-label">Waitlist Gets First Pick</div>
+        <div class="timeline-date">February 22</div>
+        <div class="timeline-desc">Exclusive early access to flights + best pricing. Not on the list? You wait.</div>
+      </div>
+    </div>
+    <div class="timeline-step">
+      <div class="timeline-rail">
+        <div class="timeline-dot future">3</div>
+      </div>
+      <div class="timeline-content">
+        <div class="timeline-label">Opens to Everyone</div>
+        <div class="timeline-date">February 24</div>
+        <div class="timeline-desc">Whatever's left goes public. Event #1 sold out before this stage.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SCREEN 4: BOTTOM FORM + FAQ -->
+<section class="bottom-section">
+  <div class="bottom-form-wrap" id="waitlist-bottom">
+    <h2>Don't Wait For Feb 24.</h2>
+    <p class="form-sub">Waitlist members see everything first. Flights, pricing, menu — before anyone else.</p>
+    <form class="waitlist-form" action="#" method="POST">
+      <input type="email" name="email" placeholder="Email" required autocomplete="email" />
+      <input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel" />
+      <button type="submit" class="btn-primary">Join the VIP Waitlist &rarr;</button>
+    </form>
+    <p class="form-microcopy">We text you. We don't spam you.</p>
+  </div>
+
+  <h3 class="faq-title">Questions</h3>
+  <details class="faq-item">
+    <summary>Where is Event #2?</summary>
+    <div class="faq-answer">Alpharetta, GA 30004. Exact address is shared after you secure your flight. Same area as Event #1.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Is everything really 100% Halal?</summary>
+    <div class="faq-answer">Absolutely. All our meat is 100% Zabiha Halal. We are Muslim-owned and operated, and our kitchen maintains strict halal standards. No alcohol is used in any recipe or served at any event.</div>
+  </details>
+  <details class="faq-item">
+    <summary>What are taquitos?</summary>
+    <div class="faq-answer">Taquitos are crispy, golden rolled tortillas stuffed with seasoned chicken and deep-fried until crunchy. Think of them as the crunchiest, most satisfying chicken roll you've ever had. In our Taquito Michelada, they're stacked right on top of a halal michelada — sip it, dip it, devour it.</div>
+  </details>
+  <details class="faq-item">
+    <summary>What is chorizo?</summary>
+    <div class="faq-answer">Chorizo is bold, juicy Mexican-seasoned ground beef packed with smoky spices and a little heat. It's not dry or hard — it's rich, crumbly, and loaded with flavor. Our Loaded Chorizo Fries are smothered in it with melted cheese on top.</div>
+  </details>
+  <details class="faq-item">
+    <summary>What is a Halal Michelada?</summary>
+    <div class="faq-answer">A Michelada is a classic Mexican drink that's tangy, savory, and refreshing — usually made with beer. Ours is 100% halal and zero alcohol. Same bold flavor — lime, chili, spices — without compromising your values. Nobody else in Atlanta is doing this.</div>
+  </details>
+  <details class="faq-item">
+    <summary>What if I miss the waitlist drop?</summary>
+    <div class="faq-answer">You'll have to wait until Feb 24 when remaining flights open to the public. But at Event #1, everything sold out before the public link went live. The safest move is to get on the list now.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Is there seating?</summary>
+    <div class="faq-answer">Limited tables on a first-come, first-served basis. Most guests enjoy the street-food experience — grab a table if one's open, or enjoy your flight from the car.</div>
+  </details>
+  <details class="faq-item">
+    <summary>What about weather?</summary>
+    <div class="faq-answer">Outdoor event, so dress for the forecast. Atlanta evenings can get cool — bring a jacket so you can enjoy your flight comfortably.</div>
+  </details>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  100% Zabiha Halal <span>&bull;</span> Muslim-Owned <span>&bull;</span> Zero Alcohol <span>&bull;</span> Alpharetta 30004
+</div>
+
+<!-- FOOTER -->
+<div class="footer" style="padding-bottom: 80px;">
+  <p>&copy; 2026 Elote King Atlanta. All rights reserved.</p>
+  <p style="margin-top:6px;"><a href="https://www.elotekingatlanta.com">EloteKingAtlanta.com</a> &nbsp;&bull;&nbsp; <a href="tel:1-678-208-8774">1-678-208-8774</a></p>
+</div>
+
+<!-- STICKY BAR -->
+<div class="sticky-bar">
+  <a href="#waitlist">Join the Waitlist &rarr;</a>
+</div>
+
+<script>
+function toggleVideo() {
+  const v = document.getElementById('heroVideo');
+  const w = document.getElementById('videoWrap');
+  if (v.paused) { v.muted = false; v.play(); w.classList.add('playing'); }
+  else { v.pause(); w.classList.remove('playing'); }
+}
+</script>
+
+</body>
+</html>
