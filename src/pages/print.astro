@@ -1,0 +1,535 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Elote King Event #2 — Print Handout</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --green: #16a34a;
+  --green-light: #22c55e;
+  --green-bg: rgba(22, 163, 74, 0.08);
+  --gold: #d4a017;
+  --gold-bg: rgba(212, 160, 23, 0.12);
+  --red: #dc2626;
+  --text-primary: #111111;
+  --text-body: #333333;
+  --text-muted: #666666;
+  --border: #dddddd;
+}
+
+body {
+  font-family: 'DM Sans', Arial, sans-serif;
+  background: #fff;
+  color: var(--text-body);
+  font-size: 11pt;
+  line-height: 1.4;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+
+/* ===== PAGE WRAPPER ===== */
+.page {
+  width: 8.5in;
+  min-height: 11in;
+  margin: 0 auto;
+  padding: 0.35in 0.4in 0.3in;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: #111;
+  color: #fff;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px 8px 0 0;
+  margin-bottom: 0;
+}
+.header-logo {
+  height: 36px;
+  width: auto;
+}
+.header-center {
+  text-align: center;
+  flex: 1;
+  padding: 0 12px;
+}
+.header-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22pt;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+.header-title .green { color: var(--green-light); }
+.header-sub {
+  font-size: 9pt;
+  font-weight: 600;
+  color: rgba(255,255,255,0.8);
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+.halal-badge {
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--green-light);
+  text-align: right;
+  line-height: 1.5;
+}
+
+/* ===== BODY COLUMNS ===== */
+.body-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  flex: 1;
+  padding-top: 10px;
+}
+
+/* ===== LEFT — FOOD PHOTOS ===== */
+.food-col {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.food-col-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14pt;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--green);
+  padding-bottom: 4px;
+  margin-bottom: 2px;
+}
+.food-grid-print {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  flex: 1;
+}
+.food-item {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1/1;
+  background: #eee;
+}
+.food-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.food-item-label {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.82) 0%, transparent 100%);
+  padding: 18px 7px 6px;
+  color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 10pt;
+  line-height: 1.1;
+  letter-spacing: 0.3px;
+}
+.food-item-label .tag {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 7pt;
+  font-weight: 700;
+  color: var(--green-light);
+  display: block;
+  margin-top: 1px;
+}
+
+/* ===== RIGHT — PRICING + QR ===== */
+.pricing-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.pricing-col-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14pt;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--green);
+  padding-bottom: 4px;
+  margin-bottom: 2px;
+}
+.pricing-note {
+  font-size: 8pt;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+/* Tier row */
+.tier-row {
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 10px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: center;
+  background: #fff;
+}
+.tier-row.popular {
+  border-color: var(--green);
+  background: rgba(22,163,74,0.04);
+}
+.tier-row.royal {
+  border-color: var(--gold);
+  background: var(--gold-bg);
+}
+.tier-info {}
+.tier-badge {
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: #fff;
+  background: var(--green);
+  padding: 2px 6px;
+  border-radius: 3px;
+  display: inline-block;
+  margin-bottom: 3px;
+}
+.tier-badge.gold { background: var(--gold); }
+.tier-name-print {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15pt;
+  color: var(--text-primary);
+  line-height: 1;
+  margin-bottom: 2px;
+}
+.tier-row.royal .tier-name-print { color: var(--gold); }
+.tier-value-print {
+  font-size: 8pt;
+  color: #999;
+  text-decoration: line-through;
+  margin-bottom: 4px;
+}
+.tier-price-row {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 3px;
+}
+.tier-prepay {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20pt;
+  color: var(--green);
+  line-height: 1;
+}
+.tier-row.royal .tier-prepay { color: var(--gold); }
+.tier-save {
+  font-size: 8pt;
+  font-weight: 700;
+  color: var(--green);
+  background: var(--green-bg);
+  padding: 1px 5px;
+  border-radius: 3px;
+}
+.tier-door {
+  font-size: 8pt;
+  color: #aaa;
+  text-decoration: line-through;
+}
+.tier-items-print {
+  font-size: 8pt;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.tier-items-print .ck { color: var(--green); font-weight: 700; }
+
+/* QR block */
+.qr-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  min-width: 80px;
+}
+.qr-img {
+  width: 72px;
+  height: 72px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 3px;
+  background: #fff;
+  display: block;
+}
+.qr-caption {
+  font-size: 7pt;
+  font-weight: 700;
+  text-align: center;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+.qr-caption.green-txt { color: var(--green); }
+.qr-caption.gold-txt { color: var(--gold); }
+
+/* Flan add-on row */
+.flan-row {
+  border: 1.5px solid var(--gold);
+  border-radius: 6px;
+  padding: 6px 10px;
+  background: var(--gold-bg);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+}
+.flan-info-label {
+  font-size: 7pt;
+  font-weight: 700;
+  color: var(--gold);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.flan-info-name {
+  font-size: 9pt;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+.flan-info-desc {
+  font-size: 7.5pt;
+  color: var(--text-muted);
+}
+.flan-qr-group {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  margin-top: 10px;
+  background: #111;
+  border-radius: 0 0 8px 8px;
+  padding: 8px 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: rgba(255,255,255,0.75);
+  font-size: 8pt;
+  font-weight: 600;
+}
+.footer .green { color: var(--green-light); }
+.footer-url {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 11pt;
+  color: var(--green-light);
+  letter-spacing: 0.5px;
+}
+
+/* ===== SCAN INSTRUCTIONS ===== */
+.scan-bar {
+  background: var(--green-bg);
+  border: 1px solid rgba(22,163,74,0.25);
+  border-radius: 6px;
+  padding: 6px 14px;
+  text-align: center;
+  font-size: 8.5pt;
+  font-weight: 700;
+  color: var(--green);
+  margin-top: 8px;
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+  body { margin: 0; }
+  .page { margin: 0; padding: 0.35in 0.4in 0.3in; }
+  .no-print { display: none !important; }
+}
+
+/* Screen helper */
+@media screen {
+  body { background: #f0f0f0; padding: 20px; }
+  .print-btn {
+    display: block;
+    width: 200px;
+    margin: 0 auto 20px;
+    padding: 12px;
+    background: var(--green);
+    color: #fff;
+    text-align: center;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+  }
+}
+@media print {
+  .print-btn { display: none; }
+}
+</style>
+</head>
+<body>
+
+<button class="print-btn no-print" onclick="window.print()">Print This Flyer</button>
+
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <img class="header-logo" src="/images/elote-king-logo-transparent.png" alt="Elote King Atlanta" />
+    <div class="header-center">
+      <div class="header-title">ELOTE KING <span class="green">EVENT #2</span></div>
+      <div class="header-sub">FRIDAY, FEB 27 &nbsp;•&nbsp; 9:30 PM &nbsp;•&nbsp; CREATIVE LABS, 6180 ATLANTA HWY, ALPHARETTA GA 30004</div>
+    </div>
+    <div class="halal-badge">
+      ✓ 100% ZABIHA HALAL<br />
+      ✓ MUSLIM-OWNED<br />
+      ✓ ZERO ALCOHOL
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body-columns">
+
+    <!-- LEFT: FOOD PHOTOS -->
+    <div class="food-col">
+      <div class="food-col-title">What's On The Menu</div>
+      <div class="food-grid-print">
+        <div class="food-item">
+          <img src="/images/king-smash-burger-branded-final.png" alt="King Smash Burger" />
+          <div class="food-item-label">King Smash Burger<span class="tag">Halal patty + fries</span></div>
+        </div>
+        <div class="food-item">
+          <img src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" />
+          <div class="food-item-label">Taquito Michelada<span class="tag">FIRST IN ATLANTA</span></div>
+        </div>
+        <div class="food-item">
+          <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" />
+          <div class="food-item-label">Chorizo Drip Fries<span class="tag">Loaded beef fries</span></div>
+        </div>
+        <div class="food-item">
+          <img src="/images/mango-loca-branded-final.jpg" alt="Mango Loca" />
+          <div class="food-item-label">Mango Loca<span class="tag">Sweet heat drink</span></div>
+        </div>
+      </div>
+
+      <div class="scan-bar">
+        📱 Scan any QR code → pay instantly on Square &nbsp;|&nbsp; Spots guaranteed on payment
+      </div>
+    </div>
+
+    <!-- RIGHT: PRICING + QR CODES -->
+    <div class="pricing-col">
+      <div class="pricing-col-title">Choose Your Flight — Scan to Pre-Pay</div>
+      <div class="pricing-note">Pre-pay online and save. 60 spots only. First come, first served at the door.</div>
+
+      <!-- THE TASTE -->
+      <div class="tier-row">
+        <div class="tier-info">
+          <div class="tier-name-print">The Taste</div>
+          <div class="tier-value-print">À la carte value: $26</div>
+          <div class="tier-price-row">
+            <span class="tier-prepay">$14.99</span>
+            <span class="tier-save">SAVE $11</span>
+            <span class="tier-door">$22.99 door</span>
+          </div>
+          <div class="tier-items-print">
+            <span class="ck">✓</span> Pick 1 main (Burger, Taquitos, or Fries)<br />
+            <span class="ck">✓</span> 1 Drink &nbsp; <span class="ck">✓</span> Esquite Cup
+          </div>
+        </div>
+        <div class="qr-block">
+          <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://square.link/u/kNN8rlDP&color=111111&bgcolor=ffffff" alt="QR The Taste" />
+          <div class="qr-caption green-txt">Scan to pay<br />$14.99</div>
+        </div>
+      </div>
+
+      <!-- KING'S TABLE -->
+      <div class="tier-row popular">
+        <div class="tier-info">
+          <div class="tier-badge">MOST POPULAR</div>
+          <div class="tier-name-print">King's Table</div>
+          <div class="tier-value-print">À la carte value: $52</div>
+          <div class="tier-price-row">
+            <span class="tier-prepay">$36.99</span>
+            <span class="tier-save">SAVE $15</span>
+            <span class="tier-door">$44.99 door</span>
+          </div>
+          <div class="tier-items-print">
+            <span class="ck">✓</span> Pick 2 mains (Burger, Taquitos, or Fries)<br />
+            <span class="ck">✓</span> 2 Drinks &nbsp; <span class="ck">✓</span> 2 Esquite Cups
+          </div>
+        </div>
+        <div class="qr-block">
+          <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://square.link/u/owUPZT3F&color=111111&bgcolor=ffffff" alt="QR King's Table" />
+          <div class="qr-caption green-txt">Scan to pay<br />$36.99</div>
+        </div>
+      </div>
+
+      <!-- ROYAL FEAST -->
+      <div class="tier-row royal">
+        <div class="tier-info">
+          <div class="tier-badge gold">BEST VALUE</div>
+          <div class="tier-name-print">Royal Feast</div>
+          <div class="tier-value-print">À la carte value: $86</div>
+          <div class="tier-price-row">
+            <span class="tier-prepay">$64.99</span>
+            <span class="tier-save" style="background:rgba(212,160,23,0.15);color:var(--gold);">SAVE $21</span>
+            <span class="tier-door">$74.99 door</span>
+          </div>
+          <div class="tier-items-print">
+            <span class="ck">✓</span> All 3 mains &nbsp; <span class="ck">✓</span> 3 Drinks<br />
+            <span class="ck">✓</span> 3 Esquite Cups &nbsp; <span class="ck">✓</span> Gold Flan Royale <strong>included</strong>
+          </div>
+        </div>
+        <div class="qr-block">
+          <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://square.link/u/NRHEJ7yI&color=111111&bgcolor=ffffff" alt="QR Royal Feast" />
+          <div class="qr-caption gold-txt">Scan to pay<br />$64.99</div>
+        </div>
+      </div>
+
+      <!-- FLAN ADD-ON -->
+      <div class="flan-row">
+        <div>
+          <div class="flan-info-label">Add-On (Taste &amp; King's Table only)</div>
+          <div class="flan-info-name">Gold Flan Royale — +$8</div>
+          <div class="flan-info-desc">Creamy caramel custard, made from scratch</div>
+        </div>
+        <div class="flan-qr-group">
+          <div class="qr-block">
+            <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://square.link/u/1Fzt6LTM&color=111111&bgcolor=ffffff" alt="QR Taste + Flan" />
+            <div class="qr-caption gold-txt">Taste<br />+ Flan $22.99</div>
+          </div>
+          <div class="qr-block">
+            <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://square.link/u/TM7g8iDj&color=111111&bgcolor=ffffff" alt="QR King's + Flan" />
+            <div class="qr-caption gold-txt">King's<br />+ Flan $44.99</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div>
+      <span class="green">✓</span> 100% Zabiha Halal &nbsp;•&nbsp;
+      <span class="green">✓</span> Muslim-Owned &nbsp;•&nbsp;
+      <span class="green">✓</span> Zero Alcohol &nbsp;•&nbsp;
+      Text: 678-208-8774
+    </div>
+    <div class="footer-url">events.elotekingatlanta.com</div>
+  </div>
+
+</div>
+</body>
+</html>
