@@ -202,8 +202,18 @@ body {
   font-size: 22px;
   color: var(--text-primary);
   margin-top: 4px;
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
 }
 .tier-card.popular .tier-name { margin-top: 24px; }
+.tier-value {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #999;
+  text-decoration: line-through;
+}
 .tier-prices {
   display: flex;
   gap: 8px;
@@ -503,23 +513,23 @@ body {
 
   <!-- The Taste -->
   <div class="tier-card">
-    <div class="tier-name">The Taste</div>
+    <div class="tier-name">The Taste <span class="tier-value">$26 value</span></div>
     <div class="tier-prices">
       <div class="price-box prepay">
         <div class="price-box-label">Pre-Pay</div>
         <div class="price-box-amount">$14.99</div>
-        <div class="price-box-note">Save $8</div>
+        <div class="price-box-note">Save $11</div>
       </div>
       <div class="price-box door">
         <div class="price-box-label">At Door</div>
         <div class="price-box-amount">$22.99</div>
-        <div class="price-box-note">Full price</div>
+        <div class="price-box-note">No guarantee</div>
       </div>
     </div>
     <div class="tier-items">
-      <span>✓</span> King Smash Burger &nbsp;
-      <span>✓</span> Taquito Michelada &nbsp;
-      <span>✓</span> Chorizo Drip Fries
+      <span>✓</span> Pick 1 main (Burger, Taquitos, or Fries) &nbsp;
+      <span>✓</span> 1 Drink &nbsp;
+      <span>✓</span> Esquite Cup
     </div>
     <a href="https://square.link/u/kNN8rlDP" class="btn-pay">Pre-Pay $14.99 →</a>
   </div>
@@ -527,46 +537,47 @@ body {
   <!-- King's Table -->
   <div class="tier-card popular">
     <div class="popular-label">MOST POPULAR</div>
-    <div class="tier-name">King's Table</div>
+    <div class="tier-name">King's Table <span class="tier-value">$52 value</span></div>
     <div class="tier-prices">
       <div class="price-box prepay">
         <div class="price-box-label">Pre-Pay</div>
         <div class="price-box-amount">$36.99</div>
-        <div class="price-box-note">Save $8</div>
+        <div class="price-box-note">Save $15</div>
       </div>
       <div class="price-box door">
         <div class="price-box-label">At Door</div>
         <div class="price-box-amount">$44.99</div>
-        <div class="price-box-note">Full price</div>
+        <div class="price-box-note">No guarantee</div>
       </div>
     </div>
     <div class="tier-items">
-      <span>✓</span> All 3 savory items &nbsp;
-      <span>✓</span> Mango Loca &nbsp;
-      <span>✓</span> Michelada
+      <span>✓</span> Pick 2 mains (Burger, Taquitos, or Fries) &nbsp;
+      <span>✓</span> 2 Drinks &nbsp;
+      <span>✓</span> 2 Esquite Cups
     </div>
     <a href="https://square.link/u/owUPZT3F" class="btn-pay">Pre-Pay $36.99 →</a>
   </div>
 
   <!-- Royal Feast -->
   <div class="tier-card royal">
-    <div class="tier-name">Royal Feast</div>
+    <div class="tier-name">Royal Feast <span class="tier-value">$86 value</span></div>
     <div class="tier-prices">
       <div class="price-box prepay">
         <div class="price-box-label">Pre-Pay</div>
         <div class="price-box-amount">$64.99</div>
-        <div class="price-box-note">Save $10</div>
+        <div class="price-box-note">Save $21</div>
       </div>
       <div class="price-box door">
         <div class="price-box-label">At Door</div>
         <div class="price-box-amount">$74.99</div>
-        <div class="price-box-note">Full price</div>
+        <div class="price-box-note">No guarantee</div>
       </div>
     </div>
     <div class="tier-items">
-      <span>✓</span> Everything &nbsp;
-      <span>✓</span> Gold Flan Royale included &nbsp;
-      <span>✓</span> Guaranteed spot
+      <span>✓</span> All 3 mains &nbsp;
+      <span>✓</span> 3 Drinks &nbsp;
+      <span>✓</span> 3 Esquite Cups &nbsp;
+      <span>✓</span> Gold Flan Royale included
     </div>
     <a href="https://square.link/u/NRHEJ7yI" class="btn-pay royal-btn">Pre-Pay $64.99 →</a>
   </div>
@@ -582,52 +593,6 @@ body {
   <div class="flan-strip-price">$22.99</div>
 </div>
 
-<!-- Offline Payment -->
-<div class="offline-section">
-  <div class="offline-title">Prefer to Pay Offline?</div>
-  <p class="offline-sub">Pay via Zelle or Square link — spots held on confirmation.</p>
-
-  <!-- Zelle -->
-  <div class="offline-method">
-    <div class="offline-method-header">
-      <div class="offline-method-icon">💜</div>
-      <div>
-        <div class="offline-method-name">Zelle</div>
-        <div class="offline-method-note">Instant transfer · No fees</div>
-      </div>
-    </div>
-    <div class="zelle-info">678-208-8774</div>
-    <div class="zelle-instructions">
-      Send to <strong>678-208-8774</strong> · In the memo write your name + flight tier.<br />
-      Text us after sending so we can confirm your spot.
-    </div>
-  </div>
-
-  <!-- Square Links -->
-  <div class="offline-method">
-    <div class="offline-method-header">
-      <div class="offline-method-icon square-icon">⬛</div>
-      <div>
-        <div class="offline-method-name">Square (Credit/Debit)</div>
-        <div class="offline-method-note">Tap the link for your tier</div>
-      </div>
-    </div>
-    <div class="square-tiers">
-      <div class="square-tier-row">
-        <span class="square-tier-name">The Taste — $14.99</span>
-        <a href="https://square.link/u/kNN8rlDP" class="square-tier-link">Pay →</a>
-      </div>
-      <div class="square-tier-row">
-        <span class="square-tier-name">King's Table — $36.99</span>
-        <a href="https://square.link/u/owUPZT3F" class="square-tier-link">Pay →</a>
-      </div>
-      <div class="square-tier-row">
-        <span class="square-tier-name">Royal Feast — $64.99</span>
-        <a href="https://square.link/u/NRHEJ7yI" class="square-tier-link">Pay →</a>
-      </div>
-    </div>
-  </div>
-</div>
 
 <!-- QR Code to Full Site -->
 <div class="qr-section">
