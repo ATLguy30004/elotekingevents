@@ -115,16 +115,16 @@ body {
 .food-grid-print {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: auto auto;
+  grid-template-rows: 1fr 1fr;
   gap: 8px;
+  flex: 1;
 }
 .food-item {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
-  aspect-ratio: 1/1;
   background: #eee;
-  height: auto;
+  min-height: 0;
 }
 .food-item img {
   width: 100%;
@@ -363,8 +363,8 @@ body {
   body { background: #f0f0f0; padding: 20px; }
   .print-btn {
     display: block;
-    width: 200px;
-    margin: 0 auto 20px;
+    width: 220px;
+    margin: 0 auto 8px;
     padding: 12px;
     background: var(--green);
     color: #fff;
@@ -376,15 +376,25 @@ body {
     cursor: pointer;
     font-family: 'DM Sans', sans-serif;
   }
+  .print-tip {
+    text-align: center;
+    font-size: 12px;
+    color: #888;
+    margin-bottom: 16px;
+    font-family: 'DM Sans', sans-serif;
+    line-height: 1.5;
+  }
+  .print-tip strong { color: #555; }
 }
 @media print {
-  .print-btn { display: none; }
+  .print-btn, .print-tip { display: none; }
 }
 </style>
 </head>
 <body>
 
-<button class="print-btn no-print" onclick="window.print()">Print This Flyer</button>
+<button class="print-btn no-print" onclick="window.print()">🖨 Print This Flyer</button>
+<p class="print-tip">In the print dialog → uncheck <strong>Headers and footers</strong> → set Margins to <strong>None</strong></p>
 
 <div class="page">
 
