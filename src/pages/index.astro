@@ -1715,11 +1715,20 @@ function handleSmsSubmit(e) {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
       body: JSON.stringify({ phone: phone, source: 'sms-capture', timestamp: new Date().toISOString() })
-    }).catch(function() {});
+    }).then(function(res) {
+      if (res.ok) {
+        form.style.display = 'none';
+        document.getElementById('smsSuccess').style.display = 'block';
+      } else {
+        alert('Something went wrong. Please try again.');
+      }
+    }).catch(function() {
+      alert('Connection error. Please try again.');
+    });
+  } else {
+    form.style.display = 'none';
+    document.getElementById('smsSuccess').style.display = 'block';
   }
-
-  form.style.display = 'none';
-  document.getElementById('smsSuccess').style.display = 'block';
 }
 </script>
 
