@@ -114,7 +114,7 @@ body {
   border-radius: 7px;
   overflow: hidden;
   background: #eee;
-  aspect-ratio: 3/1;
+  min-height: 0;
 }
 .photo-item img {
   width: 100%;
@@ -433,7 +433,7 @@ body {
 
   <!-- ROW 1: What's On The Menu title + 2 photos -->
   <div class="section-title">What's On The Menu</div>
-  <div class="row-2col">
+  <div class="row-2col" style="flex:1; min-height:0;">
     <div class="photo-item">
       <img src="/images/king-smash-burger-branded-final.png" alt="King Smash Burger" />
       <div class="food-item-label">King Smash Burger<span class="tag">Halal patty + fries</span></div>
@@ -445,7 +445,7 @@ body {
   </div>
 
   <!-- ROW 2: 2 more photos -->
-  <div class="row-2col row-gap">
+  <div class="row-2col row-gap" style="flex:1; min-height:0;">
     <div class="photo-item">
       <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" />
       <div class="food-item-label">Chorizo Drip Fries<span class="tag">Loaded beef fries</span></div>
@@ -487,8 +487,8 @@ body {
   </div>
 
   <!-- ROW 4: King's Table + Royal Feast -->
-  <div class="row-2col row-gap" style="flex:1;">
-    <div class="tier-row popular" style="height:100%;">
+  <div class="row-2col row-gap">
+    <div class="tier-row popular">
       <div class="tier-info">
         <div class="tier-badge">MOST POPULAR</div>
         <div class="tier-name-print">King's Table</div>
@@ -508,7 +508,7 @@ body {
         <div class="qr-caption green-txt">Scan to pay<br />$36.99</div>
       </div>
     </div>
-    <div class="tier-row royal" style="height:100%;">
+    <div class="tier-row royal">
       <div class="tier-info">
         <div class="tier-badge gold">BEST VALUE</div>
         <div class="tier-name-print">Royal Feast</div>
