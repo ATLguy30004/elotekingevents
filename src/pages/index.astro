@@ -1727,13 +1727,9 @@ if (heroVid && vidWrap) {
 }
 
 // ===== FLAN ADD-ON TOGGLE =====
-// When customer taps "ADD DESSERT" it toggles selected state and updates
-// the buy button to a separate Square link that includes flan price.
-// *** ACTION REQUIRED: Replace #TODO links below with real Square payment links ***
-// Package 1 + Flan = $22.99, Package 2 + Flan = $44.99
 var flanLinks = {
-  1: { base: 'https://square.link/u/kNN8rlDP', flan: '#TODO-SQUARE-TASTE-WITH-FLAN-22.99', basePrice: '$14.99', flanPrice: '$22.99', baseTotal: '$26', flanTotal: '$34', baseName: 'Pre-Pay The Taste \u2014 $14.99 \u2192', flanName: 'Pre-Pay The Taste + Flan \u2014 $22.99 \u2192' },
-  2: { base: 'https://square.link/u/owUPZT3F', flan: '#TODO-SQUARE-KINGS-TABLE-WITH-FLAN-44.99', basePrice: '$36.99', flanPrice: '$44.99', baseTotal: '$52', flanTotal: '$60', baseName: "Pre-Pay King\u2019s Table \u2014 $36.99 \u2192", flanName: "Pre-Pay King\u2019s Table + Flan \u2014 $44.99 \u2192" }
+  1: { base: 'https://square.link/u/kNN8rlDP', flan: 'https://square.link/u/1Fzt6LTM', basePrice: '$14.99', flanPrice: '$22.99', baseTotal: '$26', flanTotal: '$34', baseName: 'Pre-Pay The Taste \u2014 $14.99 \u2192', flanName: 'Pre-Pay The Taste + Flan \u2014 $22.99 \u2192' },
+  2: { base: 'https://square.link/u/owUPZT3F', flan: 'https://square.link/u/TM7g8iDj', basePrice: '$36.99', flanPrice: '$44.99', baseTotal: '$52', flanTotal: '$60', baseName: "Pre-Pay King\u2019s Table \u2014 $36.99 \u2192", flanName: "Pre-Pay King\u2019s Table + Flan \u2014 $44.99 \u2192" }
 };
 
 function toggleFlan(n) {
