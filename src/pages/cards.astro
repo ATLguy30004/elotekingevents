@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Elote King — Founder's Tasting Cards</title>
+<title>Elote King — Founder's Tasting Flyer</title>
 <meta name="robots" content="noindex, nofollow" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,197 +16,190 @@
 :root {
   --green: #16a34a;
   --green-light: #22c55e;
-  --green-bg: rgba(22, 163, 74, 0.07);
   --gold: #d4a017;
-  --gold-bg: rgba(212, 160, 23, 0.08);
+  --red: #dc2626;
   --text-primary: #111111;
   --text-body: #333333;
   --text-muted: #666666;
 }
 
 body {
-  font-family: 'DM Sans', sans-serif;
-  background: #e8e8e8;
+  font-family: 'DM Sans', Arial, sans-serif;
+  background: #ccc;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 40px 16px;
-  gap: 56px;
-  color: var(--text-body);
+  padding: 32px 16px;
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
 }
 
-.page-hint {
-  font-size: 13px; color: #888; text-align: center;
-  max-width: 400px; line-height: 1.6;
-  background: #fff; padding: 12px 20px; border-radius: 8px;
-  border: 1px solid #ddd;
-}
-.label {
-  font-size: 11px; font-weight: 800; color: #888;
-  text-transform: uppercase; letter-spacing: 1.5px;
-  text-align: center; margin-bottom: -48px;
-}
+@page { size: letter portrait; margin: 0; }
 
-/* ===== CARD ===== */
-.card {
-  width: 400px; max-width: 100%;
-  background: #ffffff; border-radius: 14px;
-  overflow: hidden; box-shadow: 0 3px 20px rgba(0,0,0,0.12);
-}
-
-/* Popular strip */
-.popular-strip {
-  background: var(--green); color: #fff;
-  text-align: center; padding: 7px 16px;
-  font-size: 11px; font-weight: 800;
-  letter-spacing: 2px; text-transform: uppercase;
+/* ===== PAGE ===== */
+.page {
+  width: 8.5in;
+  height: 11in;
+  background: #fff;
+  margin: 0 auto;
+  padding: 0.3in 0.38in 0.28in;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  overflow: hidden;
 }
 
 /* ===== HEADER ===== */
-.card-header {
-  background: #111; color: #fff;
-  padding: 12px 16px 10px;
-  display: flex; align-items: center;
-  justify-content: space-between; gap: 10px;
+.header {
+  background: #111;
+  color: #fff;
+  padding: 8px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 8px 8px 0 0;
+  flex-shrink: 0;
 }
-.card-header.gold-header { background: #1a1408; }
-.header-logo { height: 28px; width: auto; flex-shrink: 0; }
-.header-center { flex: 1; text-align: center; }
-.header-eyebrow {
-  font-size: 10px; font-weight: 700;
-  color: rgba(255,255,255,0.5); letter-spacing: 2px;
-  text-transform: uppercase; margin-bottom: 1px;
-}
+.header-logo { height: 36px; width: auto; }
+.header-center { text-align: center; flex: 1; padding: 0 12px; }
 .header-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 26px; letter-spacing: 1px; line-height: 1; color: #fff;
+  font-size: 22pt; letter-spacing: 1px; line-height: 1;
 }
-.header-sub { font-size: 13px; font-weight: 600; color: var(--green-light); margin-top: 2px; }
-.header-sub.gold { color: var(--gold); }
+.header-title .green { color: var(--green-light); }
+.header-sub {
+  font-size: 9pt; font-weight: 600;
+  color: rgba(255,255,255,0.75); letter-spacing: 0.5px; margin-top: 2px;
+}
 .halal-badge {
-  font-size: 9px; font-weight: 800;
-  color: var(--green-light); text-align: right;
-  line-height: 1.6; flex-shrink: 0;
+  font-size: 8pt; font-weight: 800;
+  color: var(--green-light); text-align: right; line-height: 1.5;
 }
 
-/* ===== FOOD PHOTO GRID ===== */
+/* ===== DATE BAR ===== */
+.date-bar {
+  background: #222; color: #ccc;
+  padding: 5px 14px;
+  font-size: 8.5pt; font-weight: 600;
+  text-align: center; line-height: 1.5;
+  letter-spacing: 0.3px;
+  flex-shrink: 0;
+}
+.date-bar .g { color: var(--green-light); font-weight: 800; }
+
+/* ===== FOOD GRID ===== */
 .food-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 88px);
+  grid-template-rows: repeat(2, 1fr);
+  flex: 1;
+  min-height: 0;
+  gap: 5px;
+  margin-top: 5px;
 }
-.food-cell { position: relative; overflow: hidden; background: #111; }
-.food-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.food-cell {
+  position: relative;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #111;
+}
+.food-cell img {
+  width: 100%; height: 100%;
+  object-fit: cover; display: block;
+}
 .food-caption {
   position: absolute; bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.78));
-  color: #fff; font-size: 8px; font-weight: 700;
-  padding: 12px 5px 4px; text-align: center;
-  line-height: 1.2; text-transform: uppercase; letter-spacing: 0.3px;
+  background: linear-gradient(transparent, rgba(0,0,0,0.82));
+  color: #fff;
+  font-size: 9pt; font-weight: 800;
+  padding: 18px 8px 6px;
+  text-align: center; line-height: 1.2;
+  text-transform: uppercase; letter-spacing: 0.5px;
 }
 .food-tag {
-  position: absolute; top: 5px; right: 5px;
+  position: absolute; top: 7px; left: 7px;
   background: var(--green); color: #fff;
-  font-size: 7px; font-weight: 800;
-  padding: 2px 5px; border-radius: 3px;
-  text-transform: uppercase; letter-spacing: 0.3px; line-height: 1.3;
+  font-size: 7pt; font-weight: 800;
+  padding: 2px 7px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.5px;
 }
 .food-tag.gold { background: var(--gold); }
 
-/* ===== EVENT BAR ===== */
-.event-bar {
-  background: #111; padding: 8px 16px;
-  font-size: 11px; font-weight: 600; color: #aaa;
-  text-align: center; line-height: 1.6;
-  border-bottom: 2px solid var(--green);
+/* ===== ADDONS SECTION ===== */
+.addons-block {
+  flex-shrink: 0;
+  margin-top: 7px;
+  border: 2px solid #111;
+  border-radius: 0 0 8px 8px;
+  overflow: hidden;
 }
-.event-bar .g { color: var(--green-light); font-weight: 800; }
-
-/* ===== CHOOSE MAINS ===== */
-.choose-section { padding: 12px 16px 0; }
-.choose-label {
-  font-size: 10px; font-weight: 800; color: var(--text-primary);
-  text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 7px;
-  background: #f0f0f0; border-radius: 5px; padding: 5px 10px; display: block;
+.addons-header {
+  background: #111; color: #fff;
+  padding: 5px 14px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 13pt; letter-spacing: 1px;
+  display: flex; align-items: center; gap: 10px;
 }
-.choose-box {
-  background: #f7f7f7; border: 1px solid #e0e0e0;
-  border-radius: 8px; padding: 9px 12px;
+.addons-header .gold { color: var(--gold); }
+.addons-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background: #fff;
 }
-.choose-item {
-  display: flex; align-items: flex-start; gap: 8px;
-  padding: 4px 0; font-size: 13px; font-weight: 600;
-  color: var(--text-body); line-height: 1.3;
-}
-.choose-item .desc { display: block; font-size: 11px; font-weight: 500; color: var(--text-muted); }
-.ci { color: var(--green); font-size: 8px; flex-shrink: 0; margin-top: 4px; }
-
-/* ===== ALSO INCLUDED ===== */
-.included-section { padding: 10px 16px 0; }
-.section-label {
-  font-size: 10px; font-weight: 800; color: var(--green);
-  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; display: block;
-}
-.section-label.gold { color: var(--gold); }
-.item-row {
-  display: flex; align-items: flex-start; gap: 9px;
-  padding: 6px 0; border-bottom: 1px solid #f0f0f0;
-}
-.item-row:last-child { border-bottom: none; }
-.ic { color: var(--green); font-size: 14px; flex-shrink: 0; font-weight: 800; }
-.ic.gold { color: var(--gold); }
-.it { font-size: 14px; color: var(--text-primary); font-weight: 700; line-height: 1.2; }
-.it .d { display: block; font-size: 12px; color: var(--text-muted); font-weight: 500; margin-top: 1px; }
-.it .inc {
-  font-size: 9px; font-weight: 800; color: var(--green);
-  background: var(--green-bg); padding: 2px 5px; border-radius: 3px; margin-left: 4px;
-}
-
-/* ===== ADD-ONS ===== */
-.addons-section { padding: 10px 16px 14px; }
-.addons-label {
-  font-size: 10px; font-weight: 800; color: var(--gold);
-  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 7px; display: block;
-}
-.addon-row {
+.addon-item {
   display: flex; justify-content: space-between; align-items: center;
-  padding: 5px 0; border-bottom: 1px solid #f0f0f0;
-  font-size: 13px; font-weight: 600; color: var(--text-body);
+  padding: 7px 12px;
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  font-size: 9pt; font-weight: 600; color: var(--text-body);
 }
-.addon-row:last-child { border-bottom: none; }
-.addon-price { color: var(--gold); font-weight: 800; font-size: 14px; }
+.addon-item:nth-child(3n) { border-right: none; }
+.addon-item:nth-last-child(-n+3) { border-bottom: none; }
+.addon-price {
+  font-weight: 800; color: var(--gold);
+  font-size: 10.5pt; flex-shrink: 0; margin-left: 8px;
+}
 
-/* ===== FOOTER ===== */
-.card-footer {
-  padding: 9px 16px; background: #111;
-  text-align: center; font-size: 12px; font-weight: 700;
-  color: #888; letter-spacing: 0.3px;
+/* ===== TRUST BAR ===== */
+.trust-bar {
+  flex-shrink: 0;
+  background: #111;
+  color: var(--green-light);
+  text-align: center;
+  font-size: 8pt; font-weight: 800;
+  padding: 5px 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  border-radius: 0 0 8px 8px;
+  margin-top: 0;
 }
-.card-footer span { color: var(--green-light); }
+
+@media print {
+  body { background: #fff; padding: 0; }
+  .page { margin: 0; }
+}
 </style>
 </head>
 <body>
 
-<p class="page-hint">Screenshot each card at 400px wide for WhatsApp / social media use.</p>
+<div class="page">
 
-<!-- ============================= -->
-<!-- CARD 1: THE TASTE             -->
-<!-- ============================= -->
-<div class="label">Card 1 — The Taste</div>
-
-<div class="card">
-  <div class="card-header">
+  <!-- HEADER -->
+  <div class="header">
     <img src="/images/elote-king-logo-transparent.png" alt="Elote King" class="header-logo" />
     <div class="header-center">
-      <div class="header-eyebrow">Founder's Tasting</div>
-      <div class="header-title">The Taste</div>
-      <div class="header-sub">Your First Bite of the King</div>
+      <div class="header-title">ELOTE KING &nbsp;<span class="green">FOUNDER'S TASTING</span></div>
+      <div class="header-sub">EVENT #2 &nbsp;&bull;&nbsp; ALL ITEMS INCLUDED FOR FOUNDERS</div>
     </div>
     <div class="halal-badge">✓ ZABIHA<br/>HALAL</div>
   </div>
 
+  <!-- DATE BAR -->
+  <div class="date-bar">
+    <span class="g">FRIDAY, FEB 27</span> &bull; DOOR OPEN 9:30 PM – 12:30 AM &bull; CREATIVE LABS &bull; 6180 ATLANTA HWY, ALPHARETTA GA 30004
+  </div>
+
+  <!-- 6 FOOD PHOTOS -->
   <div class="food-grid">
     <div class="food-cell">
       <img src="/images/king-smash-burger-branded-final.jpg" alt="King Smash Burger" />
@@ -232,234 +225,31 @@ body {
     </div>
     <div class="food-cell">
       <img src="/images/gold-flan-royale-branded-final.jpg" alt="Gold Flan Royale" />
+      <div class="food-tag gold">Dessert</div>
       <div class="food-caption">Gold Flan Royale</div>
     </div>
   </div>
 
-  <div class="event-bar">
-    <span class="g">Fri, Feb 27</span> &bull; 9:30 PM &bull; Creative Labs, 6180 Atlanta Hwy, Alpharetta
-  </div>
-
-  <div class="choose-section">
-    <span class="choose-label">Choose Your Main (Pick 1)</span>
-    <div class="choose-box">
-      <div class="choose-item"><span class="ci">&#9679;</span><span>King Smash Burger <span class="desc">+ fries</span></span></div>
-      <div class="choose-item"><span class="ci">&#9679;</span><span>Taquito Michelada <span class="desc">5 chicken taquitos</span></span></div>
-      <div class="choose-item"><span class="ci">&#9679;</span><span>Chorizo Drip Fries <span class="desc">Full loaded</span></span></div>
+  <!-- ADD-ONS -->
+  <div class="addons-block">
+    <div class="addons-header">
+      WANT MORE? &nbsp;<span class="gold">ADD-ONS AVAILABLE AT THE EVENT</span>
+    </div>
+    <div class="addons-grid">
+      <div class="addon-item">Extra Burger w/ Fries <span class="addon-price">+$12</span></div>
+      <div class="addon-item">Extra 4 Taquitos + Drink <span class="addon-price">+$14</span></div>
+      <div class="addon-item">Extra Loaded Fries <span class="addon-price">+$12</span></div>
+      <div class="addon-item">Extra Drink <span class="addon-price">+$4</span></div>
+      <div class="addon-item">Extra Flan <span class="addon-price">+$6</span></div>
+      <div class="addon-item">Extra Esquite <span class="addon-price">+$4</span></div>
     </div>
   </div>
 
-  <div class="included-section">
-    <span class="section-label">Also Included</span>
-    <div class="item-row">
-      <span class="ic">&#10003;</span>
-      <span class="it">1 Drink <span class="d">Mango Loca or Michelada</span></span>
-    </div>
-    <div class="item-row">
-      <span class="ic">&#10003;</span>
-      <span class="it">Esquite Cup <span class="d">Secret menu item</span></span>
-    </div>
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    ✓ Zabiha Halal &nbsp;&bull;&nbsp; Muslim-Owned &nbsp;&bull;&nbsp; Zero Alcohol &nbsp;&bull;&nbsp; Alpharetta 30004
   </div>
 
-  <div class="addons-section">
-    <span class="addons-label">Want More? Add-Ons</span>
-    <div class="addon-row"><span>Extra Burger w/ Fries</span><span class="addon-price">+$12</span></div>
-    <div class="addon-row"><span>Extra 4 Taquitos + Drink</span><span class="addon-price">+$14</span></div>
-    <div class="addon-row"><span>Extra Loaded Fries</span><span class="addon-price">+$12</span></div>
-    <div class="addon-row"><span>Extra Drink</span><span class="addon-price">+$4</span></div>
-    <div class="addon-row"><span>Extra Flan</span><span class="addon-price">+$6</span></div>
-    <div class="addon-row"><span>Extra Esquite</span><span class="addon-price">+$4</span></div>
-  </div>
-
-  <div class="card-footer">
-    <span>&#10003;</span> Zabiha Halal &bull; Muslim-Owned &bull; Zero Alcohol
-  </div>
-</div>
-
-
-<!-- ============================= -->
-<!-- CARD 2: THE KING'S TABLE      -->
-<!-- ============================= -->
-<div class="label">Card 2 — King's Table</div>
-
-<div class="card">
-  <div class="popular-strip">&#9733; MOST POPULAR &#9733;</div>
-
-  <div class="card-header">
-    <img src="/images/elote-king-logo-transparent.png" alt="Elote King" class="header-logo" />
-    <div class="header-center">
-      <div class="header-eyebrow">Founder's Tasting</div>
-      <div class="header-title">The King's Table</div>
-      <div class="header-sub">The One You Actually Want</div>
-    </div>
-    <div class="halal-badge">✓ ZABIHA<br/>HALAL</div>
-  </div>
-
-  <div class="food-grid">
-    <div class="food-cell">
-      <img src="/images/king-smash-burger-branded-final.jpg" alt="King Smash Burger" />
-      <div class="food-caption">King Smash Burger</div>
-    </div>
-    <div class="food-cell">
-      <img src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" />
-      <div class="food-tag">First in ATL</div>
-      <div class="food-caption">Taquito Michelada</div>
-    </div>
-    <div class="food-cell">
-      <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" />
-      <div class="food-caption">Chorizo Drip Fries</div>
-    </div>
-    <div class="food-cell">
-      <img src="/images/michelada-branded-final.jpg" alt="Halal Michelada" />
-      <div class="food-tag">Nobody Has This</div>
-      <div class="food-caption">Halal Michelada</div>
-    </div>
-    <div class="food-cell">
-      <img src="/images/mango-loca-branded-final.jpg" alt="Mango Loca" />
-      <div class="food-caption">Mango Loca</div>
-    </div>
-    <div class="food-cell">
-      <img src="/images/gold-flan-royale-branded-final.jpg" alt="Gold Flan Royale" />
-      <div class="food-caption">Gold Flan Royale</div>
-    </div>
-  </div>
-
-  <div class="event-bar">
-    <span class="g">Fri, Feb 27</span> &bull; 9:30 PM &bull; Creative Labs, 6180 Atlanta Hwy, Alpharetta
-  </div>
-
-  <div class="choose-section">
-    <span class="choose-label">Choose Your Mains (Pick 2)</span>
-    <div class="choose-box">
-      <div class="choose-item"><span class="ci">&#9679;</span><span>King Smash Burger <span class="desc">+ fries</span></span></div>
-      <div class="choose-item"><span class="ci">&#9679;</span><span>Taquito Michelada <span class="desc">5 chicken taquitos</span></span></div>
-      <div class="choose-item"><span class="ci">&#9679;</span><span>Chorizo Drip Fries <span class="desc">Full loaded</span></span></div>
-    </div>
-  </div>
-
-  <div class="included-section">
-    <span class="section-label">Also Included</span>
-    <div class="item-row">
-      <span class="ic">&#10003;</span>
-      <span class="it">1 Drink <span class="d">Mango Loca or Michelada</span></span>
-    </div>
-    <div class="item-row">
-      <span class="ic">&#10003;</span>
-      <span class="it">Esquite Cup <span class="d">Secret menu item</span></span>
-    </div>
-    <div class="item-row">
-      <span class="ic">&#10003;</span>
-      <span class="it">Gold Flan Royale <span class="d">Creamy caramel custard</span></span>
-    </div>
-  </div>
-
-  <div class="addons-section">
-    <span class="addons-label">Want More? Add-Ons</span>
-    <div class="addon-row"><span>Extra Burger w/ Fries</span><span class="addon-price">+$12</span></div>
-    <div class="addon-row"><span>Extra 4 Taquitos + Drink</span><span class="addon-price">+$14</span></div>
-    <div class="addon-row"><span>Extra Loaded Fries</span><span class="addon-price">+$12</span></div>
-    <div class="addon-row"><span>Extra Drink</span><span class="addon-price">+$4</span></div>
-    <div class="addon-row"><span>Extra Flan</span><span class="addon-price">+$6</span></div>
-    <div class="addon-row"><span>Extra Esquite</span><span class="addon-price">+$4</span></div>
-  </div>
-
-  <div class="card-footer">
-    <span>&#10003;</span> Zabiha Halal &bull; Muslim-Owned &bull; Zero Alcohol
-  </div>
-</div>
-
-
-<!-- ============================= -->
-<!-- CARD 3: THE ROYAL FEAST       -->
-<!-- ============================= -->
-<div class="label">Card 3 — Royal Feast</div>
-
-<div class="card">
-  <div class="card-header gold-header">
-    <img src="/images/elote-king-logo-transparent.png" alt="Elote King" class="header-logo" />
-    <div class="header-center">
-      <div class="header-eyebrow">Founder's Tasting</div>
-      <div class="header-title">The Royal Feast</div>
-      <div class="header-sub gold">You + Your Crew Eat Like Kings (3–4 People)</div>
-    </div>
-    <div class="halal-badge">✓ ZABIHA<br/>HALAL</div>
-  </div>
-
-  <div class="food-grid">
-    <div class="food-cell">
-      <img src="/images/king-smash-burger-branded-final.jpg" alt="King Smash Burger" />
-      <div class="food-caption">King Smash Burger</div>
-    </div>
-    <div class="food-cell">
-      <img src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" />
-      <div class="food-tag">First in ATL</div>
-      <div class="food-caption">Taquito Michelada</div>
-    </div>
-    <div class="food-cell">
-      <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" />
-      <div class="food-caption">Chorizo Drip Fries</div>
-    </div>
-    <div class="food-cell">
-      <img src="/images/michelada-branded-final.jpg" alt="Halal Michelada" />
-      <div class="food-tag gold">Nobody Has This</div>
-      <div class="food-caption">Halal Michelada</div>
-    </div>
-    <div class="food-cell">
-      <img src="/images/mango-loca-branded-final.jpg" alt="Mango Loca" />
-      <div class="food-caption">Mango Loca</div>
-    </div>
-    <div class="food-cell">
-      <img src="/images/gold-flan-royale-branded-final.jpg" alt="Gold Flan Royale" />
-      <div class="food-tag gold">Included</div>
-      <div class="food-caption">Gold Flan Royale</div>
-    </div>
-  </div>
-
-  <div class="event-bar">
-    <span class="g">Fri, Feb 27</span> &bull; 9:30 PM &bull; Creative Labs, 6180 Atlanta Hwy, Alpharetta
-  </div>
-
-  <div class="included-section" style="padding-top: 12px;">
-    <span class="section-label gold">Everything Included</span>
-    <div class="item-row">
-      <span class="ic gold">&#10003;</span>
-      <span class="it">King Smash Burger <span class="d">+ fries</span></span>
-    </div>
-    <div class="item-row">
-      <span class="ic gold">&#10003;</span>
-      <span class="it">Taquito Michelada <span class="d">5 chicken taquitos</span></span>
-    </div>
-    <div class="item-row">
-      <span class="ic gold">&#10003;</span>
-      <span class="it">Chorizo Drip Fries <span class="d">Full loaded</span></span>
-    </div>
-    <div class="item-row">
-      <span class="ic gold">&#10003;</span>
-      <span class="it">3 Drinks <span class="d">Mix & match Mango Loca + Michelada</span></span>
-    </div>
-    <div class="item-row">
-      <span class="ic gold">&#10003;</span>
-      <span class="it">3 Esquite Cups <span class="d">Secret menu item</span></span>
-    </div>
-    <div class="item-row">
-      <span class="ic gold">&#10003;</span>
-      <span class="it">Gold Flan Royale <span class="inc">INCLUDED</span><span class="d">Creamy caramel custard</span></span>
-    </div>
-  </div>
-
-  <div class="addons-section">
-    <span class="addons-label">Want More? Add-Ons</span>
-    <div class="addon-row"><span>Extra Burger w/ Fries</span><span class="addon-price">+$12</span></div>
-    <div class="addon-row"><span>Extra 4 Taquitos + Drink</span><span class="addon-price">+$14</span></div>
-    <div class="addon-row"><span>Extra Loaded Fries</span><span class="addon-price">+$12</span></div>
-    <div class="addon-row"><span>Extra Drink</span><span class="addon-price">+$4</span></div>
-    <div class="addon-row"><span>Extra Flan</span><span class="addon-price">+$6</span></div>
-    <div class="addon-row"><span>Extra Esquite</span><span class="addon-price">+$4</span></div>
-  </div>
-
-  <div class="card-footer">
-    <span>&#10003;</span> Zabiha Halal &bull; Muslim-Owned &bull; Zero Alcohol
-  </div>
 </div>
 
 </body>
