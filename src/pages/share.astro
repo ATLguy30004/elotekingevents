@@ -1,0 +1,657 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Elote King Event #2 — Feb 27 Alpharetta | Halal Mexican Street Food</title>
+<meta name="description" content="Event #1 sold out in 48hrs. Pre-pay and save up to $10. Friday Feb 27, 9:30 PM, Alpharetta GA. 100% Zabiha Halal." />
+<meta property="og:title" content="Elote King Event #2 — Halal Mexican Street Food" />
+<meta property="og:description" content="Event #1 sold out in 48hrs. Pre-pay and save. Feb 27, Alpharetta GA. 100% Zabiha Halal." />
+<meta property="og:image" content="https://events.elotekingatlanta.com/images/hero_line_cropped.jpg" />
+<meta property="og:url" content="https://events.elotekingatlanta.com/share" />
+<meta property="og:type" content="website" />
+<link rel="canonical" href="https://events.elotekingatlanta.com/share" />
+<link rel="icon" type="image/png" href="/images/elote-king-logo-transparent.png" />
+<meta name="theme-color" content="#16a34a" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --green: #16a34a;
+  --green-light: #22c55e;
+  --green-bg: rgba(22, 163, 74, 0.08);
+  --gold: #d4a017;
+  --gold-bg: rgba(212, 160, 23, 0.1);
+  --red: #dc2626;
+  --text-primary: #111111;
+  --text-body: #333333;
+  --text-muted: #666666;
+  --border: #e0e0e0;
+  --bg-soft: #f7f7f7;
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', -apple-system, sans-serif;
+  background: #fff;
+  color: var(--text-body);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  max-width: 480px;
+  margin: 0 auto;
+}
+
+/* ===== HALAL BADGE ===== */
+.halal-bar {
+  background: #111;
+  color: #fff;
+  text-align: center;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.halal-bar span { color: var(--green-light); }
+
+/* ===== LOGO ===== */
+.logo-bar {
+  background: #fff;
+  text-align: center;
+  padding: 14px 20px;
+  border-bottom: 1px solid #eee;
+}
+.logo-bar img { height: 48px; width: auto; }
+
+/* ===== EVENT HEADER ===== */
+.event-header {
+  background: #111;
+  color: #fff;
+  padding: 24px 20px 20px;
+  text-align: center;
+}
+.sold-out-badge {
+  display: inline-block;
+  background: var(--red);
+  color: #fff;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  letter-spacing: 1.5px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  margin-bottom: 12px;
+}
+.event-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px;
+  line-height: 1.05;
+  letter-spacing: 1px;
+  margin-bottom: 8px;
+}
+.event-title .green { color: var(--green-light); }
+.event-details {
+  font-size: 16px;
+  font-weight: 600;
+  color: rgba(255,255,255,0.85);
+  margin-bottom: 4px;
+}
+.event-loc {
+  font-size: 14px;
+  color: rgba(255,255,255,0.6);
+}
+
+/* ===== FOOD GRID ===== */
+.food-section {
+  padding: 20px 16px;
+  background: var(--bg-soft);
+}
+.food-section-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: 14px;
+  letter-spacing: 0.5px;
+}
+.food-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+.food-card {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+.food-card img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+}
+.food-card-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--text-primary);
+  padding: 8px 10px 6px;
+  line-height: 1.2;
+}
+.food-card-tag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--green);
+  background: var(--green-bg);
+  padding: 2px 6px;
+  border-radius: 3px;
+  margin: 0 10px 8px;
+  display: inline-block;
+}
+
+/* ===== PRICING ===== */
+.pricing-section {
+  padding: 24px 16px;
+  background: #fff;
+}
+.section-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.section-sub {
+  text-align: center;
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+.section-sub strong { color: var(--red); }
+
+.tier-card {
+  border: 2px solid var(--border);
+  border-radius: 12px;
+  padding: 16px;
+  margin-bottom: 14px;
+  position: relative;
+}
+.tier-card.popular {
+  border-color: var(--green);
+  box-shadow: 0 0 0 1px var(--green);
+}
+.tier-card.royal {
+  border-color: var(--gold);
+}
+.popular-label {
+  position: absolute;
+  top: -1px; left: -1px; right: -1px;
+  background: var(--green);
+  color: #fff;
+  text-align: center;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  padding: 5px;
+  border-radius: 10px 10px 0 0;
+}
+.tier-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--text-primary);
+  margin-top: 4px;
+}
+.tier-card.popular .tier-name { margin-top: 24px; }
+.tier-prices {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0;
+  align-items: stretch;
+}
+.price-box {
+  flex: 1;
+  text-align: center;
+  padding: 10px 6px;
+  border-radius: 8px;
+}
+.price-box.prepay {
+  background: var(--green-bg);
+  border: 1.5px solid var(--green);
+}
+.price-box.door {
+  background: var(--bg-soft);
+  border: 1.5px solid var(--border);
+}
+.price-box-label {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 2px;
+}
+.price-box.prepay .price-box-label { color: var(--green); }
+.price-box.door .price-box-label { color: var(--text-muted); }
+.price-box-amount {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  line-height: 1;
+}
+.price-box.prepay .price-box-amount { color: var(--text-primary); }
+.price-box.door .price-box-amount {
+  color: #999;
+  text-decoration: line-through;
+}
+.price-box-note {
+  font-size: 12px;
+  font-weight: 600;
+  margin-top: 2px;
+}
+.price-box.prepay .price-box-note { color: var(--green); }
+.price-box.door .price-box-note { color: var(--text-muted); }
+
+.tier-items {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 12px;
+  line-height: 1.6;
+}
+.tier-items span { color: var(--green); font-weight: 700; margin-right: 4px; }
+
+.btn-pay {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-pay.royal-btn {
+  background: var(--gold);
+}
+.btn-pay:active { opacity: 0.9; }
+
+/* ===== FLAN ADD-ON ===== */
+.flan-strip {
+  background: var(--gold-bg);
+  border: 1.5px solid var(--gold);
+  border-radius: 10px;
+  padding: 12px 14px;
+  margin: 0 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+}
+.flan-strip-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 2px;
+}
+.flan-strip-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+.flan-strip-desc {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+.flan-strip-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px;
+  color: var(--gold);
+  flex-shrink: 0;
+}
+
+/* ===== OFFLINE PAYMENT ===== */
+.offline-section {
+  background: var(--bg-soft);
+  padding: 24px 16px;
+  border-top: 1px solid var(--border);
+}
+.offline-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.offline-sub {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 18px;
+}
+.offline-method {
+  background: #fff;
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 14px 16px;
+  margin-bottom: 12px;
+}
+.offline-method-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+.offline-method-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: #6001D2;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.offline-method-icon.square-icon { background: #111; }
+.offline-method-name {
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--text-primary);
+}
+.offline-method-note {
+  font-size: 13px;
+  color: var(--text-muted);
+}
+.zelle-info {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.zelle-instructions {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.5;
+}
+.zelle-instructions strong { color: var(--text-primary); }
+
+/* Square tier QR area */
+.square-tiers {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.square-tier-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  color: var(--text-body);
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+.square-tier-row:last-child { border-bottom: none; }
+.square-tier-name { font-weight: 600; }
+.square-tier-link {
+  color: var(--green);
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 13px;
+}
+
+/* ===== QR SECTION ===== */
+.qr-section {
+  padding: 24px 16px;
+  text-align: center;
+  background: #fff;
+  border-top: 1px solid var(--border);
+}
+.qr-label {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px;
+  color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.qr-sub {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+.qr-code-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+  border: 2px solid var(--border);
+  padding: 8px;
+  background: #fff;
+}
+.qr-url {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--green);
+  margin-top: 10px;
+}
+
+/* ===== TRUST FOOTER ===== */
+.trust-footer {
+  background: #111;
+  color: rgba(255,255,255,0.75);
+  text-align: center;
+  padding: 16px 20px;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1.8;
+}
+.trust-footer .green { color: var(--green-light); }
+.trust-footer .copyright {
+  font-size: 12px;
+  color: rgba(255,255,255,0.35);
+  margin-top: 8px;
+  font-weight: 400;
+}
+</style>
+</head>
+<body>
+
+<!-- Halal Badge -->
+<div class="halal-bar">
+  <span>✓</span> 100% Zabiha Halal &nbsp;•&nbsp; Muslim-Owned &nbsp;•&nbsp; Zero Alcohol
+</div>
+
+<!-- Logo -->
+<div class="logo-bar">
+  <a href="https://elotekingatlanta.com" aria-label="Elote King Atlanta">
+    <img src="/images/elote-king-logo-transparent.png" alt="Elote King Atlanta" />
+  </a>
+</div>
+
+<!-- Event Header -->
+<div class="event-header">
+  <div class="sold-out-badge">EVENT #1 SOLD OUT</div>
+  <h1 class="event-title">ELOTE KING<br /><span class="green">EVENT #2</span></h1>
+  <p class="event-details">Friday, Feb 27 &nbsp;•&nbsp; 9:30 PM</p>
+  <p class="event-loc">Creative Labs · 6180 Atlanta Hwy · Alpharetta, GA 30004</p>
+</div>
+
+<!-- Food Grid -->
+<div class="food-section">
+  <div class="food-section-label">What's On The Menu</div>
+  <div class="food-grid">
+    <div class="food-card">
+      <img src="/images/king-smash-burger-branded-final.png" alt="King Smash Burger" loading="lazy" />
+      <div class="food-card-name">King Smash Burger</div>
+    </div>
+    <div class="food-card">
+      <img src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" loading="lazy" />
+      <div class="food-card-name">Taquito Michelada</div>
+      <div class="food-card-tag">FIRST IN ATLANTA</div>
+    </div>
+    <div class="food-card">
+      <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" loading="lazy" />
+      <div class="food-card-name">Chorizo Drip Fries</div>
+    </div>
+    <div class="food-card">
+      <img src="/images/mango-loca-branded-final.jpg" alt="Mango Loca" loading="lazy" />
+      <div class="food-card-name">Mango Loca</div>
+    </div>
+  </div>
+</div>
+
+<!-- Pricing -->
+<div class="pricing-section">
+  <div class="section-title">Choose Your Flight</div>
+  <p class="section-sub">Pre-pay online &amp; save. <strong>60 spots only.</strong></p>
+
+  <!-- The Taste -->
+  <div class="tier-card">
+    <div class="tier-name">The Taste</div>
+    <div class="tier-prices">
+      <div class="price-box prepay">
+        <div class="price-box-label">Pre-Pay</div>
+        <div class="price-box-amount">$14.99</div>
+        <div class="price-box-note">Save $8</div>
+      </div>
+      <div class="price-box door">
+        <div class="price-box-label">At Door</div>
+        <div class="price-box-amount">$22.99</div>
+        <div class="price-box-note">Full price</div>
+      </div>
+    </div>
+    <div class="tier-items">
+      <span>✓</span> King Smash Burger &nbsp;
+      <span>✓</span> Taquito Michelada &nbsp;
+      <span>✓</span> Chorizo Drip Fries
+    </div>
+    <a href="https://square.link/u/kNN8rlDP" class="btn-pay">Pre-Pay $14.99 →</a>
+  </div>
+
+  <!-- King's Table -->
+  <div class="tier-card popular">
+    <div class="popular-label">MOST POPULAR</div>
+    <div class="tier-name">King's Table</div>
+    <div class="tier-prices">
+      <div class="price-box prepay">
+        <div class="price-box-label">Pre-Pay</div>
+        <div class="price-box-amount">$36.99</div>
+        <div class="price-box-note">Save $8</div>
+      </div>
+      <div class="price-box door">
+        <div class="price-box-label">At Door</div>
+        <div class="price-box-amount">$44.99</div>
+        <div class="price-box-note">Full price</div>
+      </div>
+    </div>
+    <div class="tier-items">
+      <span>✓</span> All 3 savory items &nbsp;
+      <span>✓</span> Mango Loca &nbsp;
+      <span>✓</span> Michelada
+    </div>
+    <a href="https://square.link/u/owUPZT3F" class="btn-pay">Pre-Pay $36.99 →</a>
+  </div>
+
+  <!-- Royal Feast -->
+  <div class="tier-card royal">
+    <div class="tier-name">Royal Feast</div>
+    <div class="tier-prices">
+      <div class="price-box prepay">
+        <div class="price-box-label">Pre-Pay</div>
+        <div class="price-box-amount">$64.99</div>
+        <div class="price-box-note">Save $10</div>
+      </div>
+      <div class="price-box door">
+        <div class="price-box-label">At Door</div>
+        <div class="price-box-amount">$74.99</div>
+        <div class="price-box-note">Full price</div>
+      </div>
+    </div>
+    <div class="tier-items">
+      <span>✓</span> Everything &nbsp;
+      <span>✓</span> Gold Flan Royale included &nbsp;
+      <span>✓</span> Guaranteed spot
+    </div>
+    <a href="https://square.link/u/NRHEJ7yI" class="btn-pay royal-btn">Pre-Pay $64.99 →</a>
+  </div>
+</div>
+
+<!-- Flan Add-On -->
+<div class="flan-strip">
+  <div>
+    <div class="flan-strip-label">ADD-ON</div>
+    <div class="flan-strip-name">Gold Flan Royale</div>
+    <div class="flan-strip-desc">Available with any flight (except Royal)</div>
+  </div>
+  <div class="flan-strip-price">$22.99</div>
+</div>
+
+<!-- Offline Payment -->
+<div class="offline-section">
+  <div class="offline-title">Prefer to Pay Offline?</div>
+  <p class="offline-sub">Pay via Zelle or Square link — spots held on confirmation.</p>
+
+  <!-- Zelle -->
+  <div class="offline-method">
+    <div class="offline-method-header">
+      <div class="offline-method-icon">💜</div>
+      <div>
+        <div class="offline-method-name">Zelle</div>
+        <div class="offline-method-note">Instant transfer · No fees</div>
+      </div>
+    </div>
+    <div class="zelle-info">678-208-8774</div>
+    <div class="zelle-instructions">
+      Send to <strong>678-208-8774</strong> · In the memo write your name + flight tier.<br />
+      Text us after sending so we can confirm your spot.
+    </div>
+  </div>
+
+  <!-- Square Links -->
+  <div class="offline-method">
+    <div class="offline-method-header">
+      <div class="offline-method-icon square-icon">⬛</div>
+      <div>
+        <div class="offline-method-name">Square (Credit/Debit)</div>
+        <div class="offline-method-note">Tap the link for your tier</div>
+      </div>
+    </div>
+    <div class="square-tiers">
+      <div class="square-tier-row">
+        <span class="square-tier-name">The Taste — $14.99</span>
+        <a href="https://square.link/u/kNN8rlDP" class="square-tier-link">Pay →</a>
+      </div>
+      <div class="square-tier-row">
+        <span class="square-tier-name">King's Table — $36.99</span>
+        <a href="https://square.link/u/owUPZT3F" class="square-tier-link">Pay →</a>
+      </div>
+      <div class="square-tier-row">
+        <span class="square-tier-name">Royal Feast — $64.99</span>
+        <a href="https://square.link/u/NRHEJ7yI" class="square-tier-link">Pay →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- QR Code to Full Site -->
+<div class="qr-section">
+  <div class="qr-label">See Full Menu & Details</div>
+  <p class="qr-sub">Scan to browse everything on your phone</p>
+  <img
+    class="qr-code-img"
+    src="https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=https://events.elotekingatlanta.com&color=111111&bgcolor=ffffff"
+    alt="QR code to events.elotekingatlanta.com"
+    width="160" height="160"
+  />
+  <div class="qr-url">events.elotekingatlanta.com</div>
+</div>
+
+<!-- Trust Footer -->
+<div class="trust-footer">
+  <div>
+    <span class="green">✓</span> 100% Zabiha Halal &nbsp;•&nbsp;
+    <span class="green">✓</span> Muslim-Owned &nbsp;•&nbsp;
+    <span class="green">✓</span> Zero Alcohol
+  </div>
+  <div>Alpharetta, GA 30004 &nbsp;•&nbsp; Text: 678-208-8774</div>
+  <div class="copyright">© 2026 Elote King Atlanta. All rights reserved.</div>
+</div>
+
+</body>
+</html>
