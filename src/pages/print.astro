@@ -89,75 +89,53 @@ body {
 }
 
 /* ===== BODY LAYOUT ===== */
-.body-top {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  padding-top: 10px;
-}
-.body-bottom {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
-  margin-top: 10px;
-}
-
-/* ===== LEFT — FOOD PHOTOS ===== */
-.food-col {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.food-col-title {
+.section-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 14pt;
+  font-size: 13pt;
   color: var(--text-primary);
   letter-spacing: 0.5px;
   border-bottom: 2px solid var(--green);
-  padding-bottom: 4px;
-  margin-bottom: 2px;
+  padding-bottom: 3px;
+  margin-top: 10px;
+  margin-bottom: 6px;
 }
-.food-grid-print {
+.row-2col {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 8px;
 }
-.food-item {
+.row-gap { margin-top: 8px; }
+
+/* ===== FOOD PHOTOS ===== */
+.photo-item {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
   background: #eee;
-  aspect-ratio: 1/1;
+  aspect-ratio: 2/1;
 }
-.food-item img {
+.photo-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
 }
 
-/* ===== MICHELADA (bottom-left) ===== */
-.michelada-cell {
+/* ===== MICHELADA (fills tier card height) ===== */
+.michelada-item {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
   background: #eee;
-  min-height: 130px;
 }
-.michelada-cell img {
+.michelada-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
-  position: absolute;
-  top: 0; left: 0;
+  min-height: 120px;
 }
 
-/* ===== ROYAL CELL (bottom-right) ===== */
-.royal-cell {
-  display: flex;
-  flex-direction: column;
-}
 .food-item-label {
   position: absolute;
   bottom: 0; left: 0; right: 0;
@@ -178,21 +156,6 @@ body {
   margin-top: 1px;
 }
 
-/* ===== RIGHT — PRICING + QR ===== */
-.pricing-col {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-.pricing-col-title {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 14pt;
-  color: var(--text-primary);
-  letter-spacing: 0.5px;
-  border-bottom: 2px solid var(--green);
-  padding-bottom: 4px;
-  margin-bottom: 2px;
-}
 .pricing-note {
   font-size: 8pt;
   color: var(--text-muted);
@@ -442,108 +405,100 @@ body {
     </div>
   </div>
 
-  <!-- BODY TOP: 4-photo grid | Taste + King's Table -->
-  <div class="body-top">
-
-    <div class="food-col">
-      <div class="food-col-title">What's On The Menu</div>
-      <div class="food-grid-print">
-        <div class="food-item">
-          <img src="/images/king-smash-burger-branded-final.png" alt="King Smash Burger" />
-          <div class="food-item-label">King Smash Burger<span class="tag">Halal patty + fries</span></div>
-        </div>
-        <div class="food-item">
-          <img src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" />
-          <div class="food-item-label">Taquito Michelada<span class="tag">FIRST IN ATLANTA</span></div>
-        </div>
-        <div class="food-item">
-          <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" />
-          <div class="food-item-label">Chorizo Drip Fries<span class="tag">Loaded beef fries</span></div>
-        </div>
-        <div class="food-item">
-          <img src="/images/mango-loca-branded-final.jpg" alt="Mango Loca" />
-          <div class="food-item-label">Mango Loca<span class="tag">Sweet heat drink</span></div>
-        </div>
-      </div>
+  <!-- ROW 1: What's On The Menu title + 2 photos -->
+  <div class="section-title">What's On The Menu</div>
+  <div class="row-2col">
+    <div class="photo-item">
+      <img src="/images/king-smash-burger-branded-final.png" alt="King Smash Burger" />
+      <div class="food-item-label">King Smash Burger<span class="tag">Halal patty + fries</span></div>
     </div>
+    <div class="photo-item">
+      <img src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" />
+      <div class="food-item-label">Taquito Michelada<span class="tag">FIRST IN ATLANTA</span></div>
+    </div>
+  </div>
 
-    <div class="pricing-col">
-      <div class="pricing-col-title">Choose Your Flight — Scan to Pre-Pay</div>
-      <div class="pricing-note">Pre-pay online and save. 60 spots only. First come, first served at the door.</div>
+  <!-- ROW 2: 2 more photos -->
+  <div class="row-2col row-gap">
+    <div class="photo-item">
+      <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" />
+      <div class="food-item-label">Chorizo Drip Fries<span class="tag">Loaded beef fries</span></div>
+    </div>
+    <div class="photo-item">
+      <img src="/images/mango-loca-branded-final.jpg" alt="Mango Loca" />
+      <div class="food-item-label">Mango Loca<span class="tag">Sweet heat drink</span></div>
+    </div>
+  </div>
 
-      <!-- THE TASTE -->
-      <div class="tier-row">
-        <div class="tier-info">
-          <div class="tier-name-print">The Taste</div>
-          <div class="tier-value-print">À la carte value: $26</div>
-          <div class="tier-price-row">
-            <span class="tier-prepay">$14.99</span>
-            <span class="tier-save">SAVE $11</span>
-            <span class="tier-door">⚠ $22.99 at door</span>
-          </div>
-          <div class="tier-items-print">
-            <span class="ck">✓</span> Pick 1 main (Burger, Taquitos, or Fries)<br />
-            <span class="ck">✓</span> 1 Drink &nbsp; <span class="ck">✓</span> Esquite Cup
-          </div>
+  <!-- ROW 3: Michelada + The Taste -->
+  <div class="section-title">Choose Your Flight — Scan to Pre-Pay</div>
+  <div class="pricing-note">Pre-pay online and save. 60 spots only. First come, first served at the door.</div>
+  <div class="row-2col row-gap">
+    <div class="michelada-item">
+      <img src="/images/michelada-branded-final.jpg" alt="Michelada" />
+      <div class="food-item-label">Michelada<span class="tag">NOBODY ELSE HAS THIS</span></div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-info">
+        <div class="tier-name-print">The Taste</div>
+        <div class="tier-value-print">À la carte value: $26</div>
+        <div class="tier-price-row">
+          <span class="tier-prepay">$14.99</span>
+          <span class="tier-save">SAVE $11</span>
+          <span class="tier-door">⚠ $22.99 at door</span>
         </div>
-        <div class="qr-block">
-          <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://square.link/u/kNN8rlDP&color=111111&bgcolor=ffffff" alt="QR The Taste" />
-          <div class="qr-caption green-txt">Scan to pay<br />$14.99</div>
+        <div class="tier-items-print">
+          <span class="ck">✓</span> Pick 1 main (Burger, Taquitos, or Fries)<br />
+          <span class="ck">✓</span> 1 Drink &nbsp; <span class="ck">✓</span> Esquite Cup
         </div>
       </div>
-
-      <!-- KING'S TABLE -->
-      <div class="tier-row popular">
-        <div class="tier-info">
-          <div class="tier-badge">MOST POPULAR</div>
-          <div class="tier-name-print">King's Table</div>
-          <div class="tier-value-print">À la carte value: $52</div>
-          <div class="tier-price-row">
-            <span class="tier-prepay">$36.99</span>
-            <span class="tier-save">SAVE $15</span>
-            <span class="tier-door">⚠ $44.99 at door</span>
-          </div>
-          <div class="tier-items-print">
-            <span class="ck">✓</span> Pick 2 mains (Burger, Taquitos, or Fries)<br />
-            <span class="ck">✓</span> 2 Drinks &nbsp; <span class="ck">✓</span> 2 Esquite Cups
-          </div>
-        </div>
-        <div class="qr-block">
-          <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://square.link/u/owUPZT3F&color=111111&bgcolor=ffffff" alt="QR King's Table" />
-          <div class="qr-caption green-txt">Scan to pay<br />$36.99</div>
-        </div>
+      <div class="qr-block">
+        <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://square.link/u/kNN8rlDP&color=111111&bgcolor=ffffff" alt="QR The Taste" />
+        <div class="qr-caption green-txt">Scan to pay<br />$14.99</div>
       </div>
     </div>
   </div>
 
-  <!-- BODY BOTTOM: Michelada photo | Royal Feast -->
-  <div class="body-bottom">
-
-    <div class="michelada-cell">
-      <img src="/images/michelada-branded-final.jpg" alt="Michelada" />
-      <div class="food-item-label">Michelada<span class="tag">NOBODY ELSE HAS THIS</span></div>
+  <!-- ROW 4: King's Table + Royal Feast -->
+  <div class="row-2col row-gap">
+    <div class="tier-row popular">
+      <div class="tier-info">
+        <div class="tier-badge">MOST POPULAR</div>
+        <div class="tier-name-print">King's Table</div>
+        <div class="tier-value-print">À la carte value: $52</div>
+        <div class="tier-price-row">
+          <span class="tier-prepay">$36.99</span>
+          <span class="tier-save">SAVE $15</span>
+          <span class="tier-door">⚠ $44.99 at door</span>
+        </div>
+        <div class="tier-items-print">
+          <span class="ck">✓</span> Pick 2 mains (Burger, Taquitos, or Fries)<br />
+          <span class="ck">✓</span> 2 Drinks &nbsp; <span class="ck">✓</span> 2 Esquite Cups
+        </div>
+      </div>
+      <div class="qr-block">
+        <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://square.link/u/owUPZT3F&color=111111&bgcolor=ffffff" alt="QR King's Table" />
+        <div class="qr-caption green-txt">Scan to pay<br />$36.99</div>
+      </div>
     </div>
-
-    <div class="royal-cell">
-      <div class="tier-row royal" style="flex:1;">
-        <div class="tier-info">
-          <div class="tier-badge gold">BEST VALUE</div>
-          <div class="tier-name-print">Royal Feast</div>
-          <div class="tier-value-print">À la carte value: $86</div>
-          <div class="tier-price-row">
-            <span class="tier-prepay">$64.99</span>
-            <span class="tier-save" style="background:rgba(212,160,23,0.15);color:var(--gold);">SAVE $21</span>
-            <span class="tier-door">⚠ $74.99 at door</span>
-          </div>
-          <div class="tier-items-print">
-            <span class="ck">✓</span> All 3 mains &nbsp; <span class="ck">✓</span> 3 Drinks<br />
-            <span class="ck">✓</span> 3 Esquite Cups &nbsp; <span class="ck">✓</span> Gold Flan Royale <strong>included</strong>
-          </div>
+    <div class="tier-row royal">
+      <div class="tier-info">
+        <div class="tier-badge gold">BEST VALUE</div>
+        <div class="tier-name-print">Royal Feast</div>
+        <div class="tier-value-print">À la carte value: $86</div>
+        <div class="tier-price-row">
+          <span class="tier-prepay">$64.99</span>
+          <span class="tier-save" style="background:rgba(212,160,23,0.15);color:var(--gold);">SAVE $21</span>
+          <span class="tier-door">⚠ $74.99 at door</span>
         </div>
-        <div class="qr-block">
-          <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://square.link/u/NRHEJ7yI&color=111111&bgcolor=ffffff" alt="QR Royal Feast" />
-          <div class="qr-caption gold-txt">Scan to pay<br />$64.99</div>
+        <div class="tier-items-print">
+          <span class="ck">✓</span> All 3 mains &nbsp; <span class="ck">✓</span> 3 Drinks<br />
+          <span class="ck">✓</span> 3 Esquite Cups &nbsp; <span class="ck">✓</span> Gold Flan Royale <strong>included</strong>
         </div>
+      </div>
+      <div class="qr-block">
+        <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://square.link/u/NRHEJ7yI&color=111111&bgcolor=ffffff" alt="QR Royal Feast" />
+        <div class="qr-caption gold-txt">Scan to pay<br />$64.99</div>
       </div>
     </div>
   </div>
