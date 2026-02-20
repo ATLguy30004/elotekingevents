@@ -126,12 +126,33 @@ body {
   overflow: hidden;
   background: #fff;
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  position: relative;
 }
 .food-card img {
   width: 100%;
   aspect-ratio: 1/1;
   object-fit: cover;
   display: block;
+}
+.food-card-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 28px 10px 10px;
+  background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, transparent 100%);
+  pointer-events: none;
+}
+.food-card-overlay-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 15px;
+  color: #fff;
+  line-height: 1.1;
+  letter-spacing: 0.5px;
+}
+.food-card-overlay-sub {
+  font-size: 10px;
+  color: var(--green-light);
+  font-weight: 600;
+  margin-top: 1px;
 }
 .food-card-name {
   font-size: 13px;
@@ -150,6 +171,48 @@ body {
   margin: 0 10px 8px;
   display: inline-block;
 }
+
+/* ===== PAY BUTTON GRID ===== */
+.btn-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 4px;
+}
+.btn-pay {
+  display: block;
+  width: 100%;
+  padding: 12px 8px;
+  background: var(--green);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  line-height: 1.3;
+}
+.btn-pay-label {
+  font-size: 10px;
+  font-weight: 600;
+  opacity: 0.85;
+  display: block;
+  margin-bottom: 2px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.btn-pay.flan-btn {
+  background: var(--gold);
+  color: #fff;
+}
+.btn-pay.royal-btn {
+  background: var(--gold);
+  grid-column: 1 / -1;
+}
+.btn-pay:active { opacity: 0.9; }
 
 /* ===== PRICING ===== */
 .pricing-section {
@@ -269,25 +332,6 @@ body {
 }
 .tier-items span { color: var(--green); font-weight: 700; margin-right: 4px; }
 
-.btn-pay {
-  display: block;
-  width: 100%;
-  padding: 14px;
-  background: var(--green);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: 700;
-  font-family: 'DM Sans', sans-serif;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-}
-.btn-pay.royal-btn {
-  background: var(--gold);
-}
-.btn-pay:active { opacity: 0.9; }
 
 /* ===== FLAN ADD-ON ===== */
 .flan-strip {
@@ -488,7 +532,10 @@ body {
   <div class="food-grid">
     <div class="food-card">
       <img src="/images/king-smash-burger-branded-final.png" alt="King Smash Burger" loading="lazy" />
-      <div class="food-card-name">King Smash Burger</div>
+      <div class="food-card-overlay">
+        <div class="food-card-overlay-name">King Smash Burger</div>
+        <div class="food-card-overlay-sub">Halal smashed patty + fries</div>
+      </div>
     </div>
     <div class="food-card">
       <img src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" loading="lazy" />
@@ -531,7 +578,16 @@ body {
       <span>✓</span> 1 Drink &nbsp;
       <span>✓</span> Esquite Cup
     </div>
-    <a href="https://square.link/u/kNN8rlDP" class="btn-pay">Pre-Pay $14.99 →</a>
+    <div class="btn-grid">
+      <a href="https://square.link/u/kNN8rlDP" class="btn-pay">
+        <span class="btn-pay-label">Tap to pay on Square</span>
+        Pre-Pay $14.99
+      </a>
+      <a href="https://square.link/u/1Fzt6LTM" class="btn-pay flan-btn">
+        <span class="btn-pay-label">+ Flan (+$8)</span>
+        Pay $22.99
+      </a>
+    </div>
   </div>
 
   <!-- King's Table -->
@@ -555,7 +611,16 @@ body {
       <span>✓</span> 2 Drinks &nbsp;
       <span>✓</span> 2 Esquite Cups
     </div>
-    <a href="https://square.link/u/owUPZT3F" class="btn-pay">Pre-Pay $36.99 →</a>
+    <div class="btn-grid">
+      <a href="https://square.link/u/owUPZT3F" class="btn-pay">
+        <span class="btn-pay-label">Tap to pay on Square</span>
+        Pre-Pay $36.99
+      </a>
+      <a href="https://square.link/u/TM7g8iDj" class="btn-pay flan-btn">
+        <span class="btn-pay-label">+ Flan (+$8)</span>
+        Pay $44.99
+      </a>
+    </div>
   </div>
 
   <!-- Royal Feast -->
@@ -579,19 +644,15 @@ body {
       <span>✓</span> 3 Esquite Cups &nbsp;
       <span>✓</span> Gold Flan Royale included
     </div>
-    <a href="https://square.link/u/NRHEJ7yI" class="btn-pay royal-btn">Pre-Pay $64.99 →</a>
+    <div class="btn-grid">
+      <a href="https://square.link/u/NRHEJ7yI" class="btn-pay royal-btn">
+        <span class="btn-pay-label">Tap to pay on Square · Flan included</span>
+        Pre-Pay $64.99
+      </a>
+    </div>
   </div>
 </div>
 
-<!-- Flan Add-On -->
-<div class="flan-strip">
-  <div>
-    <div class="flan-strip-label">ADD-ON</div>
-    <div class="flan-strip-name">Gold Flan Royale</div>
-    <div class="flan-strip-desc">Available with any flight (except Royal)</div>
-  </div>
-  <div class="flan-strip-price">$22.99</div>
-</div>
 
 
 <!-- QR Code to Full Site -->
