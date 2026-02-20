@@ -115,8 +115,10 @@ body {
 .food-grid-print {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
   gap: 8px;
   flex: 1;
+  align-content: start;
 }
 .food-item {
   position: relative;
@@ -124,6 +126,7 @@ body {
   overflow: hidden;
   aspect-ratio: 1/1;
   background: #eee;
+  height: auto;
 }
 .food-item img {
   width: 100%;
@@ -497,24 +500,6 @@ body {
         </div>
       </div>
 
-      <!-- FLAN ADD-ON -->
-      <div class="flan-row">
-        <div>
-          <div class="flan-info-label">Add-On (Taste &amp; King's Table only)</div>
-          <div class="flan-info-name">Gold Flan Royale — +$8</div>
-          <div class="flan-info-desc">Creamy caramel custard, made from scratch</div>
-        </div>
-        <div class="flan-qr-group">
-          <div class="qr-block">
-            <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://square.link/u/1Fzt6LTM&color=111111&bgcolor=ffffff" alt="QR Taste + Flan" />
-            <div class="qr-caption gold-txt">Taste<br />+ Flan $22.99</div>
-          </div>
-          <div class="qr-block">
-            <img class="qr-img" src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://square.link/u/TM7g8iDj&color=111111&bgcolor=ffffff" alt="QR King's + Flan" />
-            <div class="qr-caption gold-txt">King's<br />+ Flan $44.99</div>
-          </div>
-        </div>
-      </div>
 
     </div>
   </div>
