@@ -88,20 +88,25 @@ body {
   line-height: 1.5;
 }
 
-/* ===== BODY COLUMNS ===== */
-.body-columns {
+/* ===== BODY LAYOUT ===== */
+.body-top {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 12px;
-  flex: 1;
   padding-top: 10px;
+}
+.body-bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 10px;
 }
 
 /* ===== LEFT — FOOD PHOTOS ===== */
 .food-col {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 .food-col-title {
   font-family: 'Bebas Neue', sans-serif;
@@ -115,22 +120,43 @@ body {
 .food-grid-print {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
   gap: 8px;
-  flex: 1;
 }
 .food-item {
   position: relative;
   border-radius: 8px;
   overflow: hidden;
   background: #eee;
-  min-height: 0;
+  aspect-ratio: 1/1;
 }
 .food-item img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   display: block;
+}
+
+/* ===== MICHELADA (bottom-left) ===== */
+.michelada-cell {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #eee;
+  min-height: 130px;
+}
+.michelada-cell img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  position: absolute;
+  top: 0; left: 0;
+}
+
+/* ===== ROYAL CELL (bottom-right) ===== */
+.royal-cell {
+  display: flex;
+  flex-direction: column;
 }
 .food-item-label {
   position: absolute;
@@ -416,10 +442,9 @@ body {
     </div>
   </div>
 
-  <!-- BODY -->
-  <div class="body-columns">
+  <!-- BODY TOP: 4-photo grid | Taste + King's Table -->
+  <div class="body-top">
 
-    <!-- LEFT: FOOD PHOTOS -->
     <div class="food-col">
       <div class="food-col-title">What's On The Menu</div>
       <div class="food-grid-print">
@@ -440,13 +465,8 @@ body {
           <div class="food-item-label">Mango Loca<span class="tag">Sweet heat drink</span></div>
         </div>
       </div>
-
-      <div class="scan-bar">
-        📱 Scan any QR code → pay instantly on Square &nbsp;|&nbsp; Spots guaranteed on payment
-      </div>
     </div>
 
-    <!-- RIGHT: PRICING + QR CODES -->
     <div class="pricing-col">
       <div class="pricing-col-title">Choose Your Flight — Scan to Pre-Pay</div>
       <div class="pricing-note">Pre-pay online and save. 60 spots only. First come, first served at the door.</div>
@@ -493,9 +513,19 @@ body {
           <div class="qr-caption green-txt">Scan to pay<br />$36.99</div>
         </div>
       </div>
+    </div>
+  </div>
 
-      <!-- ROYAL FEAST -->
-      <div class="tier-row royal">
+  <!-- BODY BOTTOM: Michelada photo | Royal Feast -->
+  <div class="body-bottom">
+
+    <div class="michelada-cell">
+      <img src="/images/michelada-branded-final.jpg" alt="Michelada" />
+      <div class="food-item-label">Michelada<span class="tag">NOBODY ELSE HAS THIS</span></div>
+    </div>
+
+    <div class="royal-cell">
+      <div class="tier-row royal" style="flex:1;">
         <div class="tier-info">
           <div class="tier-badge gold">BEST VALUE</div>
           <div class="tier-name-print">Royal Feast</div>
@@ -515,9 +545,12 @@ body {
           <div class="qr-caption gold-txt">Scan to pay<br />$64.99</div>
         </div>
       </div>
-
-
     </div>
+  </div>
+
+  <!-- SCAN BAR -->
+  <div class="scan-bar">
+    📱 Scan any QR code → pay instantly on Square &nbsp;|&nbsp; Spots guaranteed on payment
   </div>
 
   <!-- FOOTER -->
