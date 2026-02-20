@@ -93,7 +93,7 @@ const fallbackCountdown = diffDays > 0 ? `${diffDays} days` : 'TONIGHT';
     }
   ],
   "image": "https://elotekingevents.com/images/hero_line_cropped.jpg",
-  "maximumAttendeeCapacity": 50
+  "maximumAttendeeCapacity": 60
 }
 </script>
 <script type="application/ld+json">
@@ -623,12 +623,31 @@ body {
 }
 
 /* Add Dessert */
+/* Retail value anchor */
+.retail-anchor {
+  text-align: center; font-size: 14px; color: var(--text-muted);
+  margin-bottom: 12px;
+}
+.retail-anchor strong {
+  font-size: 16px; color: var(--text-secondary);
+  text-decoration: line-through; text-decoration-color: var(--text-muted);
+}
+
 .add-dessert {
   background: var(--gold-bg); border-radius: 10px;
   padding: 14px; margin-bottom: 16px;
   display: flex; justify-content: space-between;
   align-items: center; gap: 12px;
+  cursor: pointer; user-select: none;
+  border: 2px solid transparent;
+  transition: border-color 0.15s;
 }
+.add-dessert:hover { border-color: var(--gold); }
+.add-dessert.selected {
+  border-color: var(--gold);
+  background: #fef9eb;
+}
+.add-dessert.selected .add-dessert-label::before { content: "✓ "; }
 .add-dessert-label {
   font-size: 14px; font-weight: 700; color: var(--gold);
 }
@@ -1163,11 +1182,12 @@ body {
         <div class="flight-name">The Taste</div>
         <div class="flight-subtitle">Your First Bite of the King</div>
 
+        <div class="retail-anchor">À la carte value: <strong>$26</strong></div>
         <div class="price-compare">
           <div class="price-col prepay">
             <div class="price-col-label">&#9733; Pre-Pay</div>
-            <div class="price-col-amount">$14.99</div>
-            <div class="price-col-note">Save $8</div>
+            <div class="price-col-amount" id="prepay-amt1">$14.99</div>
+            <div class="price-col-note">Save $11</div>
           </div>
           <div class="price-col door">
             <div class="price-col-label">At the Door</div>
@@ -1209,18 +1229,18 @@ body {
           </div>
         </div>
 
-        <div class="add-dessert">
+        <div class="add-dessert" id="dessert1" onclick="toggleFlan(1)" role="checkbox" aria-checked="false" tabindex="0">
           <div>
             <div class="add-dessert-label">ADD DESSERT</div>
             <div class="add-dessert-name">Gold Flan Royale</div>
-            <div class="add-dessert-desc">Creamy caramel custard, made from scratch</div>
+            <div class="add-dessert-desc">Creamy caramel custard, made from scratch — tap to add</div>
           </div>
           <div class="add-dessert-price">+$8</div>
         </div>
 
         <div class="total-row">
           <span class="total-label">Total if purchased separately:</span>
-          <span class="total-val">$26</span>
+          <span class="total-val" id="total1">$26</span>
         </div>
 
         <a href="https://square.link/u/kNN8rlDP" class="btn-claim pulse" id="btn1">Pre-Pay The Taste &mdash; $14.99 &rarr;</a>
@@ -1243,11 +1263,12 @@ body {
         <div class="flight-name">The King's Table</div>
         <div class="flight-subtitle">The One You Actually Want</div>
 
+        <div class="retail-anchor">À la carte value: <strong>$52</strong></div>
         <div class="price-compare">
           <div class="price-col prepay">
             <div class="price-col-label">&#9733; Pre-Pay</div>
-            <div class="price-col-amount">$36.99</div>
-            <div class="price-col-note">Save $8</div>
+            <div class="price-col-amount" id="prepay-amt2">$36.99</div>
+            <div class="price-col-note">Save $15</div>
           </div>
           <div class="price-col door">
             <div class="price-col-label">At the Door</div>
@@ -1289,18 +1310,18 @@ body {
           </div>
         </div>
 
-        <div class="add-dessert">
+        <div class="add-dessert" id="dessert2" onclick="toggleFlan(2)" role="checkbox" aria-checked="false" tabindex="0">
           <div>
             <div class="add-dessert-label">ADD DESSERT</div>
             <div class="add-dessert-name">Gold Flan Royale</div>
-            <div class="add-dessert-desc">Creamy caramel custard, made from scratch</div>
+            <div class="add-dessert-desc">Creamy caramel custard, made from scratch — tap to add</div>
           </div>
           <div class="add-dessert-price">+$8</div>
         </div>
 
         <div class="total-row">
           <span class="total-label">Total if purchased separately:</span>
-          <span class="total-val">$52</span>
+          <span class="total-val" id="total2">$52</span>
         </div>
 
         <a href="https://square.link/u/owUPZT3F" class="btn-claim pulse" id="btn2">Pre-Pay King's Table &mdash; $36.99 &rarr;</a>
@@ -1319,11 +1340,12 @@ body {
         <div class="flight-name">The Royal Feast</div>
         <div class="flight-subtitle">You + Your Crew Eat Like Kings (3-4 People)</div>
 
+        <div class="retail-anchor">À la carte value: <strong>$86</strong></div>
         <div class="price-compare">
           <div class="price-col prepay">
             <div class="price-col-label">&#9733; Pre-Pay</div>
             <div class="price-col-amount">$64.99</div>
-            <div class="price-col-note">Save $10</div>
+            <div class="price-col-note">Save $21</div>
           </div>
           <div class="price-col door">
             <div class="price-col-label">At the Door</div>
@@ -1703,6 +1725,44 @@ if (heroVid && vidWrap) {
 
   updatePlayState();
 }
+
+// ===== FLAN ADD-ON TOGGLE =====
+// When customer taps "ADD DESSERT" it toggles selected state and updates
+// the buy button to a separate Square link that includes flan price.
+// *** ACTION REQUIRED: Replace #TODO links below with real Square payment links ***
+// Package 1 + Flan = $22.99, Package 2 + Flan = $44.99
+var flanLinks = {
+  1: { base: 'https://square.link/u/kNN8rlDP', flan: '#TODO-SQUARE-TASTE-WITH-FLAN-22.99', basePrice: '$14.99', flanPrice: '$22.99', baseTotal: '$26', flanTotal: '$34', baseName: 'Pre-Pay The Taste \u2014 $14.99 \u2192', flanName: 'Pre-Pay The Taste + Flan \u2014 $22.99 \u2192' },
+  2: { base: 'https://square.link/u/owUPZT3F', flan: '#TODO-SQUARE-KINGS-TABLE-WITH-FLAN-44.99', basePrice: '$36.99', flanPrice: '$44.99', baseTotal: '$52', flanTotal: '$60', baseName: "Pre-Pay King\u2019s Table \u2014 $36.99 \u2192", flanName: "Pre-Pay King\u2019s Table + Flan \u2014 $44.99 \u2192" }
+};
+
+function toggleFlan(n) {
+  var box = document.getElementById('dessert' + n);
+  var btn = document.getElementById('btn' + n);
+  var totalEl = document.getElementById('total' + n);
+  var amtEl = document.getElementById('prepay-amt' + n);
+  var f = flanLinks[n];
+  var adding = !box.classList.contains('selected');
+
+  box.classList.toggle('selected', adding);
+  box.setAttribute('aria-checked', adding ? 'true' : 'false');
+  btn.href = adding ? f.flan : f.base;
+  btn.textContent = adding ? f.flanName : f.baseName;
+  if (totalEl) totalEl.textContent = adding ? f.flanTotal : f.baseTotal;
+  if (amtEl) amtEl.textContent = adding ? f.flanPrice : f.basePrice;
+}
+
+// Keyboard support for flan toggle
+document.addEventListener('DOMContentLoaded', function() {
+  [1, 2].forEach(function(n) {
+    var box = document.getElementById('dessert' + n);
+    if (box) {
+      box.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggleFlan(n); }
+      });
+    }
+  });
+});
 
 // ===== SMS CAPTURE FORM =====
 function handleSmsSubmit(e) {
