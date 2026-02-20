@@ -113,10 +113,20 @@ body {
   position: absolute; bottom: 0; left: 0; right: 0;
   background: #111;
   color: #fff;
+  padding: 10px 10px 8px;
+  height: 72px;
+  display: flex; flex-direction: column;
+  justify-content: center; align-items: center;
+  text-align: center; gap: 2px;
+}
+.food-caption .fc-name {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 11pt; letter-spacing: 1px;
-  padding: 72px 8px 6px;
-  text-align: center; line-height: 1.1;
+  font-size: 15pt; letter-spacing: 1.5px; line-height: 1;
+}
+.food-caption .fc-desc {
+  font-size: 8pt; font-weight: 600;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 0.3px; line-height: 1;
 }
 .food-tag {
   position: absolute; top: 6px; left: 6px;
@@ -205,30 +215,48 @@ body {
   <div class="food-grid">
     <div class="food-cell">
       <img src="/images/king-smash-burger-branded-final.png" alt="King Smash Burger" />
-      <div class="food-caption">King Smash Burger</div>
+      <div class="food-caption">
+        <span class="fc-name">King Smash Burger</span>
+        <span class="fc-desc">Halal smash patty + loaded fries</span>
+      </div>
     </div>
     <div class="food-cell">
       <img src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" />
       <div class="food-tag">First in ATL</div>
-      <div class="food-caption">Taquito Michelada</div>
+      <div class="food-caption">
+        <span class="fc-name">Taquito Michelada</span>
+        <span class="fc-desc">5 crispy chicken taquitos</span>
+      </div>
     </div>
     <div class="food-cell">
       <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" />
-      <div class="food-caption">Chorizo Drip Fries</div>
+      <div class="food-caption">
+        <span class="fc-name">Chorizo Drip Fries</span>
+        <span class="fc-desc">Ground beef chorizo, fully loaded</span>
+      </div>
     </div>
     <div class="food-cell">
       <img src="/images/michelada-branded-final.jpg" alt="Halal Michelada" />
       <div class="food-tag">Nobody Has This</div>
-      <div class="food-caption">Halal Michelada</div>
+      <div class="food-caption">
+        <span class="fc-name">Halal Michelada</span>
+        <span class="fc-desc">Zero alcohol · Same bold flavor</span>
+      </div>
     </div>
     <div class="food-cell">
       <img src="/images/mango-loca-branded-final.jpg" alt="Mango Loca" />
-      <div class="food-caption">Mango Loca</div>
+      <div class="food-caption">
+        <span class="fc-name">Mango Loca</span>
+        <span class="fc-desc">Cold, fresh, refreshing</span>
+      </div>
     </div>
     <div class="food-cell">
       <img src="/images/gold-flan-royale-branded-final.jpg" alt="Gold Flan Royale" />
       <div class="food-tag gold">Dessert</div>
-      <div class="food-caption">Gold Flan Royale</div>
+      <div class="food-caption">
+        <span class="fc-name">Gold Flan Royale</span>
+        <span class="fc-desc">Creamy caramel custard, made fresh</span>
+      </div>
     </div>
   </div>
 
