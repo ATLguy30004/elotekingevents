@@ -5,7 +5,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Elote King — Tasting Flight Cards</title>
+<title>Elote King — Founder's Tasting Cards</title>
 <meta name="robots" content="noindex, nofollow" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -19,7 +19,6 @@
   --green-bg: rgba(22, 163, 74, 0.07);
   --gold: #d4a017;
   --gold-bg: rgba(212, 160, 23, 0.08);
-  --red: #dc2626;
   --text-primary: #111111;
   --text-body: #333333;
   --text-muted: #666666;
@@ -52,288 +51,206 @@ body {
 
 /* ===== CARD ===== */
 .card {
-  width: 400px;
-  max-width: 100%;
-  background: #ffffff;
-  border-radius: 14px;
-  overflow: hidden;
-  box-shadow: 0 3px 20px rgba(0,0,0,0.12);
+  width: 400px; max-width: 100%;
+  background: #ffffff; border-radius: 14px;
+  overflow: hidden; box-shadow: 0 3px 20px rgba(0,0,0,0.12);
 }
 
 /* Popular strip */
 .popular-strip {
-  background: var(--green);
-  color: #fff;
-  text-align: center;
-  padding: 7px 16px;
-  font-size: 11px;
-  font-weight: 800;
-  letter-spacing: 2px;
-  text-transform: uppercase;
+  background: var(--green); color: #fff;
+  text-align: center; padding: 7px 16px;
+  font-size: 11px; font-weight: 800;
+  letter-spacing: 2px; text-transform: uppercase;
 }
 
 /* ===== HEADER ===== */
 .card-header {
-  background: #111;
-  color: #fff;
+  background: #111; color: #fff;
   padding: 12px 16px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 10px;
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 10px;
 }
 .card-header.gold-header { background: #1a1408; }
 .header-logo { height: 28px; width: auto; flex-shrink: 0; }
 .header-center { flex: 1; text-align: center; }
+.header-eyebrow {
+  font-size: 10px; font-weight: 700;
+  color: rgba(255,255,255,0.5); letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 1px;
+}
 .header-title {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 22px; letter-spacing: 1px; line-height: 1; color: #fff;
+  font-size: 26px; letter-spacing: 1px; line-height: 1; color: #fff;
 }
-.header-sub {
-  font-size: 10px; font-weight: 600;
-  color: rgba(255,255,255,0.6); letter-spacing: 0.5px; margin-top: 2px;
-}
+.header-sub { font-size: 13px; font-weight: 600; color: var(--green-light); margin-top: 2px; }
+.header-sub.gold { color: var(--gold); }
 .halal-badge {
   font-size: 9px; font-weight: 800;
-  color: var(--green-light); text-align: right; line-height: 1.6; flex-shrink: 0;
+  color: var(--green-light); text-align: right;
+  line-height: 1.6; flex-shrink: 0;
 }
 
 /* ===== FOOD PHOTO GRID ===== */
 .food-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(2, 90px);
-  gap: 0;
+  grid-template-rows: repeat(2, 88px);
 }
-.food-cell {
-  position: relative;
-  overflow: hidden;
-  background: #111;
-}
-.food-cell img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-}
+.food-cell { position: relative; overflow: hidden; background: #111; }
+.food-cell img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .food-caption {
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  background: linear-gradient(transparent, rgba(0,0,0,0.75));
-  color: #fff;
-  font-size: 9px; font-weight: 700;
-  padding: 10px 6px 5px;
-  text-align: center;
-  line-height: 1.2;
-  text-transform: uppercase;
-  letter-spacing: 0.3px;
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.78));
+  color: #fff; font-size: 8px; font-weight: 700;
+  padding: 12px 5px 4px; text-align: center;
+  line-height: 1.2; text-transform: uppercase; letter-spacing: 0.3px;
 }
 .food-tag {
-  position: absolute;
-  top: 5px; right: 5px;
-  background: var(--green);
-  color: #fff;
+  position: absolute; top: 5px; right: 5px;
+  background: var(--green); color: #fff;
   font-size: 7px; font-weight: 800;
   padding: 2px 5px; border-radius: 3px;
-  text-transform: uppercase; letter-spacing: 0.5px;
-  line-height: 1.3;
+  text-transform: uppercase; letter-spacing: 0.3px; line-height: 1.3;
 }
 .food-tag.gold { background: var(--gold); }
 
-/* ===== PRICE BANNER ===== */
-.price-banner {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 16px 9px;
-  border-bottom: 1px solid #e8e8e8;
-  background: var(--green-bg);
-  border-left: 4px solid var(--green);
-}
-.price-banner.gold { background: var(--gold-bg); border-left-color: var(--gold); }
-.prepay-label { font-size: 10px; font-weight: 800; color: var(--green); text-transform: uppercase; letter-spacing: 1px; }
-.prepay-label.gold { color: var(--gold); }
-.prepay-amount {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 38px; color: var(--green); line-height: 1;
-}
-.prepay-amount.gold { color: var(--gold); }
-.door-block { text-align: right; }
-.door-label { font-size: 10px; font-weight: 700; color: var(--red); text-transform: uppercase; letter-spacing: 0.5px; }
-.door-amount { font-size: 18px; font-weight: 800; color: var(--red); display: block; }
-.door-note { font-size: 11px; color: var(--text-muted); margin-top: 1px; }
-
 /* ===== EVENT BAR ===== */
 .event-bar {
-  background: #f7f7f7;
-  border-bottom: 1px solid #e8e8e8;
-  padding: 7px 16px;
-  font-size: 11px; font-weight: 600; color: var(--text-muted);
-  text-align: center; line-height: 1.5;
+  background: #111; padding: 8px 16px;
+  font-size: 11px; font-weight: 600; color: #aaa;
+  text-align: center; line-height: 1.6;
+  border-bottom: 2px solid var(--green);
 }
-.event-bar .g { color: var(--green); font-weight: 800; }
+.event-bar .g { color: var(--green-light); font-weight: 800; }
 
-/* ===== TIER TITLE ===== */
-.tier-title-row { padding: 12px 16px 9px; border-bottom: 1px solid #eee; }
-.tier-eyebrow {
-  font-size: 10px; font-weight: 800; color: var(--text-muted);
-  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 2px;
-}
-.tier-name {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 30px; color: var(--text-primary); line-height: 1; letter-spacing: 0.5px;
-}
-.tier-sub { font-size: 13px; font-weight: 600; color: var(--green); margin-top: 2px; }
-.tier-sub.gold { color: var(--gold); }
-
-/* ===== CHOOSE BOX ===== */
-.choose-section { padding: 10px 16px 0; }
+/* ===== CHOOSE MAINS ===== */
+.choose-section { padding: 12px 16px 0; }
 .choose-label {
   font-size: 10px; font-weight: 800; color: var(--text-primary);
-  text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 6px;
+  text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 7px;
+  background: #f0f0f0; border-radius: 5px; padding: 5px 10px; display: block;
 }
 .choose-box {
   background: #f7f7f7; border: 1px solid #e0e0e0;
-  border-radius: 8px; padding: 9px 12px; margin-bottom: 10px;
+  border-radius: 8px; padding: 9px 12px;
 }
 .choose-item {
   display: flex; align-items: flex-start; gap: 8px;
-  padding: 3px 0; font-size: 13px; font-weight: 600;
+  padding: 4px 0; font-size: 13px; font-weight: 600;
   color: var(--text-body); line-height: 1.3;
 }
+.choose-item .desc { display: block; font-size: 11px; font-weight: 500; color: var(--text-muted); }
 .ci { color: var(--green); font-size: 8px; flex-shrink: 0; margin-top: 4px; }
 
-/* ===== INCLUDED ITEMS ===== */
-.included-section { padding: 0 16px 10px; }
-.included-label {
+/* ===== ALSO INCLUDED ===== */
+.included-section { padding: 10px 16px 0; }
+.section-label {
   font-size: 10px; font-weight: 800; color: var(--green);
-  text-transform: uppercase; letter-spacing: 1.5px;
-  margin-bottom: 6px; padding-top: 10px;
-  display: flex; align-items: center; gap: 6px;
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 6px; display: block;
 }
-.included-label.gold { color: var(--gold); }
-.included-label::before {
-  content: ''; display: block; height: 2px; width: 16px;
-  background: var(--green); border-radius: 1px;
-}
-.included-label.gold::before { background: var(--gold); }
+.section-label.gold { color: var(--gold); }
 .item-row {
-  display: flex; align-items: flex-start; gap: 8px;
-  padding: 5px 0; border-bottom: 1px solid #f0f0f0;
+  display: flex; align-items: flex-start; gap: 9px;
+  padding: 6px 0; border-bottom: 1px solid #f0f0f0;
 }
 .item-row:last-child { border-bottom: none; }
-.ic { color: var(--green); font-size: 13px; flex-shrink: 0; font-weight: 800; margin-top: 1px; }
+.ic { color: var(--green); font-size: 14px; flex-shrink: 0; font-weight: 800; }
 .ic.gold { color: var(--gold); }
-.it { font-size: 13px; color: var(--text-primary); font-weight: 600; line-height: 1.3; }
-.it .d { display: block; font-size: 11px; color: var(--text-muted); font-weight: 500; margin-top: 1px; }
+.it { font-size: 14px; color: var(--text-primary); font-weight: 700; line-height: 1.2; }
+.it .d { display: block; font-size: 12px; color: var(--text-muted); font-weight: 500; margin-top: 1px; }
 .it .inc {
   font-size: 9px; font-weight: 800; color: var(--green);
   background: var(--green-bg); padding: 2px 5px; border-radius: 3px; margin-left: 4px;
 }
 
-/* ===== VALUE BAR ===== */
-.value-bar {
-  margin: 0 16px 12px;
-  background: var(--green-bg); border: 1px solid rgba(22,163,74,0.2);
-  border-radius: 8px; padding: 9px 13px;
-  display: flex; justify-content: space-between; align-items: center;
+/* ===== ADD-ONS ===== */
+.addons-section { padding: 10px 16px 14px; }
+.addons-label {
+  font-size: 10px; font-weight: 800; color: var(--gold);
+  text-transform: uppercase; letter-spacing: 2px; margin-bottom: 7px; display: block;
 }
-.value-bar.gold { background: var(--gold-bg); border-color: rgba(212,160,23,0.2); }
-.vl { font-size: 12px; color: var(--text-muted); font-weight: 600; }
-.vv { font-size: 17px; font-weight: 800; color: var(--green); }
-.vv.gold { color: var(--gold); }
+.addon-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 5px 0; border-bottom: 1px solid #f0f0f0;
+  font-size: 13px; font-weight: 600; color: var(--text-body);
+}
+.addon-row:last-child { border-bottom: none; }
+.addon-price { color: var(--gold); font-weight: 800; font-size: 14px; }
 
 /* ===== FOOTER ===== */
 .card-footer {
-  padding: 9px 16px;
-  background: #f7f7f7; border-top: 1px solid #eee;
+  padding: 9px 16px; background: #111;
   text-align: center; font-size: 12px; font-weight: 700;
-  color: var(--text-muted); letter-spacing: 0.3px;
+  color: #888; letter-spacing: 0.3px;
 }
-.card-footer span { color: var(--green); }
+.card-footer span { color: var(--green-light); }
 </style>
 </head>
 <body>
 
-<p class="page-hint">Screenshot each card at 400px wide for Square/social media use.</p>
+<p class="page-hint">Screenshot each card at 400px wide for WhatsApp / social media use.</p>
 
 <!-- ============================= -->
 <!-- CARD 1: THE TASTE             -->
 <!-- ============================= -->
-<div class="label">Card 1 — The Taste ($14.99 pre-pay)</div>
+<div class="label">Card 1 — The Taste</div>
 
 <div class="card">
   <div class="card-header">
     <img src="/images/elote-king-logo-transparent.png" alt="Elote King" class="header-logo" />
     <div class="header-center">
-      <div class="header-title">ELOTE KING</div>
-      <div class="header-sub">FOUNDER'S TASTING • EVENT #2</div>
+      <div class="header-eyebrow">Founder's Tasting</div>
+      <div class="header-title">The Taste</div>
+      <div class="header-sub">Your First Bite of the King</div>
     </div>
     <div class="halal-badge">✓ ZABIHA<br/>HALAL</div>
   </div>
 
-  <!-- 6 food photos 3x2 grid -->
   <div class="food-grid">
     <div class="food-cell">
-      <img src="/images/king-smash-burger-branded-final.jpg" alt="King Smash Burger" loading="lazy" />
+      <img src="/images/king-smash-burger-branded-final.jpg" alt="King Smash Burger" />
       <div class="food-caption">King Smash Burger</div>
     </div>
     <div class="food-cell">
-      <img src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" loading="lazy" />
+      <img src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" />
       <div class="food-tag">First in ATL</div>
       <div class="food-caption">Taquito Michelada</div>
     </div>
     <div class="food-cell">
-      <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" loading="lazy" />
+      <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" />
       <div class="food-caption">Chorizo Drip Fries</div>
     </div>
     <div class="food-cell">
-      <img src="/images/michelada-branded-final.jpg" alt="Halal Michelada" loading="lazy" />
+      <img src="/images/michelada-branded-final.jpg" alt="Halal Michelada" />
       <div class="food-tag">Nobody Has This</div>
       <div class="food-caption">Halal Michelada</div>
     </div>
     <div class="food-cell">
-      <img src="/images/mango-loca-branded-final.jpg" alt="Mango Loca" loading="lazy" />
+      <img src="/images/mango-loca-branded-final.jpg" alt="Mango Loca" />
       <div class="food-caption">Mango Loca</div>
     </div>
     <div class="food-cell">
-      <img src="/images/gold-flan-royale-branded-final.jpg" alt="Gold Flan Royale" loading="lazy" />
+      <img src="/images/gold-flan-royale-branded-final.jpg" alt="Gold Flan Royale" />
       <div class="food-caption">Gold Flan Royale</div>
     </div>
   </div>
 
-  <div class="price-banner">
-    <div>
-      <div class="prepay-label">Pre-Pay Online</div>
-      <div class="prepay-amount">$14.99</div>
-    </div>
-    <div class="door-block">
-      <div class="door-label">⚠ At the Door</div>
-      <span class="door-amount">$22.99</span>
-      <div class="door-note">No food guarantee</div>
-    </div>
-  </div>
-
   <div class="event-bar">
-    <span class="g">Fri, Feb 27</span> &bull; Door Open 9:30 PM – 12:30 AM &bull; Creative Labs, Alpharetta GA
-  </div>
-
-  <div class="tier-title-row">
-    <div class="tier-eyebrow">Tier 1 &nbsp;&#128081;</div>
-    <div class="tier-name">The Taste</div>
-    <div class="tier-sub">Your First Bite of the King</div>
+    <span class="g">Fri, Feb 27</span> &bull; 9:30 PM &bull; Creative Labs, 6180 Atlanta Hwy, Alpharetta
   </div>
 
   <div class="choose-section">
-    <div class="choose-label">Pick Your Main (Choose 1)</div>
+    <span class="choose-label">Choose Your Main (Pick 1)</span>
     <div class="choose-box">
-      <div class="choose-item"><span class="ci">&#9679;</span> King Smash Burger + fries</div>
-      <div class="choose-item"><span class="ci">&#9679;</span> Taquito Michelada — 5 chicken taquitos</div>
-      <div class="choose-item"><span class="ci">&#9679;</span> Chorizo (Ground Beef) Loaded Fries</div>
+      <div class="choose-item"><span class="ci">&#9679;</span><span>King Smash Burger <span class="desc">+ fries</span></span></div>
+      <div class="choose-item"><span class="ci">&#9679;</span><span>Taquito Michelada <span class="desc">5 chicken taquitos</span></span></div>
+      <div class="choose-item"><span class="ci">&#9679;</span><span>Chorizo Drip Fries <span class="desc">Full loaded</span></span></div>
     </div>
   </div>
 
   <div class="included-section">
-    <div class="included-label">Also Included</div>
+    <span class="section-label">Also Included</span>
     <div class="item-row">
       <span class="ic">&#10003;</span>
       <span class="it">1 Drink <span class="d">Mango Loca or Michelada</span></span>
@@ -344,13 +261,18 @@ body {
     </div>
   </div>
 
-  <div class="value-bar">
-    <span class="vl">À la carte value:</span>
-    <span class="vv">$26</span>
+  <div class="addons-section">
+    <span class="addons-label">Want More? Add-Ons</span>
+    <div class="addon-row"><span>Extra Burger w/ Fries</span><span class="addon-price">+$12</span></div>
+    <div class="addon-row"><span>Extra 4 Taquitos + Drink</span><span class="addon-price">+$14</span></div>
+    <div class="addon-row"><span>Extra Loaded Fries</span><span class="addon-price">+$12</span></div>
+    <div class="addon-row"><span>Extra Drink</span><span class="addon-price">+$4</span></div>
+    <div class="addon-row"><span>Extra Flan</span><span class="addon-price">+$6</span></div>
+    <div class="addon-row"><span>Extra Esquite</span><span class="addon-price">+$4</span></div>
   </div>
 
   <div class="card-footer">
-    <span>✓</span> Zabiha Halal &bull; Muslim-Owned &bull; Zero Alcohol
+    <span>&#10003;</span> Zabiha Halal &bull; Muslim-Owned &bull; Zero Alcohol
   </div>
 </div>
 
@@ -358,100 +280,91 @@ body {
 <!-- ============================= -->
 <!-- CARD 2: THE KING'S TABLE      -->
 <!-- ============================= -->
-<div class="label">Card 2 — King's Table ($36.99 pre-pay)</div>
+<div class="label">Card 2 — King's Table</div>
 
 <div class="card">
-  <div class="popular-strip">&#9733; MOST POPULAR &mdash; BEST VALUE &#9733;</div>
+  <div class="popular-strip">&#9733; MOST POPULAR &#9733;</div>
 
   <div class="card-header">
     <img src="/images/elote-king-logo-transparent.png" alt="Elote King" class="header-logo" />
     <div class="header-center">
-      <div class="header-title">ELOTE KING</div>
-      <div class="header-sub">FOUNDER'S TASTING • EVENT #2</div>
+      <div class="header-eyebrow">Founder's Tasting</div>
+      <div class="header-title">The King's Table</div>
+      <div class="header-sub">The One You Actually Want</div>
     </div>
     <div class="halal-badge">✓ ZABIHA<br/>HALAL</div>
   </div>
 
-  <!-- 6 food photos 3x2 grid -->
   <div class="food-grid">
     <div class="food-cell">
-      <img src="/images/king-smash-burger-branded-final.jpg" alt="King Smash Burger" loading="lazy" />
+      <img src="/images/king-smash-burger-branded-final.jpg" alt="King Smash Burger" />
       <div class="food-caption">King Smash Burger</div>
     </div>
     <div class="food-cell">
-      <img src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" loading="lazy" />
+      <img src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" />
       <div class="food-tag">First in ATL</div>
       <div class="food-caption">Taquito Michelada</div>
     </div>
     <div class="food-cell">
-      <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" loading="lazy" />
+      <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" />
       <div class="food-caption">Chorizo Drip Fries</div>
     </div>
     <div class="food-cell">
-      <img src="/images/michelada-branded-final.jpg" alt="Halal Michelada" loading="lazy" />
+      <img src="/images/michelada-branded-final.jpg" alt="Halal Michelada" />
       <div class="food-tag">Nobody Has This</div>
       <div class="food-caption">Halal Michelada</div>
     </div>
     <div class="food-cell">
-      <img src="/images/mango-loca-branded-final.jpg" alt="Mango Loca" loading="lazy" />
+      <img src="/images/mango-loca-branded-final.jpg" alt="Mango Loca" />
       <div class="food-caption">Mango Loca</div>
     </div>
     <div class="food-cell">
-      <img src="/images/gold-flan-royale-branded-final.jpg" alt="Gold Flan Royale" loading="lazy" />
+      <img src="/images/gold-flan-royale-branded-final.jpg" alt="Gold Flan Royale" />
       <div class="food-caption">Gold Flan Royale</div>
     </div>
   </div>
 
-  <div class="price-banner">
-    <div>
-      <div class="prepay-label">Pre-Pay Online</div>
-      <div class="prepay-amount">$36.99</div>
-    </div>
-    <div class="door-block">
-      <div class="door-label">⚠ At the Door</div>
-      <span class="door-amount">$44.99</span>
-      <div class="door-note">No food guarantee</div>
-    </div>
-  </div>
-
   <div class="event-bar">
-    <span class="g">Fri, Feb 27</span> &bull; Door Open 9:30 PM – 12:30 AM &bull; Creative Labs, Alpharetta GA
-  </div>
-
-  <div class="tier-title-row">
-    <div class="tier-eyebrow">Tier 2 &nbsp;&#128081;&#128081;</div>
-    <div class="tier-name">The King's Table</div>
-    <div class="tier-sub">The One You Actually Want</div>
+    <span class="g">Fri, Feb 27</span> &bull; 9:30 PM &bull; Creative Labs, 6180 Atlanta Hwy, Alpharetta
   </div>
 
   <div class="choose-section">
-    <div class="choose-label">Pick Your Mains (Choose 2)</div>
+    <span class="choose-label">Choose Your Mains (Pick 2)</span>
     <div class="choose-box">
-      <div class="choose-item"><span class="ci">&#9679;</span> King Smash Burger + fries</div>
-      <div class="choose-item"><span class="ci">&#9679;</span> Taquito Michelada — 5 chicken taquitos</div>
-      <div class="choose-item"><span class="ci">&#9679;</span> Chorizo (Ground Beef) Loaded Fries</div>
+      <div class="choose-item"><span class="ci">&#9679;</span><span>King Smash Burger <span class="desc">+ fries</span></span></div>
+      <div class="choose-item"><span class="ci">&#9679;</span><span>Taquito Michelada <span class="desc">5 chicken taquitos</span></span></div>
+      <div class="choose-item"><span class="ci">&#9679;</span><span>Chorizo Drip Fries <span class="desc">Full loaded</span></span></div>
     </div>
   </div>
 
   <div class="included-section">
-    <div class="included-label">Also Included</div>
+    <span class="section-label">Also Included</span>
     <div class="item-row">
       <span class="ic">&#10003;</span>
-      <span class="it">2 Drinks <span class="d">Mango Loca or Michelada</span></span>
+      <span class="it">1 Drink <span class="d">Mango Loca or Michelada</span></span>
     </div>
     <div class="item-row">
       <span class="ic">&#10003;</span>
-      <span class="it">2 Esquite Cups <span class="d">Secret menu item</span></span>
+      <span class="it">Esquite Cup <span class="d">Secret menu item</span></span>
+    </div>
+    <div class="item-row">
+      <span class="ic">&#10003;</span>
+      <span class="it">Gold Flan Royale <span class="d">Creamy caramel custard</span></span>
     </div>
   </div>
 
-  <div class="value-bar">
-    <span class="vl">À la carte value:</span>
-    <span class="vv">$52</span>
+  <div class="addons-section">
+    <span class="addons-label">Want More? Add-Ons</span>
+    <div class="addon-row"><span>Extra Burger w/ Fries</span><span class="addon-price">+$12</span></div>
+    <div class="addon-row"><span>Extra 4 Taquitos + Drink</span><span class="addon-price">+$14</span></div>
+    <div class="addon-row"><span>Extra Loaded Fries</span><span class="addon-price">+$12</span></div>
+    <div class="addon-row"><span>Extra Drink</span><span class="addon-price">+$4</span></div>
+    <div class="addon-row"><span>Extra Flan</span><span class="addon-price">+$6</span></div>
+    <div class="addon-row"><span>Extra Esquite</span><span class="addon-price">+$4</span></div>
   </div>
 
   <div class="card-footer">
-    <span>✓</span> Zabiha Halal &bull; Muslim-Owned &bull; Zero Alcohol
+    <span>&#10003;</span> Zabiha Halal &bull; Muslim-Owned &bull; Zero Alcohol
   </div>
 </div>
 
@@ -459,73 +372,55 @@ body {
 <!-- ============================= -->
 <!-- CARD 3: THE ROYAL FEAST       -->
 <!-- ============================= -->
-<div class="label">Card 3 — Royal Feast ($64.99 pre-pay)</div>
+<div class="label">Card 3 — Royal Feast</div>
 
 <div class="card">
   <div class="card-header gold-header">
     <img src="/images/elote-king-logo-transparent.png" alt="Elote King" class="header-logo" />
     <div class="header-center">
-      <div class="header-title">ELOTE KING</div>
-      <div class="header-sub">FOUNDER'S TASTING • EVENT #2</div>
+      <div class="header-eyebrow">Founder's Tasting</div>
+      <div class="header-title">The Royal Feast</div>
+      <div class="header-sub gold">You + Your Crew Eat Like Kings (3–4 People)</div>
     </div>
     <div class="halal-badge">✓ ZABIHA<br/>HALAL</div>
   </div>
 
-  <!-- 6 food photos 3x2 grid -->
   <div class="food-grid">
     <div class="food-cell">
-      <img src="/images/king-smash-burger-branded-final.jpg" alt="King Smash Burger" loading="lazy" />
+      <img src="/images/king-smash-burger-branded-final.jpg" alt="King Smash Burger" />
       <div class="food-caption">King Smash Burger</div>
     </div>
     <div class="food-cell">
-      <img src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" loading="lazy" />
+      <img src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" />
       <div class="food-tag">First in ATL</div>
       <div class="food-caption">Taquito Michelada</div>
     </div>
     <div class="food-cell">
-      <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" loading="lazy" />
+      <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" />
       <div class="food-caption">Chorizo Drip Fries</div>
     </div>
     <div class="food-cell">
-      <img src="/images/michelada-branded-final.jpg" alt="Halal Michelada" loading="lazy" />
+      <img src="/images/michelada-branded-final.jpg" alt="Halal Michelada" />
       <div class="food-tag gold">Nobody Has This</div>
       <div class="food-caption">Halal Michelada</div>
     </div>
     <div class="food-cell">
-      <img src="/images/mango-loca-branded-final.jpg" alt="Mango Loca" loading="lazy" />
+      <img src="/images/mango-loca-branded-final.jpg" alt="Mango Loca" />
       <div class="food-caption">Mango Loca</div>
     </div>
     <div class="food-cell">
-      <img src="/images/gold-flan-royale-branded-final.jpg" alt="Gold Flan Royale" loading="lazy" />
+      <img src="/images/gold-flan-royale-branded-final.jpg" alt="Gold Flan Royale" />
       <div class="food-tag gold">Included</div>
       <div class="food-caption">Gold Flan Royale</div>
     </div>
   </div>
 
-  <div class="price-banner gold">
-    <div>
-      <div class="prepay-label gold">Pre-Pay Online</div>
-      <div class="prepay-amount gold">$64.99</div>
-    </div>
-    <div class="door-block">
-      <div class="door-label">⚠ At the Door</div>
-      <span class="door-amount">$74.99</span>
-      <div class="door-note">No food guarantee</div>
-    </div>
-  </div>
-
   <div class="event-bar">
-    <span class="g">Fri, Feb 27</span> &bull; Door Open 9:30 PM – 12:30 AM &bull; Creative Labs, Alpharetta GA
+    <span class="g">Fri, Feb 27</span> &bull; 9:30 PM &bull; Creative Labs, 6180 Atlanta Hwy, Alpharetta
   </div>
 
-  <div class="tier-title-row">
-    <div class="tier-eyebrow">Tier 3 &nbsp;&#128081;&#128081;&#128081;</div>
-    <div class="tier-name">The Royal Feast</div>
-    <div class="tier-sub gold">You + Your Crew Eat Like Kings (3–4 People)</div>
-  </div>
-
-  <div class="included-section" style="padding-top: 10px;">
-    <div class="included-label gold">Everything Included</div>
+  <div class="included-section" style="padding-top: 12px;">
+    <span class="section-label gold">Everything Included</span>
     <div class="item-row">
       <span class="ic gold">&#10003;</span>
       <span class="it">King Smash Burger <span class="d">+ fries</span></span>
@@ -536,7 +431,7 @@ body {
     </div>
     <div class="item-row">
       <span class="ic gold">&#10003;</span>
-      <span class="it">Chorizo (Ground Beef) Loaded Fries</span>
+      <span class="it">Chorizo Drip Fries <span class="d">Full loaded</span></span>
     </div>
     <div class="item-row">
       <span class="ic gold">&#10003;</span>
@@ -548,17 +443,22 @@ body {
     </div>
     <div class="item-row">
       <span class="ic gold">&#10003;</span>
-      <span class="it">Gold Flan Royale <span class="inc">INCLUDED</span><span class="d">No add-on needed</span></span>
+      <span class="it">Gold Flan Royale <span class="inc">INCLUDED</span><span class="d">Creamy caramel custard</span></span>
     </div>
   </div>
 
-  <div class="value-bar gold">
-    <span class="vl">À la carte value:</span>
-    <span class="vv gold">$86</span>
+  <div class="addons-section">
+    <span class="addons-label">Want More? Add-Ons</span>
+    <div class="addon-row"><span>Extra Burger w/ Fries</span><span class="addon-price">+$12</span></div>
+    <div class="addon-row"><span>Extra 4 Taquitos + Drink</span><span class="addon-price">+$14</span></div>
+    <div class="addon-row"><span>Extra Loaded Fries</span><span class="addon-price">+$12</span></div>
+    <div class="addon-row"><span>Extra Drink</span><span class="addon-price">+$4</span></div>
+    <div class="addon-row"><span>Extra Flan</span><span class="addon-price">+$6</span></div>
+    <div class="addon-row"><span>Extra Esquite</span><span class="addon-price">+$4</span></div>
   </div>
 
   <div class="card-footer">
-    <span>✓</span> Zabiha Halal &bull; Muslim-Owned &bull; Zero Alcohol
+    <span>&#10003;</span> Zabiha Halal &bull; Muslim-Owned &bull; Zero Alcohol
   </div>
 </div>
 
