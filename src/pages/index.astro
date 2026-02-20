@@ -1,17 +1,175 @@
-﻿---
+---
+const eventDate = new Date('2026-02-27T21:30:00-05:00');
+const now = new Date();
+const diffMs = eventDate.getTime() - now.getTime();
+const diffDays = Math.max(0, Math.ceil(diffMs / 86400000));
+const fallbackCountdown = diffDays > 0 ? `${diffDays} days` : 'TONIGHT';
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Elote King Event #2 â€” Waitlist | Halal Mexican Street Food | Feb 27</title>
-<meta name="description" content="Event #1 sold out. Don't miss Event #2. Join the waitlist for Atlanta's only halal Mexican street food tasting experience. Friday Feb 27, Alpharetta GA." />
+<title>Elote King Event #2 — Pre-Pay & Save 42% | Halal Mexican Street Food | Alpharetta Feb 27</title>
+<meta name="description" content="Event #1 sold out in 48 hours. Pre-pay online and save up to 42% on your tasting flight — guaranteed food at the door. Halal Mexican street food. Friday Feb 27, 9:30 PM, Alpharetta GA 30004." />
+<meta property="og:title" content="Elote King Event #2 — Pre-Pay & Save 42%" />
+<meta property="og:description" content="Pre-pay online, save up to 42%, and guarantee your food. 60 spots available — 8 already claimed. Event #1 sold out in 48hrs." />
+<meta property="og:image" content="https://elotekingevents.com/images/hero_line_cropped.jpg" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://elotekingevents.com" />
+<meta property="og:locale" content="en_US" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Elote King Event #2 — Pre-Pay & Save 42%" />
+<meta name="twitter:description" content="Event #1 sold out in 48 hours. Pre-pay online and save up to 42%. Halal Mexican street food. Friday Feb 27, Alpharetta GA." />
+<meta name="twitter:image" content="https://elotekingevents.com/images/hero_line_cropped.jpg" />
+<link rel="canonical" href="https://elotekingevents.com" />
+<link rel="icon" type="image/png" href="/images/elote-king-logo-transparent.png" />
+<link rel="apple-touch-icon" href="/images/elote-king-logo-transparent.png" />
+<meta name="theme-color" content="#16a34a" />
+<link rel="preload" as="image" href="/images/hero_line_cropped.jpg" fetchpriority="high" />
+<meta name="geo.region" content="US-GA" />
+<meta name="geo.placename" content="Alpharetta, Georgia" />
+<meta name="geo.position" content="34.1326134;-84.2529415" />
+<meta name="ICBM" content="34.1326134, -84.2529415" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- Structured Data: Local Event -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FoodEvent",
+  "name": "Elote King Event #2 — Halal Mexican Street Food Tasting",
+  "description": "Atlanta's only halal Mexican street food tasting experience. 3 tasting flights, 6 menu items, 100% Zabiha Halal, Muslim-owned, zero alcohol. Event #1 sold out in 48 hours.",
+  "startDate": "2026-02-27T21:30:00-05:00",
+  "endDate": "2026-02-28T00:30:00-05:00",
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "location": {
+    "@type": "Place",
+    "name": "Creative Labs",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "6180 Atlanta Hwy",
+      "addressLocality": "Alpharetta",
+      "addressRegion": "GA",
+      "postalCode": "30004",
+      "addressCountry": "US"
+    }
+  },
+  "organizer": {
+    "@type": "FoodEstablishment",
+    "name": "Elote King Atlanta",
+    "url": "https://www.elotekingatlanta.com",
+    "telephone": "+1-678-208-8774",
+    "sameAs": ["https://www.elotekingatlanta.com"]
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "The Taste — Pre-Pay",
+      "price": "14.99",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2026-02-18"
+    },
+    {
+      "@type": "Offer",
+      "name": "King's Table — Pre-Pay",
+      "price": "36.99",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2026-02-18"
+    },
+    {
+      "@type": "Offer",
+      "name": "Royal Feast — Pre-Pay",
+      "price": "64.99",
+      "priceCurrency": "USD",
+      "availability": "https://schema.org/InStock",
+      "validFrom": "2026-02-18"
+    }
+  ],
+  "image": "https://elotekingevents.com/images/hero_line_cropped.jpg",
+  "maximumAttendeeCapacity": 50
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Where is Elote King Event #2?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Creative Labs, 6180 Atlanta Hwy, Alpharetta, GA 30004. Same area as Event #1."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Is the food at Elote King events 100% Halal?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. All our meat is 100% Zabiha Halal. We are Muslim-owned and operated, and our kitchen maintains strict halal standards. No alcohol is used in any recipe or served at any event."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What are taquitos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Taquitos are crispy, golden rolled tortillas stuffed with seasoned chicken and deep-fried until crunchy. In our Taquito Michelada, they're stacked right on top of a halal michelada — sip it, dip it, devour it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is a Halal Michelada?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Michelada is a classic Mexican drink that's tangy, savory, and refreshing — usually made with beer. Ours is 100% halal and zero alcohol. Same bold flavor — lime, chili, spices — without compromising your values. Nobody else in Atlanta is doing this."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I don't pre-pay for Elote King Event #2?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "You can still come and pay at the door — but it's full price ($22.99/$44.99/$74.99) and first come, first serve. If your flight sells out online, there's no guarantee at the door. The safest move is to pre-pay now."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What if I can't make it to Elote King Event #2?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Pre-pay flights are non-refundable but fully transferable. Send a friend, or hold your credit toward Event #3. Text us at 1-678-208-8774 before Feb 26."
+      }
+    }
+  ]
+}
+</script>
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* Skip link — visible only on focus */
+.skip-link {
+  position: absolute; top: -100%; left: 16px;
+  background: var(--green); color: #fff;
+  padding: 12px 24px; border-radius: 0 0 8px 8px;
+  font-size: 16px; font-weight: 700; z-index: 200;
+  text-decoration: none; transition: top 0.2s;
+}
+.skip-link:focus { top: 0; }
+
+/* WCAG 2.4.7 — visible focus indicators */
+a:focus-visible, button:focus-visible, summary:focus-visible,
+input:focus-visible, .btn-claim:focus-visible {
+  outline: 3px solid var(--green); outline-offset: 2px;
+}
 :root {
   --bg: #ffffff;
   --bg-soft: #f7f7f7;
@@ -23,10 +181,15 @@
   --green: #16a34a;
   --green-light: #22c55e;
   --green-bg: rgba(22, 163, 74, 0.08);
+  --red: #dc2626;
+  --red-bg: rgba(220, 38, 38, 0.08);
+  --gold: #d4a017;
+  --gold-bg: rgba(212, 160, 23, 0.1);
   --border: #e0e0e0;
   --border-light: #eeeeee;
   --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
   --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
   --radius: 12px;
   --radius-lg: 16px;
 }
@@ -37,6 +200,14 @@ body {
   line-height: 1.6; font-size: 16px;
   -webkit-font-smoothing: antialiased; overflow-x: hidden;
 }
+
+/* ===== URGENCY BAR ===== */
+.urgency-bar {
+  background: var(--red); color: #fff;
+  text-align: center; padding: 10px 16px;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.3px;
+}
+.urgency-bar .countdown { font-family: 'Bebas Neue', sans-serif; font-size: 18px; letter-spacing: 1px; }
 
 /* ===== BADGE BAR ===== */
 .badge-bar {
@@ -73,10 +244,15 @@ body {
 }
 .hero-sold-badge {
   position: absolute; top: 16px; right: 16px;
-  background: #dc2626; color: #fff;
+  background: var(--red); color: #fff;
   font-family: 'Bebas Neue', sans-serif;
   font-size: 14px; letter-spacing: 1.5px;
   padding: 6px 14px; border-radius: 6px;
+  animation: pulse-badge 2s ease-in-out infinite;
+}
+@keyframes pulse-badge {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
 }
 .hero-text-overlay {
   position: absolute; bottom: 0; left: 0; right: 0;
@@ -86,47 +262,29 @@ body {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 38px; line-height: 1.05; letter-spacing: 1px; margin-bottom: 8px;
 }
-.hero-text-overlay h1 .accent {
-  color: #fff;
-}
+.hero-text-overlay h1 .accent { color: #fff; }
 .hero-text-overlay .hero-sub {
   font-size: 17px; font-weight: 600; opacity: 0.95;
 }
 .hero-text-overlay .hero-sub strong { color: var(--green-light); }
 
-/* ===== FORM ===== */
-.form-section { padding: 28px 20px 32px; background: var(--bg); }
-.form-section h2 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 28px; letter-spacing: 0.5px; margin-bottom: 6px;
-  color: var(--text-primary);
+/* ===== SPOTS COUNTER ===== */
+.spots-counter {
+  background: #111; color: #fff;
+  text-align: center; padding: 14px 20px;
+  font-size: 16px; font-weight: 600;
 }
-.form-sub {
-  font-size: 16px; color: var(--text-secondary); margin-bottom: 20px;
-  line-height: 1.5;
+.spots-counter .spots-number {
+  color: var(--red); font-family: 'Bebas Neue', sans-serif;
+  font-size: 24px; letter-spacing: 1px;
 }
-.waitlist-form { display: flex; flex-direction: column; gap: 12px; }
-.waitlist-form input {
-  width: 100%; padding: 15px 16px;
-  border: 2px solid var(--border); border-radius: 10px;
-  font-size: 16px; font-family: 'DM Sans', sans-serif;
-  background: var(--bg); color: var(--text-primary);
-  transition: border-color 0.2s;
+.spots-counter .spots-total {
+  color: var(--text-muted); font-size: 14px;
 }
-.waitlist-form input:focus { outline: none; border-color: var(--green); }
-.waitlist-form input::placeholder { color: #999; }
-.btn-primary {
-  width: 100%; padding: 16px;
-  background: var(--green); color: #fff; border: none; border-radius: 10px;
-  font-size: 17px; font-weight: 700; font-family: 'DM Sans', sans-serif;
-  cursor: pointer; transition: background 0.2s, transform 0.1s;
+.spots-counter a {
+  color: var(--green-light); text-decoration: none; font-weight: 700;
+  display: inline-block; min-height: 44px; line-height: 44px; padding: 0 8px;
 }
-.btn-primary:hover { background: #15803d; }
-.btn-primary:active { transform: scale(0.98); }
-.form-microcopy {
-  font-size: 15px; color: var(--text-secondary); text-align: center; margin-top: 10px;
-}
-.form-microcopy strong { color: var(--text-primary); }
 
 /* ===== SOCIAL PROOF STRIP ===== */
 .proof-strip {
@@ -142,8 +300,9 @@ body {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 30px; color: var(--green); line-height: 1;
 }
+.proof-number.red { color: var(--red); }
 .proof-label {
-  font-size: 13px; color: var(--text-secondary); margin-top: 3px; line-height: 1.3;
+  font-size: 14px; color: var(--text-secondary); margin-top: 3px; line-height: 1.3;
   font-weight: 500;
 }
 
@@ -177,7 +336,32 @@ body {
 .video-play-btn svg { width: 28px; height: 28px; fill: var(--green); margin-left: 4px; }
 .video-wrap.playing .video-play-btn { display: none; }
 
-/* ===== MENU ===== */
+/* ===== TESTIMONIALS ===== */
+.testimonials-section { padding: 48px 20px; background: #fff; }
+.testimonials-section .section-title { margin-bottom: 6px; }
+.testimonials-sub { text-align: center; font-size: 15px; color: var(--text-muted); margin-bottom: 28px; }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  max-width: 860px;
+  margin: 0 auto;
+}
+.testimonial-card {
+  background: #f9f9f9;
+  border: 1px solid #ebebeb;
+  border-radius: 12px;
+  padding: 20px;
+}
+.testimonial-stars { color: #f59e0b; font-size: 16px; margin-bottom: 10px; letter-spacing: 2px; }
+.testimonial-quote { font-size: 14px; color: #333; line-height: 1.6; font-style: italic; margin-bottom: 14px; }
+.testimonial-author { font-size: 13px; font-weight: 700; color: #111; }
+.testimonial-author span { font-weight: 400; color: var(--text-muted); }
+@media (max-width: 600px) {
+  .testimonials-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== MENU GRID ===== */
 .menu-section { padding: 36px 20px; background: var(--bg-soft); }
 .section-title {
   font-family: 'Bebas Neue', sans-serif;
@@ -190,7 +374,7 @@ body {
   overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--border-light);
 }
 .menu-card-img {
-  width: 100%; aspect-ratio: 1/1; object-fit: cover; display: block; background: #f0f0f0;
+  width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: #f0f0f0;
 }
 .menu-card-body { padding: 12px; }
 .menu-card-name {
@@ -198,18 +382,345 @@ body {
   line-height: 1.25; margin-bottom: 5px;
 }
 .menu-card-desc {
-  font-size: 14px; color: var(--text-secondary); line-height: 1.45;
+  font-size: 15px; color: var(--text-secondary); line-height: 1.45;
 }
 .menu-card-tag {
-  display: inline-block; font-size: 11px; font-weight: 700;
+  display: inline-block; font-size: 13px; font-weight: 700;
   color: var(--green); background: var(--green-bg);
   padding: 3px 8px; border-radius: 4px; margin-top: 6px;
 }
-.menu-closing {
-  text-align: center; margin-top: 22px;
+
+/* ===== GUARANTEE BAR ===== */
+.guarantee-bar {
+  text-align: center; padding: 16px 20px;
+  background: var(--green-bg); margin: 0 20px 8px;
+  border-radius: 10px; border: 1px solid rgba(22, 163, 74, 0.2);
+  font-size: 16px; font-weight: 700; color: var(--green);
+}
+.guarantee-bar .highlight {
+  background: linear-gradient(90deg, #16a34a, #22c55e, #16a34a);
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 2s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* ===== FLIGHT CARDS ===== */
+.flights-section {
+  padding: 36px 20px 40px;
+  background: var(--bg-soft);
+}
+.flights-section .section-title { margin-bottom: 8px; }
+.flights-sub {
+  text-align: center; font-size: 16px;
+  color: var(--text-secondary); margin-bottom: 20px;
+  line-height: 1.5;
+}
+.flights-sub strong { color: var(--red); }
+.highlight-pulse {
+  background: rgba(22, 163, 74, 0.12);
+  color: var(--green);
+  padding: 2px 8px;
+  border-radius: 6px;
+  font-weight: 700;
+  animation: highlight-glow 2.5s ease-in-out infinite;
+}
+@keyframes highlight-glow {
+  0%, 100% { background: rgba(22, 163, 74, 0.12); }
+  50% { background: rgba(22, 163, 74, 0.28); }
+}
+.flights-wrap {
+  display: flex; flex-direction: column; gap: 20px;
+}
+.flight-card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border-light);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  position: relative;
+}
+.flight-card.popular {
+  border-color: var(--green);
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--green);
+}
+.flight-card.royal {
+  border-color: var(--gold);
+}
+
+/* Crown Header */
+.card-crown {
+  text-align: center; padding: 20px 20px 10px;
+}
+.crown-icon { font-size: 44px; line-height: 1; }
+.tier-number {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 32px; color: var(--gold);
+  line-height: 1; margin-top: -4px;
+}
+
+/* Popular Badge */
+.popular-badge {
+  position: absolute; top: 0; left: 0; right: 0;
+  background: var(--green); color: #fff;
+  text-align: center; padding: 6px;
+  font-size: 14px; font-weight: 700; letter-spacing: 0.5px;
+}
+.popular-badge + .card-crown { padding-top: 42px; }
+
+/* Card Body */
+.card-body { padding: 0 20px 24px; }
+.flight-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px; color: var(--text-primary);
+  text-align: center; line-height: 1.1;
+}
+.flight-subtitle {
+  text-align: center; font-size: 15px;
+  color: var(--text-muted); margin-bottom: 16px;
+}
+
+.price-save {
+  font-size: 15px; font-weight: 700;
+  color: var(--green); margin-top: 10px;
+  text-align: center;
+}
+.first-drop-counter {
+  font-size: 14px; font-weight: 600;
+  color: var(--red); margin-top: 8px;
+}
+.first-drop-counter .dot {
+  display: inline-block; width: 8px; height: 8px;
+  background: var(--red); border-radius: 50%;
+  margin-right: 4px; vertical-align: middle;
+  animation: blink 1.5s ease-in-out infinite;
+}
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
+/* Progress Bar */
+.drop-progress {
+  margin-top: 10px;
+  background: #e8e8e8;
+  border-radius: 20px;
+  height: 10px;
+  overflow: hidden;
+}
+.drop-progress-fill {
+  height: 100%;
+  border-radius: 20px;
+  background: linear-gradient(90deg, var(--green) 0%, var(--green-light) 40%, #facc15 70%, #f97316 90%, var(--red) 100%);
+  background-size: 200% 100%;
+  transition: width 0.6s ease;
+}
+.drop-progress-fill::after {
+  content: '';
+  position: absolute; right: 0; top: 0; bottom: 0;
+  width: 12px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 20px;
+  animation: progress-shine 1.5s ease-in-out infinite;
+}
+@keyframes progress-shine {
+  0%, 100% { opacity: 0.2; }
+  50% { opacity: 0.6; }
+}
+.drop-progress-label {
+  display: flex; justify-content: space-between;
+  font-size: 13px; font-weight: 700;
+  color: var(--text-muted); margin-top: 4px;
+}
+.drop-progress-label .claimed { color: var(--red); }
+
+/* Price Compare (side by side) */
+.price-compare {
+  display: flex; gap: 10px; margin-bottom: 16px;
+}
+.price-col {
+  flex: 1; text-align: center; padding: 12px 8px;
+  border-radius: 10px;
+}
+.price-col.prepay {
+  background: var(--green-bg);
+  border: 2px solid var(--green);
+}
+.price-col.door {
+  background: var(--bg-soft);
+  border: 2px solid var(--border);
+}
+.price-col-label {
+  font-size: 13px; font-weight: 700; text-transform: uppercase;
+  letter-spacing: 0.5px; margin-bottom: 4px;
+}
+.price-col.prepay .price-col-label { color: var(--green); }
+.price-col.door .price-col-label { color: var(--text-muted); }
+.price-col-amount {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38px; line-height: 1;
+}
+.price-col.prepay .price-col-amount { color: var(--text-primary); }
+.price-col.door .price-col-amount {
+  color: #888888; text-decoration: line-through;
+}
+.price-col-note {
+  font-size: 13px; font-weight: 600; margin-top: 4px;
+}
+.price-col.prepay .price-col-note { color: var(--green); }
+.price-col.door .price-col-note { color: var(--text-muted); }
+
+/* Choose Main */
+.choose-main {
+  background: var(--bg-soft); border-radius: 10px;
+  padding: 14px; margin-bottom: 14px;
+}
+.choose-label {
+  font-size: 14px; font-weight: 700;
+  color: var(--text-primary); margin-bottom: 8px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+.choose-option {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; padding: 6px 0;
+  font-size: 15px; color: var(--text-body);
+}
+.choose-option > span:first-child { flex: 1; min-width: 0; }
+.choose-option .item-desc { display: block; }
+.choose-option .val {
+  color: var(--text-muted); font-size: 14px;
+  flex-shrink: 0; margin-left: 8px;
+}
+
+/* Item List */
+.item-list { margin-bottom: 16px; }
+.item-row {
+  display: flex; justify-content: space-between;
+  align-items: flex-start; padding: 8px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.item-row:last-child { border-bottom: none; }
+.item-check {
+  color: var(--green); font-weight: 700;
+  margin-right: 8px; flex-shrink: 0;
+}
+.item-name {
+  flex: 1; font-size: 16px;
+  color: var(--text-primary); font-weight: 500;
+}
+.item-desc {
+  font-size: 14px; color: var(--text-muted);
+  font-weight: 400;
+}
+.item-val {
+  font-size: 15px; color: var(--text-muted);
+  flex-shrink: 0; margin-left: 12px;
+}
+
+/* Add Dessert */
+.add-dessert {
+  background: var(--gold-bg); border-radius: 10px;
+  padding: 14px; margin-bottom: 16px;
+  display: flex; justify-content: space-between;
+  align-items: center; gap: 12px;
+}
+.add-dessert-label {
+  font-size: 14px; font-weight: 700; color: var(--gold);
+}
+.add-dessert-name {
+  font-size: 14px; color: var(--text-body);
+}
+.add-dessert-desc {
+  font-size: 14px; color: var(--text-muted);
+}
+.add-dessert-price {
+  font-size: 16px; font-weight: 700; color: var(--gold);
+  flex-shrink: 0;
+}
+
+/* Included dessert (Royal) */
+.included-badge {
+  display: inline-block; font-size: 13px; font-weight: 700;
+  background: var(--green-bg); color: var(--green);
+  padding: 2px 6px; border-radius: 4px; margin-left: 2px;
+  vertical-align: middle;
+}
+
+/* Total Value */
+.total-row {
+  display: flex; justify-content: space-between;
+  align-items: center; padding: 12px 0;
+  border-top: 2px solid var(--border);
+  margin-bottom: 16px;
+}
+.total-label {
+  font-size: 14px; color: var(--text-muted);
+}
+.total-val {
+  font-size: 18px; font-weight: 700; color: var(--text-muted);
+  text-decoration: line-through;
+}
+
+/* CTA Button */
+.btn-claim {
+  display: block; width: 100%; padding: 16px;
+  background: var(--green); color: #fff;
+  border: none; border-radius: 10px;
+  font-size: 17px; font-weight: 700;
+  font-family: 'DM Sans', sans-serif;
+  cursor: pointer; text-align: center;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.1s;
+}
+.btn-claim:hover { background: #15803d; }
+.btn-claim:active { transform: scale(0.98); }
+.btn-claim.pulse {
+  animation: btn-pulse 2s ease-in-out infinite;
+}
+@keyframes btn-pulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0.5); }
+  50% { box-shadow: 0 0 0 10px rgba(22, 163, 74, 0); }
+}
+.btn-claim.sold-out {
+  background: #ccc; color: #888; cursor: not-allowed;
+  animation: none;
+}
+
+/* Spots Left */
+.card-spots-left {
+  text-align: center; margin-top: 10px;
+  font-size: 14px; font-weight: 600; color: var(--text-muted);
+}
+.card-spots-left strong { color: var(--red); }
+
+/* Sold Out Overlay */
+.sold-out-overlay {
+  display: none;
+  position: absolute; inset: 0;
+  background: rgba(255,255,255,0.85);
+  z-index: 10;
+  align-items: center; justify-content: center;
+}
+.sold-out-overlay.show { display: flex; }
+.sold-out-stamp {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 64px; color: var(--red);
+  border: 6px solid var(--red);
+  border-radius: 16px; padding: 8px 24px;
+  transform: rotate(-12deg);
+  letter-spacing: 4px;
+}
+
+/* Decision helper */
+.decision-helper {
+  text-align: center; margin-top: 24px;
   font-size: 16px; color: var(--text-body); font-weight: 500;
 }
-.menu-closing strong { color: var(--green); }
+.decision-helper strong { color: var(--green); }
 
 /* ===== TIMELINE ===== */
 .timeline-section { padding: 36px 20px; background: var(--bg); }
@@ -221,7 +732,7 @@ body {
   width: 38px; height: 38px; border-radius: 50%;
   background: var(--green); color: #fff;
   display: flex; align-items: center; justify-content: center;
-  font-weight: 800; font-size: 16px; flex-shrink: 0; z-index: 1;
+  font-weight: 700; font-size: 16px; flex-shrink: 0; z-index: 1;
 }
 .timeline-dot.future { background: var(--bg-soft); border: 2px solid var(--border); color: var(--text-muted); }
 .timeline-line { width: 2px; flex: 1; background: var(--border); margin-top: 4px; }
@@ -234,17 +745,31 @@ body {
 .timeline-desc {
   font-size: 15px; color: var(--text-secondary); margin-top: 4px; line-height: 1.55;
 }
+.timeline-urgency {
+  display: inline-block; margin-top: 6px; padding: 4px 10px;
+  background: var(--red-bg); color: var(--red);
+  font-size: 13px; font-weight: 700; border-radius: 6px;
+}
 
 /* ===== BOTTOM SECTION ===== */
-.bottom-section { padding: 36px 20px 120px; background: var(--bg-soft); }
-.bottom-form-wrap {
+.bottom-section { padding: 36px 20px 40px; background: var(--bg-soft); }
+.bottom-cta-wrap {
   background: var(--bg-card); border-radius: var(--radius-lg);
   padding: 28px 20px; box-shadow: var(--shadow-md);
   border: 1px solid var(--border-light); margin-bottom: 36px;
+  text-align: center;
 }
-.bottom-form-wrap h2 {
+.bottom-cta-wrap h2 {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 28px; margin-bottom: 6px; color: var(--text-primary);
+}
+.bottom-cta-wrap .form-sub {
+  font-size: 16px; color: var(--text-secondary); margin-bottom: 20px;
+  line-height: 1.5;
+}
+.bottom-cta-wrap .form-sub strong { color: var(--red); }
+.bottom-cta-wrap .form-microcopy {
+  font-size: 15px; color: var(--text-secondary); margin-top: 14px;
 }
 
 /* ===== FAQ ===== */
@@ -287,14 +812,29 @@ body {
   position: fixed; bottom: 0; left: 0; right: 0;
   background: rgba(255,255,255,0.97);
   backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-  padding: 12px 20px; border-top: 1px solid var(--border);
+  padding: 10px 20px; border-top: 1px solid var(--border);
   z-index: 100; box-shadow: 0 -4px 20px rgba(0,0,0,0.06);
 }
+.sticky-inner { display: flex; align-items: center; gap: 12px; }
+.sticky-info {
+  font-size: 14px; color: var(--text-muted); line-height: 1.2;
+  white-space: nowrap;
+}
+.sticky-info strong {
+  color: var(--red); font-size: 22px; display: block;
+  font-family: 'Bebas Neue', sans-serif; letter-spacing: 1px;
+  animation: sticky-glow 2s ease-in-out infinite;
+}
+@keyframes sticky-glow {
+  0%, 100% { text-shadow: 0 0 4px rgba(220, 38, 38, 0.3); }
+  50% { text-shadow: 0 0 12px rgba(220, 38, 38, 0.6), 0 0 24px rgba(220, 38, 38, 0.2); }
+}
 .sticky-bar a {
-  display: block; width: 100%; padding: 15px;
+  display: block; width: 100%; padding: 14px;
   background: var(--green); color: #fff;
   text-align: center; text-decoration: none;
-  border-radius: 10px; font-size: 17px; font-weight: 700;
+  border-radius: 10px; font-size: 16px; font-weight: 700;
+  animation: btn-pulse 2s ease-in-out infinite;
 }
 .sticky-bar a:active { background: #15803d; }
 
@@ -304,52 +844,152 @@ body {
   font-size: 14px; color: var(--text-muted);
   background: var(--bg); border-top: 1px solid var(--border-light);
 }
+.footer { padding-bottom: 80px; }
 .footer a { color: var(--green); text-decoration: none; font-weight: 600; }
+.footer-links { margin-top: 6px; }
+
+/* ===== PROOF TOAST (above sticky bar) ===== */
+.proof-toast {
+  position: fixed; bottom: 90px; left: 12px; max-width: calc(100% - 210px);
+  z-index: 99;
+  background: #111; color: #fff;
+  padding: 7px 12px;
+  border-radius: 8px;
+  font-size: 12px; font-weight: 600; line-height: 1.3;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+  display: flex; align-items: center; gap: 8px;
+  transform: translateY(20px);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.45s ease;
+}
+.proof-toast.show {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: none;
+}
+.proof-toast .proof-emoji {
+  font-size: 18px; flex-shrink: 0;
+}
+.proof-toast .proof-msg {
+  flex: 1; min-width: 0;
+}
+.proof-toast .proof-time {
+  font-size: 13px; color: #999; font-weight: 700;
+  margin-top: 2px;
+}
+
+/* ===== MOBILE TIGHTENING (small phones) ===== */
+@media (max-width: 374px) {
+  .price-main { font-size: 40px; }
+  .price-original { font-size: 20px; }
+  .flight-name { font-size: 22px; }
+  .choose-option { font-size: 14px; }
+  .btn-claim { font-size: 15px; padding: 14px; }
+  .sold-out-stamp { font-size: 48px; padding: 6px 16px; }
+}
 
 /* ===== DESKTOP (768px+) ===== */
 @media (min-width: 768px) {
-  body { max-width: 1200px; margin: 0 auto; }
-  
+  /* Content sections get max-width; full-bleed bars stay edge-to-edge */
   .hero { max-width: 1200px; margin: 0 auto; }
-  .hero-image-wrap { aspect-ratio: 16/9; max-height: 500px; }
+  .hero-image-wrap { aspect-ratio: 21/9; max-height: 480px; }
+  .hero-image-overlay { height: 50%; }
   .hero-text-overlay h1 { font-size: 52px; }
   .hero-text-overlay { padding: 40px; }
-  
-  .form-section {
-    max-width: 480px; margin-left: auto; margin-right: auto;
-    padding: 36px 20px;
-  }
-  
+
+  /* Proof strip */
+  .proof-strip { max-width: 1200px; margin: 0 auto; }
+
+  /* Video: wider */
   .video-section {
-    max-width: 560px; margin-left: auto; margin-right: auto;
+    max-width: 680px; margin-left: auto; margin-right: auto;
     padding: 36px 20px;
   }
-  
+
+  /* Menu grid: bigger cards */
   .menu-section {
     max-width: 1200px; margin-left: auto; margin-right: auto;
     padding: 40px 20px;
   }
-  .menu-grid { grid-template-columns: repeat(3, 1fr); gap: 16px; }
-  
+  .menu-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+  .menu-card-img { aspect-ratio: 4/3; }
+  .menu-card-body { padding: 16px 18px; }
+  .menu-card-name { font-size: 17px; }
+  .menu-card-desc { font-size: 15px; }
+
+  /* Flight cards: still stacked at 768px, goes horizontal at 1024px */
+  .flights-section {
+    max-width: 1200px; margin-left: auto; margin-right: auto;
+    padding: 40px 20px 48px;
+  }
+  .flights-sub { font-size: 17px; }
+  .guarantee-bar { font-size: 17px; max-width: 1200px; margin-left: auto; margin-right: auto; }
+  .decision-helper { font-size: 17px; }
+
+  /* Timeline: wider on desktop */
   .timeline-section {
     max-width: 1200px; margin-left: auto; margin-right: auto;
     padding: 40px 20px;
   }
-  
+  .timeline { max-width: 600px; }
+
+  /* Bottom + FAQ */
   .bottom-section {
     max-width: 1200px; margin-left: auto; margin-right: auto;
-    padding: 40px 20px 140px;
+    padding: 40px 20px 48px;
   }
-  .bottom-form-wrap {
+  .bottom-cta-wrap {
     max-width: 480px; margin-left: auto; margin-right: auto;
   }
-  
+  .faq-item { max-width: 680px; margin-left: auto; margin-right: auto; }
+
   .logo-bar img { height: 56px; }
-  .proof-strip { max-width: 1200px; margin: 0 auto; }
+}
+
+/* ===== LARGE DESKTOP (1024px+) ===== */
+@media (min-width: 1024px) {
+  .hero-image-wrap { max-height: 520px; }
+  .hero-text-overlay h1 { font-size: 60px; }
+
+  /* Flight cards: side by side at 1024px+ where they have room */
+  .flights-wrap {
+    flex-direction: row; align-items: stretch; gap: 24px;
+  }
+  .flight-card { flex: 1; min-width: 0; }
+  .flight-card.popular { flex: 1.15; }
+  .price-col-amount { font-size: 40px; }
+  .choose-option { font-size: 15px; }
+  .choose-option .val { font-size: 15px; }
+  .choose-label { font-size: 15px; }
+  .item-name { font-size: 17px; }
+  .item-desc { font-size: 15px; }
+  .item-val { font-size: 16px; }
+  .card-spots-left { font-size: 15px; }
+  .price-save { font-size: 16px; }
+  .first-drop-counter { font-size: 15px; }
+  .drop-progress-label { font-size: 14px; }
+  .flight-subtitle { font-size: 16px; }
+}
+
+/* ===== WCAG: Respect reduced motion preference ===== */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  html { scroll-behavior: auto; }
 }
 </style>
 </head>
 <body>
+<a href="#flights" class="skip-link">Skip to flights</a>
+
+<!-- URGENCY COUNTDOWN BAR -->
+<div class="urgency-bar">
+  Event #2 is in <span class="countdown" id="urgencyCountdown" role="status" aria-live="polite">{fallbackCountdown}</span> &mdash; Pre-pay &amp; save 30%
+</div>
 
 <!-- BADGE BAR -->
 <div class="badge-bar">
@@ -361,10 +1001,10 @@ body {
   <img src="/images/elote-king-logo-transparent.png" alt="Elote King Atlanta" />
 </div>
 
-<!-- SCREEN 1: HERO -->
+<!-- HERO -->
 <section class="hero">
   <div class="hero-image-wrap">
-    <img src="/images/hero_line_cropped.jpg" alt="Event #1 crowd lined up at Elote King food truck in Alpharetta" />
+    <img src="/images/hero_line_cropped.jpg" alt="Event #1 crowd lined up at Elote King food truck in Alpharetta" fetchpriority="high" width="1080" height="720" />
     <div class="hero-image-overlay"></div>
     <div class="hero-sold-badge">EVENT #1 SOLD OUT</div>
     <div class="hero-text-overlay">
@@ -374,17 +1014,11 @@ body {
   </div>
 </section>
 
-<!-- FORM -->
-<section class="form-section" id="waitlist">
-  <h2>Get On The Waitlist</h2>
-  <p class="form-sub">Waitlist sees the menu, pricing, and flights first. Everyone else waits.</p>
-  <form class="waitlist-form" action="#" method="POST">
-    <input type="email" name="email" placeholder="Email" required autocomplete="email" />
-    <input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel" />
-    <button type="submit" class="btn-primary">Get Early Access &rarr;</button>
-  </form>
-  <p class="form-microcopy"><strong>Event #1 sold out in 48 hours.</strong> Waitlist members get first pick.</p>
-</section>
+<!-- SPOTS LEFT COUNTER -->
+<div class="spots-counter">
+  <span class="spots-number" id="spotsLeft">52</span> pre-pay flights left &mdash; save up to 42%
+  <br/><a href="#menu">See What You're Getting &darr;</a>
+</div>
 
 <!-- SOCIAL PROOF -->
 <div class="proof-strip">
@@ -393,21 +1027,22 @@ body {
     <div class="proof-label">Flights claimed<br/>at Event #1</div>
   </div>
   <div class="proof-item">
-    <div class="proof-number">48hr</div>
+    <div class="proof-number red">48hr</div>
     <div class="proof-label">Until every<br/>flight sold out</div>
   </div>
   <div class="proof-item">
-    <div class="proof-number">$0</div>
-    <div class="proof-label">Ad spend.<br/>All organic.</div>
+    <div class="proof-number">30%</div>
+    <div class="proof-label">Saved when you<br/>pre-pay online</div>
   </div>
 </div>
 
 <!-- VIDEO SECTION -->
 <section class="video-section">
-  <h3>The Elote King Experience</h3>
-  <div class="video-wrap" id="videoWrap" onclick="toggleVideo()">
-    <video id="heroVideo" autoplay playsinline preload="metadata" muted poster="/images/hero_line_cropped.jpg">
+  <h3>See Why Event #1 Sold Out</h3>
+  <div class="video-wrap" id="videoWrap">
+    <video id="heroVideo" loop playsinline muted poster="/images/hero_line_cropped.jpg" preload="none">
       <source src="/video/EloteKing_HeroReel_LandingPage.mp4" type="video/mp4" />
+      <track kind="descriptions" label="Event highlights" srclang="en" />
     </video>
     <div class="video-play-btn">
       <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -415,61 +1050,342 @@ body {
   </div>
 </section>
 
-<!-- SCREEN 2: MENU -->
-<section class="menu-section">
-  <h2 class="section-title">What's On The Menu</h2>
+<!-- TESTIMONIALS -->
+<section class="testimonials-section">
+  <h2 class="section-title">What People Are Saying</h2>
+  <p class="testimonials-sub">Real reviews from real customers &mdash; Event #1 attendees</p>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">"The tinga tacos dorados were crispy, flavorful, and absolutely delicious. Paired with the refreshing cucumber and pineapple agua fresca, it was the perfect meal."</p>
+      <div class="testimonial-author">Jenni Lopez <span>&middot; 2 months ago</span></div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">"Highly recommend! They did an amazing setup for our office lunch. Everyone absolutely loved it! Delicious food, amazing setup, and very punctual!"</p>
+      <div class="testimonial-author">Aisha Vaid <span>&middot; 1 month ago</span></div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">"It was delicious and so fresh! The owners are some of the kindest people I know. It makes me feel good supporting nice people with yummy food!"</p>
+      <div class="testimonial-author">Jessica Parkman <span>&middot; 3 weeks ago</span></div>
+    </div>
+    <div class="testimonial-card">
+      <div class="testimonial-stars">★★★★★</div>
+      <p class="testimonial-quote">"Here's 10 stars since I can only give 5 on Google! Elote King did an amazing job at our school's event! The team was friendly and professional, and the Elote in a Cup station was beautifully set up. The food was absolutely delicious&mdash;fresh, flavorful, and a big hit with everyone!"</p>
+      <div class="testimonial-author">Kerah B. <span>&middot; 4 months ago</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section class="menu-section" id="menu">
+  <h2 class="section-title">What You're Getting</h2>
   <div class="menu-grid">
     <div class="menu-card">
-      <img class="menu-card-img" src="/images/king-smash-burger-branded-final.jpg" alt="King Smash Burger" />
+      <img class="menu-card-img" src="/images/king-smash-burger-branded-final.png" alt="Elote King halal smash burger with Mexican street toppings and fries" loading="lazy" />
       <div class="menu-card-body">
         <div class="menu-card-name">King Smash Burger</div>
-        <div class="menu-card-desc">Seared like it owes you money. Halal smashed patty, Mexican street toppings, crispy fries.</div>
+        <div class="menu-card-desc">Halal smashed patty, Mexican street toppings, crispy fries.</div>
       </div>
     </div>
     <div class="menu-card">
-      <img class="menu-card-img" src="/images/taquitos-michelada-branded-final.jpg" alt="Taquito Michelada" />
+      <img class="menu-card-img" src="/images/taquitos-michelada-branded-final.jpg" alt="Elote King taquito michelada — crispy taquitos on a halal michelada" loading="lazy" />
       <div class="menu-card-body">
         <div class="menu-card-name">Taquito Michelada</div>
-        <div class="menu-card-desc">Sip it. Dip it. Devour it. Crispy taquitos stacked on a halal michelada. One hand, full flex.</div>
+        <div class="menu-card-desc">Crispy chicken taquitos stacked on a halal michelada.</div>
         <div class="menu-card-tag">FIRST IN ATLANTA</div>
       </div>
     </div>
     <div class="menu-card">
-      <img class="menu-card-img" src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" />
+      <img class="menu-card-img" src="/images/chorizo-drip-fries-branded-final.jpg" alt="Elote King chorizo drip fries — loaded halal beef and melted cheese" loading="lazy" />
       <div class="menu-card-body">
-        <div class="menu-card-name">Chorizo Drip Fries</div>
-        <div class="menu-card-desc">Crispy fries dripping in bold Mexican-seasoned beef, melted cheese, fresh toppings. Zero regrets.</div>
+        <div class="menu-card-name">Chorizo (Ground Beef) Drip Fries</div>
+        <div class="menu-card-desc">Crispy fries dripping in Mexican-seasoned beef, melted cheese.</div>
       </div>
     </div>
     <div class="menu-card">
-      <img class="menu-card-img" src="/images/gold-flan-royale-branded-final.jpg" alt="Gold Flan Royale" />
+      <img class="menu-card-img" src="/images/gold-flan-royale-branded-final.jpg" alt="Elote King Gold Flan Royale — creamy halal caramel custard" loading="lazy" />
       <div class="menu-card-body">
         <div class="menu-card-name">Gold Flan Royale</div>
-        <div class="menu-card-desc">Shuts everything down. Creamy caramel custard made from scratch. 100% halal, always.</div>
+        <div class="menu-card-desc">Creamy caramel custard made from scratch. 100% halal.</div>
       </div>
     </div>
     <div class="menu-card">
-      <img class="menu-card-img" src="/images/mango-loca-branded-final.jpg" alt="Mango Loca" />
+      <img class="menu-card-img" src="/images/mango-loca-branded-final.jpg" alt="Elote King Mango Loca — fresh mango drink with chili rim and lime" loading="lazy" />
       <div class="menu-card-body">
         <div class="menu-card-name">Mango Loca</div>
-        <div class="menu-card-desc">Sweet heat in every sip. Fresh mango, chili rim, lime. Made in-house, no syrup shortcuts.</div>
+        <div class="menu-card-desc">Sweet heat in every sip. Fresh mango, chili rim, lime.</div>
       </div>
     </div>
     <div class="menu-card">
-      <img class="menu-card-img" src="/images/michelada-branded-final.jpg" alt="Halal Michelada" />
+      <img class="menu-card-img" src="/images/michelada-branded-final.jpg" alt="Elote King halal michelada — zero alcohol, full Mexican flavor" loading="lazy" />
       <div class="menu-card-body">
         <div class="menu-card-name">Michelada</div>
-        <div class="menu-card-desc">Spice. Lime. No alcohol. The classic Mexican drink made 100% halal. Nobody else has this.</div>
+        <div class="menu-card-desc">Spice. Lime. No alcohol. 100% halal.</div>
         <div class="menu-card-tag">NOBODY ELSE HAS THIS</div>
       </div>
     </div>
   </div>
-  <p class="menu-closing">3 tasting flights. Details unlock for <strong>waitlist members first</strong>.</p>
+  <div style="text-align: center; margin-top: 24px;">
+    <a href="#flights" class="btn-claim pulse">Pick Your Flight &mdash; Starting at $14.99 &rarr;</a>
+  </div>
 </section>
 
-<!-- SCREEN 3: TIMELINE -->
+<!-- GUARANTEE BAR -->
+<div class="guarantee-bar">
+  &#10003; <span class="highlight">Pre-Pay = Guaranteed food at the door.</span> Your spot is locked in.
+</div>
+
+<!-- DREAM OUTCOME -->
+<p style="text-align: center; font-size: 17px; font-weight: 600; color: var(--text-secondary); padding: 20px 20px 0; max-width: 600px; margin: 0 auto; line-height: 1.55;">
+  You pulled up. You ate like a king. You posted it before anyone else in Atlanta even knew.
+</p>
+
+<!-- ========================================== -->
+<!-- FLIGHT CARDS — THE MONEY SECTION           -->
+<!-- ========================================== -->
+<section class="flights-section" id="flights">
+  <h2 class="section-title">Choose Your Flight</h2>
+  <p class="flights-sub">Event #1 sold out in 48 hours. <strong class="highlight-pulse">Pre-pay now and save up to 42%</strong></p>
+
+  <div class="flights-wrap">
+
+    <!-- FLIGHT 1: THE TASTE -->
+    <div class="flight-card">
+      <div class="sold-out-overlay" id="sold1"><div class="sold-out-stamp">SOLD OUT</div></div>
+      <div class="card-crown">
+        <div class="crown-icon">&#128081;</div>
+        <div class="tier-number">1</div>
+      </div>
+      <div class="card-body">
+        <div class="flight-name">The Taste</div>
+        <div class="flight-subtitle">Your First Bite of the King</div>
+
+        <div class="price-compare">
+          <div class="price-col prepay">
+            <div class="price-col-label">&#9733; Pre-Pay</div>
+            <div class="price-col-amount">$14.99</div>
+            <div class="price-col-note">Save $8</div>
+          </div>
+          <div class="price-col door">
+            <div class="price-col-label">At the Door</div>
+            <div class="price-col-amount">$22.99</div>
+            <div class="price-col-note">No guarantee</div>
+          </div>
+        </div>
+        <div class="price-save">&#10003; Pre-pay = guaranteed food at the door</div>
+        <div class="first-drop-counter"><span class="dot"></span> <span id="drop1">8</span> of 10 pre-pay spots left</div>
+        <div class="drop-progress"><div class="drop-progress-fill" id="bar1" style="width: 20%"></div></div>
+        <div class="drop-progress-label"><span class="claimed"><span id="claimed1">2</span> claimed</span><span>10 total</span></div>
+
+        <div class="choose-main">
+          <div class="choose-label">Choose Your Main (Pick 1)</div>
+          <div class="choose-option">
+            <span>King Smash Burger <span class="item-desc">+ fries</span></span>
+            <span class="val">$13</span>
+          </div>
+          <div class="choose-option">
+            <span>Taquito Michelada <span class="item-desc">5 chicken taquitos</span></span>
+            <span class="val">$13</span>
+          </div>
+          <div class="choose-option">
+            <span>Chorizo (Ground Beef) Loaded Fries <span class="item-desc">full loaded</span></span>
+            <span class="val">$13</span>
+          </div>
+        </div>
+
+        <div class="item-list">
+          <div class="item-row">
+            <span class="item-check">&#10003;</span>
+            <span class="item-name">1 Drink<br/><span class="item-desc">Mango Loca OR Michelada</span></span>
+            <span class="item-val">$8</span>
+          </div>
+          <div class="item-row">
+            <span class="item-check">&#10003;</span>
+            <span class="item-name">Esquite Cup<br/><span class="item-desc">Secret menu item</span></span>
+            <span class="item-val">$5</span>
+          </div>
+        </div>
+
+        <div class="add-dessert">
+          <div>
+            <div class="add-dessert-label">ADD DESSERT</div>
+            <div class="add-dessert-name">Gold Flan Royale</div>
+            <div class="add-dessert-desc">Creamy caramel custard, made from scratch</div>
+          </div>
+          <div class="add-dessert-price">+$8</div>
+        </div>
+
+        <div class="total-row">
+          <span class="total-label">Total if purchased separately:</span>
+          <span class="total-val">$26</span>
+        </div>
+
+        <a href="https://square.link/u/kNN8rlDP" class="btn-claim pulse" id="btn1">Pre-Pay The Taste &mdash; $14.99 &rarr;</a>
+        <div class="card-spots-left"><strong id="spots1">8</strong> pre-pay spots left</div>
+        <p style="text-align: center; font-size: 14px; color: var(--green); font-weight: 600; margin-top: 12px;">
+          Double your food for just $22 more. <a href="#" style="color: var(--green); text-decoration: underline; font-weight: 700;" onclick="document.getElementById('btn2').scrollIntoView({behavior:'smooth'});return false;">Upgrade to King's Table &rarr;</a>
+        </p>
+      </div>
+    </div>
+
+    <!-- FLIGHT 2: KING'S TABLE (MOST POPULAR) -->
+    <div class="flight-card popular">
+      <div class="sold-out-overlay" id="sold2"><div class="sold-out-stamp">SOLD OUT</div></div>
+      <div class="popular-badge">MOST POPULAR &mdash; BEST VALUE</div>
+      <div class="card-crown">
+        <div class="crown-icon">&#128081;&#128081;</div>
+        <div class="tier-number">2</div>
+      </div>
+      <div class="card-body">
+        <div class="flight-name">The King's Table</div>
+        <div class="flight-subtitle">The One You Actually Want</div>
+
+        <div class="price-compare">
+          <div class="price-col prepay">
+            <div class="price-col-label">&#9733; Pre-Pay</div>
+            <div class="price-col-amount">$36.99</div>
+            <div class="price-col-note">Save $8</div>
+          </div>
+          <div class="price-col door">
+            <div class="price-col-label">At the Door</div>
+            <div class="price-col-amount">$44.99</div>
+            <div class="price-col-note">No guarantee</div>
+          </div>
+        </div>
+        <div class="price-save">&#10003; Pre-pay = guaranteed food at the door</div>
+        <div class="first-drop-counter"><span class="dot"></span> <span id="drop2">35</span> of 40 pre-pay spots left</div>
+        <div class="drop-progress"><div class="drop-progress-fill" id="bar2" style="width: 12%"></div></div>
+        <div class="drop-progress-label"><span class="claimed"><span id="claimed2">5</span> claimed</span><span>40 total</span></div>
+
+        <div class="choose-main">
+          <div class="choose-label">Choose Your Mains (Pick 2)</div>
+          <div class="choose-option">
+            <span>King Smash Burger <span class="item-desc">+ fries</span></span>
+            <span class="val">$13</span>
+          </div>
+          <div class="choose-option">
+            <span>Taquito Michelada <span class="item-desc">5 chicken taquitos</span></span>
+            <span class="val">$13</span>
+          </div>
+          <div class="choose-option">
+            <span>Chorizo (Ground Beef) Loaded Fries <span class="item-desc">full loaded</span></span>
+            <span class="val">$13</span>
+          </div>
+        </div>
+
+        <div class="item-list">
+          <div class="item-row">
+            <span class="item-check">&#10003;</span>
+            <span class="item-name">2 Drinks<br/><span class="item-desc">Mango Loca OR Michelada</span></span>
+            <span class="item-val">$16</span>
+          </div>
+          <div class="item-row">
+            <span class="item-check">&#10003;</span>
+            <span class="item-name">2 Esquite Cups<br/><span class="item-desc">Secret menu item</span></span>
+            <span class="item-val">$10</span>
+          </div>
+        </div>
+
+        <div class="add-dessert">
+          <div>
+            <div class="add-dessert-label">ADD DESSERT</div>
+            <div class="add-dessert-name">Gold Flan Royale</div>
+            <div class="add-dessert-desc">Creamy caramel custard, made from scratch</div>
+          </div>
+          <div class="add-dessert-price">+$8</div>
+        </div>
+
+        <div class="total-row">
+          <span class="total-label">Total if purchased separately:</span>
+          <span class="total-val">$52</span>
+        </div>
+
+        <a href="https://square.link/u/owUPZT3F" class="btn-claim pulse" id="btn2">Pre-Pay King's Table &mdash; $36.99 &rarr;</a>
+        <div class="card-spots-left"><strong id="spots2">35</strong> pre-pay spots left</div>
+      </div>
+    </div>
+
+    <!-- FLIGHT 3: ROYAL FEAST -->
+    <div class="flight-card royal">
+      <div class="sold-out-overlay" id="sold3"><div class="sold-out-stamp">SOLD OUT</div></div>
+      <div class="card-crown">
+        <div class="crown-icon">&#128081;&#128081;&#128081;</div>
+        <div class="tier-number">3</div>
+      </div>
+      <div class="card-body">
+        <div class="flight-name">The Royal Feast</div>
+        <div class="flight-subtitle">You + Your Crew Eat Like Kings (3-4 People)</div>
+
+        <div class="price-compare">
+          <div class="price-col prepay">
+            <div class="price-col-label">&#9733; Pre-Pay</div>
+            <div class="price-col-amount">$64.99</div>
+            <div class="price-col-note">Save $10</div>
+          </div>
+          <div class="price-col door">
+            <div class="price-col-label">At the Door</div>
+            <div class="price-col-amount">$74.99</div>
+            <div class="price-col-note">No guarantee</div>
+          </div>
+        </div>
+        <div class="price-save">&#10003; $86 worth of food &mdash; guaranteed at the door</div>
+        <div class="first-drop-counter"><span class="dot"></span> <span id="drop3">9</span> of 10 pre-pay spots left</div>
+        <div class="drop-progress"><div class="drop-progress-fill" id="bar3" style="width: 10%"></div></div>
+        <div class="drop-progress-label"><span class="claimed"><span id="claimed3">1</span> claimed</span><span>10 total</span></div>
+
+        <div class="item-list">
+          <div class="item-row">
+            <span class="item-check">&#10003;</span>
+            <span class="item-name">King Smash Burger<br/><span class="item-desc">+ fries</span></span>
+            <span class="item-val">$13</span>
+          </div>
+          <div class="item-row">
+            <span class="item-check">&#10003;</span>
+            <span class="item-name">Taquito Michelada<br/><span class="item-desc">5 chicken taquitos</span></span>
+            <span class="item-val">$13</span>
+          </div>
+          <div class="item-row">
+            <span class="item-check">&#10003;</span>
+            <span class="item-name">Chorizo (Ground Beef) Loaded Fries<br/><span class="item-desc">Full loaded</span></span>
+            <span class="item-val">$13</span>
+          </div>
+          <div class="item-row">
+            <span class="item-check">&#10003;</span>
+            <span class="item-name">3x Drinks<br/><span class="item-desc">Mix &amp; match Mango Loca + Michelada</span></span>
+            <span class="item-val">$24</span>
+          </div>
+          <div class="item-row">
+            <span class="item-check">&#10003;</span>
+            <span class="item-name">3x Esquite Cups<br/><span class="item-desc">Secret menu item</span></span>
+            <span class="item-val">$15</span>
+          </div>
+          <div class="item-row">
+            <span class="item-check">&#10003;</span>
+            <span class="item-name">Gold Flan Royale<br/><span class="item-desc">Included &mdash; no add-on needed</span></span>
+            <span class="item-val">$8 <span class="included-badge">INCLUDED</span></span>
+          </div>
+        </div>
+
+        <div class="total-row">
+          <span class="total-label">Total if purchased separately:</span>
+          <span class="total-val">$86</span>
+        </div>
+
+        <a href="https://square.link/u/NRHEJ7yI" class="btn-claim pulse" id="btn3">Pre-Pay Royal Feast &mdash; $64.99 &rarr;</a>
+        <div class="card-spots-left"><strong id="spots3">9</strong> pre-pay spots left &mdash; feeds 3-4 people</div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="decision-helper">Not sure? <strong>King's Table is the move.</strong> 2 mains + 2 drinks + 2 esquites + flan option for $36.99.</p>
+</section>
+
+<!-- TIMELINE -->
 <section class="timeline-section">
-  <h2 class="section-title">How The Drop Works</h2>
+  <h2 class="section-title">How It Works</h2>
   <div class="timeline">
     <div class="timeline-step">
       <div class="timeline-rail">
@@ -477,20 +1393,21 @@ body {
         <div class="timeline-line"></div>
       </div>
       <div class="timeline-content">
-        <div class="timeline-label">Join the Waitlist</div>
-        <div class="timeline-date">Now</div>
-        <div class="timeline-desc">Takes 10 seconds. Drop your email and phone. You're in.</div>
+        <div class="timeline-label">Pick Your Flight</div>
+        <div class="timeline-date">3 Tiers &mdash; Starting at $14.99</div>
+        <div class="timeline-desc">The Taste, King's Table, or Royal Feast. Choose what fits you.</div>
+        <div class="timeline-urgency">60 spots total &mdash; going fast</div>
       </div>
     </div>
     <div class="timeline-step">
       <div class="timeline-rail">
-        <div class="timeline-dot future">2</div>
+        <div class="timeline-dot">2</div>
         <div class="timeline-line"></div>
       </div>
       <div class="timeline-content">
-        <div class="timeline-label">Waitlist Gets First Pick</div>
-        <div class="timeline-date">February 22</div>
-        <div class="timeline-desc">Exclusive early access to flights + best pricing. Not on the list? You wait.</div>
+        <div class="timeline-label">Pre-Pay &amp; Save Up to 30%</div>
+        <div class="timeline-date">Online Only &mdash; Limited Spots</div>
+        <div class="timeline-desc">Pre-pay online = guaranteed food + best price. At the door it's full price, first come first serve.</div>
       </div>
     </div>
     <div class="timeline-step">
@@ -498,31 +1415,42 @@ body {
         <div class="timeline-dot future">3</div>
       </div>
       <div class="timeline-content">
-        <div class="timeline-label">Opens to Everyone</div>
-        <div class="timeline-date">February 24</div>
-        <div class="timeline-desc">Whatever's left goes public. Event #1 sold out before this stage.</div>
+        <div class="timeline-label">Show Up &amp; Eat</div>
+        <div class="timeline-date">Friday, Feb 27 &mdash; 9:30 PM</div>
+        <div class="timeline-desc">Creative Labs, Alpharetta. Yes, there's a line &mdash; that's how you know it's good. <strong>But your food? Already guaranteed.</strong></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SCREEN 4: BOTTOM FORM + FAQ -->
+<!-- BOTTOM CTA + FAQ -->
 <section class="bottom-section">
-  <div class="bottom-form-wrap" id="waitlist-bottom">
-    <h2>Don't Wait For Feb 24.</h2>
-    <p class="form-sub">Waitlist members see everything first. Flights, pricing, menu – before anyone else.</p>
-    <form class="waitlist-form" action="#" method="POST">
-      <input type="email" name="email" placeholder="Email" required autocomplete="email" />
-      <input type="tel" name="phone" placeholder="Phone Number" required autocomplete="tel" />
-      <button type="submit" class="btn-primary">Join the VIP Waitlist &rarr;</button>
+  <div class="bottom-cta-wrap">
+    <h2>Still Here? That Means You Want In.</h2>
+    <p class="form-sub">Event #1 sold out in 48 hours. <strong>Pre-pay now or pay more at the door.</strong></p>
+    <a href="#flights" class="btn-claim pulse">See All 3 Flights &mdash; Starting at $14.99 &rarr;</a>
+    <p class="form-microcopy">60 spots. When they're gone, they're gone.</p>
+  </div>
+
+  <!-- SMS CAPTURE: Not ready to pre-pay -->
+  <div style="max-width: 400px; margin: 28px auto; text-align: center; background: var(--bg-card); border-radius: var(--radius-lg); padding: 24px 20px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);">
+    <p style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--text-primary); margin-bottom: 4px;">Not Ready to Pre-Pay?</p>
+    <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5;">Drop your number. We'll text you before spots run out.</p>
+    <form id="smsForm" onsubmit="handleSmsSubmit(event)" style="display: flex; gap: 10px;">
+      <input type="tel" name="phone" placeholder="Phone number" required autocomplete="tel" style="flex: 1; padding: 14px 16px; border: 2px solid var(--border); border-radius: 10px; font-size: 16px; font-family: 'DM Sans', sans-serif;" />
+      <button type="submit" style="padding: 14px 20px; background: var(--green); color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; font-family: 'DM Sans', sans-serif; cursor: pointer; white-space: nowrap;">Text Me &rarr;</button>
     </form>
-    <p class="form-microcopy">We text you. We don't spam you.</p>
+    <div id="smsSuccess" style="display: none; padding: 20px 16px; background: #f0fdf4; border: 2px solid var(--green); border-radius: 12px; text-align: center;">
+      <div style="font-size: 28px; margin-bottom: 6px;">✅</div>
+      <div style="color: var(--green); font-weight: 800; font-size: 17px; margin-bottom: 4px;">You're on the list!</div>
+      <div style="color: #555; font-size: 14px;">We'll text you before spots run out.</div>
+    </div>
   </div>
 
   <h3 class="faq-title">Questions</h3>
   <details class="faq-item">
     <summary>Where is Event #2?</summary>
-    <div class="faq-answer">Alpharetta, GA 30004. Exact address is shared after you secure your flight. Same area as Event #1.</div>
+    <div class="faq-answer">Creative Labs, 6180 Atlanta Hwy, Alpharetta, GA 30004. Same area as Event #1.</div>
   </details>
   <details class="faq-item">
     <summary>Is everything really 100% Halal?</summary>
@@ -530,63 +1458,270 @@ body {
   </details>
   <details class="faq-item">
     <summary>What are taquitos?</summary>
-    <div class="faq-answer">Taquitos are crispy, golden rolled tortillas stuffed with seasoned chicken and deep-fried until crunchy. Think of them as the crunchiest, most satisfying chicken roll you've ever had. In our Taquito Michelada, they're stacked right on top of a halal michelada â€” sip it, dip it, devour it.</div>
+    <div class="faq-answer">Taquitos are crispy, golden rolled tortillas stuffed with seasoned chicken and deep-fried until crunchy. Think of them as the crunchiest, most satisfying chicken roll you've ever had. In our Taquito Michelada, they're stacked right on top of a halal michelada &mdash; sip it, dip it, devour it.</div>
   </details>
   <details class="faq-item">
     <summary>What is chorizo?</summary>
-    <div class="faq-answer">Chorizo is bold, juicy Mexican-seasoned ground beef packed with smoky spices and a little heat. It's not dry or hard â€” it's rich, crumbly, and loaded with flavor. Our Loaded Chorizo Fries are smothered in it with melted cheese on top.</div>
+    <div class="faq-answer">Chorizo is bold, juicy Mexican-seasoned ground beef packed with smoky spices and a little heat. It's not dry or hard &mdash; it's rich, crumbly, and loaded with flavor. Our Loaded Chorizo Fries are smothered in it with melted cheese on top.</div>
   </details>
   <details class="faq-item">
     <summary>What is a Halal Michelada?</summary>
-    <div class="faq-answer">A Michelada is a classic Mexican drink that's tangy, savory, and refreshing â€” usually made with beer. Ours is 100% halal and zero alcohol. Same bold flavor â€” lime, chili, spices â€” without compromising your values. Nobody else in Atlanta is doing this.</div>
+    <div class="faq-answer">A Michelada is a classic Mexican drink that's tangy, savory, and refreshing &mdash; usually made with beer. Ours is 100% halal and zero alcohol. Same bold flavor &mdash; lime, chili, spices &mdash; without compromising your values. Nobody else in Atlanta is doing this.</div>
   </details>
   <details class="faq-item">
-    <summary>What if I miss the waitlist drop?</summary>
-    <div class="faq-answer">You'll have to wait until Feb 24 when remaining flights open to the public. But at Event #1, everything sold out before the public link went live. The safest move is to get on the list now.</div>
+    <summary>What if I don't pre-pay?</summary>
+    <div class="faq-answer">You can still come and pay at the door &mdash; but it's full price ($22.99/$44.99/$74.99) and first come, first serve. If your flight sells out online, there's no guarantee at the door. The safest move is to pre-pay now.</div>
   </details>
   <details class="faq-item">
     <summary>Is there seating?</summary>
-    <div class="faq-answer">Limited tables on a first-come, first-served basis. Most guests enjoy the street-food experience â€” grab a table if one's open, or enjoy your flight from the car.</div>
+    <div class="faq-answer">Limited tables on a first-come, first-served basis. Most guests enjoy the street-food experience &mdash; grab a table if one's open, or enjoy your flight from the car.</div>
   </details>
   <details class="faq-item">
     <summary>What about weather?</summary>
-    <div class="faq-answer">Outdoor event, so dress for the forecast. Atlanta evenings can get cool â€” bring a jacket so you can enjoy your flight comfortably.</div>
+    <div class="faq-answer">Outdoor event, so dress for the forecast. Atlanta evenings can get cool &mdash; bring a jacket so you can enjoy your flight comfortably.</div>
+  </details>
+  <details class="faq-item">
+    <summary>Are there restrooms on site?</summary>
+    <div class="faq-answer">No permanent restrooms at this location. Plan accordingly before you arrive. The event is about 1–2 hours, so you'll be fine.</div>
+  </details>
+  <details class="faq-item">
+    <summary>What if I can't make it?</summary>
+    <div class="faq-answer">Pre-pay flights are non-refundable but fully transferable. Send a friend, or hold your credit toward Event #3. Text us at <a href="tel:1-678-208-8774" style="color: var(--green); font-weight: 600;">1-678-208-8774</a> before Feb 26.</div>
   </details>
 </section>
 
+<!-- MAP -->
+<div style="padding: 0 20px 0; max-width: 600px; margin: 0 auto;">
+  <h2 class="section-title" style="margin-bottom: 12px;">Find Us</h2>
+  <div style="border-radius: 12px; overflow: hidden; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);">
+    <iframe
+      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.5!2d-84.2529415!3d34.1326134!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f575ba909d8ebb%3A0x1481abb5ba2168b9!2sCreative%20Labs%20Center!5e0!3m2!1sen!2sus!4v1"
+      width="100%"
+      height="250"
+      style="border:0; display:block;"
+      allowfullscreen=""
+      loading="lazy"
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Elote King Event #2 location — 6180 Atlanta Hwy, Alpharetta GA 30004"
+    ></iframe>
+  </div>
+  <p style="text-align: center; font-size: 14px; color: var(--text-muted); margin-top: 10px;">6180 Atlanta Hwy, Alpharetta, GA 30004</p>
+</div>
+
 <!-- TRUST BAR -->
 <div class="trust-bar">
-  100% Zabiha Halal <span>&bull;</span> Muslim-Owned <span>&bull;</span> Zero Alcohol <span>&bull;</span> Alpharetta 30004
+  100% Zabiha Halal <span>&bull;</span> Muslim-Owned <span>&bull;</span> Zero Alcohol
+  <br/><span style="color: var(--text-muted); font-weight: 500; font-size: 13px;">Creative Labs, 6180 Atlanta Hwy, Alpharetta, GA 30004</span>
 </div>
 
 <!-- FOOTER -->
-<div class="footer" style="padding-bottom: 80px;">
+<footer class="footer">
   <p>&copy; 2026 Elote King Atlanta. All rights reserved.</p>
-  <p style="margin-top:6px;"><a href="https://www.elotekingatlanta.com">EloteKingAtlanta.com</a> &nbsp;&bull;&nbsp; <a href="tel:1-678-208-8774">1-678-208-8774</a></p>
+  <p class="footer-links"><a href="https://www.elotekingatlanta.com">EloteKingAtlanta.com</a> &nbsp;&bull;&nbsp; <a href="tel:1-678-208-8774">1-678-208-8774</a></p>
+</footer>
+
+<!-- PROOF TOAST (above sticky bar) -->
+<div class="proof-toast" id="proofToast" role="alert" aria-live="assertive">
+  <span class="proof-emoji" id="proofEmoji"></span>
+  <div>
+    <div class="proof-msg" id="proofMsg"></div>
+    <div class="proof-time" id="proofTime"></div>
+  </div>
 </div>
 
 <!-- STICKY BAR -->
+<!-- WHATSAPP FLOAT BUTTON -->
+<a href="https://chat.whatsapp.com/FW42VSUlRdd8JuSnZ4hDWA?mode=gi_t"
+   target="_blank"
+   rel="noopener noreferrer"
+   aria-label="Join our WhatsApp group"
+   style="position:fixed;bottom:160px;right:16px;z-index:9999;display:flex;align-items:center;gap:8px;background:#25D366;color:#fff;text-decoration:none;padding:10px 16px;border-radius:50px;box-shadow:0 4px 16px rgba(0,0,0,0.2);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:700;">
+  <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+  <span style="display:flex;flex-direction:column;line-height:1.2;">
+    <span style="font-size:13px;font-weight:900;">Join the Group</span>
+    <span style="font-size:13px;font-weight:400;color:rgba(255,255,255,0.9);">Drop updates &amp; event info</span>
+  </span>
+</a>
+
 <div class="sticky-bar">
-  <a href="#waitlist">Join the Waitlist &rarr;</a>
+  <div class="sticky-inner">
+    <div class="sticky-info">
+      <strong id="stickySpots">52</strong>
+      pre-pay spots left
+    </div>
+    <a href="#menu" id="stickyCta">Lock In Your Flight &mdash; Save up to 42% &rarr;</a>
+  </div>
 </div>
 
 <script>
-function toggleVideo() {
-  const v = document.getElementById('heroVideo');
-  const w = document.getElementById('videoWrap');
-  if (v.paused) { v.muted = false; v.play(); w.classList.add('playing'); }
-  else { v.pause(); v.muted = true; w.classList.remove('playing'); }
+// ===== COUNTDOWN TIMER =====
+var EVENT_DEADLINE = new Date('2026-02-27T21:30:00-05:00').getTime();
+
+function updateCountdown() {
+  var now = Date.now();
+  var diff = EVENT_DEADLINE - now;
+  if (diff <= 0) {
+    document.getElementById('urgencyCountdown').textContent = 'TONIGHT';
+    return;
+  }
+  var d = Math.floor(diff / 86400000);
+  var h = Math.floor((diff % 86400000) / 3600000);
+  var m = Math.floor((diff % 3600000) / 60000);
+  var s = Math.floor((diff % 60000) / 1000);
+  document.getElementById('urgencyCountdown').textContent = d + 'd ' + h + 'h ' + m + 'm ' + s + 's';
 }
-// Hide play button when video starts autoplay
-document.addEventListener('DOMContentLoaded', function() {
-  const v = document.getElementById('heroVideo');
-  const w = document.getElementById('videoWrap');
-  if (!v.paused) { w.classList.add('playing'); }
-  v.addEventListener('play', function() { w.classList.add('playing'); });
-  v.addEventListener('pause', function() { w.classList.remove('playing'); });
+updateCountdown();
+var countdownInterval = setInterval(updateCountdown, 1000);
+document.addEventListener('visibilitychange', function() {
+  if (document.hidden) {
+    clearInterval(countdownInterval);
+  } else {
+    updateCountdown();
+    countdownInterval = setInterval(updateCountdown, 1000);
+  }
 });
+
+// ===== PROGRESS BARS + INVENTORY =====
+// Pre-pay spots per tier: The Taste = 10, King's Table = 40, Royal Feast = 10
+// UPDATE THESE AS SALES COME IN:
+var tierTotals = { 1: 10, 2: 40, 3: 10 };
+var dropClaimed = { 1: 2, 2: 5, 3: 1 };
+
+function updateBars() {
+  var totalLeft = 0;
+  for (var i = 1; i <= 3; i++) {
+    var total = tierTotals[i];
+    var claimed = dropClaimed[i];
+    var left = total - claimed;
+    var pct = (claimed / total) * 100;
+    document.getElementById('bar' + i).style.width = pct + '%';
+    document.getElementById('bar' + i).style.backgroundPosition = (100 - pct) + '% 0';
+    document.getElementById('drop' + i).textContent = left;
+    document.getElementById('claimed' + i).textContent = claimed;
+    var spotsEl = document.getElementById('spots' + i);
+    if (spotsEl) spotsEl.textContent = left;
+    totalLeft += left;
+    if (left <= 0) {
+      var overlay = document.getElementById('sold' + i);
+      if (overlay) overlay.classList.add('show');
+      var btn = document.getElementById('btn' + i);
+      if (btn) {
+        btn.classList.add('sold-out');
+        btn.classList.remove('pulse');
+        btn.textContent = 'SOLD OUT';
+        btn.onclick = function(e) { e.preventDefault(); };
+      }
+    }
+  }
+  document.getElementById('spotsLeft').textContent = totalLeft;
+  document.getElementById('stickySpots').textContent = totalLeft;
+}
+updateBars();
+
+// ===== PROOF TOAST =====
+function getProofMessages() {
+  var t1Left = tierTotals[1] - dropClaimed[1];
+  var t2Left = tierTotals[2] - dropClaimed[2];
+  var t3Left = tierTotals[3] - dropClaimed[3];
+  return [
+    { emoji: '\uD83D\uDD25', text: 'Someone in Alpharetta just locked in King\u2019s Table \u2014 ' + t2Left + ' left', time: 'just now' },
+    { emoji: '\uD83D\uDC51', text: 'Royal Feast locked in from Johns Creek \u2014 only ' + t3Left + ' left', time: '2 min ago' },
+    { emoji: '\uD83C\uDF2E', text: 'The Taste just got grabbed in Roswell \u2014 ' + t1Left + ' left', time: '4 min ago' },
+    { emoji: '\uD83D\uDD25', text: 'Someone in Milton just locked in King\u2019s Table \u2014 ' + t2Left + ' left', time: 'just now' },
+    { emoji: '\uD83C\uDF2E', text: 'The Taste locked in from Duluth \u2014 ' + t1Left + ' left', time: '3 min ago' },
+    { emoji: '\uD83D\uDC51', text: 'Royal Feast locked in from Sandy Springs \u2014 ' + t3Left + ' left', time: '6 min ago' },
+    { emoji: '\uD83D\uDD25', text: 'King\u2019s Table just locked in from Cumming \u2014 ' + t2Left + ' left', time: 'just now' },
+    { emoji: '\uD83C\uDF2E', text: 'Someone in Suwanee just grabbed The Taste \u2014 ' + t1Left + ' left', time: '2 min ago' },
+  ];
+}
+var proofIndex = 0;
+var proofToast = document.getElementById('proofToast');
+var proofEmoji = document.getElementById('proofEmoji');
+var proofMsg = document.getElementById('proofMsg');
+var proofTime = document.getElementById('proofTime');
+
+function showProofToast() {
+  var messages = getProofMessages();
+  var msg = messages[proofIndex % messages.length];
+  proofEmoji.textContent = msg.emoji;
+  proofMsg.textContent = msg.text;
+  proofTime.textContent = msg.time;
+  proofToast.classList.add('show');
+  setTimeout(function() {
+    proofToast.classList.remove('show');
+  }, 6000);
+  proofIndex++;
+}
+
+setTimeout(function() {
+  showProofToast();
+  setInterval(function() {
+    setTimeout(showProofToast, Math.random() * 5000);
+  }, 12000);
+}, 5000);
+
+// ===== VIDEO AUTOPLAY =====
+var heroVid = document.querySelector('#heroVideo');
+var vidWrap = document.getElementById('videoWrap');
+
+if (heroVid && vidWrap) {
+  heroVid.muted = true;
+  heroVid.loop = true;
+  heroVid.playsInline = true;
+  heroVid.setAttribute('playsinline', '');
+  heroVid.setAttribute('webkit-playsinline', '');
+
+  function tryPlay() {
+    var p = heroVid.play();
+    if (p && p.catch) p.catch(function() {});
+  }
+
+  function updatePlayState() {
+    if (!heroVid.paused) vidWrap.classList.add('playing');
+    else vidWrap.classList.remove('playing');
+  }
+  heroVid.addEventListener('play', updatePlayState);
+  heroVid.addEventListener('pause', updatePlayState);
+
+  // Let IntersectionObserver handle play — saves 5.4MB on initial load
+  if ('IntersectionObserver' in window) {
+    var obs = new IntersectionObserver(function(entries) {
+      if (entries[0].isIntersecting) tryPlay();
+    }, { threshold: 0.3 });
+    obs.observe(vidWrap);
+  }
+
+  // Also try on first user interaction as fallback
+  document.addEventListener('touchstart', function startVid() {
+    tryPlay();
+    document.removeEventListener('touchstart', startVid);
+  }, { once: true });
+
+  updatePlayState();
+}
+
+// ===== SMS CAPTURE FORM =====
+function handleSmsSubmit(e) {
+  e.preventDefault();
+  var form = document.getElementById('smsForm');
+  var phone = form.querySelector('input[name="phone"]').value;
+
+  // FORMSPREE: replace FORMSPREE_ID below with your form ID from formspree.io
+  var formspreeId = 'xzdaagpz';
+  if (formspreeId !== 'FORMSPREE_ID') {
+    fetch('https://formspree.io/f/' + formspreeId, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+      body: JSON.stringify({ phone: phone, source: 'sms-capture', timestamp: new Date().toISOString() })
+    }).catch(function() {});
+  }
+
+  form.style.display = 'none';
+  document.getElementById('smsSuccess').style.display = 'block';
+}
 </script>
 
 </body>
 </html>
-

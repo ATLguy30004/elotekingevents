@@ -1,0 +1,385 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Elote King — Payment Link Cards</title>
+<meta name="robots" content="noindex, nofollow" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: #1a1a1a;
+  display: flex; flex-direction: column;
+  align-items: center; padding: 40px 16px;
+  gap: 60px;
+}
+.label {
+  color: #aaa; font-size: 13px; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 1px;
+  margin-bottom: -48px; text-align: center;
+  background: #333; padding: 6px 16px; border-radius: 6px;
+}
+
+/* ===== CARD ===== */
+.card {
+  width: 400px; max-width: 100%;
+  background: #111;
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid #2a2a2a;
+}
+
+/* Top section */
+.card-top {
+  padding: 22px 24px 16px;
+  text-align: center;
+}
+.card-top.t1 { background: linear-gradient(160deg, #0f1f0f 0%, #162816 100%); }
+.card-top.t2 { background: linear-gradient(160deg, #0a1a0a 0%, #0d220d 100%); border-top: 4px solid #16a34a; }
+.card-top.t3 { background: linear-gradient(160deg, #1a1408 0%, #261e0a 100%); border-top: 4px solid #d4a017; }
+
+.brand-row {
+  display: flex; align-items: center;
+  justify-content: center; gap: 8px;
+  margin-bottom: 12px;
+}
+.brand-name {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px; color: #fff; letter-spacing: 3px;
+}
+.halal-tag {
+  font-size: 10px; font-weight: 800;
+  background: #16a34a; color: #fff;
+  padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; letter-spacing: 0.5px;
+}
+
+.crown-row {
+  font-size: 28px; margin-bottom: 4px; line-height: 1;
+}
+.tier-num {
+  font-size: 11px; font-weight: 800; color: #888;
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 2px;
+}
+.card-title {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 38px; color: #fff; line-height: 1;
+  letter-spacing: 1px; margin-bottom: 4px;
+}
+.card-subtitle {
+  font-size: 14px; color: #22c55e; font-weight: 600; margin-bottom: 12px;
+}
+.card-subtitle.gold { color: #d4a017; }
+
+.price-row {
+  display: flex; align-items: center;
+  justify-content: center; gap: 10px;
+}
+.prepay-price {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 44px; color: #22c55e; line-height: 1;
+}
+.price-meta { text-align: left; }
+.door-price {
+  font-size: 14px; color: #666;
+  text-decoration: line-through; display: block;
+}
+.save-tag {
+  font-size: 11px; font-weight: 800;
+  background: #16a34a; color: #fff;
+  padding: 3px 8px; border-radius: 4px;
+  text-transform: uppercase; display: inline-block; margin-top: 2px;
+}
+.save-tag.gold-tag { background: #d4a017; }
+
+/* Popular strip */
+.popular-strip {
+  background: #16a34a; color: #fff;
+  text-align: center; padding: 8px;
+  font-size: 12px; font-weight: 800;
+  letter-spacing: 1.5px; text-transform: uppercase;
+}
+
+/* Event bar */
+.event-bar {
+  background: #0a0a0a; padding: 10px 20px;
+  font-size: 13px; font-weight: 700; color: #888;
+  text-align: center; line-height: 1.5;
+}
+.event-bar .g { color: #22c55e; }
+
+/* Items */
+.items-section { padding: 16px 22px 4px; }
+.items-label {
+  font-size: 11px; font-weight: 800; color: #22c55e;
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;
+}
+.items-label.gold { color: #d4a017; }
+
+.choose-box {
+  background: #1a1a1a; border: 1px solid #2a2a2a;
+  border-radius: 10px; padding: 12px 14px; margin-bottom: 12px;
+}
+.choose-title {
+  font-size: 11px; font-weight: 800; color: #fff;
+  text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px;
+}
+.choose-item {
+  display: flex; gap: 8px; align-items: flex-start; padding: 3px 0;
+  font-size: 14px; color: #ddd; font-weight: 600;
+}
+.ci { color: #16a34a; flex-shrink: 0; margin-top: 2px; }
+
+.item-row {
+  display: flex; align-items: flex-start; gap: 8px; padding: 5px 0;
+  border-bottom: 1px solid #1e1e1e;
+}
+.item-row:last-child { border-bottom: none; }
+.ic { color: #16a34a; font-size: 14px; flex-shrink: 0; margin-top: 2px; }
+.it { font-size: 15px; color: #fff; font-weight: 600; line-height: 1.3; }
+.it .d { display: block; font-size: 12px; color: #888; font-weight: 500; }
+.it .inc {
+  font-size: 10px; font-weight: 800; color: #22c55e;
+  background: rgba(34,197,94,0.15); padding: 2px 6px;
+  border-radius: 3px; margin-left: 4px;
+}
+
+/* Total */
+.total-bar {
+  margin: 0 22px 14px;
+  background: rgba(22,163,74,0.1); border: 1px solid rgba(22,163,74,0.3);
+  border-radius: 8px; padding: 10px 14px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.total-bar.gold-bar {
+  background: rgba(212,160,23,0.1); border-color: rgba(212,160,23,0.3);
+}
+.tl { font-size: 13px; color: #888; font-weight: 600; }
+.tv { font-size: 18px; font-weight: 800; color: #22c55e; }
+.tv.gold { color: #d4a017; }
+
+/* Flan add-on */
+.flan-row {
+  margin: 0 22px 14px;
+  background: #1a1a1a; border: 1px dashed #333;
+  border-radius: 8px; padding: 10px 14px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.fl-label { font-size: 13px; color: #aaa; font-weight: 600; }
+.fl-label span { display: block; font-size: 11px; color: #666; }
+.fl-price { font-size: 16px; color: #d4a017; font-weight: 800; }
+
+/* Footer */
+.card-bottom {
+  padding: 10px 22px 14px;
+  background: #0a0a0a; text-align: center;
+}
+.trust { font-size: 12px; color: #666; font-weight: 600; letter-spacing: 0.5px; }
+.trust span { color: #22c55e; }
+</style>
+</head>
+<body>
+
+<p style="color:#888;font-size:13px;text-align:center;max-width:380px;line-height:1.6;">Open DevTools → right-click each card → Inspect → set width to 400px → screenshot each card individually for Square.</p>
+
+<!-- ============================= -->
+<!-- CARD 1: THE TASTE             -->
+<!-- ============================= -->
+<div class="label">Screenshot 1 — The Taste ($14.99)</div>
+
+<div class="card">
+  <div class="card-top t1">
+    <div class="brand-row">
+      <span class="brand-name">ELOTE KING</span>
+      <span class="halal-tag">Zabiha Halal</span>
+    </div>
+    <div class="crown-row">&#128081;</div>
+    <div class="tier-num">Tier 1</div>
+    <div class="card-title">The Taste</div>
+    <div class="card-subtitle">Your First Bite of the King</div>
+    <div class="price-row">
+      <span class="prepay-price">$14.99</span>
+      <div class="price-meta">
+        <span class="door-price">$22.99 at door</span>
+        <span class="save-tag">Save $8</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-bar">
+    <span class="g">Fri Feb 27</span> &bull; 9:30 PM &bull; Creative Labs, Alpharetta GA
+  </div>
+
+  <div class="items-section">
+    <div class="choose-box">
+      <div class="choose-title">Pick Your Main (Choose 1)</div>
+      <div class="choose-item"><span class="ci">&#9679;</span> King Smash Burger + fries</div>
+      <div class="choose-item"><span class="ci">&#9679;</span> Taquito Michelada — 5 chicken taquitos</div>
+      <div class="choose-item"><span class="ci">&#9679;</span> Chorizo (Ground Beef) Loaded Fries</div>
+    </div>
+
+    <div class="items-label">Also Included</div>
+    <div class="item-row">
+      <span class="ic">&#10003;</span>
+      <span class="it">1 Drink <span class="d">Mango Loca or Michelada</span></span>
+    </div>
+    <div class="item-row">
+      <span class="ic">&#10003;</span>
+      <span class="it">Esquite Cup <span class="d">Secret menu item</span></span>
+    </div>
+  </div>
+
+  <div class="flan-row">
+    <div class="fl-label">Gold Flan Royale <span>Add creamy caramel custard</span></div>
+    <div class="fl-price">+$8</div>
+  </div>
+
+  <div class="total-bar">
+    <span class="tl">A la carte value:</span>
+    <span class="tv">$26</span>
+  </div>
+
+  <div class="card-bottom">
+    <div class="trust"><span>&#10003;</span> Zabiha Halal &bull; Muslim-Owned &bull; Zero Alcohol</div>
+  </div>
+</div>
+
+
+<!-- ============================= -->
+<!-- CARD 2: THE KING'S TABLE      -->
+<!-- ============================= -->
+<div class="label">Screenshot 2 — King's Table ($36.99)</div>
+
+<div class="card">
+  <div class="popular-strip">&#9733; MOST POPULAR &mdash; BEST VALUE &#9733;</div>
+  <div class="card-top t2">
+    <div class="brand-row">
+      <span class="brand-name">ELOTE KING</span>
+      <span class="halal-tag">Zabiha Halal</span>
+    </div>
+    <div class="crown-row">&#128081;&#128081;</div>
+    <div class="tier-num">Tier 2</div>
+    <div class="card-title">The King's Table</div>
+    <div class="card-subtitle">The One You Actually Want</div>
+    <div class="price-row">
+      <span class="prepay-price">$36.99</span>
+      <div class="price-meta">
+        <span class="door-price">$44.99 at door</span>
+        <span class="save-tag">Save $8</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-bar">
+    <span class="g">Fri Feb 27</span> &bull; 9:30 PM &bull; Creative Labs, Alpharetta GA
+  </div>
+
+  <div class="items-section">
+    <div class="choose-box">
+      <div class="choose-title">Pick Your Mains (Choose 2)</div>
+      <div class="choose-item"><span class="ci">&#9679;</span> King Smash Burger + fries</div>
+      <div class="choose-item"><span class="ci">&#9679;</span> Taquito Michelada — 5 chicken taquitos</div>
+      <div class="choose-item"><span class="ci">&#9679;</span> Chorizo (Ground Beef) Loaded Fries</div>
+    </div>
+
+    <div class="items-label">Also Included</div>
+    <div class="item-row">
+      <span class="ic">&#10003;</span>
+      <span class="it">2 Drinks <span class="d">Mango Loca or Michelada</span></span>
+    </div>
+    <div class="item-row">
+      <span class="ic">&#10003;</span>
+      <span class="it">2 Esquite Cups <span class="d">Secret menu item</span></span>
+    </div>
+  </div>
+
+  <div class="flan-row">
+    <div class="fl-label">Gold Flan Royale <span>Add creamy caramel custard</span></div>
+    <div class="fl-price">+$8</div>
+  </div>
+
+  <div class="total-bar">
+    <span class="tl">A la carte value:</span>
+    <span class="tv">$52</span>
+  </div>
+
+  <div class="card-bottom">
+    <div class="trust"><span>&#10003;</span> Zabiha Halal &bull; Muslim-Owned &bull; Zero Alcohol</div>
+  </div>
+</div>
+
+
+<!-- ============================= -->
+<!-- CARD 3: THE ROYAL FEAST       -->
+<!-- ============================= -->
+<div class="label">Screenshot 3 — Royal Feast ($64.99)</div>
+
+<div class="card">
+  <div class="card-top t3">
+    <div class="brand-row">
+      <span class="brand-name">ELOTE KING</span>
+      <span class="halal-tag">Zabiha Halal</span>
+    </div>
+    <div class="crown-row">&#128081;&#128081;&#128081;</div>
+    <div class="tier-num">Tier 3</div>
+    <div class="card-title">The Royal Feast</div>
+    <div class="card-subtitle gold">You + Your Crew Eat Like Kings (3–4 People)</div>
+    <div class="price-row">
+      <span class="prepay-price" style="color:#d4a017;">$64.99</span>
+      <div class="price-meta">
+        <span class="door-price">$74.99 at door</span>
+        <span class="save-tag gold-tag">Save $10</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-bar">
+    <span class="g">Fri Feb 27</span> &bull; 9:30 PM &bull; Creative Labs, Alpharetta GA
+  </div>
+
+  <div class="items-section">
+    <div class="items-label gold">Everything Included</div>
+    <div class="item-row">
+      <span class="ic">&#10003;</span>
+      <span class="it">King Smash Burger <span class="d">+ fries</span></span>
+    </div>
+    <div class="item-row">
+      <span class="ic">&#10003;</span>
+      <span class="it">Taquito Michelada <span class="d">5 chicken taquitos</span></span>
+    </div>
+    <div class="item-row">
+      <span class="ic">&#10003;</span>
+      <span class="it">Chorizo (Ground Beef) Loaded Fries</span>
+    </div>
+    <div class="item-row">
+      <span class="ic">&#10003;</span>
+      <span class="it">3 Drinks <span class="d">Mix &amp; match Mango Loca + Michelada</span></span>
+    </div>
+    <div class="item-row">
+      <span class="ic">&#10003;</span>
+      <span class="it">3 Esquite Cups <span class="d">Secret menu item</span></span>
+    </div>
+    <div class="item-row">
+      <span class="ic">&#10003;</span>
+      <span class="it">Gold Flan Royale <span class="inc">INCLUDED</span><span class="d">No add-on needed</span></span>
+    </div>
+  </div>
+
+  <div class="total-bar gold-bar">
+    <span class="tl">A la carte value:</span>
+    <span class="tv gold">$86</span>
+  </div>
+
+  <div class="card-bottom">
+    <div class="trust"><span>&#10003;</span> Zabiha Halal &bull; Muslim-Owned &bull; Zero Alcohol</div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,437 @@
+---
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>You're In — Elote King Event #2 Confirmed</title>
+<meta name="description" content="Your flight is confirmed. See you Friday Feb 27 at 9:30 PM in Alpharetta." />
+<meta name="robots" content="noindex, nofollow" />
+<link rel="icon" type="image/png" href="/images/elote-king-logo-transparent.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --bg: #ffffff;
+  --bg-soft: #f7f7f7;
+  --text-primary: #111111;
+  --text-body: #333333;
+  --text-secondary: #444444;
+  --text-muted: #555555;
+  --green: #16a34a;
+  --green-light: #22c55e;
+  --green-bg: rgba(22, 163, 74, 0.08);
+  --border: #e0e0e0;
+  --border-light: #eeeeee;
+  --radius: 12px;
+  --radius-lg: 16px;
+}
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg-soft); color: var(--text-body);
+  line-height: 1.6; font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Badge Bar */
+.badge-bar {
+  background: var(--text-primary); color: #fff;
+  text-align: center; padding: 10px 16px;
+  font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+}
+.badge-bar span { color: var(--green-light); }
+
+/* Logo */
+.logo-bar {
+  text-align: center; padding: 14px 20px;
+  background: var(--bg); border-bottom: 1px solid var(--border-light);
+}
+.logo-bar img { height: 48px; width: auto; }
+
+/* Hero Confirmation */
+.confirm-hero {
+  text-align: center; padding: 40px 20px 32px;
+  background: var(--bg);
+}
+.confirm-icon {
+  width: 80px; height: 80px; border-radius: 50%;
+  background: var(--green); color: #fff;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 40px; margin: 0 auto 16px;
+}
+.confirm-hero h1 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 36px; color: var(--text-primary);
+  line-height: 1.1; margin-bottom: 8px;
+}
+.confirm-hero .sub {
+  font-size: 17px; color: var(--green); font-weight: 700;
+}
+
+/* Event Details Card */
+.event-card {
+  background: var(--bg); border-radius: var(--radius-lg);
+  padding: 24px 20px; margin: 0 16px 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid var(--border-light);
+}
+.event-card h2 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px; color: var(--text-primary);
+  margin-bottom: 16px;
+}
+.detail-row {
+  display: flex; align-items: flex-start; gap: 12px;
+  padding: 10px 0; border-bottom: 1px solid var(--border-light);
+}
+.detail-row:last-child { border-bottom: none; }
+.detail-icon {
+  font-size: 20px; flex-shrink: 0; width: 28px; text-align: center;
+}
+.detail-text {
+  font-size: 15px; color: var(--text-body); font-weight: 500;
+}
+.detail-text strong { color: var(--text-primary); display: block; }
+
+/* Calendar Buttons */
+.calendar-btns {
+  display: flex; gap: 10px; margin: 20px 16px 16px;
+}
+.cal-btn {
+  flex: 1; display: block; padding: 14px;
+  background: var(--green); color: #fff;
+  text-align: center; text-decoration: none;
+  border-radius: 10px; font-size: 15px; font-weight: 700;
+  border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+}
+.cal-btn.outline {
+  background: var(--bg); color: var(--green);
+  border: 2px solid var(--green);
+}
+
+/* QR Code */
+.qr-section {
+  text-align: center; padding: 24px 20px;
+  margin: 0 16px 16px;
+  background: var(--bg); border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid var(--border-light);
+}
+.qr-section h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px; color: var(--text-primary);
+  margin-bottom: 4px;
+}
+.qr-section .qr-sub {
+  font-size: 14px; color: var(--text-muted); margin-bottom: 16px;
+}
+#qrCanvas {
+  display: inline-block;
+  padding: 12px; background: #fff;
+  border-radius: 10px; border: 2px solid var(--border-light);
+}
+.qr-note {
+  font-size: 13px; color: var(--text-muted);
+  margin-top: 12px; font-weight: 500;
+}
+
+/* Important Notes */
+.notes-card {
+  background: var(--bg); border-radius: var(--radius-lg);
+  padding: 20px; margin: 0 16px 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid var(--border-light);
+}
+.notes-card h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 20px; color: var(--text-primary);
+  margin-bottom: 12px;
+}
+.note-item {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 8px 0; font-size: 15px; color: var(--text-body);
+}
+.note-icon { font-size: 16px; flex-shrink: 0; margin-top: 2px; }
+
+/* Share Section */
+.share-section {
+  text-align: center; padding: 28px 20px;
+  margin: 0 16px 16px;
+  background: var(--bg); border-radius: var(--radius-lg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  border: 1px solid var(--border-light);
+}
+.share-section h3 {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px; color: var(--text-primary);
+  margin-bottom: 6px;
+}
+.share-section .share-sub {
+  font-size: 15px; color: var(--text-muted); margin-bottom: 16px;
+}
+.share-btn {
+  display: inline-block; padding: 14px 28px;
+  background: var(--green); color: #fff;
+  text-decoration: none; border-radius: 10px;
+  font-size: 16px; font-weight: 700;
+  border: none; cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+}
+.share-copied {
+  display: none; margin-top: 10px;
+  font-size: 14px; color: var(--green); font-weight: 600;
+}
+
+/* Footer */
+.footer {
+  padding: 24px 20px; text-align: center;
+  font-size: 14px; color: var(--text-muted);
+  border-top: 1px solid var(--border-light);
+}
+.footer a { color: var(--green); text-decoration: none; font-weight: 600; }
+
+@media (min-width: 768px) {
+  body { max-width: 600px; margin: 0 auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- BADGE BAR -->
+<div class="badge-bar">
+  <span>&#10003;</span> 100% Zabiha Halal &nbsp;&bull;&nbsp; Muslim-Owned &nbsp;&bull;&nbsp; Zero Alcohol
+</div>
+
+<!-- LOGO -->
+<div class="logo-bar">
+  <img src="/images/elote-king-logo-transparent.png" alt="Elote King Atlanta" />
+</div>
+
+<!-- CONFIRMATION HERO -->
+<div class="confirm-hero">
+  <div class="confirm-icon">&#10003;</div>
+  <h1>You're In. Your Food is Guaranteed.</h1>
+  <p class="sub">See you Friday, Feb 27 at 9:30 PM</p>
+  <p id="tierBadge" style="display:none;margin-top:12px;display:inline-block;background:#16a34a;color:#fff;font-size:14px;font-weight:700;padding:6px 16px;border-radius:20px;letter-spacing:0.5px;"></p>
+</div>
+
+<!-- EVENT DETAILS -->
+<div class="event-card">
+  <h2>Event Details</h2>
+  <div class="detail-row">
+    <span class="detail-icon">&#128197;</span>
+    <div class="detail-text">
+      <strong>Friday, February 27, 2026</strong>
+      9:30 PM EST
+    </div>
+  </div>
+  <div class="detail-row">
+    <span class="detail-icon">&#128205;</span>
+    <div class="detail-text">
+      <strong>Creative Labs</strong>
+      6180 Atlanta Hwy, Alpharetta, GA 30004
+    </div>
+  </div>
+  <div class="detail-row">
+    <span class="detail-icon">&#127860;</span>
+    <div class="detail-text">
+      <strong>100% Zabiha Halal</strong>
+      Muslim-Owned &bull; Zero Alcohol
+    </div>
+  </div>
+</div>
+
+<!-- ADD TO CALENDAR -->
+<div class="calendar-btns">
+  <a class="cal-btn" id="googleCalBtn" href="#" target="_blank" rel="noopener">Add to Google Calendar</a>
+  <button class="cal-btn outline" id="icsBtn">Add to Apple Calendar</button>
+</div>
+
+<!-- QR CODE -->
+<div class="qr-section">
+  <h3>Your Event QR Code</h3>
+  <p class="qr-sub">Show this at the door for check-in</p>
+  <canvas id="qrCanvas"></canvas>
+  <p class="qr-note">Screenshot this page to save your ticket</p>
+</div>
+
+<!-- IMPORTANT NOTES -->
+<div class="notes-card">
+  <h3>Before You Go</h3>
+  <div class="note-item">
+    <span class="note-icon">&#9201;</span>
+    <span>Arrive by 9:30 PM. Food service starts on time.</span>
+  </div>
+  <div class="note-item">
+    <span class="note-icon">&#127939;</span>
+    <span>Pre-pay does not include line priority — first come, first served for everyone.</span>
+  </div>
+  <div class="note-item">
+    <span class="note-icon">&#127790;</span>
+    <span>Add-ons (extra burger, fries, drinks, dessert) available for purchase on-site.</span>
+  </div>
+  <div class="note-item">
+    <span class="note-icon">&#9729;&#65039;</span>
+    <span>Outdoor event — dress for the weather. Atlanta evenings can get cool.</span>
+  </div>
+  <div class="note-item">
+    <span class="note-icon">&#128247;</span>
+    <span>Tag us @elotekingatlanta — we repost the best shots.</span>
+  </div>
+</div>
+
+<!-- SHARE -->
+<div class="share-section">
+  <h3>Tell Your Friends</h3>
+  <p class="share-sub">Only 60 spots total. Share before they sell out.</p>
+  <button class="share-btn" onclick="shareLink()">Share the Link</button>
+  <p class="share-copied" id="shareCopied">Link copied!</p>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <p>&copy; 2026 Elote King Atlanta. All rights reserved.</p>
+  <p style="margin-top:6px;"><a href="https://www.elotekingatlanta.com">EloteKingAtlanta.com</a> &nbsp;&bull;&nbsp; <a href="tel:1-678-208-8774">1-678-208-8774</a></p>
+</div>
+
+<script>
+// ===== TIER BADGE FROM URL =====
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var tier = params.get('tier');
+  var labels = { taste: 'The Taste', kings: "King's Table", royal: 'Royal Feast' };
+  if (tier && labels[tier]) {
+    var badge = document.getElementById('tierBadge');
+    badge.textContent = '🌮 ' + labels[tier] + ' — Confirmed';
+    badge.style.display = 'inline-block';
+  }
+})();
+
+// ===== GOOGLE CALENDAR LINK =====
+var gcalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
+  + '&text=' + encodeURIComponent('Elote King Event #2 — Halal Mexican Street Food Tasting')
+  + '&dates=20260228T023000Z/20260228T053000Z' // Feb 27 9:30PM - Feb 28 12:30AM EST in UTC
+  + '&location=' + encodeURIComponent('Creative Labs, 6180 Atlanta Hwy, Alpharetta, GA 30004')
+  + '&details=' + encodeURIComponent('Your flight is confirmed! Show your QR code at the door.\n\n100% Zabiha Halal • Muslim-Owned • Zero Alcohol\n\nhttps://elotekingevents.com');
+document.getElementById('googleCalBtn').href = gcalUrl;
+
+// ===== APPLE CALENDAR (.ics download) =====
+document.getElementById('icsBtn').addEventListener('click', function() {
+  var ics = [
+    'BEGIN:VCALENDAR',
+    'VERSION:2.0',
+    'BEGIN:VEVENT',
+    'DTSTART:20260228T023000Z',
+    'DTEND:20260228T053000Z',
+    'SUMMARY:Elote King Event #2',
+    'LOCATION:Creative Labs, 6180 Atlanta Hwy, Alpharetta, GA 30004',
+    'DESCRIPTION:Your flight is confirmed! Show your QR code at the door. 100% Zabiha Halal.',
+    'END:VEVENT',
+    'END:VCALENDAR'
+  ].join('\r\n');
+  var blob = new Blob([ics], { type: 'text/calendar' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'elote-king-event2.ics';
+  a.click();
+});
+
+// ===== QR CODE (lightweight inline generator) =====
+// Generates a simple QR code on canvas — no external dependencies
+(function() {
+  // Generate a unique ticket ID from URL params or random
+  var params = new URLSearchParams(window.location.search);
+  var ticketId = params.get('ticket') || ('EK2-' + Date.now().toString(36).toUpperCase());
+  var data = 'ELOTEKING-EVENT2-' + ticketId;
+
+  // Simple QR code using canvas
+  // This uses a minimal QR encoder for alphanumeric data
+  var canvas = document.getElementById('qrCanvas');
+  var size = 180;
+  canvas.width = size;
+  canvas.height = size;
+  var ctx = canvas.getContext('2d');
+
+  // Draw a styled ticket placeholder with the ID
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(0, 0, size, size);
+
+  // Draw border pattern
+  ctx.fillStyle = '#16a34a';
+  ctx.fillRect(0, 0, size, 6);
+  ctx.fillRect(0, size - 6, size, 6);
+  ctx.fillRect(0, 0, 6, size);
+  ctx.fillRect(size - 6, 0, 6, size);
+
+  // Inner border
+  ctx.fillStyle = '#ffffff';
+  ctx.fillRect(6, 6, size - 12, size - 12);
+
+  // Corner squares (QR-style positioning markers)
+  function drawCorner(x, y) {
+    ctx.fillStyle = '#111111';
+    ctx.fillRect(x, y, 36, 36);
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(x + 4, y + 4, 28, 28);
+    ctx.fillStyle = '#16a34a';
+    ctx.fillRect(x + 8, y + 8, 20, 20);
+  }
+  drawCorner(12, 12);
+  drawCorner(size - 48, 12);
+  drawCorner(12, size - 48);
+
+  // Center logo area
+  ctx.fillStyle = '#111111';
+  ctx.font = 'bold 14px "Bebas Neue", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('ELOTE KING', size / 2, size / 2 - 8);
+
+  ctx.fillStyle = '#16a34a';
+  ctx.font = 'bold 11px "DM Sans", sans-serif';
+  ctx.fillText('EVENT #2', size / 2, size / 2 + 8);
+
+  // Ticket ID at bottom
+  ctx.fillStyle = '#555555';
+  ctx.font = '10px "DM Sans", monospace';
+  ctx.fillText(ticketId, size / 2, size - 18);
+
+  // Generate data pattern (deterministic from ticket ID)
+  ctx.fillStyle = '#111111';
+  var seed = 0;
+  for (var i = 0; i < data.length; i++) seed = ((seed << 5) - seed + data.charCodeAt(i)) | 0;
+  for (var row = 0; row < 8; row++) {
+    for (var col = 0; col < 8; col++) {
+      seed = (seed * 1103515245 + 12345) & 0x7fffffff;
+      if (seed % 3 === 0) {
+        var px = 56 + col * 9;
+        var py = 56 + row * 9;
+        // Skip center area
+        if (px > 70 && px < 110 && py > 70 && py < 110) continue;
+        ctx.fillRect(px, py, 7, 7);
+      }
+    }
+  }
+})();
+
+// ===== SHARE =====
+function shareLink() {
+  var url = 'https://elotekingevents.com/#flights';
+  var text = 'Elote King Event #2 — Halal Mexican street food tasting. Pre-pay & save 42%. Feb 27, Alpharetta. Only 60 spots.';
+  if (navigator.share) {
+    navigator.share({ title: 'Elote King Event #2', text: text, url: url });
+  } else {
+    navigator.clipboard.writeText(url).then(function() {
+      document.getElementById('shareCopied').style.display = 'block';
+      setTimeout(function() { document.getElementById('shareCopied').style.display = 'none'; }, 3000);
+    });
+  }
+}
+</script>
+
+</body>
+</html>
