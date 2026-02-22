@@ -408,7 +408,7 @@ body {
   overflow: hidden; box-shadow: var(--shadow-sm); border: 1px solid var(--border-light);
 }
 .menu-card-img {
-  width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; display: block; background: #f0f0f0;
+  width: 100%; height: auto; display: block; background: #f0f0f0;
 }
 .menu-card-body { padding: 12px; }
 .menu-card-name {
@@ -966,7 +966,7 @@ body {
     padding: 40px 20px;
   }
   .menu-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
-  .menu-card-img { aspect-ratio: 4/3; }
+  .menu-card-img { /* full image shown, no crop */ }
   .menu-card-body { padding: 16px 18px; }
   .menu-card-name { font-size: 17px; }
   .menu-card-desc { font-size: 15px; }
