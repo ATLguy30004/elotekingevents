@@ -362,6 +362,13 @@ body {
 }
 .review-video-card .video-play-btn svg { width: 22px; height: 22px; }
 .review-video-card.playing .video-play-btn { display: none; }
+.review-video-card .tap-sound {
+  position: absolute; bottom: 14px; left: 50%; transform: translateX(-50%);
+  background: rgba(0,0,0,0.72); color: #fff; font-size: 12px; font-family: sans-serif;
+  padding: 5px 12px; border-radius: 20px; pointer-events: none;
+  white-space: nowrap; display: none; z-index: 3;
+}
+.review-video-card.muted .tap-sound { display: block; }
 @media (min-width: 768px) {
   .tasting-reviews-scroll {
     display: grid; grid-template-columns: repeat(3, 1fr);
@@ -1115,6 +1122,7 @@ body {
       <div class="video-play-btn">
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
       </div>
+      <div class="tap-sound">🔇 Tap for sound</div>
     </div>
     <div class="review-video-card" onclick="toggleReviewVideo(this)">
       <video playsinline preload="metadata" poster="/images/review-poster-2.jpg">
@@ -1123,6 +1131,7 @@ body {
       <div class="video-play-btn">
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
       </div>
+      <div class="tap-sound">🔇 Tap for sound</div>
     </div>
     <div class="review-video-card" onclick="toggleReviewVideo(this)">
       <video playsinline preload="metadata" poster="/images/review-poster-3.jpg">
@@ -1131,6 +1140,7 @@ body {
       <div class="video-play-btn">
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
       </div>
+      <div class="tap-sound">🔇 Tap for sound</div>
     </div>
   </div>
 </section>
@@ -1792,19 +1802,65 @@ if (heroVid && vidWrap) {
 }
 
 // ===== REVIEW VIDEO TOGGLE =====
+function pauseAllReviewVideos(exceptVid) {
+  document.querySelectorAll('.review-video-card').forEach(function(c) {
+    var v = c.querySelector('video');
+    if (v && v !== exceptVid) { v.pause(); c.classList.remove('playing', 'muted'); }
+  });
+}
+
+function playReviewVideo(card, vid, muted) {
+  vid.muted = muted;
+  if (vid.readyState === 0) { vid.load(); }
+  vid.play().then(function() {
+    card.classList.add('playing');
+    if (muted) card.classList.add('muted'); else card.classList.remove('muted');
+  }).catch(function() {
+    if (!muted) {
+      // Unmuted blocked (iOS) — fall back to muted
+      vid.muted = true;
+      vid.play().then(function() { card.classList.add('playing', 'muted'); }).catch(function() {});
+    }
+  });
+}
+
 function toggleReviewVideo(card) {
   var vid = card.querySelector('video');
   if (!vid) return;
+  // Tap on muted auto-playing video → unmute
+  if (!vid.paused && vid.muted) {
+    vid.muted = false;
+    card.classList.remove('muted');
+    return;
+  }
   if (vid.paused) {
-    document.querySelectorAll('.review-video-card video').forEach(function(v) {
-      if (v !== vid) { v.pause(); v.parentElement.classList.remove('playing'); }
-    });
-    if (vid.readyState === 0) { vid.load(); }
-    vid.play().then(function() { card.classList.add('playing'); }).catch(function(e) { console.warn('Video play failed:', e); });
+    pauseAllReviewVideos(vid);
+    playReviewVideo(card, vid, false);
   } else {
     vid.pause();
-    card.classList.remove('playing');
+    card.classList.remove('playing', 'muted');
   }
+}
+
+// ===== REVIEW VIDEO AUTOPLAY ON SCROLL =====
+if ('IntersectionObserver' in window) {
+  var reviewObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      var card = entry.target;
+      var vid = card.querySelector('video');
+      if (!vid) return;
+      if (entry.isIntersecting) {
+        pauseAllReviewVideos(vid);
+        playReviewVideo(card, vid, true);
+      } else {
+        vid.pause();
+        card.classList.remove('playing', 'muted');
+      }
+    });
+  }, { threshold: 0.5 });
+  document.querySelectorAll('.review-video-card').forEach(function(c) {
+    reviewObserver.observe(c);
+  });
 }
 
 // ===== FLAN ADD-ON TOGGLE =====
