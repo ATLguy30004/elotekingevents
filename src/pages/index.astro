@@ -14,7 +14,7 @@ const fallbackCountdown = diffDays > 0 ? `${diffDays} days` : 'TONIGHT';
 <title>Elote King Event #2 — Pre-Pay & Save 42% | Halal Mexican Street Food | Alpharetta Feb 27</title>
 <meta name="description" content="Event #1 sold out in 48 hours. Pre-pay online and save up to 42% on your tasting flight — guaranteed food at the door. Halal Mexican street food. Friday Feb 27, Door Open 9:30 PM – 12:30 AM, Alpharetta GA 30004." />
 <meta property="og:title" content="Elote King Event #2 — Pre-Pay & Save 42%" />
-<meta property="og:description" content="Pre-pay online, save up to 42%, and guarantee your food. 60 spots available — 8 already claimed. Event #1 sold out in 48hrs." />
+<meta property="og:description" content="Pre-pay online, save up to 42%, and guarantee your food. 60 spots — filling fast. Event #1 sold out in 48hrs." />
 <meta property="og:image" content="https://events.elotekingatlanta.com/images/hero_line_cropped.jpg" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://events.elotekingatlanta.com" />
@@ -119,10 +119,10 @@ const fallbackCountdown = diffDays > 0 ? `${diffDays} days` : 'TONIGHT';
     },
     {
       "@type": "Question",
-      "name": "What are taquitos?",
+      "name": "What are birria tacos?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Taquitos are crispy, golden rolled tortillas stuffed with seasoned chicken and deep-fried until crunchy. In our Taquito Michelada, they're stacked right on top of a halal michelada — sip it, dip it, devour it."
+        "text": "Birria tacos are slow-braised beef or chicken stuffed into a crispy tortilla and served with a rich consomé dipping broth. Ours are scratch-made and 100% Zabiha Halal. Choose chicken or beef at Event #2."
       }
     },
     {
@@ -336,6 +336,39 @@ body {
 }
 .video-play-btn svg { width: 28px; height: 28px; fill: var(--green); margin-left: 4px; }
 .video-wrap.playing .video-play-btn { display: none; }
+
+/* ===== PRE-EVENT TASTING REVIEWS ===== */
+.tasting-reviews { padding: 48px 20px; background: #fafafa; }
+.tasting-reviews .section-title { margin-bottom: 6px; }
+.tasting-reviews-sub { text-align: center; font-size: 15px; color: var(--text-muted); margin-bottom: 24px; }
+.tasting-reviews-scroll {
+  display: flex; gap: 16px; overflow-x: auto;
+  scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch;
+  padding-bottom: 8px;
+}
+.tasting-reviews-scroll::-webkit-scrollbar { height: 4px; }
+.tasting-reviews-scroll::-webkit-scrollbar-thumb { background: #ccc; border-radius: 4px; }
+.review-video-card {
+  flex: 0 0 280px; scroll-snap-align: start;
+  border-radius: var(--radius-lg); overflow: hidden;
+  background: #111; position: relative; cursor: pointer;
+  box-shadow: var(--shadow-md);
+}
+.review-video-card video {
+  width: 100%; aspect-ratio: 9/16; object-fit: cover; display: block;
+}
+.review-video-card .video-play-btn {
+  width: 56px; height: 56px;
+}
+.review-video-card .video-play-btn svg { width: 22px; height: 22px; }
+.review-video-card.playing .video-play-btn { display: none; }
+@media (min-width: 768px) {
+  .tasting-reviews-scroll {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    overflow: visible;
+  }
+  .review-video-card { flex: none; }
+}
 
 /* ===== TESTIMONIALS ===== */
 .testimonials-section { padding: 48px 20px; background: #fff; }
@@ -1070,6 +1103,38 @@ body {
   </div>
 </section>
 
+<!-- PRE-EVENT TASTING REVIEWS -->
+<section class="tasting-reviews">
+  <h2 class="section-title">Pre-Event #2 Tasting &mdash; Real Reactions</h2>
+  <p class="tasting-reviews-sub">We invited a few people to taste the Event #2 menu early. No scripts. No filters.</p>
+  <div class="tasting-reviews-scroll">
+    <div class="review-video-card" onclick="toggleReviewVideo(this)">
+      <video playsinline preload="none" poster="/images/hero_line_cropped.jpg">
+        <source src="/video/Pre event 2 review 1.mp4" type="video/mp4" />
+      </video>
+      <div class="video-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+    <div class="review-video-card" onclick="toggleReviewVideo(this)">
+      <video playsinline preload="none" poster="/images/hero_line_cropped.jpg">
+        <source src="/video/Pre event 2 review 3.mp4" type="video/mp4" />
+      </video>
+      <div class="video-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+    <div class="review-video-card" onclick="toggleReviewVideo(this)">
+      <video playsinline preload="none" poster="/images/hero_line_cropped.jpg">
+        <source src="/video/pvt-pre-event-2-tasting.mp4" type="video/mp4" />
+      </video>
+      <div class="video-play-btn">
+        <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- TESTIMONIALS -->
 <section class="testimonials-section">
   <h2 class="section-title">What People Are Saying</h2>
@@ -1110,11 +1175,11 @@ body {
       </div>
     </div>
     <div class="menu-card">
-      <img class="menu-card-img" src="/images/taquitos-michelada-branded-final.jpg" alt="Elote King taquito michelada — crispy taquitos on a halal michelada" loading="lazy" />
+      <img class="menu-card-img" src="/images/birria-tacos-branded-final.jpg" alt="Elote King birria tacos — slow-braised birria in a crispy tortilla with consomé" loading="lazy" />
       <div class="menu-card-body">
-        <div class="menu-card-name">Taquito Michelada</div>
-        <div class="menu-card-desc">Crispy chicken taquitos stacked on a halal michelada.</div>
-        <div class="menu-card-tag">FIRST IN ATLANTA</div>
+        <div class="menu-card-name">Birria Tacos</div>
+        <div class="menu-card-desc">Slow-braised birria in a crispy tortilla. Chicken or beef. Dip in consomé.</div>
+        <div class="menu-card-tag">CHICKEN OR BEEF</div>
       </div>
     </div>
     <div class="menu-card">
@@ -1132,10 +1197,10 @@ body {
       </div>
     </div>
     <div class="menu-card">
-      <img class="menu-card-img" src="/images/mango-loca-branded-final.jpg" alt="Elote King Mango Loca — fresh mango drink with chili rim and lime" loading="lazy" />
+      <img class="menu-card-img" src="/images/pina-colada-branded-final.jpg" alt="Elote King Piña Colada — creamy tropical coconut pineapple drink, zero alcohol" loading="lazy" />
       <div class="menu-card-body">
-        <div class="menu-card-name">Mango Loca</div>
-        <div class="menu-card-desc">Sweet heat in every sip. Fresh mango, chili rim, lime.</div>
+        <div class="menu-card-name">Piña Colada</div>
+        <div class="menu-card-desc">Creamy, tropical, ice-cold. No alcohol. 100% halal.</div>
       </div>
     </div>
     <div class="menu-card">
@@ -1207,7 +1272,7 @@ body {
             <span class="val">$13</span>
           </div>
           <div class="choose-option">
-            <span>Taquito Michelada <span class="item-desc">5 chicken taquitos</span></span>
+            <span>Birria Tacos <span class="item-desc">chicken or beef, with consomé</span></span>
             <span class="val">$13</span>
           </div>
           <div class="choose-option">
@@ -1219,7 +1284,7 @@ body {
         <div class="item-list">
           <div class="item-row">
             <span class="item-check">&#10003;</span>
-            <span class="item-name">1 Drink<br/><span class="item-desc">Mango Loca OR Michelada</span></span>
+            <span class="item-name">1 Drink<br/><span class="item-desc">Piña Colada OR Michelada</span></span>
             <span class="item-val">$8</span>
           </div>
           <div class="item-row">
@@ -1288,7 +1353,7 @@ body {
             <span class="val">$13</span>
           </div>
           <div class="choose-option">
-            <span>Taquito Michelada <span class="item-desc">5 chicken taquitos</span></span>
+            <span>Birria Tacos <span class="item-desc">chicken or beef, with consomé</span></span>
             <span class="val">$13</span>
           </div>
           <div class="choose-option">
@@ -1300,7 +1365,7 @@ body {
         <div class="item-list">
           <div class="item-row">
             <span class="item-check">&#10003;</span>
-            <span class="item-name">2 Drinks<br/><span class="item-desc">Mango Loca OR Michelada</span></span>
+            <span class="item-name">2 Drinks<br/><span class="item-desc">Piña Colada OR Michelada</span></span>
             <span class="item-val">$16</span>
           </div>
           <div class="item-row">
@@ -1366,7 +1431,7 @@ body {
           </div>
           <div class="item-row">
             <span class="item-check">&#10003;</span>
-            <span class="item-name">Taquito Michelada<br/><span class="item-desc">5 chicken taquitos</span></span>
+            <span class="item-name">Birria Tacos<br/><span class="item-desc">Chicken or beef, with consomé</span></span>
             <span class="item-val">$13</span>
           </div>
           <div class="item-row">
@@ -1376,7 +1441,7 @@ body {
           </div>
           <div class="item-row">
             <span class="item-check">&#10003;</span>
-            <span class="item-name">3x Drinks<br/><span class="item-desc">Mix &amp; match Mango Loca + Michelada</span></span>
+            <span class="item-name">3x Drinks<br/><span class="item-desc">Mix &amp; match Piña Colada + Michelada</span></span>
             <span class="item-val">$24</span>
           </div>
           <div class="item-row">
@@ -1481,8 +1546,8 @@ body {
     <div class="faq-answer">Absolutely. All our meat is 100% Zabiha Halal. We are Muslim-owned and operated, and our kitchen maintains strict halal standards. No alcohol is used in any recipe or served at any event.</div>
   </details>
   <details class="faq-item">
-    <summary>What are taquitos?</summary>
-    <div class="faq-answer">Taquitos are crispy, golden rolled tortillas stuffed with seasoned chicken and deep-fried until crunchy. Think of them as the crunchiest, most satisfying chicken roll you've ever had. In our Taquito Michelada, they're stacked right on top of a halal michelada &mdash; sip it, dip it, devour it.</div>
+    <summary>What are birria tacos?</summary>
+    <div class="faq-answer">Birria tacos are slow-braised beef or chicken stuffed into a crispy tortilla and served with a rich consomé dipping broth. Ours are scratch-made and 100% Zabiha Halal. At Event #2, choose chicken or beef &mdash; both come with consomé for dipping.</div>
   </details>
   <details class="faq-item">
     <summary>What is chorizo?</summary>
@@ -1724,6 +1789,22 @@ if (heroVid && vidWrap) {
   }, { once: true });
 
   updatePlayState();
+}
+
+// ===== REVIEW VIDEO TOGGLE =====
+function toggleReviewVideo(card) {
+  var vid = card.querySelector('video');
+  if (!vid) return;
+  if (vid.paused) {
+    // Pause all other review videos first
+    document.querySelectorAll('.review-video-card video').forEach(function(v) {
+      if (v !== vid) { v.pause(); v.parentElement.classList.remove('playing'); }
+    });
+    vid.play().then(function() { card.classList.add('playing'); }).catch(function() {});
+  } else {
+    vid.pause();
+    card.classList.remove('playing');
+  }
 }
 
 // ===== FLAN ADD-ON TOGGLE =====
