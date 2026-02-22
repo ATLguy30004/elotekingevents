@@ -1109,24 +1109,24 @@ body {
   <p class="tasting-reviews-sub">We invited a few people to taste the Event #2 menu early. No scripts. No filters.</p>
   <div class="tasting-reviews-scroll">
     <div class="review-video-card" onclick="toggleReviewVideo(this)">
-      <video playsinline preload="none" poster="/images/review-poster-1.jpg">
-        <source src="/video/3 review videos/video1_trimmed.mp4" type="video/mp4" />
+      <video playsinline preload="metadata" poster="/images/review-poster-1.jpg">
+        <source src="/video/3%20review%20videos/video1_trimmed.mp4" type="video/mp4" />
       </video>
       <div class="video-play-btn">
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
       </div>
     </div>
     <div class="review-video-card" onclick="toggleReviewVideo(this)">
-      <video playsinline preload="none" poster="/images/review-poster-2.jpg">
-        <source src="/video/3 review videos/video2_girls_captioned.mp4" type="video/mp4" />
+      <video playsinline preload="metadata" poster="/images/review-poster-2.jpg">
+        <source src="/video/3%20review%20videos/video2_girls_captioned.mp4" type="video/mp4" />
       </video>
       <div class="video-play-btn">
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
       </div>
     </div>
     <div class="review-video-card" onclick="toggleReviewVideo(this)">
-      <video playsinline preload="none" poster="/images/review-poster-3.jpg">
-        <source src="/video/3 review videos/video3_michelada_captioned.mp4" type="video/mp4" />
+      <video playsinline preload="metadata" poster="/images/review-poster-3.jpg">
+        <source src="/video/3%20review%20videos/video3_michelada_captioned.mp4" type="video/mp4" />
       </video>
       <div class="video-play-btn">
         <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
@@ -1796,11 +1796,11 @@ function toggleReviewVideo(card) {
   var vid = card.querySelector('video');
   if (!vid) return;
   if (vid.paused) {
-    // Pause all other review videos first
     document.querySelectorAll('.review-video-card video').forEach(function(v) {
       if (v !== vid) { v.pause(); v.parentElement.classList.remove('playing'); }
     });
-    vid.play().then(function() { card.classList.add('playing'); }).catch(function() {});
+    if (vid.readyState === 0) { vid.load(); }
+    vid.play().then(function() { card.classList.add('playing'); }).catch(function(e) { console.warn('Video play failed:', e); });
   } else {
     vid.pause();
     card.classList.remove('playing');
