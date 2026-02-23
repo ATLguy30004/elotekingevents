@@ -1,8 +1,6 @@
 import { kv } from '@vercel/kv';
 import crypto from 'crypto';
 
-export const prerender = false;
-
 const PRICE_TIERS = [
   { min: 6000, key: 'ek:t3:claimed' },
   { min: 3200, key: 'ek:t2:claimed' },
@@ -24,6 +22,15 @@ function getTierKey(name) {
   return null;
 }
 
+function readBody(req) {
+  return new Promise((resolve, reject) => {
+    let body = '';
+    req.on('data', chunk => { body += chunk.toString(); });
+    req.on('end', () => resolve(body));
+    req.on('error', reject);
+  });
+}
+
 function verifySignature(rawBody, signature, sigKey, webhookUrl) {
   const hash = crypto
     .createHmac('sha256', sigKey)
@@ -32,24 +39,18 @@ function verifySignature(rawBody, signature, sigKey, webhookUrl) {
   return hash === signature;
 }
 
-function json(data, status = 200) {
-  return new Response(JSON.stringify(data), {
-    status,
-    headers: { 'Content-Type': 'application/json' },
-  });
-}
+export default async function handler(req, res) {
+  if (req.method !== 'POST') return res.status(405).end();
 
-export async function POST({ request }) {
-  const rawBody = await request.text();
+  const rawBody = await readBody(req);
 
-  const sigKey = import.meta.env.SQUARE_WEBHOOK_SIGNATURE_KEY;
+  const sigKey = process.env.SQUARE_WEBHOOK_SIGNATURE_KEY;
   if (sigKey) {
-    const sig = request.headers.get('x-square-hmacsha256-signature');
-    const url = new URL(request.url);
-    const webhookUrl = `${url.origin}/api/square-webhook`;
-    if (!verifySignature(rawBody, sig, sigKey, webhookUrl)) {
+    const sig = req.headers['x-square-hmacsha256-signature'];
+    const url = `https://${req.headers.host}/api/square-webhook`;
+    if (!verifySignature(rawBody, sig, sigKey, url)) {
       console.error('[webhook] signature mismatch');
-      return json({ error: 'invalid signature' }, 401);
+      return res.status(401).json({ error: 'invalid signature' });
     }
   }
 
@@ -57,24 +58,24 @@ export async function POST({ request }) {
   try {
     event = JSON.parse(rawBody);
   } catch {
-    return json({ error: 'invalid json' }, 400);
+    return res.status(400).json({ error: 'invalid json' });
   }
 
   console.log('[webhook] event type:', event.type);
 
   if (event.type !== 'payment.updated') {
-    return json({ ok: true, skipped: event.type });
+    return res.status(200).json({ ok: true, skipped: event.type });
   }
 
   const payment = event?.data?.object?.payment;
   if (payment?.status !== 'COMPLETED') {
     console.log('[webhook] skipped status:', payment?.status);
-    return json({ ok: true, skipped: 'status:' + payment?.status });
+    return res.status(200).json({ ok: true, skipped: 'status:' + payment?.status });
   }
 
   const paymentId = payment?.id;
   if (!paymentId) {
-    return json({ ok: true, skipped: 'no payment id' });
+    return res.status(200).json({ ok: true, skipped: 'no payment id' });
   }
 
   const dedupKey = `ek:processed:${paymentId}`;
@@ -82,14 +83,14 @@ export async function POST({ request }) {
     const already = await kv.get(dedupKey);
     if (already) {
       console.log('[webhook] duplicate payment:', paymentId);
-      return json({ ok: true, skipped: 'duplicate' });
+      return res.status(200).json({ ok: true, skipped: 'duplicate' });
     }
   } catch (err) {
     console.error('[webhook] KV dedup check failed:', err.message);
   }
 
   const orderId = payment?.order_id;
-  const token = import.meta.env.SQUARE_ACCESS_TOKEN;
+  const token = process.env.SQUARE_ACCESS_TOKEN;
   let updates = {};
 
   if (orderId && token) {
@@ -135,7 +136,7 @@ export async function POST({ request }) {
 
   if (Object.keys(updates).length === 0) {
     console.log('[webhook] no tier matched for payment:', paymentId);
-    return json({ ok: true, skipped: 'no matching tier' });
+    return res.status(200).json({ ok: true, skipped: 'no matching tier' });
   }
 
   try {
@@ -146,8 +147,8 @@ export async function POST({ request }) {
     console.log('[webhook] KV updated:', JSON.stringify(updates));
   } catch (err) {
     console.error('[webhook] KV write failed:', err.message);
-    return json({ error: 'kv write failed', detail: err.message }, 500);
+    return res.status(500).json({ error: 'kv write failed', detail: err.message });
   }
 
-  return json({ ok: true, updates });
+  return res.status(200).json({ ok: true, updates });
 }
