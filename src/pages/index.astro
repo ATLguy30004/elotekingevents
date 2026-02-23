@@ -1911,7 +1911,15 @@ if (heroVid && vidWrap) {
   // Let IntersectionObserver handle play — saves load on initial render
   if ('IntersectionObserver' in window) {
     var obs = new IntersectionObserver(function(entries) {
-      if (entries[0].isIntersecting) tryPlay();
+      if (entries[0].isIntersecting) {
+        tryPlay();
+      } else {
+        heroVid.muted = true;
+        heroVid.pause();
+        vidWrap.classList.add('is-muted');
+        if (unmuteBtn) unmuteBtn.textContent = '🔊 Tap for sound';
+        updatePlayState();
+      }
     }, { threshold: 0.3 });
     obs.observe(vidWrap);
   }
