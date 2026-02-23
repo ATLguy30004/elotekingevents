@@ -1,2 +1,8 @@
 import { defineConfig } from 'astro/config';
-export default defineConfig({ site: 'https://elotekingevents.com' });
+import vercel from '@astrojs/vercel/serverless';
+
+export default defineConfig({
+  site: 'https://elotekingevents.com',
+  output: 'hybrid',
+  adapter: vercel(),
+});
