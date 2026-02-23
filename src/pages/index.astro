@@ -336,6 +336,17 @@ body {
 }
 .video-play-btn svg { width: 28px; height: 28px; fill: var(--green); margin-left: 4px; }
 .video-wrap.playing .video-play-btn { display: none; }
+.video-unmute-btn {
+  position: absolute; bottom: 16px; right: 16px;
+  background: rgba(0,0,0,0.65); color: #fff;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 20px; padding: 6px 14px;
+  font-size: 13px; font-weight: 600; cursor: pointer;
+  display: none; z-index: 3; letter-spacing: 0.3px;
+  backdrop-filter: blur(4px); font-family: 'DM Sans', sans-serif;
+}
+.video-wrap.playing.is-muted .video-unmute-btn { display: block; }
+.video-wrap.playing:not(.is-muted) .video-unmute-btn { display: none; }
 
 /* ===== PRE-EVENT TASTING REVIEWS ===== */
 .tasting-reviews { padding: 48px 20px; background: #fafafa; }
@@ -1082,15 +1093,16 @@ body {
 
 <!-- VIDEO SECTION -->
 <section class="video-section">
-  <h3>See Why Event #1 Sold Out</h3>
+  <h3>The Wait Was Worth It.</h3>
   <div class="video-wrap" id="videoWrap">
-    <video id="heroVideo" loop playsinline muted poster="/images/hero_line_cropped.jpg" preload="none">
-      <source src="/video/EloteKing_HeroReel_LandingPage.mp4?v=2" type="video/mp4" />
+    <video id="heroVideo" playsinline muted poster="/images/hero-intercept-poster.jpg" preload="none">
+      <source src="/video/eloteking_event2_intercept_web.mp4" type="video/mp4" />
       <track kind="descriptions" label="Event highlights" srclang="en" />
     </video>
     <div class="video-play-btn">
       <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
     </div>
+    <button class="video-unmute-btn" id="unmuteBtn" aria-label="Unmute video">🔊 Tap for sound</button>
   </div>
 </section>
 
@@ -1788,7 +1800,6 @@ var vidWrap = document.getElementById('videoWrap');
 
 if (heroVid && vidWrap) {
   heroVid.muted = true;
-  heroVid.loop = true;
   heroVid.playsInline = true;
   heroVid.setAttribute('playsinline', '');
   heroVid.setAttribute('webkit-playsinline', '');
@@ -1799,13 +1810,34 @@ if (heroVid && vidWrap) {
   }
 
   function updatePlayState() {
-    if (!heroVid.paused) vidWrap.classList.add('playing');
-    else vidWrap.classList.remove('playing');
+    if (!heroVid.paused) {
+      vidWrap.classList.add('playing');
+      if (heroVid.muted) vidWrap.classList.add('is-muted');
+      else vidWrap.classList.remove('is-muted');
+    } else {
+      vidWrap.classList.remove('playing', 'is-muted');
+    }
   }
   heroVid.addEventListener('play', updatePlayState);
   heroVid.addEventListener('pause', updatePlayState);
 
-  // Let IntersectionObserver handle play — saves 5.4MB on initial load
+  // Unmute button toggle
+  var unmuteBtn = document.getElementById('unmuteBtn');
+  if (unmuteBtn) {
+    unmuteBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      heroVid.muted = !heroVid.muted;
+      if (heroVid.muted) {
+        vidWrap.classList.add('is-muted');
+        unmuteBtn.textContent = '🔊 Tap for sound';
+      } else {
+        vidWrap.classList.remove('is-muted');
+        unmuteBtn.textContent = '🔇 Mute';
+      }
+    });
+  }
+
+  // Let IntersectionObserver handle play — saves load on initial render
   if ('IntersectionObserver' in window) {
     var obs = new IntersectionObserver(function(entries) {
       if (entries[0].isIntersecting) tryPlay();
