@@ -1627,9 +1627,18 @@ body {
   <div id="sms-capture" style="max-width: 400px; margin: 28px auto; text-align: center; background: var(--bg-card); border-radius: var(--radius-lg); padding: 24px 20px; border: 1px solid var(--border-light); box-shadow: var(--shadow-sm);">
     <p style="font-family: 'Bebas Neue', sans-serif; font-size: 22px; color: var(--text-primary); margin-bottom: 4px;">Not Ready to Pre-Pay?</p>
     <p style="font-size: 15px; color: var(--text-secondary); margin-bottom: 16px; line-height: 1.5;">Drop your number. We'll text you before spots run out.</p>
-    <form id="smsForm" onsubmit="handleSmsSubmit(event)" style="display: flex; gap: 10px;">
-      <input type="tel" name="phone" placeholder="Phone number" required autocomplete="tel" style="flex: 1; padding: 14px 16px; border: 2px solid var(--border); border-radius: 10px; font-size: 16px; font-family: 'DM Sans', sans-serif;" />
-      <button type="submit" style="padding: 14px 20px; background: var(--green); color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; font-family: 'DM Sans', sans-serif; cursor: pointer; white-space: nowrap;">Text Me &rarr;</button>
+    <form id="smsForm" onsubmit="handleSmsSubmit(event)" style="display: flex; flex-direction: column; gap: 10px;">
+      <select name="interest" style="padding: 14px 16px; border: 2px solid var(--border); border-radius: 10px; font-size: 15px; font-family: 'DM Sans', sans-serif; color: #333; background: #fff;">
+        <option value="not-sure">What are you interested in?</option>
+        <option value="taste">The Taste — $14.99</option>
+        <option value="kings-table">King's Table — $34.99</option>
+        <option value="royal-feast">Royal Feast — $64.99</option>
+        <option value="just-browsing">Just browsing</option>
+      </select>
+      <div style="display: flex; gap: 10px;">
+        <input type="tel" name="phone" placeholder="Phone number" required autocomplete="tel" style="flex: 1; padding: 14px 16px; border: 2px solid var(--border); border-radius: 10px; font-size: 16px; font-family: 'DM Sans', sans-serif;" />
+        <button type="submit" style="padding: 14px 20px; background: var(--green); color: #fff; border: none; border-radius: 10px; font-size: 15px; font-weight: 700; font-family: 'DM Sans', sans-serif; cursor: pointer; white-space: nowrap;">Text Me &rarr;</button>
+      </div>
     </form>
     <div id="smsSuccess" style="display: none; padding: 20px 16px; background: #f0fdf4; border: 2px solid var(--green); border-radius: 12px; text-align: center;">
       <div style="font-size: 28px; margin-bottom: 6px;">✅</div>
@@ -2017,6 +2026,7 @@ function handleSmsSubmit(e) {
   e.preventDefault();
   var form = document.getElementById('smsForm');
   var phone = form.querySelector('input[name="phone"]').value;
+  var interest = form.querySelector('select[name="interest"]').value;
 
   // FORMSPREE: replace FORMSPREE_ID below with your form ID from formspree.io
   var formspreeId = 'xzdaagpz';
@@ -2024,7 +2034,7 @@ function handleSmsSubmit(e) {
     fetch('https://formspree.io/f/' + formspreeId, {
       method: 'POST',
       headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify({ phone: phone, source: 'sms-capture', timestamp: new Date().toISOString() })
+      body: JSON.stringify({ phone: phone, interest: interest, source: 'sms-capture', timestamp: new Date().toISOString() })
     }).then(function(res) {
       if (res.ok) {
         form.style.display = 'none';
