@@ -1,7 +1,7 @@
 import { kv } from '@vercel/kv';
 
 // Current claimed counts — fallback if KV not seeded yet
-const DEFAULTS = { t1: 2, t2: 7, t3: 1 };
+const DEFAULTS = { t1: 4, t2: 7, t3: 1 };
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
