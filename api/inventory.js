@@ -1,6 +1,6 @@
 import { kv } from '@vercel/kv';
 
-const DEFAULTS = { t1: 5, t2: 8, t3: 2 };
+const DEFAULTS = { t1: 5, t2: 8, t3: 3 };
 
 export default async function handler(req, res) {
   res.setHeader('Access-Control-Allow-Origin', '*');
