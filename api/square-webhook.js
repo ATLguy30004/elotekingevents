@@ -47,12 +47,17 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'invalid json' });
   }
 
-  // Only act on completed payments
-  if (event.type !== 'payment.completed') {
+  // Only act on payment.updated with status COMPLETED
+  if (event.type !== 'payment.updated') {
     return res.status(200).json({ ok: true, skipped: event.type });
   }
 
-  const orderId = event?.data?.object?.payment?.order_id;
+  const payment = event?.data?.object?.payment;
+  if (payment?.status !== 'COMPLETED') {
+    return res.status(200).json({ ok: true, skipped: 'status:' + payment?.status });
+  }
+
+  const orderId = payment?.order_id;
   if (!orderId) {
     return res.status(200).json({ ok: true, skipped: 'no order_id' });
   }
