@@ -1363,9 +1363,9 @@ body {
           </div>
         </div>
         <div class="price-save">&#10003; Pre-pay = guaranteed food at the door</div>
-        <div class="first-drop-counter"><span class="dot"></span> <span id="drop1">5</span> of 10 pre-pay spots left</div>
-        <div class="drop-progress"><div class="drop-progress-fill" id="bar1" style="width: 50%"></div></div>
-        <div class="drop-progress-label"><span class="claimed"><span id="claimed1">5</span> claimed</span><span>10 total</span></div>
+        <div class="first-drop-counter"><span class="dot"></span> <span id="drop1">4</span> of 10 pre-pay spots left</div>
+        <div class="drop-progress"><div class="drop-progress-fill" id="bar1" style="width: 60%"></div></div>
+        <div class="drop-progress-label"><span class="claimed"><span id="claimed1">6</span> claimed</span><span>10 total</span></div>
 
         <div class="choose-main">
           <div class="choose-label">Choose Your Main (Pick 1)</div>
@@ -1587,7 +1587,7 @@ body {
         <div class="timeline-label">Pick Your Flight</div>
         <div class="timeline-date">3 Tiers &mdash; Starting at 14.99</div>
         <div class="timeline-desc">The Taste, King's Table, or Royal Feast. Choose what fits you.</div>
-        <div class="timeline-urgency"><span id="timelineSpots">44</span> spots left &mdash; going fast</div>
+        <div class="timeline-urgency"><span id="timelineSpots">43</span> spots left &mdash; going fast</div>
       </div>
     </div>
     <div class="timeline-step">
@@ -1779,7 +1779,7 @@ document.addEventListener('visibilitychange', function() {
 // Pre-pay spots per tier: The Taste = 10, King's Table = 40, Royal Feast = 10
 // UPDATE THESE AS SALES COME IN:
 var tierTotals = { 1: 10, 2: 40, 3: 10 };
-var dropClaimed = { 1: 5, 2: 8, 3: 3 };
+var dropClaimed = { 1: 6, 2: 8, 3: 3 };
 
 function updateBars() {
   var totalLeft = 0;
