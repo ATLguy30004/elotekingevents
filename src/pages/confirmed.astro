@@ -12,6 +12,48 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+<!-- Meta Pixel -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '4303274619952321');
+fbq('track', 'PageView');
+</script>
+
+<!-- Google Analytics (GA4) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-DXC4GZ5K68"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-DXC4GZ5K68');
+</script>
+
+<!-- Fire Purchase Event -->
+<script>
+(function() {
+  var params = new URLSearchParams(window.location.search);
+  var tier = params.get('tier');
+  var prices = { taste: 14.99, kings: 36.99, royal: 64.99 };
+  var names = { taste: 'The Taste', kings: "King's Table", royal: 'Royal Feast' };
+  var value = prices[tier] || 36.99;
+  var name = names[tier] || "King's Table";
+  if (typeof gtag === 'function') {
+    gtag('event', 'purchase', { transaction_id: 'ek2-' + Date.now(), currency: 'USD', value: value, items: [{ item_name: name, price: value, quantity: 1 }] });
+  }
+  if (typeof fbq === 'function') {
+    fbq('track', 'Purchase', { value: value, currency: 'USD', content_name: name });
+  }
+})();
+</script>
+
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 :root {

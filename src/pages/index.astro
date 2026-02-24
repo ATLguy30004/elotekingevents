@@ -1018,8 +1018,8 @@ body {
 @media (min-width: 768px) {
   /* Content sections get max-width; full-bleed bars stay edge-to-edge */
   .hero { max-width: 100%; }
-  .hero-image-wrap { aspect-ratio: 16/9; max-height: 480px; }
-  .hero-image-wrap img { object-position: center 30%; }
+  .hero-image-wrap { aspect-ratio: 16/9; max-height: 480px; min-height: 320px; }
+  .hero-image-wrap img { object-position: center 30%; width: 100%; height: 100%; }
   .hero-top-overlay h1 { font-size: 64px; }
   .hero-top-overlay { padding: 24px 40px 40px; }
   .hero-text-overlay .hero-sub { font-size: 18px; }
@@ -1132,7 +1132,7 @@ body {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-image-wrap">
-    <img src="/images/hero-ammar-clean.jpg" alt="Excited food reviewer holding a birria taco in front of the Elote King halal food truck" fetchpriority="high" width="896" height="1200" />
+    <img src="/images/hero-ammar-clean.jpg" alt="Excited food reviewer holding a birria taco in front of the Elote King halal food truck" fetchpriority="high" />
     <div class="hero-top-overlay">
       <h1>BEST HALAL TACOS<br/>IN ATLANTA</h1>
     </div>
@@ -1140,14 +1140,14 @@ body {
     <div class="hero-text-overlay">
       <p class="hero-sub"><strong>Friday, Feb 27</strong> &nbsp;&bull;&nbsp; Doors 9:30 PM &nbsp;&bull;&nbsp; Creative Labs</p>
       <p class="hero-address">6180 Atlanta Hwy, Alpharetta 30004</p>
-      <a href="#flights" class="btn-claim pulse">Claim Your Spot — Starting at $14.99 →</a>
+      <a href="#flights" class="btn-claim pulse">The Taste Sold Out in 24 Hrs &mdash; Claim King's Table &rarr;</a>
     </div>
   </div>
 </section>
 
 <!-- SPOTS LEFT COUNTER -->
 <div class="spots-counter">
-  <span class="spots-number" id="spotsLeft">36</span> pre-pay flights left &mdash; save up to 42%
+  <span class="spots-number" id="spotsLeft">34</span> pre-pay flights left &mdash; save up to 42%
   <br/><a href="#flights">See What You're Getting &darr;</a>
 </div>
 
@@ -1239,7 +1239,7 @@ body {
         <div class="timeline-label">Pick Your Flight</div>
         <div class="timeline-date">3 Tiers &mdash; Starting at 14.99</div>
         <div class="timeline-desc">The Taste, King's Table, or Royal Feast. Choose what fits you.</div>
-        <div class="timeline-urgency"><span id="timelineSpots">42</span> spots left &mdash; going fast</div>
+        <div class="timeline-urgency"><span id="timelineSpots">34</span> spots left &mdash; going fast</div>
       </div>
     </div>
     <div class="timeline-step">
@@ -1277,7 +1277,7 @@ body {
 
     <!-- FLIGHT 1: THE TASTE -->
     <div class="flight-card">
-      <div class="sold-out-overlay" id="sold1"><div class="sold-out-stamp">SOLD OUT</div><div class="sold-out-door">Pay at the Door — $22.99</div></div>
+      <div class="sold-out-overlay" id="sold1"><div class="sold-out-stamp">SOLD OUT</div><a href="#btn2" class="sold-out-door" style="pointer-events:auto;text-decoration:none;color:#111;">Upgrade to King's Table — $36.99 &rarr;</a></div>
       <div class="card-crown">
         <div class="crown-icon">&#128081;</div>
         <div class="tier-number">1</div>
@@ -1381,9 +1381,9 @@ body {
           </div>
         </div>
         <div class="price-save">&#10003; Pre-pay = guaranteed food at the door</div>
-        <div class="first-drop-counter"><span class="dot"></span> <span id="drop2">30</span> of 40 pre-pay spots left</div>
-        <div class="drop-progress"><div class="drop-progress-fill" id="bar2" style="width: 25%"></div></div>
-        <div class="drop-progress-label"><span class="claimed"><span id="claimed2">10</span> claimed</span><span>40 total</span></div>
+        <div class="first-drop-counter"><span class="dot"></span> <span id="drop2">28</span> of 40 pre-pay spots left</div>
+        <div class="drop-progress"><div class="drop-progress-fill" id="bar2" style="width: 30%"></div></div>
+        <div class="drop-progress-label"><span class="claimed"><span id="claimed2">12</span> claimed</span><span>40 total</span></div>
 
         <div class="choose-main">
           <div class="choose-label">Choose Your Mains (Pick 2)</div>
@@ -1501,7 +1501,7 @@ body {
         </div>
 
         <a href="https://square.link/u/NRHEJ7yI" class="btn-claim pulse" id="btn3">Pre-Pay Royal Feast &mdash; 64.99 &rarr;</a>
-        <div class="card-spots-left"><strong id="spots3">9</strong> pre-pay spots left &mdash; feeds 3-4 people</div>
+        <div class="card-spots-left"><strong id="spots3">6</strong> pre-pay spots left &mdash; feeds 3-4 people</div>
       </div>
     </div>
 
@@ -1559,6 +1559,13 @@ body {
       <div class="tap-sound">🔇 Tap for sound</div>
     </div>
   </div>
+</section>
+
+<!-- BRIDGE CTA -->
+<section class="bridge-cta">
+  <div class="bridge-text">Seen Enough? 28 King's Table Spots Left.</div>
+  <a href="#btn2" class="btn-claim pulse">Lock In King's Table &mdash; $36.99 &rarr;</a>
+  <p class="bridge-sub">The Taste sold out in 24 hours. Don't wait.</p>
 </section>
 
 <!-- TESTIMONIALS -->
@@ -1763,10 +1770,10 @@ body {
 <div class="sticky-bar">
   <div class="sticky-inner">
     <div class="sticky-info">
-      <strong id="stickySpots">36</strong>
+      <strong id="stickySpots">34</strong>
       pre-pay spots left
     </div>
-    <a href="#flights" id="stickyCta">Lock In Your Flight &mdash; Save up to 42% &rarr;</a>
+    <a href="#flights" id="stickyCta">28 Spots Left &mdash; Starting at $36.99 &rarr;</a>
   </div>
 </div>
 
@@ -1872,6 +1879,29 @@ fetch('/api/inventory')
     updateBars();
   })
   .catch(function() {}); // silently fall back to hardcoded values
+
+// ===== TRACK SQUARE CTA CLICKS (GA4 + META) =====
+document.querySelectorAll('a[href*="square.link"]').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    var tierMap = {
+      'kNN8rlDP': { name: 'The Taste', value: 14.99 },
+      'owUPZT3F': { name: "King's Table", value: 36.99 },
+      'NRHEJ7yI': { name: 'Royal Feast', value: 64.99 },
+      '1Fzt6LTM': { name: 'The Taste + Flan', value: 22.99 },
+      'TM7g8iDj': { name: "King's Table + Flan", value: 44.99 }
+    };
+    var href = this.getAttribute('href') || '';
+    var key = Object.keys(tierMap).find(function(k) { return href.indexOf(k) !== -1; });
+    if (!key) return;
+    var tier = tierMap[key];
+    if (typeof gtag === 'function') {
+      gtag('event', 'begin_checkout', { currency: 'USD', value: tier.value, items: [{ item_name: tier.name, price: tier.value, quantity: 1 }] });
+    }
+    if (typeof fbq === 'function') {
+      fbq('track', 'InitiateCheckout', { value: tier.value, currency: 'USD', content_name: tier.name });
+    }
+  });
+});
 
 // ===== CYCLING REVIEWS =====
 (function() {
