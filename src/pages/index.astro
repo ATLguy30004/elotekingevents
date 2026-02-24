@@ -845,9 +845,10 @@ body {
 .sold-out-overlay {
   display: none;
   position: absolute; inset: 0;
-  background: rgba(255,255,255,0.85);
+  background: rgba(255,255,255,0.55);
   z-index: 10;
   align-items: center; justify-content: center;
+  pointer-events: none;
 }
 .sold-out-overlay.show { display: flex; }
 .sold-out-stamp {
@@ -1837,7 +1838,8 @@ function updateBars() {
       if (btn) {
         btn.classList.add('sold-out');
         btn.classList.remove('pulse');
-        btn.textContent = 'SOLD OUT';
+        var gatePrices = { 1: '22.99', 2: '44.99', 3: '74.99' };
+        btn.textContent = 'SOLD OUT — Gate Price $' + gatePrices[i];
         btn.onclick = function(e) { e.preventDefault(); };
       }
     }
