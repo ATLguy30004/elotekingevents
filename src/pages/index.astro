@@ -1839,7 +1839,7 @@ function updateBars() {
         btn.classList.add('sold-out');
         btn.classList.remove('pulse');
         var gatePrices = { 1: '22.99', 2: '44.99', 3: '74.99' };
-        btn.textContent = 'SOLD OUT — Gate Price $' + gatePrices[i];
+        btn.textContent = 'SOLD OUT — Pay at the Door $' + gatePrices[i];
         btn.onclick = function(e) { e.preventDefault(); };
       }
     }
