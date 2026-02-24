@@ -268,24 +268,26 @@ body {
 }
 
 /* ===== HERO ===== */
-.hero { position: relative; overflow: hidden; }
+.hero { position: relative; overflow: hidden; background: #000; }
 .hero-image-wrap {
-  position: relative; width: 100%; aspect-ratio: 3/2; overflow: hidden;
+  position: relative; width: 100%; overflow: hidden;
 }
 .hero-image-wrap img {
-  width: 100%; height: 100%; object-fit: cover; display: block;
+  width: 100%; height: auto; display: block;
 }
 .hero-image-overlay {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 65%;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.75) 45%, rgba(0,0,0,0.4) 85%, transparent 100%);
+  position: absolute; bottom: 0; left: 0; right: 0; height: 35%;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.45) 65%, transparent 100%);
+  pointer-events: none;
 }
 .hero-sold-badge {
-  position: absolute; top: 16px; right: 16px;
+  position: absolute; top: 12px; right: 12px;
   background: var(--red); color: #fff;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: 14px; letter-spacing: 1.5px;
-  padding: 6px 14px; border-radius: 6px;
+  font-size: 13px; letter-spacing: 1.5px;
+  padding: 5px 12px; border-radius: 6px;
   animation: pulse-badge 2s ease-in-out infinite;
+  z-index: 2;
 }
 @keyframes pulse-badge {
   0%, 100% { transform: scale(1); }
@@ -293,17 +295,17 @@ body {
 }
 .hero-text-overlay {
   position: absolute; bottom: 0; left: 0; right: 0;
-  padding: 24px 20px; color: #fff;
+  padding: 14px 16px 16px; color: #fff;
+  text-align: center; z-index: 2;
 }
-.hero-text-overlay h1 {
-  font-family: 'Bebas Neue', sans-serif;
-  font-size: 38px; line-height: 1.05; letter-spacing: 1px; margin-bottom: 8px;
-}
-.hero-text-overlay h1 .accent { color: #fff; }
 .hero-text-overlay .hero-sub {
-  font-size: 17px; font-weight: 600; opacity: 0.95;
+  font-size: 14px; font-weight: 600; opacity: 0.95; margin-bottom: 8px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 }
 .hero-text-overlay .hero-sub strong { color: var(--green-light); }
+.hero-text-overlay .btn-claim {
+  font-size: 16px; padding: 12px 24px; width: 100%; max-width: 380px;
+}
 
 /* ===== SPOTS COUNTER ===== */
 .spots-counter {
@@ -991,10 +993,11 @@ body {
 @media (min-width: 768px) {
   /* Content sections get max-width; full-bleed bars stay edge-to-edge */
   .hero { max-width: 100%; }
-  .hero-image-wrap { aspect-ratio: 21/9; max-height: 480px; }
-  .hero-image-overlay { height: 50%; }
-  .hero-text-overlay h1 { font-size: 52px; }
-  .hero-text-overlay { padding: 40px; }
+  .hero-image-wrap { max-height: 480px; }
+  .hero-image-wrap img { max-height: 480px; object-fit: cover; }
+  .hero-text-overlay { padding: 20px 40px 24px; }
+  .hero-text-overlay .hero-sub { font-size: 18px; }
+  .hero-text-overlay .btn-claim { font-size: 20px; padding: 16px 36px; width: auto; }
 
   /* Proof strip */
   .proof-strip { max-width: 100%; }
@@ -1047,8 +1050,8 @@ body {
 
 /* ===== LARGE DESKTOP (1024px+) ===== */
 @media (min-width: 1024px) {
-  .hero-image-wrap { max-height: 520px; }
-  .hero-text-overlay h1 { font-size: 60px; }
+  .hero-image-wrap { max-height: 540px; }
+  .hero-image-wrap img { max-height: 540px; object-fit: cover; }
 
   /* Flight cards: side by side at 1024px+ where they have room */
   .flights-wrap {
@@ -1102,13 +1105,12 @@ body {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-image-wrap">
-    <img src="/images/hero-trailer-daytime.jpeg" alt="Elote King halal Mexican street food trailer in Alpharetta, Georgia" fetchpriority="high" width="1080" height="720" />
+    <img src="/images/hero-yt-thumbnail.jpg" alt="Best halal tacos in Atlanta — Elote King food truck tasting event" fetchpriority="high" width="1280" height="720" />
     <div class="hero-image-overlay"></div>
     <div class="hero-sold-badge">EVENT #1 SOLD OUT</div>
     <div class="hero-text-overlay">
-      <h1>Event #1 Sold Out.<br/><span class="accent">DON'T MISS #2</span></h1>
-      <p class="hero-sub"><strong>Friday, Feb 27</strong> &nbsp;&bull;&nbsp; Door Open 9:30 PM – 12:30 AM &nbsp;&bull;&nbsp; Alpharetta, GA</p>
-      <a href="#flights" class="btn-claim pulse" style="display:inline-block; margin-top:16px; max-width:340px;">Claim Your Spot — Starting at $14.99 →</a>
+      <p class="hero-sub"><strong>Friday, Feb 27</strong> &nbsp;&bull;&nbsp; Doors 9:30 PM &nbsp;&bull;&nbsp; Alpharetta, GA</p>
+      <a href="#flights" class="btn-claim pulse">Claim Your Spot — Starting at $14.99 →</a>
     </div>
   </div>
 </section>
