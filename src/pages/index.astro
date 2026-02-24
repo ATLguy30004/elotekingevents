@@ -1853,9 +1853,9 @@ updateBars();
 fetch('/api/inventory')
   .then(function(r) { return r.json(); })
   .then(function(data) {
-    dropClaimed[1] = data.t1;
-    dropClaimed[2] = data.t2;
-    dropClaimed[3] = data.t3;
+    dropClaimed[1] = Math.max(dropClaimed[1], data.t1 || 0);
+    dropClaimed[2] = Math.max(dropClaimed[2], data.t2 || 0);
+    dropClaimed[3] = Math.max(dropClaimed[3], data.t3 || 0);
     updateBars();
   })
   .catch(function() {}); // silently fall back to hardcoded values
