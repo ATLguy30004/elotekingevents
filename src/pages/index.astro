@@ -562,6 +562,7 @@ body {
   display: flex; flex-direction: column; gap: 20px;
 }
 .flight-card {
+  position: relative;
   background: var(--bg-card);
   border-radius: var(--radius-lg);
   border: 2px solid var(--border-light);
@@ -1275,7 +1276,7 @@ body {
 
     <!-- FLIGHT 1: THE TASTE -->
     <div class="flight-card">
-      <div class="sold-out-overlay" id="sold1"><div class="sold-out-stamp">SOLD OUT</div></div>
+      <div class="sold-out-overlay" id="sold1"><div class="sold-out-stamp">SOLD OUT</div><div class="sold-out-door">Pay at the Door — $22.99</div></div>
       <div class="card-crown">
         <div class="crown-icon">&#128081;</div>
         <div class="tier-number">1</div>
@@ -1355,7 +1356,7 @@ body {
 
     <!-- FLIGHT 2: KING'S TABLE (MOST POPULAR) -->
     <div class="flight-card popular">
-      <div class="sold-out-overlay" id="sold2"><div class="sold-out-stamp">SOLD OUT</div></div>
+      <div class="sold-out-overlay" id="sold2"><div class="sold-out-stamp">SOLD OUT</div><div class="sold-out-door">Pay at the Door — $44.99</div></div>
       <div class="popular-badge">MOST POPULAR &mdash; BEST VALUE</div>
       <div class="card-crown">
         <div class="crown-icon">&#128081;&#128081;</div>
@@ -1433,7 +1434,7 @@ body {
 
     <!-- FLIGHT 3: ROYAL FEAST -->
     <div class="flight-card royal">
-      <div class="sold-out-overlay" id="sold3"><div class="sold-out-stamp">SOLD OUT</div></div>
+      <div class="sold-out-overlay" id="sold3"><div class="sold-out-stamp">SOLD OUT</div><div class="sold-out-door">Pay at the Door — $74.99</div></div>
       <div class="card-crown">
         <div class="crown-icon">&#128081;&#128081;&#128081;</div>
         <div class="tier-number">3</div>
@@ -1843,7 +1844,6 @@ function updateBars() {
       var overlay = document.getElementById('sold' + i);
       if (overlay) {
         overlay.classList.add('show');
-        overlay.innerHTML = '<div class="sold-out-stamp">SOLD OUT</div><div class="sold-out-door">Pay at the Door — $' + gatePrices[i] + '</div>';
       }
       var btn = document.getElementById('btn' + i);
       if (btn) {
