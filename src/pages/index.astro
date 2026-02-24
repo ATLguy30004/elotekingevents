@@ -1137,7 +1137,7 @@ body {
 
 <!-- SPOTS LEFT COUNTER -->
 <div class="spots-counter">
-  <span class="spots-number" id="spotsLeft">37</span> pre-pay flights left &mdash; save up to 42%
+  <span class="spots-number" id="spotsLeft">36</span> pre-pay flights left &mdash; save up to 42%
   <br/><a href="#flights">See What You're Getting &darr;</a>
 </div>
 
@@ -1290,9 +1290,9 @@ body {
           </div>
         </div>
         <div class="price-save">&#10003; Pre-pay = guaranteed food at the door</div>
-        <div class="first-drop-counter"><span class="dot"></span> <span id="drop1">1</span> of 10 pre-pay spots left</div>
-        <div class="drop-progress"><div class="drop-progress-fill" id="bar1" style="width: 90%"></div></div>
-        <div class="drop-progress-label"><span class="claimed"><span id="claimed1">9</span> claimed</span><span>10 total</span></div>
+        <div class="first-drop-counter"><span class="dot"></span> <span id="drop1">0</span> of 10 pre-pay spots left</div>
+        <div class="drop-progress"><div class="drop-progress-fill" id="bar1" style="width: 100%"></div></div>
+        <div class="drop-progress-label"><span class="claimed"><span id="claimed1">10</span> claimed</span><span>10 total</span></div>
 
         <div class="choose-main">
           <div class="choose-label">Choose Your Main (Pick 1)</div>
@@ -1338,7 +1338,7 @@ body {
         </div>
 
         <a href="https://square.link/u/kNN8rlDP" class="btn-claim pulse" id="btn1">Pre-Pay The Taste &mdash; 14.99 &rarr;</a>
-        <div class="card-spots-left"><strong id="spots1">1</strong> pre-pay spots left</div>
+        <div class="card-spots-left"><strong id="spots1">0</strong> pre-pay spots left</div>
         <p style="text-align: center; font-size: 14px; color: var(--green); font-weight: 600; margin-top: 12px;">
           Double your food for just 22 more. <a href="#" style="color: var(--green); text-decoration: underline; font-weight: 700;" onclick="document.getElementById('btn2').scrollIntoView({behavior:'smooth'});return false;">Upgrade to King's Table &rarr;</a>
         </p>
@@ -1753,7 +1753,7 @@ body {
 <div class="sticky-bar">
   <div class="sticky-inner">
     <div class="sticky-info">
-      <strong id="stickySpots">37</strong>
+      <strong id="stickySpots">36</strong>
       pre-pay spots left
     </div>
     <a href="#flights" id="stickyCta">Lock In Your Flight &mdash; Save up to 42% &rarr;</a>
@@ -1814,7 +1814,7 @@ document.addEventListener('visibilitychange', function() {
 // Pre-pay spots per tier: The Taste = 10, King's Table = 40, Royal Feast = 10
 // UPDATE THESE AS SALES COME IN:
 var tierTotals = { 1: 10, 2: 40, 3: 10 };
-var dropClaimed = { 1: 9, 2: 10, 3: 4 };
+var dropClaimed = { 1: 10, 2: 10, 3: 4 };
 
 function updateBars() {
   var totalLeft = 0;
