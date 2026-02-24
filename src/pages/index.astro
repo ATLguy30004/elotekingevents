@@ -296,8 +296,8 @@ body {
   text-shadow: 0 2px 10px rgba(0,0,0,0.8);
 }
 .hero-image-overlay {
-  position: absolute; bottom: 0; left: 0; right: 0; height: 35%;
-  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 70%, transparent 100%);
+  position: absolute; bottom: 0; left: 0; right: 0; height: 30%;
+  background: linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.4) 65%, transparent 100%);
   pointer-events: none;
 }
 @keyframes pulse-badge {
@@ -314,6 +314,10 @@ body {
   text-shadow: 0 1px 4px rgba(0,0,0,0.6);
 }
 .hero-text-overlay .hero-sub strong { color: var(--green-light); }
+.hero-text-overlay .hero-address {
+  font-size: 13px; opacity: 0.8; margin-bottom: 10px;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.6);
+}
 .hero-text-overlay .btn-claim {
   font-size: 17px; padding: 14px 24px; width: 100%; max-width: 380px;
 }
@@ -1124,7 +1128,8 @@ body {
     </div>
     <div class="hero-image-overlay"></div>
     <div class="hero-text-overlay">
-      <p class="hero-sub"><strong>Friday, Feb 27</strong> &nbsp;&bull;&nbsp; Doors 9:30 PM &nbsp;&bull;&nbsp; Alpharetta, GA</p>
+      <p class="hero-sub"><strong>Friday, Feb 27</strong> &nbsp;&bull;&nbsp; Doors 9:30 PM &nbsp;&bull;&nbsp; Creative Labs</p>
+      <p class="hero-address">6180 Atlanta Hwy, Alpharetta 30004</p>
       <a href="#flights" class="btn-claim pulse">Claim Your Spot — Starting at $14.99 →</a>
     </div>
   </div>
