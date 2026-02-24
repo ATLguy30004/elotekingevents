@@ -850,7 +850,7 @@ body {
   align-items: center; justify-content: center;
   pointer-events: none;
 }
-.sold-out-overlay.show { display: flex; }
+.sold-out-overlay.show { display: flex; flex-direction: column; }
 .sold-out-stamp {
   font-family: 'Bebas Neue', sans-serif;
   font-size: 64px; color: var(--red);
@@ -858,6 +858,13 @@ body {
   border-radius: 16px; padding: 8px 24px;
   transform: rotate(-12deg);
   letter-spacing: 4px;
+}
+.sold-out-door {
+  margin-top: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 18px; font-weight: 700; color: #111;
+  background: #fff; padding: 8px 20px; border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
 
 /* Decision helper */
@@ -1832,14 +1839,17 @@ function updateBars() {
     if (spotsEl) spotsEl.textContent = left;
     totalLeft += left;
     if (left <= 0) {
+      var gatePrices = { 1: '22.99', 2: '44.99', 3: '74.99' };
       var overlay = document.getElementById('sold' + i);
-      if (overlay) overlay.classList.add('show');
+      if (overlay) {
+        overlay.classList.add('show');
+        overlay.innerHTML = '<div class="sold-out-stamp">SOLD OUT</div><div class="sold-out-door">Pay at the Door — $' + gatePrices[i] + '</div>';
+      }
       var btn = document.getElementById('btn' + i);
       if (btn) {
         btn.classList.add('sold-out');
         btn.classList.remove('pulse');
-        var gatePrices = { 1: '22.99', 2: '44.99', 3: '74.99' };
-        btn.textContent = 'SOLD OUT — Pay at the Door $' + gatePrices[i];
+        btn.textContent = 'Pay at the Door — $' + gatePrices[i];
         btn.onclick = function(e) { e.preventDefault(); };
       }
     }
