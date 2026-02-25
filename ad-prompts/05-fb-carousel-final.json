@@ -1,0 +1,70 @@
+{
+  "scene": {
+    "description": "A dark, premium final carousel card for a Facebook ad — the closing CTA slide",
+    "background": {
+      "type": "very dark background (#111111) with subtle texture, almost black",
+      "texture": "subtle grain or dark concrete texture",
+      "lighting": "slight green (#16a34a) accent glow from edges"
+    }
+  },
+  "layout": {
+    "structure": "centered content stack on dark background",
+    "sections": [
+      {
+        "position": "upper center",
+        "element": "three crown emojis in a row",
+        "size": "large"
+      },
+      {
+        "position": "center-upper",
+        "element": "main headline",
+        "text": "60 SPOTS",
+        "style": "massive bold white uppercase text",
+        "font_style": "ultra bold condensed sans-serif like Bebas Neue",
+        "size": "very large, dominant"
+      },
+      {
+        "position": "center",
+        "element": "sub headline",
+        "text": "PRE-PAY & SAVE 42%",
+        "style": "green (#16a34a) bold uppercase text",
+        "font_style": "bold condensed sans-serif",
+        "size": "large"
+      },
+      {
+        "position": "center-lower",
+        "element": "CTA button",
+        "text": "LOCK IN YOUR FLIGHT →",
+        "style": "white bold text on green (#16a34a) rounded rectangle button, prominent",
+        "font_style": "bold sans-serif",
+        "background_color": "#16a34a",
+        "size": "large button"
+      },
+      {
+        "position": "lower",
+        "element": "website",
+        "text": "elotekingevents.com",
+        "style": "white text, clean",
+        "font_style": "medium sans-serif",
+        "size": "medium"
+      },
+      {
+        "position": "bottom",
+        "element": "trust strip",
+        "text": "100% ZABIHA HALAL • MUSLIM-OWNED • ZERO ALCOHOL",
+        "style": "green (#16a34a) text, small, uppercase",
+        "font_style": "bold uppercase",
+        "size": "small"
+      }
+    ]
+  },
+  "branding": {
+    "color_palette": ["#16a34a", "#ffffff", "#111111"],
+    "overall_style": "premium, dark, exclusive. Like a luxury product launch final slide. Urgent but clean."
+  },
+  "constraints": {
+    "aspect_ratio": "1:1",
+    "exclusions": ["photos", "busy design", "watermark", "cheap look"],
+    "must_include": ["dark background", "green accent", "clear CTA button", "crown symbols"]
+  }
+}

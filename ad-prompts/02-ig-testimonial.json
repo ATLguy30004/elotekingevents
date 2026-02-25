@@ -1,0 +1,62 @@
+{
+  "scene": {
+    "description": "A clean, branded social media testimonial card for a halal Mexican food event",
+    "background": {
+      "type": "solid white background (#ffffff)",
+      "texture": "clean, minimal, professional"
+    }
+  },
+  "layout": {
+    "structure": "vertical card layout",
+    "sections": [
+      {
+        "position": "top",
+        "element": "thick horizontal accent bar",
+        "color": "#16a34a",
+        "height": "12px strip across full width"
+      },
+      {
+        "position": "upper area",
+        "element": "five gold stars in a row",
+        "color": "#f59e0b",
+        "size": "large, prominent"
+      },
+      {
+        "position": "center",
+        "element": "testimonial quote in elegant italic serif or clean sans-serif",
+        "text": "The tinga tacos dorados were crispy, flavorful, and absolutely delicious. Paired with the refreshing cucumber and pineapple agua fresca, it was the perfect meal.",
+        "style": "dark gray text (#333333), italic, quotation marks, generous line spacing",
+        "size": "medium, readable"
+      },
+      {
+        "position": "below quote",
+        "element": "author attribution",
+        "text": "— Jenni Lopez",
+        "style": "bold, dark text (#111111), smaller than quote"
+      },
+      {
+        "position": "bottom section",
+        "element": "event info bar",
+        "text": "EVENT #2 | FEB 27 | PRE-PAY & SAVE 42%",
+        "style": "green (#16a34a) bold uppercase text",
+        "size": "medium"
+      },
+      {
+        "position": "very bottom",
+        "element": "website URL",
+        "text": "elotekingevents.com",
+        "style": "gray (#555555) clean sans-serif",
+        "size": "small-medium"
+      }
+    ]
+  },
+  "branding": {
+    "color_palette": ["#16a34a", "#f59e0b", "#ffffff", "#111111", "#333333"],
+    "overall_style": "clean, trustworthy, premium but accessible. Like a high-end restaurant review card."
+  },
+  "constraints": {
+    "aspect_ratio": "1:1",
+    "exclusions": ["busy backgrounds", "photos", "clip art", "watermark", "corporate stiffness"],
+    "must_include": ["five gold stars", "green accent bar", "clean white space", "professional typography"]
+  }
+}

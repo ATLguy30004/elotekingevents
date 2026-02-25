@@ -1,0 +1,66 @@
+{
+  "scene": {
+    "description": "A dramatic social media advertisement image for a food event",
+    "background": {
+      "type": "photograph of a long line of diverse excited people waiting at a food truck at night",
+      "lighting": "warm street lights and neon glow, nighttime urban setting",
+      "overlay": "dark gradient overlay from bottom (90% opacity) fading to top (30% opacity)"
+    }
+  },
+  "text_elements": [
+    {
+      "text": "EVENT #1 SOLD OUT",
+      "position": "top-right corner",
+      "style": "red badge, white bold uppercase text, slightly rotated -3 degrees",
+      "font_style": "bold condensed sans-serif",
+      "background_color": "#dc2626",
+      "size": "medium"
+    },
+    {
+      "text": "60 SPOTS LEFT",
+      "position": "center-top area",
+      "style": "massive bold uppercase white text",
+      "font_style": "ultra bold condensed sans-serif like Bebas Neue",
+      "size": "very large, dominant"
+    },
+    {
+      "text": "DON'T MISS EVENT #2",
+      "position": "center, below the main headline",
+      "style": "large bold text with green (#16a34a) color",
+      "font_style": "bold condensed sans-serif",
+      "size": "large"
+    },
+    {
+      "text": "PRE-PAY & SAVE 42%",
+      "position": "center-bottom area",
+      "style": "white text on green (#16a34a) rounded rectangle button",
+      "font_style": "bold sans-serif",
+      "background_color": "#16a34a",
+      "size": "medium-large"
+    },
+    {
+      "text": "FEB 27 | 9:30 PM | ALPHARETTA, GA",
+      "position": "bottom center",
+      "style": "white text, slightly smaller, clean",
+      "font_style": "medium weight sans-serif",
+      "size": "small-medium"
+    },
+    {
+      "text": "100% ZABIHA HALAL • MUSLIM-OWNED • ZERO ALCOHOL",
+      "position": "very bottom strip",
+      "style": "green (#16a34a) text on dark strip",
+      "font_style": "bold uppercase small",
+      "size": "small"
+    }
+  ],
+  "branding": {
+    "logo_area": "top-left, small crown emoji icon",
+    "color_palette": ["#16a34a", "#dc2626", "#ffffff", "#111111"],
+    "overall_style": "bold, urgent, street-smart, NOT corporate. Think food festival meets streetwear drop."
+  },
+  "constraints": {
+    "aspect_ratio": "1:1",
+    "exclusions": ["watermark", "stock photo look", "corporate feel", "clip art"],
+    "must_include": ["sense of urgency", "crowd energy", "food event atmosphere"]
+  }
+}

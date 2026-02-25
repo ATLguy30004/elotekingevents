@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(curl:*)",
+      "Bash(netstat:*)",
+      "Bash(npx astro:*)",
+      "Bash(taskkill:*)",
+      "Read(//c/Users/dangr/Projects/_brands/**)"
+    ]
+  }
+}

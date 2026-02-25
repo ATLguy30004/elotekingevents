@@ -1,0 +1,70 @@
+{
+  "scene": {
+    "description": "A bold, vertical TikTok end-card CTA screen for a food event",
+    "background": {
+      "type": "solid vibrant green (#16a34a) background with subtle radial gradient lighter in center",
+      "texture": "smooth, clean, modern"
+    }
+  },
+  "layout": {
+    "orientation": "vertical (9:16 portrait)",
+    "structure": "centered content stack",
+    "sections": [
+      {
+        "position": "upper center",
+        "element": "crown emoji, very large",
+        "text": "crown symbol",
+        "size": "extra large, 80px equivalent"
+      },
+      {
+        "position": "center-upper",
+        "element": "main headline",
+        "text": "PRE-PAY & SAVE 42%",
+        "style": "bold white uppercase text, massive",
+        "font_style": "ultra bold condensed sans-serif like Bebas Neue",
+        "size": "very large"
+      },
+      {
+        "position": "center",
+        "element": "website URL in white rounded rectangle button",
+        "text": "elotekingevents.com",
+        "style": "dark text (#111111) on white rounded pill button, bold",
+        "font_style": "bold sans-serif",
+        "size": "large"
+      },
+      {
+        "position": "center-lower",
+        "element": "event details",
+        "text": "60 SPOTS — FEB 27",
+        "style": "white text, bold uppercase",
+        "font_style": "bold sans-serif",
+        "size": "medium-large"
+      },
+      {
+        "position": "lower",
+        "element": "location",
+        "text": "9:30 PM • ALPHARETTA, GA",
+        "style": "white text, slightly transparent (80% opacity)",
+        "font_style": "medium weight sans-serif",
+        "size": "medium"
+      },
+      {
+        "position": "bottom",
+        "element": "trust badge strip",
+        "text": "100% ZABIHA HALAL • MUSLIM-OWNED",
+        "style": "white text on slightly darker green strip",
+        "font_style": "bold uppercase small",
+        "size": "small"
+      }
+    ]
+  },
+  "branding": {
+    "color_palette": ["#16a34a", "#ffffff", "#111111"],
+    "overall_style": "clean, bold, high-energy CTA. Like a concert ticket confirmation screen."
+  },
+  "constraints": {
+    "aspect_ratio": "9:16",
+    "exclusions": ["busy backgrounds", "photos", "gradients that obscure text", "watermark"],
+    "must_include": ["green background", "white text", "clear readable CTA", "crown symbol"]
+  }
+}

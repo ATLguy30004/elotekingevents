@@ -1,0 +1,63 @@
+{
+  "scene": {
+    "description": "A bold vertical TikTok end-card CTA screen for a street food event. Clean, modern, high-energy.",
+    "background": {
+      "type": "solid vibrant green background, hex color #16a34a, with a subtle radial gradient lighter in the center",
+      "texture": "smooth, clean, modern, flat"
+    }
+  },
+  "text_elements": [
+    {
+      "text": "PRE-PAY & SAVE 42%",
+      "position": "upper-center area",
+      "style": "massive bold white uppercase text, the biggest text on the image",
+      "font_style": "ultra bold condensed sans-serif, like Impact or Bebas Neue",
+      "size": "very large, dominant"
+    },
+    {
+      "text": "elotekingevents.com",
+      "position": "center of the image",
+      "style": "dark text on a white rounded pill-shaped button, bold",
+      "font_style": "bold sans-serif",
+      "background_color": "white rounded rectangle pill shape",
+      "size": "large, prominent"
+    },
+    {
+      "text": "60 SPOTS - FEB 27",
+      "position": "below the button, center",
+      "style": "white bold uppercase text",
+      "font_style": "bold sans-serif",
+      "size": "medium-large"
+    },
+    {
+      "text": "9:30 PM - ALPHARETTA, GA",
+      "position": "below the spots text",
+      "style": "white text, slightly transparent, 80% opacity",
+      "font_style": "medium weight sans-serif",
+      "size": "medium"
+    },
+    {
+      "text": "100% HALAL - ZERO ALCOHOL",
+      "position": "bottom of the image",
+      "style": "white bold small uppercase text on a slightly darker green strip",
+      "font_style": "bold uppercase sans-serif",
+      "size": "small"
+    }
+  ],
+  "decorative_elements": [
+    {
+      "type": "gold crown icon or emoji",
+      "position": "top center, above the main headline",
+      "size": "large, prominent"
+    }
+  ],
+  "branding": {
+    "color_palette": ["#16a34a", "#ffffff", "#111111"],
+    "overall_style": "clean, bold, high-energy CTA card. Like a concert ticket confirmation. Simple and punchy."
+  },
+  "constraints": {
+    "aspect_ratio": "portrait, tall, 9:16 vertical",
+    "exclusions": ["busy backgrounds", "photos", "watermarks", "gradients that obscure text", "special characters or symbols that could be garbled"],
+    "must_include": ["green background", "white text", "clear readable URL", "crown icon at top", "all text must be plain English with standard punctuation only, use hyphens not bullet points"]
+  }
+}

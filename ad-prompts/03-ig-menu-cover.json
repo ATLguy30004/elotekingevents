@@ -1,0 +1,53 @@
+{
+  "scene": {
+    "description": "A vibrant, mouth-watering social media graphic announcing a food menu drop",
+    "background": {
+      "type": "dark surface (black marble or dark wood table) with dramatic overhead lighting",
+      "lighting": "moody overhead spotlight, warm tones, food photography style",
+      "atmosphere": "premium street food aesthetic, steam wisps"
+    }
+  },
+  "food_elements": {
+    "arrangement": "artfully scattered Mexican street food items viewed from above (flat lay)",
+    "items": [
+      { "type": "smash burger with melted cheese and Mexican toppings on crispy fries", "position": "upper left" },
+      { "type": "crispy golden taquitos standing upright in a cup with red sauce", "position": "center right" },
+      { "type": "loaded fries with ground beef and melted cheese dripping", "position": "lower left" },
+      { "type": "bright orange mango drink with chili rim and lime", "position": "upper right" },
+      { "type": "red spicy michelada drink with lime garnish", "position": "lower right" }
+    ],
+    "style": "hyper-appetizing, professional food photography, vibrant colors, slight steam"
+  },
+  "text_elements": [
+    {
+      "text": "THE MENU JUST DROPPED",
+      "position": "center, overlaying the food arrangement",
+      "style": "massive bold white uppercase text with subtle drop shadow",
+      "font_style": "ultra bold condensed sans-serif like Bebas Neue",
+      "size": "very large, dominant"
+    },
+    {
+      "text": "6 ITEMS YOU CAN'T GET ANYWHERE ELSE IN ATLANTA",
+      "position": "below main headline",
+      "style": "green (#16a34a) bold uppercase text",
+      "font_style": "bold sans-serif",
+      "size": "medium"
+    },
+    {
+      "text": "100% ZABIHA HALAL",
+      "position": "bottom center",
+      "style": "white text with green checkmark icon",
+      "font_style": "bold sans-serif uppercase",
+      "size": "small-medium"
+    }
+  ],
+  "branding": {
+    "color_palette": ["#16a34a", "#ffffff", "#111111", "#dc2626"],
+    "overall_style": "premium street food meets luxury drop. Think Supreme product drop energy but for food."
+  },
+  "constraints": {
+    "aspect_ratio": "1:1",
+    "exclusions": ["cartoon food", "clip art", "watermark", "unrealistic colors"],
+    "must_include": ["appetizing food", "bold typography", "dark moody background", "green accent color"]
+  }
+}

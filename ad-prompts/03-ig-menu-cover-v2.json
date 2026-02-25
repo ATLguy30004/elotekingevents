@@ -1,0 +1,72 @@
+{
+  "scene": {
+    "description": "A vibrant social media announcement graphic for a street food menu reveal. Dark dramatic food photography style.",
+    "background": {
+      "type": "dark charcoal surface, almost black, with dramatic overhead spotlight creating pools of warm light",
+      "lighting": "moody overhead spotlight, warm golden tones, professional food photography style with visible steam and texture",
+      "atmosphere": "premium street food, late-night food event energy"
+    }
+  },
+  "food_arrangement": {
+    "style": "overhead flat lay view of Mexican street food items artfully arranged on the dark surface",
+    "items": [
+      {
+        "type": "a thick juicy smash burger with melted cheese, lettuce, and special sauce on a brioche bun, with a pile of golden crispy fries next to it",
+        "position": "upper left area",
+        "visual": "steam rising, cheese melting, looks incredibly appetizing"
+      },
+      {
+        "type": "five golden crispy rolled taquitos standing upright, deep-fried and crunchy, served on a plate",
+        "position": "center right",
+        "visual": "golden brown, crispy texture visible"
+      },
+      {
+        "type": "a heaping plate of loaded fries covered in seasoned ground beef and dripping melted cheese with green garnish",
+        "position": "lower left",
+        "visual": "cheese pull visible, messy and delicious"
+      },
+      {
+        "type": "a bright orange mango drink in a clear cup with a chili-dusted rim and lime wedge",
+        "position": "upper right",
+        "visual": "vibrant orange color, condensation on cup"
+      },
+      {
+        "type": "a red spicy michelada drink in a tall glass with lime garnish and chili seasoning on rim",
+        "position": "lower right",
+        "visual": "deep red color, refreshing look"
+      }
+    ]
+  },
+  "text_elements": [
+    {
+      "text": "THE MENU JUST DROPPED",
+      "position": "center of the image, overlaying the food",
+      "style": "massive bold white uppercase text with a subtle black drop shadow for readability",
+      "font_style": "ultra bold condensed sans-serif like Bebas Neue or Impact",
+      "size": "very large, dominant, takes up most of the width"
+    },
+    {
+      "text": "6 ITEMS YOU CAN'T GET ANYWHERE ELSE IN ATLANTA",
+      "position": "directly below the main headline",
+      "style": "bright green (#16a34a) bold uppercase text, clearly readable against the dark background",
+      "font_style": "bold sans-serif",
+      "size": "medium-large, must be easily readable"
+    },
+    {
+      "text": "100% HALAL",
+      "position": "bottom center",
+      "style": "white text with a green checkmark, small clean badge",
+      "font_style": "bold sans-serif uppercase",
+      "size": "small-medium"
+    }
+  ],
+  "branding": {
+    "color_palette": ["#16a34a", "#ffffff", "#111111", "#dc2626"],
+    "overall_style": "premium street food meets luxury product drop. Think Supreme drop energy applied to food. NOT corporate, NOT stock-photo. Raw and appetizing."
+  },
+  "constraints": {
+    "aspect_ratio": "1:1 square",
+    "exclusions": ["cartoon food", "clip art", "watermark", "unrealistic neon colors", "AI-looking plastic food"],
+    "must_include": ["real-looking appetizing food", "bold readable headline text", "dark moody background", "green accent color", "the subtitle text MUST be large enough to read on a phone screen"]
+  }
+}
