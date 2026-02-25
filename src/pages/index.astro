@@ -1941,7 +1941,12 @@ function trackSquareClick(btn) {
   var btn = document.getElementById(btnId);
   if (btn) {
     console.log('[ELOTE] Attached listener to', btnId, btn.href);
-    btn.addEventListener('click', function() { trackSquareClick(this); });
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var targetUrl = this.href;
+      trackSquareClick(this);
+      setTimeout(function() { window.location.href = targetUrl; }, 300);
+    });
   } else {
     console.log('[ELOTE] Button not found:', btnId);
   }
@@ -1952,7 +1957,12 @@ var allSquareBtns = document.querySelectorAll('a[href*="square.link"]');
 console.log('[ELOTE] Found', allSquareBtns.length, 'square.link buttons total');
 allSquareBtns.forEach(function(btn) {
   if (!btn.id || (btn.id !== 'btn1' && btn.id !== 'btn2' && btn.id !== 'btn3')) {
-    btn.addEventListener('click', function() { trackSquareClick(this); });
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      var targetUrl = this.href;
+      trackSquareClick(this);
+      setTimeout(function() { window.location.href = targetUrl; }, 300);
+    });
   }
 });
 
