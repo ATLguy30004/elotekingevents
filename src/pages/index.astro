@@ -1282,7 +1282,7 @@ body {
 
     <!-- FLIGHT 1: THE TASTE -->
     <div class="flight-card">
-      <div class="sold-out-overlay" id="sold1"><div class="sold-out-stamp">SOLD OUT</div><a href="#kings-table" class="sold-out-door" style="pointer-events:auto;text-decoration:none;color:#111;">Upgrade to King's Table — $36.99 &rarr;</a></div>
+      <div class="sold-out-overlay" id="sold1" style="display:none;"><div class="sold-out-stamp">SOLD OUT</div><a href="#kings-table" class="sold-out-door" style="pointer-events:auto;text-decoration:none;color:#111;">Upgrade to King's Table — $36.99 &rarr;</a></div>
       <div class="card-crown">
         <div class="crown-icon">&#128081;</div>
         <div class="tier-number">1</div>
@@ -1293,15 +1293,16 @@ body {
 
         <div class="retail-anchor">À la carte value: <strong>26</strong></div>
         <div class="price-compare">
-          <div class="price-col prepay">
+          <div class="price-col prepay" style="opacity: 0.4; position: relative;">
             <div class="price-col-label">&#9733; Pre-Pay</div>
             <div class="price-col-amount" id="prepay-amt1">14.99</div>
             <div class="price-col-note">Save 11</div>
+            <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%) rotate(-15deg); background: #dc2626; color: white; padding: 6px 16px; font-weight: 800; font-size: 16px; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.3); z-index: 10;">SOLD OUT</div>
           </div>
-          <div class="price-col door">
-            <div class="price-col-label">At the Door</div>
+          <div class="price-col door" style="border: 2px solid var(--green); background: rgba(34, 197, 94, 0.05);">
+            <div class="price-col-label" style="color: var(--green);">&#9733; DOOR PRICE</div>
             <div class="price-col-amount">22.99</div>
-            <div class="price-col-note">No guarantee</div>
+            <div class="price-col-note" style="color: var(--green); font-weight: 600;">Guarantee your food</div>
           </div>
         </div>
         <div class="price-save">&#10003; Pre-pay = guaranteed food at the door</div>
@@ -1352,10 +1353,10 @@ body {
           <span class="total-val" id="total1">26</span>
         </div>
 
-        <a href="https://square.link/u/kNN8rlDP" class="btn-claim pulse" id="btn1">Pre-Pay The Taste &mdash; 14.99 &rarr;</a>
+        <a href="https://square.link/u/aN7IMSCG" class="btn-claim pulse" id="btn1">Pre-Pay Door Price &mdash; 22.99 &rarr;</a>
         <div class="card-spots-left"><strong id="spots1">0</strong> pre-pay spots left</div>
         <p style="text-align: center; font-size: 14px; color: var(--green); font-weight: 600; margin-top: 12px;">
-          Double your food for just 22 more. <a href="#" style="color: var(--green); text-decoration: underline; font-weight: 700;" onclick="document.getElementById('btn2').scrollIntoView({behavior:'smooth'});return false;">Upgrade to King's Table &rarr;</a>
+          Double your food for just 14 more. <a href="#" style="color: var(--green); text-decoration: underline; font-weight: 700;" onclick="document.getElementById('btn2').scrollIntoView({behavior:'smooth'});return false;">Upgrade to King's Table &rarr;</a>
         </p>
       </div>
     </div>
@@ -1896,6 +1897,8 @@ function trackSquareClick(btn) {
 
   var tierMap = {
     'kNN8rlDP': { name: 'The Taste', value: 14.99 },
+    'aN7IMSCG': { name: 'The Taste (Door Price)', value: 22.99 },
+    'SYHzIroq': { name: 'The Taste + Flan (Door Price)', value: 30.99 },
     'owUPZT3F': { name: "King's Table", value: 36.99 },
     'NRHEJ7yI': { name: 'Royal Feast', value: 64.99 },
     '1Fzt6LTM': { name: 'The Taste + Flan', value: 22.99 },
@@ -2140,7 +2143,7 @@ if ('IntersectionObserver' in window) {
 
 // ===== FLAN ADD-ON TOGGLE =====
 var flanLinks = {
-  1: { base: 'https://square.link/u/kNN8rlDP', flan: 'https://square.link/u/1Fzt6LTM', basePrice: '14.99', flanPrice: '22.99', baseTotal: '26', flanTotal: '34', baseName: 'Pre-Pay The Taste \u2014 14.99 \u2192', flanName: 'Pre-Pay The Taste + Flan \u2014 22.99 \u2192' },
+  1: { base: 'https://square.link/u/aN7IMSCG', flan: 'https://square.link/u/SYHzIroq', basePrice: '22.99', flanPrice: '30.99', baseTotal: '26', flanTotal: '34', baseName: 'Pre-Pay Door Price \u2014 22.99 \u2192', flanName: 'Pre-Pay Door Price + Flan \u2014 30.99 \u2192' },
   2: { base: 'https://square.link/u/owUPZT3F', flan: 'https://square.link/u/TM7g8iDj', basePrice: '36.99', flanPrice: '44.99', baseTotal: '52', flanTotal: '60', baseName: "Pre-Pay King\u2019s Table \u2014 36.99 \u2192", flanName: "Pre-Pay King\u2019s Table + Flan \u2014 44.99 \u2192" }
 };
 
