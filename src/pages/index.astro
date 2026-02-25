@@ -1886,26 +1886,51 @@ fetch('/api/inventory')
   .catch(function() {}); // silently fall back to hardcoded values
 
 // ===== TRACK SQUARE CTA CLICKS (GA4 + META) =====
+function trackSquareClick(btn) {
+  var tierMap = {
+    'kNN8rlDP': { name: 'The Taste', value: 14.99 },
+    'owUPZT3F': { name: "King's Table", value: 36.99 },
+    'NRHEJ7yI': { name: 'Royal Feast', value: 64.99 },
+    '1Fzt6LTM': { name: 'The Taste + Flan', value: 22.99 },
+    'TM7g8iDj': { name: "King's Table + Flan", value: 44.99 }
+  };
+  var href = btn.getAttribute('href') || '';
+  var key = Object.keys(tierMap).find(function(k) { return href.indexOf(k) !== -1; });
+  if (!key) return;
+  var tier = tierMap[key];
+
+  // Fire GA4 event
+  if (typeof gtag === 'function') {
+    gtag('event', 'begin_checkout', {
+      currency: 'USD',
+      value: tier.value,
+      items: [{ item_name: tier.name, price: tier.value, quantity: 1 }]
+    });
+  }
+
+  // Fire Meta Pixel event
+  if (typeof fbq === 'function') {
+    fbq('track', 'InitiateCheckout', {
+      value: tier.value,
+      currency: 'USD',
+      content_name: tier.name
+    });
+  }
+}
+
+// Attach to specific buttons by ID (reliable)
+['btn1', 'btn2'].forEach(function(btnId) {
+  var btn = document.getElementById(btnId);
+  if (btn) {
+    btn.addEventListener('click', function() { trackSquareClick(this); });
+  }
+});
+
+// Also catch any other square.link buttons (fallback)
 document.querySelectorAll('a[href*="square.link"]').forEach(function(btn) {
-  btn.addEventListener('click', function() {
-    var tierMap = {
-      'kNN8rlDP': { name: 'The Taste', value: 14.99 },
-      'owUPZT3F': { name: "King's Table", value: 36.99 },
-      'NRHEJ7yI': { name: 'Royal Feast', value: 64.99 },
-      '1Fzt6LTM': { name: 'The Taste + Flan', value: 22.99 },
-      'TM7g8iDj': { name: "King's Table + Flan", value: 44.99 }
-    };
-    var href = this.getAttribute('href') || '';
-    var key = Object.keys(tierMap).find(function(k) { return href.indexOf(k) !== -1; });
-    if (!key) return;
-    var tier = tierMap[key];
-    if (typeof gtag === 'function') {
-      gtag('event', 'begin_checkout', { currency: 'USD', value: tier.value, items: [{ item_name: tier.name, price: tier.value, quantity: 1 }] });
-    }
-    if (typeof fbq === 'function') {
-      fbq('track', 'InitiateCheckout', { value: tier.value, currency: 'USD', content_name: tier.name });
-    }
-  });
+  if (!btn.id || (btn.id !== 'btn1' && btn.id !== 'btn2')) {
+    btn.addEventListener('click', function() { trackSquareClick(this); });
+  }
 });
 
 // ===== CYCLING REVIEWS =====
