@@ -1152,7 +1152,7 @@ body {
 
 <!-- SPOTS LEFT COUNTER -->
 <div class="spots-counter">
-  <span class="spots-number" id="spotsLeft">26</span> pre-pay flights left &mdash; save up to 42%
+  <span class="spots-number" id="spotsLeft">23</span> pre-pay flights left &mdash; save up to 42%
   <br/><a href="#flights">See What You're Getting &darr;</a>
 </div>
 
@@ -1244,7 +1244,7 @@ body {
         <div class="timeline-label">Pick Your Flight</div>
         <div class="timeline-date">3 Tiers &mdash; Starting at 14.99</div>
         <div class="timeline-desc">The Taste, King's Table, or Royal Feast. Choose what fits you.</div>
-        <div class="timeline-urgency"><span id="timelineSpots">26</span> spots left &mdash; going fast</div>
+        <div class="timeline-urgency"><span id="timelineSpots">23</span> spots left &mdash; going fast</div>
       </div>
     </div>
     <div class="timeline-step">
@@ -1779,7 +1779,7 @@ body {
 <div class="sticky-bar">
   <div class="sticky-inner">
     <div class="sticky-info">
-      <strong id="stickySpots">26</strong>
+      <strong id="stickySpots">23</strong>
       pre-pay spots left
     </div>
     <a href="#flights" id="stickyCta">23 Spots Left &mdash; Starting at $36.99 &rarr;</a>
@@ -1855,7 +1855,7 @@ function updateBars() {
     document.getElementById('claimed' + i).textContent = claimed;
     var spotsEl = document.getElementById('spots' + i);
     if (spotsEl) spotsEl.textContent = left;
-    totalLeft += left;
+    if (i === 2) totalLeft += left;
     if (left <= 0 && i !== 1) {
       var gatePrices = { 1: '22.99', 2: '44.99', 3: '74.99' };
       var overlay = document.getElementById('sold' + i);
