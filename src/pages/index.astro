@@ -1889,7 +1889,11 @@ fetch('/api/inventory')
   .catch(function() {}); // silently fall back to hardcoded values
 
 // ===== TRACK SQUARE CTA CLICKS (GA4 + META) =====
+console.log('[ELOTE] Tracking setup starting...');
+
 function trackSquareClick(btn) {
+  console.log('[ELOTE] Button clicked!', btn.id, btn.href);
+
   var tierMap = {
     'kNN8rlDP': { name: 'The Taste', value: 14.99 },
     'owUPZT3F': { name: "King's Table", value: 36.99 },
@@ -1897,22 +1901,33 @@ function trackSquareClick(btn) {
     '1Fzt6LTM': { name: 'The Taste + Flan', value: 22.99 },
     'TM7g8iDj': { name: "King's Table + Flan", value: 44.99 }
   };
+
   var href = btn.getAttribute('href') || '';
   var key = Object.keys(tierMap).find(function(k) { return href.indexOf(k) !== -1; });
-  if (!key) return;
+
+  if (!key) {
+    console.log('[ELOTE] No tier found for:', href);
+    return;
+  }
+
   var tier = tierMap[key];
+  console.log('[ELOTE] Tier matched:', tier.name, '$' + tier.value);
 
   // Fire GA4 event
   if (typeof gtag === 'function') {
+    console.log('[ELOTE] Firing GA4 begin_checkout');
     gtag('event', 'begin_checkout', {
       currency: 'USD',
       value: tier.value,
       items: [{ item_name: tier.name, price: tier.value, quantity: 1 }]
     });
+  } else {
+    console.log('[ELOTE] ERROR: gtag not defined!');
   }
 
   // Fire Meta Pixel event
   if (typeof fbq === 'function') {
+    console.log('[ELOTE] Firing Meta InitiateCheckout');
     fbq('track', 'InitiateCheckout', {
       value: tier.value,
       currency: 'USD',
@@ -1921,20 +1936,27 @@ function trackSquareClick(btn) {
   }
 }
 
-// Attach to specific buttons by ID (reliable)
-['btn1', 'btn2'].forEach(function(btnId) {
+// Attach to specific buttons by ID
+['btn1', 'btn2', 'btn3'].forEach(function(btnId) {
   var btn = document.getElementById(btnId);
   if (btn) {
+    console.log('[ELOTE] Attached listener to', btnId, btn.href);
+    btn.addEventListener('click', function() { trackSquareClick(this); });
+  } else {
+    console.log('[ELOTE] Button not found:', btnId);
+  }
+});
+
+// Fallback for other square.link buttons
+var allSquareBtns = document.querySelectorAll('a[href*="square.link"]');
+console.log('[ELOTE] Found', allSquareBtns.length, 'square.link buttons total');
+allSquareBtns.forEach(function(btn) {
+  if (!btn.id || (btn.id !== 'btn1' && btn.id !== 'btn2' && btn.id !== 'btn3')) {
     btn.addEventListener('click', function() { trackSquareClick(this); });
   }
 });
 
-// Also catch any other square.link buttons (fallback)
-document.querySelectorAll('a[href*="square.link"]').forEach(function(btn) {
-  if (!btn.id || (btn.id !== 'btn1' && btn.id !== 'btn2')) {
-    btn.addEventListener('click', function() { trackSquareClick(this); });
-  }
-});
+console.log('[ELOTE] Tracking setup complete!');
 
 // ===== CYCLING REVIEWS =====
 (function() {
