@@ -1465,9 +1465,9 @@ body {
           </div>
         </div>
         <div class="price-save">&#10003; 86 worth of food &mdash; guaranteed at the door</div>
-        <div class="first-drop-counter"><span class="dot"></span> <span id="drop3">3</span> of 10 pre-pay spots left</div>
-        <div class="drop-progress"><div class="drop-progress-fill" id="bar3" style="width: 50%"></div></div>
-        <div class="drop-progress-label"><span class="claimed"><span id="claimed3">7</span> claimed</span><span>10 total</span></div>
+        <div class="first-drop-counter"><span class="dot"></span> <span id="drop3">0</span> of 10 pre-pay spots left</div>
+        <div class="drop-progress"><div class="drop-progress-fill" id="bar3" style="width: 100%"></div></div>
+        <div class="drop-progress-label"><span class="claimed"><span id="claimed3">10</span> claimed</span><span>10 total</span></div>
 
         <p style="color: var(--green); font-size: 14px; font-weight: 600; margin: 12px 0 8px 0;">&#10003; Choose mains at the truck.</p>
 
@@ -1510,7 +1510,7 @@ body {
         </div>
 
         <a href="https://square.link/u/NRHEJ7yI" class="btn-claim pulse" id="btn3">Pre-Pay Royal Feast &mdash; 64.99 &rarr;</a>
-        <div class="card-spots-left"><strong id="spots3">3</strong> pre-pay spots left &mdash; feeds 3-4 people</div>
+        <div class="card-spots-left"><strong id="spots3">0</strong> pre-pay spots left &mdash; feeds 3-4 people</div>
       </div>
     </div>
 
@@ -1840,7 +1840,7 @@ document.addEventListener('visibilitychange', function() {
 // Pre-pay spots per tier: The Taste = 10, King's Table = 40, Royal Feast = 10
 // UPDATE THESE AS SALES COME IN:
 var tierTotals = { 1: 10, 2: 40, 3: 10 };
-var dropClaimed = { 1: 10, 2: 21, 3: 8 };
+var dropClaimed = { 1: 10, 2: 21, 3: 10 };
 
 function updateBars() {
   var totalLeft = 0;
