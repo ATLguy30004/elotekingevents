@@ -2034,12 +2034,10 @@ a {
         var counterText;
         if (remaining <= 0) {
             counterText = 'SOLD OUT';
-        } else if (pct >= 70) {
-            counterText = 'Only ' + remaining + ' left';
-        } else if (claimed > 0) {
-            counterText = claimed + ' pre-ordered';
+        } else if (remaining <= 5) {
+            counterText = 'Only ' + remaining + ' left — almost gone';
         } else {
-            counterText = 'Reserve yours';
+            counterText = remaining + ' left';
         }
         wrap.innerHTML =
             '<div class="stock-counter"><span class="dot"></span> ' + counterText + '</div>' +
