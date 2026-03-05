@@ -1189,11 +1189,6 @@ a {
         line-height: 1.4;
     }
 
-    .hero-unmute-btn {
-        width: 44px;
-        height: 44px;
-    }
-
     .hero {
         padding: 28px 16px 36px;
         gap: 20px;
@@ -1221,40 +1216,88 @@ a {
         aspect-ratio: 1 / 1;
     }
 
+    /* ===== MENU CARD MOBILE OVERHAUL ===== */
     .menu-item {
-        flex-wrap: wrap;
-        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        padding: 0;
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--color-border);
+        background: #fff;
     }
 
     .menu-item-thumb {
         width: 100%;
-        height: 180px;
-        border-radius: 10px;
+        height: 200px;
+        border-radius: 0;
+        object-fit: cover;
     }
 
     .sampler-collage {
         width: 100%;
         height: auto;
         aspect-ratio: 2 / 1;
-        border-radius: 10px;
+        border-radius: 0;
     }
 
     .menu-item-info {
         min-width: auto;
         width: 100%;
+        padding: 14px 16px 4px;
     }
 
+    .menu-item-name {
+        font-size: 18px;
+        font-weight: 800;
+        gap: 8px;
+        margin-bottom: 4px;
+    }
+
+    .menu-item-name .tag {
+        font-size: 12px;
+        padding: 3px 8px;
+        background: #22c55e;
+        color: #fff;
+    }
+
+    .menu-item-desc {
+        font-size: 15px;
+        color: var(--color-text-secondary);
+        line-height: 1.5;
+        margin-top: 4px;
+    }
+
+    /* Price + Qty row */
     .menu-item-price {
-        flex-shrink: 0;
+        padding: 8px 16px 0;
+        font-size: 20px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+
+    .menu-item-price .was {
+        font-size: 15px;
+    }
+
+    .qty-controls {
+        padding: 10px 16px 14px;
+        justify-content: flex-start;
     }
 
     .qty-btn {
         width: 44px;
         height: 44px;
+        font-size: 20px;
     }
 
     .qty-count {
         width: 44px;
+        font-size: 18px;
     }
 
     .btn-primary,
@@ -1266,6 +1309,14 @@ a {
     .stat-pill {
         font-size: 14px;
         padding: 6px 12px;
+    }
+
+    .packages-section {
+        padding: 40px 16px;
+    }
+
+    .packages-section h2 {
+        font-size: 1.6rem;
     }
 }
 
@@ -1384,7 +1435,7 @@ a {
     flex-basis: 100%;
     order: 99;
     margin-top: 4px;
-    padding: 0 4px 8px;
+    padding: 0 16px 14px;
     box-sizing: border-box;
 }
 .stock-counter {
