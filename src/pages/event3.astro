@@ -1,5 +1,7 @@
 ---
 // Event 3 Landing Page — Elote King Atlanta
+import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -2682,5 +2684,7 @@ a {
     updateAllUI();
 })();
 </script>
+<Analytics />
+<SpeedInsights />
 </body>
 </html>
