@@ -1,0 +1,344 @@
+---
+// Printable 8.5x11 trailer menu — matches landing page card layout
+---
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elote King — Trailer Menu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @page {
+      size: 8.5in 11in;
+      margin: 0;
+    }
+
+    html, body {
+      width: 8.5in;
+      height: 11in;
+      font-family: 'DM Sans', sans-serif;
+      background: #ffffff;
+      color: #111111;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    .page {
+      width: 8.5in;
+      height: 11in;
+      padding: 0.4in 0.45in 0.35in;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    /* Header */
+    .header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 0.2in;
+      padding-bottom: 0.12in;
+      border-bottom: 2.5px solid #16a34a;
+    }
+
+    .logo {
+      height: 0.7in;
+    }
+
+    .header-right {
+      text-align: right;
+    }
+
+    .header-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 28pt;
+      letter-spacing: 2px;
+      color: #111111;
+      line-height: 1;
+    }
+
+    .trust-badges {
+      font-size: 9pt;
+      font-weight: 600;
+      color: #16a34a;
+      margin-top: 3px;
+      letter-spacing: 0.3px;
+    }
+
+    /* Section title */
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 22pt;
+      letter-spacing: 1.5px;
+      text-align: center;
+      color: #111111;
+      margin-bottom: 0.18in;
+    }
+
+    /* Menu grid — 3 columns, 2 rows */
+    .menu-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0.15in;
+      flex: 1;
+    }
+
+    .menu-card {
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #e0e0e0;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06);
+      display: flex;
+      flex-direction: column;
+      background: #ffffff;
+    }
+
+    .menu-card-img {
+      width: 100%;
+      height: 1.7in;
+      object-fit: cover;
+      display: block;
+    }
+
+    .menu-card-body {
+      padding: 0.08in 0.1in 0.1in;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .menu-card-name-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3px;
+    }
+
+    .menu-card-name {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #111111;
+      line-height: 1.2;
+    }
+
+    .menu-card-price {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 16pt;
+      color: #16a34a;
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .menu-card-desc {
+      font-size: 8.5pt;
+      color: #444444;
+      line-height: 1.35;
+      margin-bottom: 4px;
+    }
+
+    .menu-card-tag {
+      display: inline-block;
+      font-size: 7.5pt;
+      font-weight: 700;
+      color: #16a34a;
+      background: rgba(22, 163, 74, 0.08);
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+      margin-top: auto;
+    }
+
+    .addon-label {
+      font-size: 7.5pt;
+      font-weight: 600;
+      color: #555555;
+      margin-top: auto;
+      padding-top: 3px;
+      border-top: 1px dashed #e0e0e0;
+    }
+
+    .addon-label span {
+      color: #16a34a;
+      font-weight: 700;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 0.15in;
+      padding-top: 0.1in;
+      border-top: 2px solid #16a34a;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-left {
+      font-size: 9pt;
+      color: #333333;
+      font-weight: 500;
+    }
+
+    .footer-left strong {
+      color: #111111;
+    }
+
+    .footer-right {
+      text-align: right;
+      font-size: 8.5pt;
+      color: #555555;
+    }
+
+    .footer-right a {
+      color: #16a34a;
+      font-weight: 700;
+      text-decoration: none;
+      font-size: 10pt;
+    }
+
+    /* Print button — hidden on print */
+    .print-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #16a34a;
+      color: #fff;
+      border: none;
+      padding: 12px 28px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 18px;
+      letter-spacing: 1px;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 999;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .print-btn:hover {
+      background: #15803d;
+    }
+
+    @media print {
+      .print-btn { display: none !important; }
+      body { background: #fff; }
+    }
+  </style>
+</head>
+<body>
+  <button class="print-btn" onclick="window.print()">PRINT MENU</button>
+
+  <div class="page">
+    <!-- Header -->
+    <div class="header">
+      <img class="logo" src="/images/elote-king-logo-transparent.png" alt="Elote King" />
+      <div class="header-right">
+        <div class="header-title">WHAT YOU'RE GETTING</div>
+        <div class="trust-badges">100% ZABIHA HALAL &bull; MUSLIM-OWNED &bull; ZERO ALCOHOL</div>
+      </div>
+    </div>
+
+    <!-- Section: Mains -->
+    <div class="section-title">MAINS</div>
+    <div class="menu-grid" style="margin-bottom: 0.15in;">
+      <!-- King Smash Burger -->
+      <div class="menu-card">
+        <img class="menu-card-img" src="/images/king-smash-burger-branded-final.webp" alt="King Smash Burger" />
+        <div class="menu-card-body">
+          <div class="menu-card-name-row">
+            <div class="menu-card-name">King Smash Burger</div>
+            <div class="menu-card-price">$13</div>
+          </div>
+          <div class="menu-card-desc">Halal smashed patty, Mexican street toppings, crispy fries.</div>
+          <div class="addon-label">Add extra: <span>+$13</span></div>
+        </div>
+      </div>
+
+      <!-- Birria Tacos -->
+      <div class="menu-card">
+        <img class="menu-card-img" src="/images/birria-tacos-branded-final.jpg" alt="Birria Tacos" />
+        <div class="menu-card-body">
+          <div class="menu-card-name-row">
+            <div class="menu-card-name">Birria Tacos</div>
+            <div class="menu-card-price">$13</div>
+          </div>
+          <div class="menu-card-desc">Slow-braised birria in a crispy tortilla. Chicken or beef — all with our rich beef consomé.</div>
+          <div class="menu-card-tag">CHICKEN OR BEEF</div>
+          <div class="addon-label">Add extra: <span>+$13</span></div>
+        </div>
+      </div>
+
+      <!-- Chorizo Drip Fries -->
+      <div class="menu-card">
+        <img class="menu-card-img" src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chorizo Drip Fries" />
+        <div class="menu-card-body">
+          <div class="menu-card-name-row">
+            <div class="menu-card-name">Chorizo Drip Fries</div>
+            <div class="menu-card-price">$13</div>
+          </div>
+          <div class="menu-card-desc">Crispy fries dripping in Mexican-seasoned beef, melted cheese.</div>
+          <div class="addon-label">Add extra: <span>+$13</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Section: Drinks & Dessert -->
+    <div class="section-title">DRINKS & DESSERT</div>
+    <div class="menu-grid">
+      <!-- Gold Flan Royale -->
+      <div class="menu-card">
+        <img class="menu-card-img" src="/images/gold-flan-royale-branded-final.jpg" alt="Gold Flan Royale" />
+        <div class="menu-card-body">
+          <div class="menu-card-name-row">
+            <div class="menu-card-name">Gold Flan Royale</div>
+            <div class="menu-card-price">$8</div>
+          </div>
+          <div class="menu-card-desc">Creamy caramel custard made from scratch. 100% halal.</div>
+          <div class="addon-label">Add extra: <span>+$8</span></div>
+        </div>
+      </div>
+
+      <!-- Pina Colada -->
+      <div class="menu-card">
+        <img class="menu-card-img" src="/images/pina-colada-branded-final.jpg" alt="Piña Colada" />
+        <div class="menu-card-body">
+          <div class="menu-card-name-row">
+            <div class="menu-card-name">Pi&ntilde;a Colada</div>
+            <div class="menu-card-price">$8</div>
+          </div>
+          <div class="menu-card-desc">Creamy, tropical, ice-cold. No alcohol. 100% halal.</div>
+          <div class="addon-label">Add extra: <span>+$8</span></div>
+        </div>
+      </div>
+
+      <!-- Halal Michelada -->
+      <div class="menu-card">
+        <img class="menu-card-img" src="/images/michelada-branded-final.jpg" alt="Halal Michelada" />
+        <div class="menu-card-body">
+          <div class="menu-card-name-row">
+            <div class="menu-card-name">Halal Michelada</div>
+            <div class="menu-card-price">$8</div>
+          </div>
+          <div class="menu-card-desc">Spice. Lime. No alcohol. 100% halal.</div>
+          <div class="menu-card-tag">NOBODY ELSE HAS THIS</div>
+          <div class="addon-label">Add extra: <span>+$8</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+      <div class="footer-left">
+        <strong>Elote King Atlanta</strong> &bull; 678-793-5550 &bull; @elotekingatlanta
+      </div>
+      <div class="footer-right">
+        Book us for your next event<br />
+        <a href="https://events.elotekingatlanta.com/event3">events.elotekingatlanta.com</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
