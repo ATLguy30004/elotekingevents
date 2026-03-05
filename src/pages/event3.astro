@@ -1545,6 +1545,7 @@ a {
             muted
             loop
             playsinline
+            preload="auto"
         ></video>
     </div>
     <div class="hero-copy">
@@ -1634,12 +1635,14 @@ a {
     <h2>What's On the Menu</h2>
     <div class="food-reel-video">
         <video
+            id="food-reel-video"
             src="/video/event3-food-reel.mp4"
             poster="/images/event3-crowd-vibes.jpg"
             autoplay
             muted
             loop
             playsinline
+            preload="auto"
         ></video>
     </div>
     <p style="text-align: center; color: #1a1a1a; font-size: 16px; font-weight: 700; margin-top: -8px; padding: 12px 20px; background: #fef2f2; border-left: 4px solid var(--color-urgent); border-radius: 6px; max-width: 500px; margin-left: auto; margin-right: auto;">Events #1 and #2 sold out. Not because of hype — because demand outran supply every time.</p>
@@ -2046,10 +2049,29 @@ a {
         item.appendChild(wrap);
     });
 
-    // ===== PAUSE VIDEO WHEN OUT OF VIEW =====
+    // ===== FORCE AUTOPLAY + PAUSE WHEN OUT OF VIEW =====
+    function forceAutoplay(video) {
+        if (!video) return;
+        video.muted = true;
+        var playPromise = video.play();
+        if (playPromise !== undefined) {
+            playPromise.catch(function() {
+                video.muted = true;
+                video.play();
+            });
+        }
+    }
+
     var heroVideo = document.getElementById('hero-video');
+    var foodVideo = document.getElementById('food-reel-video');
+
+    // Force play on load
+    forceAutoplay(heroVideo);
+    forceAutoplay(foodVideo);
+
+    // Pause/play hero when scrolling in/out of view
     if (heroVideo) {
-        var observer = new IntersectionObserver(function(entries) {
+        var heroObserver = new IntersectionObserver(function(entries) {
             entries.forEach(function(entry) {
                 if (!entry.isIntersecting) {
                     heroVideo.pause();
@@ -2058,7 +2080,21 @@ a {
                 }
             });
         }, { threshold: 0.25 });
-        observer.observe(heroVideo);
+        heroObserver.observe(heroVideo);
+    }
+
+    // Pause/play food reel when scrolling in/out of view
+    if (foodVideo) {
+        var foodObserver = new IntersectionObserver(function(entries) {
+            entries.forEach(function(entry) {
+                if (!entry.isIntersecting) {
+                    foodVideo.pause();
+                } else {
+                    foodVideo.play();
+                }
+            });
+        }, { threshold: 0.25 });
+        foodObserver.observe(foodVideo);
     }
 
     // ===== COUNTDOWN =====
