@@ -5,8 +5,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>You're In — Elote King Event #2 Confirmed</title>
-<meta name="description" content="Your flight is confirmed. See you Friday Feb 27 at 9:30 PM in Alpharetta." />
+<title>You're In — Elote King Event #3 Confirmed</title>
+<meta name="description" content="Your order is confirmed. See you Friday March 6 at 9:30 PM in Alpharetta." />
 <meta name="robots" content="noindex, nofollow" />
 <link rel="icon" type="image/png" href="/images/elote-king-logo-transparent.png" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -46,7 +46,7 @@ gtag('config', 'G-DXC4GZ5K68');
   var value = prices[tier] || 36.99;
   var name = names[tier] || "King's Table";
   if (typeof gtag === 'function') {
-    gtag('event', 'purchase', { transaction_id: 'ek2-' + Date.now(), currency: 'USD', value: value, items: [{ item_name: name, price: value, quantity: 1 }] });
+    gtag('event', 'purchase', { transaction_id: 'ek3-' + Date.now(), currency: 'USD', value: value, items: [{ item_name: name, price: value, quantity: 1 }] });
   }
   if (typeof fbq === 'function') {
     fbq('track', 'Purchase', { value: value, currency: 'USD', content_name: name });
@@ -258,7 +258,7 @@ body {
 <div class="confirm-hero">
   <div class="confirm-icon">&#10003;</div>
   <h1>You're In. Your Food is Guaranteed.</h1>
-  <p class="sub">See you Friday, Feb 27 — Door Open 9:30 PM to 12:30 AM</p>
+  <p class="sub">See you Friday, March 6 — Doors Open 9:30 PM</p>
   <p id="tierBadge" style="display:none;margin-top:12px;display:inline-block;background:#16a34a;color:#fff;font-size:14px;font-weight:700;padding:6px 16px;border-radius:20px;letter-spacing:0.5px;"></p>
 </div>
 
@@ -268,8 +268,8 @@ body {
   <div class="detail-row">
     <span class="detail-icon">&#128197;</span>
     <div class="detail-text">
-      <strong>Friday, February 27, 2026</strong>
-      Door Open 9:30 PM – 12:30 AM EST
+      <strong>Friday, March 6, 2026</strong>
+      Doors Open 9:30 PM
     </div>
   </div>
   <div class="detail-row">
@@ -307,7 +307,7 @@ body {
   <h3>Before You Go</h3>
   <div class="note-item">
     <span class="note-icon">&#9201;</span>
-    <span>Arrive by 9:30 PM. Doors open 9:30 PM – 12:30 AM. Food service starts on time.</span>
+    <span>Arrive by 9:30 PM. Doors open at 9:30 PM. Food service starts on time.</span>
   </div>
   <div class="note-item">
     <span class="note-icon">&#127939;</span>
@@ -330,7 +330,7 @@ body {
 <!-- SHARE -->
 <div class="share-section">
   <h3>Tell Your Friends</h3>
-  <p class="share-sub">Only 60 spots total. Share before they sell out.</p>
+  <p class="share-sub">Limited spots. Share before they sell out.</p>
   <button class="share-btn" onclick="shareLink()">Share the Link</button>
   <p class="share-copied" id="shareCopied">Link copied!</p>
 </div>
@@ -356,10 +356,10 @@ body {
 
 // ===== GOOGLE CALENDAR LINK =====
 var gcalUrl = 'https://calendar.google.com/calendar/render?action=TEMPLATE'
-  + '&text=' + encodeURIComponent('Elote King Event #2 — Halal Mexican Street Food Tasting')
-  + '&dates=20260228T023000Z/20260228T053000Z' // Feb 27 9:30PM - Feb 28 12:30AM EST in UTC
-  + '&location=' + encodeURIComponent('Creative Labs, 6180 Atlanta Hwy, Alpharetta, GA 30004')
-  + '&details=' + encodeURIComponent('Your flight is confirmed! Show your QR code at the door.\n\n100% Zabiha Halal • Muslim-Owned • Zero Alcohol\n\nhttps://elotekingevents.com');
+  + '&text=' + encodeURIComponent('Elote King Event #3 — Halal Mexican Street Food')
+  + '&dates=20260307T023000Z/20260307T053000Z' // Mar 6 9:30PM - Mar 7 12:30AM EST in UTC
+  + '&location=' + encodeURIComponent('Creative Labs Learning Center, 6180 Atlanta Highway, Alpharetta, GA 30004')
+  + '&details=' + encodeURIComponent('Your order is confirmed! Show this page at the door.\n\n100% Zabiha Halal • Muslim-Owned • Zero Alcohol\n\nhttps://events.elotekingatlanta.com/event3');
 document.getElementById('googleCalBtn').href = gcalUrl;
 
 // ===== APPLE CALENDAR (.ics download) =====
@@ -368,18 +368,18 @@ document.getElementById('icsBtn').addEventListener('click', function() {
     'BEGIN:VCALENDAR',
     'VERSION:2.0',
     'BEGIN:VEVENT',
-    'DTSTART:20260228T023000Z',
-    'DTEND:20260228T053000Z',
-    'SUMMARY:Elote King Event #2',
-    'LOCATION:Creative Labs, 6180 Atlanta Hwy, Alpharetta, GA 30004',
-    'DESCRIPTION:Your flight is confirmed! Show your QR code at the door. 100% Zabiha Halal.',
+    'DTSTART:20260307T023000Z',
+    'DTEND:20260307T053000Z',
+    'SUMMARY:Elote King Event #3',
+    'LOCATION:Creative Labs Learning Center, 6180 Atlanta Highway, Alpharetta, GA 30004',
+    'DESCRIPTION:Your order is confirmed! Show this page at the door. 100% Zabiha Halal.',
     'END:VEVENT',
     'END:VCALENDAR'
   ].join('\r\n');
   var blob = new Blob([ics], { type: 'text/calendar' });
   var a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
-  a.download = 'elote-king-event2.ics';
+  a.download = 'elote-king-event3.ics';
   a.click();
 });
 
@@ -388,8 +388,8 @@ document.getElementById('icsBtn').addEventListener('click', function() {
 (function() {
   // Generate a unique ticket ID from URL params or random
   var params = new URLSearchParams(window.location.search);
-  var ticketId = params.get('ticket') || ('EK2-' + Date.now().toString(36).toUpperCase());
-  var data = 'ELOTEKING-EVENT2-' + ticketId;
+  var ticketId = params.get('ticket') || ('EK3-' + Date.now().toString(36).toUpperCase());
+  var data = 'ELOTEKING-EVENT3-' + ticketId;
 
   // Simple QR code using canvas
   // This uses a minimal QR encoder for alphanumeric data
@@ -435,7 +435,7 @@ document.getElementById('icsBtn').addEventListener('click', function() {
 
   ctx.fillStyle = '#16a34a';
   ctx.font = 'bold 11px "DM Sans", sans-serif';
-  ctx.fillText('EVENT #2', size / 2, size / 2 + 8);
+  ctx.fillText('EVENT #3', size / 2, size / 2 + 8);
 
   // Ticket ID at bottom
   ctx.fillStyle = '#555555';
@@ -462,10 +462,10 @@ document.getElementById('icsBtn').addEventListener('click', function() {
 
 // ===== SHARE =====
 function shareLink() {
-  var url = 'https://elotekingevents.com/#flights';
-  var text = 'Elote King Event #2 — Halal Mexican street food tasting. Pre-pay & save 42%. Feb 27, Alpharetta. Only 60 spots.';
+  var url = 'https://events.elotekingatlanta.com/event3';
+  var text = 'Elote King Event #3 — Halal Mexican street food pop-up. Pre-order & save. March 6, Alpharetta.';
   if (navigator.share) {
-    navigator.share({ title: 'Elote King Event #2', text: text, url: url });
+    navigator.share({ title: 'Elote King Event #3', text: text, url: url });
   } else {
     navigator.clipboard.writeText(url).then(function() {
       document.getElementById('shareCopied').style.display = 'block';
