@@ -1746,7 +1746,7 @@ a {
         <div class="menu-category">
             <h3>Sampler Packages</h3>
 
-            <div class="menu-item" data-name="The Street King" data-price="14.99" data-stock="10" data-claimed="9">
+            <div class="menu-item" data-name="The Street King" data-price="14.99" data-stock="10" data-claimed="10">
                 <div class="sampler-collage">
                     <img src="/images/birria-tacos-branded-final.jpg" alt="Birria Taco" loading="lazy" />
                     <img src="/images/tornado-potato-clean.jpg" alt="Tornado Potato" loading="lazy" />
@@ -2085,6 +2085,10 @@ a {
         var counterText;
         if (remaining <= 0) {
             counterText = 'SOLD OUT';
+            item.style.opacity = '0.5';
+            item.style.pointerEvents = 'none';
+            var btns = item.querySelectorAll('.qty-btn');
+            for (var b = 0; b < btns.length; b++) { btns[b].disabled = true; }
         } else if (remaining <= 5) {
             counterText = 'Only ' + remaining + ' left — almost gone';
         } else {
