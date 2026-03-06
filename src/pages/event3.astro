@@ -1432,6 +1432,31 @@ a {
 }
 </style>
 <style is:global>
+/* Sold out overlay — JS-generated */
+.sold-out-overlay {
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(255, 255, 255, 0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    border-radius: inherit;
+}
+.sold-out-overlay span {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    font-weight: 400;
+    color: #b91c1c;
+    text-align: center;
+    line-height: 0.9;
+    letter-spacing: 4px;
+    transform: rotate(-12deg);
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.1);
+    border: 6px solid #b91c1c;
+    border-radius: 12px;
+    padding: 10px 28px;
+}
 /* Stock bar styles — must be global because elements are JS-generated at runtime */
 .stock-bar-wrap {
     display: block;
@@ -2085,8 +2110,12 @@ a {
         var counterText;
         if (remaining <= 0) {
             counterText = 'SOLD OUT';
-            item.style.opacity = '0.5';
+            item.style.position = 'relative';
             item.style.pointerEvents = 'none';
+            var overlay = document.createElement('div');
+            overlay.className = 'sold-out-overlay';
+            overlay.innerHTML = '<span>SOLD<br>OUT</span>';
+            item.appendChild(overlay);
             var btns = item.querySelectorAll('.qty-btn');
             for (var b = 0; b < btns.length; b++) { btns[b].disabled = true; }
         } else if (remaining <= 5) {
