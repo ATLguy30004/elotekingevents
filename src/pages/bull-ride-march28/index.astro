@@ -448,7 +448,7 @@
         overflow: hidden;
         background: var(--page-bg);
       ">
-        <!-- Video background -->
+        <!-- Video background — JS sets src based on screen width -->
         <video
           id="hero-video"
           autoplay
@@ -459,11 +459,17 @@
           preload="auto"
           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"
         >
-          <!-- Mobile-optimized compressed version -->
-          <source src="/video/eloteking-hero-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
-          <!-- Full quality for desktop -->
-          <source src="/video/eloteking-hero-v9-enhanced.mp4" type="video/mp4" />
+          <source src="/video/eloteking-hero-mobile.mp4" type="video/mp4" />
         </video>
+        <script>
+          (function(){
+            var v = document.getElementById('hero-video');
+            if (v && window.innerWidth > 768) {
+              v.querySelector('source').src = '/video/eloteking-hero-v9-enhanced.mp4';
+              v.load();
+            }
+          })();
+        </script>
 
         <!-- Gradient overlay -->
         <div style="
@@ -829,9 +835,8 @@
           <div class="experience-grid">
             <!-- Row 1 -->
             <div class="exp-cell fade-up" style="grid-column:1;grid-row:1;">
-              <video autoplay muted loop playsinline webkit-playsinline style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
-                <source src="/video/bullride-24-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
-                <source src="/video/bullride-whatsapp-video-2026-03-13-at-9-40-24-pm.mp4" type="video/mp4" />
+              <video autoplay muted loop playsinline webkit-playsinline preload="metadata" class="responsive-video" data-mobile="/video/bullride-24-mobile.mp4" data-desktop="/video/bullride-whatsapp-video-2026-03-13-at-9-40-24-pm.mp4" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                <source src="/video/bullride-24-mobile.mp4" type="video/mp4" />
               </video>
             </div>
             <div class="exp-cell fade-up" style="grid-column:2;grid-row:1;animation-delay:0.06s;">
@@ -892,9 +897,8 @@
               <img src="/images/bull-ride/crowd-family-picnic-day.webp" alt="Family at bull ride night" loading="lazy" />
             </div>
             <div class="exp-cell fade-up" style="grid-column:3;grid-row:3;animation-delay:0.36s;">
-              <video autoplay muted loop playsinline webkit-playsinline style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
-                <source src="/video/bullride-25-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
-                <source src="/video/bullride-whatsapp-video-2026-03-13-at-9-40-25-pm.mp4" type="video/mp4" />
+              <video autoplay muted loop playsinline webkit-playsinline preload="metadata" class="responsive-video" data-mobile="/video/bullride-25-mobile.mp4" data-desktop="/video/bullride-whatsapp-video-2026-03-13-at-9-40-25-pm.mp4" style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                <source src="/video/bullride-25-mobile.mp4" type="video/mp4" />
               </video>
             </div>
           </div>
@@ -1635,30 +1639,62 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
-      // --- Force ALL video autoplay on mobile ---
+      // --- Force ALL video autoplay (mobile + desktop) ---
       (function() {
-        const vids = document.querySelectorAll('video[autoplay]');
+        // Swap responsive videos to desktop source if needed
+        if (window.innerWidth > 768) {
+          document.querySelectorAll('video.responsive-video').forEach(function(v) {
+            var desktopSrc = v.getAttribute('data-desktop');
+            if (desktopSrc) {
+              var source = v.querySelector('source');
+              if (source) { source.src = desktopSrc; v.load(); }
+            }
+          });
+        }
+
+        var vids = document.querySelectorAll('video[autoplay]');
         if (!vids.length) return;
 
-        // Try playing all immediately
-        vids.forEach(v => v.play().catch(() => {}));
+        function tryPlay(v) {
+          v.muted = true; // ensure muted (required for autoplay)
+          v.play().catch(function() {});
+        }
 
-        // Fallback: play all on first user interaction
-        const forceAll = () => {
-          vids.forEach(v => {
-            if (v.paused) v.play().catch(() => {});
-          });
-        };
-        document.addEventListener('touchstart', forceAll, { once: true, passive: true });
-        document.addEventListener('scroll', forceAll, { once: true, passive: true });
+        // Attempt 1: play immediately
+        vids.forEach(tryPlay);
 
-        // Lazy-play: start videos when they scroll into view
-        const obs = new IntersectionObserver((entries) => {
-          entries.forEach(e => {
-            if (e.isIntersecting) e.target.play().catch(() => {});
+        // Attempt 2: play when data arrives
+        vids.forEach(function(v) {
+          v.addEventListener('loadeddata', function() { tryPlay(v); }, { once: true });
+          v.addEventListener('canplay', function() { tryPlay(v); }, { once: true });
+        });
+
+        // Attempt 3: play on first user interaction (mobile Safari requires this)
+        function onInteract() {
+          vids.forEach(tryPlay);
+          document.removeEventListener('touchstart', onInteract);
+          document.removeEventListener('click', onInteract);
+          document.removeEventListener('scroll', onInteract);
+        }
+        document.addEventListener('touchstart', onInteract, { passive: true });
+        document.addEventListener('click', onInteract, { passive: true });
+        document.addEventListener('scroll', onInteract, { passive: true });
+
+        // Attempt 4: IntersectionObserver — play when in view, pause when out
+        var obs = new IntersectionObserver(function(entries) {
+          entries.forEach(function(e) {
+            if (e.isIntersecting) { tryPlay(e.target); }
           });
-        }, { threshold: 0.25 });
-        vids.forEach(v => obs.observe(v));
+        }, { threshold: 0.1 });
+        vids.forEach(function(v) { obs.observe(v); });
+
+        // Attempt 5: periodic retry for 10 seconds (catches delayed loads)
+        var retries = 0;
+        var retryInterval = setInterval(function() {
+          retries++;
+          vids.forEach(function(v) { if (v.paused && v.readyState >= 2) tryPlay(v); });
+          if (retries >= 20) clearInterval(retryInterval);
+        }, 500);
       })();
 
       // --- Nav scroll effect ---
