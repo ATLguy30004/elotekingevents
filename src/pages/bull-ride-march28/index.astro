@@ -1149,54 +1149,7 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 
     </main>
 
-    <!-- ===== STICKY MOBILE CTA BAR ===== -->
-    <div id="sticky-cta" style="
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: var(--orange);
-      cursor: pointer;
-    ">
-      <!-- Top micro-bar: spots + countdown -->
-      <div style="
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        padding: 6px 16px;
-        background: rgba(0,0,0,0.3);
-        font-size: 13px;
-        font-family: var(--font-body);
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        color: rgba(255,255,255,0.9);
-      ">
-        <span><span id="sticky-spots" style="font-weight:800;">22</span> FREE RIDES LEFT</span>
-        <span style="opacity:0.4;">|</span>
-        <span id="sticky-countdown">03d 02h 14m</span>
-      </div>
-      <!-- Mini progress bar -->
-      <div style="width:100%;height:4px;background:rgba(0,0,0,0.25);">
-        <div id="sticky-progress-bar" style="height:100%;width:27%;background:rgba(255,255,255,0.85);border-radius:0 2px 2px 0;transition:width 0.6s ease;"></div>
-      </div>
-      <!-- Main CTA -->
-      <a href="#closer" style="
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 48px;
-        font-family: var(--font-body);
-        font-weight: 800;
-        font-size: 16px;
-        letter-spacing: 0.5px;
-        color: #fff;
-        text-transform: uppercase;
-      ">CLAIM MY FREE RIDE</a>
-    </div>
+    <!-- Sticky CTA bar removed per Fahim -->
 
     <!-- ===== FOOTER ===== -->
     <footer style="background:var(--page-bg);border-top:1px solid var(--border-subtle);padding:40px 24px;text-align:center;">
@@ -1796,31 +1749,7 @@ import SpeedInsights from '@vercel/speed-insights/astro';
       updateSpotCounters();
       setInterval(updateSpotCounters, 30000); // Update every 30s
 
-      // --- Sticky mobile CTA bar ---
-      const stickyCta = document.getElementById('sticky-cta');
-      const closerSection = document.getElementById('closer');
-
-      function handleStickyCta() {
-        if (window.innerWidth > 768) {
-          stickyCta.style.display = 'none';
-          return;
-        }
-
-        // Hide on hero (redundant — hero has its own CTA)
-        const heroSection = document.getElementById('hero');
-        const heroRect = heroSection ? heroSection.getBoundingClientRect() : null;
-        const heroVisible = heroRect && heroRect.bottom > window.innerHeight * 0.4;
-
-        // Hide when closer section is visible (user can see the final CTA)
-        const closerRect = closerSection.getBoundingClientRect();
-        const closerVisible = closerRect.top < window.innerHeight && closerRect.bottom > 0;
-
-        stickyCta.style.display = (heroVisible || closerVisible) ? 'none' : 'block';
-      }
-
-      window.addEventListener('scroll', handleStickyCta, { passive: true });
-      window.addEventListener('resize', handleStickyCta, { passive: true });
-      handleStickyCta();
+      // Sticky CTA bar removed per Fahim
 
       // --- Menu carousel (native touch-scroll + drag) ---
       function initCarousel(containerId) {
