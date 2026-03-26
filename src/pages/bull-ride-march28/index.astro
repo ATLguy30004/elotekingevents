@@ -6,6 +6,8 @@
  * Rebuilt 2026-03-25 from BUILD-BRIEF.md
  */
 // Progress bar built inline — Starwind Progress uses Tailwind classes which don't compile on this vanilla CSS page
+import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 ---
 
 <!doctype html>
@@ -2002,5 +2004,7 @@
       }
     </script>
 
+    <Analytics />
+    <SpeedInsights />
   </body>
 </html>

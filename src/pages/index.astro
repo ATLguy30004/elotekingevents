@@ -6,6 +6,8 @@
  * Rebuilt 2026-03-25 from BUILD-BRIEF.md
  */
 // Progress bar built inline — Starwind Progress uses Tailwind classes which don't compile on this vanilla CSS page
+import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 ---
 
 <!doctype html>
@@ -14,6 +16,26 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="generator" content="Astro" />
+
+    <!-- GOOGLE ANALYTICS 4 — gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXC4GZ5K68"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DXC4GZ5K68');
+    </script>
+    <!-- END GA4 -->
+
+    <!-- MICROSOFT CLARITY — heatmaps + session recordings -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "vm135hc933");
+    </script>
+    <!-- END CLARITY -->
 
     <!-- SEO -->
     <title>Bull Ride Night — March 28 | Elote King Atlanta | First 30 Ride FREE</title>
@@ -1905,5 +1927,7 @@
       }
     </script>
 
+    <Analytics />
+    <SpeedInsights />
   </body>
 </html>
