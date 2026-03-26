@@ -478,81 +478,39 @@ import SpeedInsights from '@vercel/speed-insights/astro';
           position: absolute;
           inset: 0;
           z-index: 1;
-          background: linear-gradient(to bottom, transparent 0%, rgba(10,10,10,0.35) 40%, rgba(10,10,10,0.82) 80%, #0A0A0A 100%);
+          background: linear-gradient(to bottom, transparent 0%, transparent 50%, rgba(10,10,10,0.6) 80%, #0A0A0A 100%);
         "></div>
 
-        <!-- Text cluster -->
+        <!-- Text cluster — pinned to very bottom for max video visibility -->
         <div id="hero-text" style="
           position: absolute;
-          bottom: 72px;
-          left: 64px;
+          bottom: 24px;
+          left: 24px;
+          right: 24px;
           z-index: 2;
           max-width: 640px;
         ">
-          <!-- Date pill -->
-          <div class="fade-in hero-date-pill" style="
-            display: inline-block;
-            background: rgba(250,250,250,0.12);
-            backdrop-filter: blur(8px);
-            padding: 8px 20px;
-            border-radius: 100px;
-            font-family: var(--font-body);
-            font-size: 13px;
-            font-weight: 600;
-            letter-spacing: 1px;
-            color: var(--text-primary);
-            margin-bottom: 20px;
-            animation-delay: 0.3s;
-          ">
-            SATURDAY, MARCH 28 · 7PM–11PM · FREE ENTRY
-          </div>
-
           <!-- H1 -->
           <h1 class="fade-up" style="
-            font-size: 80px;
+            font-size: 72px;
             line-height: 0.95;
             letter-spacing: 1.5px;
-            margin-bottom: 16px;
+            margin-bottom: 10px;
             animation-delay: 0.5s;
           ">
             One Bull. One Night.<br/>Show Up or Regret It.
           </h1>
 
-          <!-- Subhead removed per Fahim markup — H1 is strong enough alone -->
-
-          <!-- FOMO: Free Ride Counter -->
-          <div class="fade-up fomo-rider-cap" style="
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            background: rgba(250,250,250,0.08);
-            backdrop-filter: blur(8px);
-            padding: 14px 20px;
-            border-radius: 14px;
-            border: 1px solid rgba(249,115,22,0.25);
-            margin-bottom: 20px;
-            animation-delay: 0.75s;
-            max-width: 380px;
+          <!-- Date line -->
+          <div class="fade-in" style="
+            font-family: var(--font-body);
+            font-size: 15px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            color: var(--text-body);
+            animation-delay: 0.7s;
           ">
-            <div style="flex:1;">
-              <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-                <span style="width:8px;height:8px;border-radius:50%;background:var(--orange);display:inline-block;animation:pulse-dot 1.5s ease-in-out infinite;"></span>
-                <span id="hero-spots-left" style="font-family:var(--font-heading);font-size:22px;color:var(--orange);letter-spacing:0.5px;">22 FREE RIDES LEFT TONIGHT</span>
-              </div>
-              <!-- Temperature progress bar -->
-              <div class="fomo-bar" style="margin:8px 0 0;max-width:100%;">
-                <div id="hero-progress-bar" class="fomo-bar-fill" style="width:27%;"></div>
-              </div>
-              <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">
-                First 30 ride free · <span style="color:var(--text-body);">$5 after</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- CTAs -->
-          <div class="fade-up hero-cta-row" style="display:flex;gap:16px;flex-wrap:wrap;animation-delay:0.85s;">
-            <a href="#closer" class="btn-primary">CLAIM MY FREE RIDE</a>
-            <a href="#menu" class="btn-ghost">See the Menu</a>
+            SATURDAY, MARCH 28 · 7PM–11PM · ALPHARETTA · FREE ENTRY
           </div>
         </div>
       </section>
@@ -1299,49 +1257,16 @@ import SpeedInsights from '@vercel/speed-insights/astro';
         #hero-text {
           left: 0 !important;
           right: 0 !important;
-          bottom: 110px !important;
+          bottom: 20px !important;
           transform: none !important;
           text-align: center;
           padding: 0 20px !important;
           max-width: 100% !important;
         }
         #hero-text h1 {
-          font-size: 46px !important;
+          font-size: 42px !important;
           line-height: 0.92 !important;
-          margin-bottom: 12px !important;
-        }
-        #hero-text p {
-          font-size: 15px !important;
-          margin-bottom: 20px !important;
-        }
-        /* FOMO counter: show streamlined version on mobile */
-        .fomo-rider-cap {
-          max-width: 100% !important;
-          margin-left: auto !important;
-          margin-right: auto !important;
-        }
-        /* Single CTA on mobile — ghost hides, primary goes full-width */
-        #hero-text .hero-cta-row {
-          flex-direction: column !important;
-          gap: 0 !important;
-        }
-        #hero-text .hero-cta-row .btn-ghost {
-          display: none !important;
-        }
-        #hero-text .hero-cta-row .btn-primary {
-          width: 100% !important;
-          justify-content: center !important;
-          padding: 18px 32px !important;
-          font-size: 17px !important;
-        }
-        #hero-text .fade-up:last-child {
-          justify-content: center;
-        }
-        /* Date pill mobile */
-        #hero-text .hero-date-pill {
-          font-size: 13px !important;
-          padding: 6px 16px !important;
-          margin-bottom: 14px !important;
+          margin-bottom: 8px !important;
         }
         #desktop-nav { display: none !important; }
         #hamburger { display: block !important; }
