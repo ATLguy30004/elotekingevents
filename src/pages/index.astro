@@ -64,8 +64,7 @@ import SpeedInsights from '@vercel/speed-insights/astro';
     <link rel="preload" href="/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-    <!-- Hero video preload -->
-    <link rel="preload" href="/video/eloteking-hero-v9-enhanced.mp4" as="video" type="video/mp4" />
+    <!-- Hero video preload removed — preload as="video" can block autoplay on mobile -->
 
     <!-- Event Schema JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -423,26 +422,28 @@ import SpeedInsights from '@vercel/speed-insights/astro';
         overflow: hidden;
         background: var(--page-bg);
       ">
-        <!-- Video background — JS swaps to desktop on large screens -->
+        <!-- Video background — inline src for fastest autoplay, JS swaps on desktop -->
         <video
           id="hero-video"
+          src="/video/eloteking-hero-mobile.mp4"
           autoplay
           muted
           loop
           playsinline
           webkit-playsinline
           preload="auto"
+          disablepictureinpicture
+          disableremoteplayback
+          x-webkit-airplay="deny"
           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"
-        >
-          <source src="/video/eloteking-hero-mobile.mp4" type="video/mp4" />
-        </video>
+        ></video>
         <script>
           (function(){
             var v = document.getElementById('hero-video');
             if (v && window.innerWidth > 768) {
-              v.querySelector('source').src = '/video/eloteking-hero-v9-enhanced.mp4';
-              v.load();
+              v.src = '/video/eloteking-hero-v9-enhanced.mp4';
             }
+            if (v) { v.muted = true; v.play().catch(function(){}); }
           })();
         </script>
 
@@ -454,11 +455,12 @@ import SpeedInsights from '@vercel/speed-insights/astro';
           background: linear-gradient(to bottom, transparent 0%, rgba(10,10,10,0.35) 40%, rgba(10,10,10,0.82) 80%, #0A0A0A 100%);
         "></div>
 
-        <!-- Text cluster -->
+        <!-- Text cluster — pinned to very bottom for max video visibility -->
         <div id="hero-text" style="
           position: absolute;
-          bottom: 72px;
-          left: 64px;
+          bottom: 24px;
+          left: 24px;
+          right: 24px;
           z-index: 2;
           max-width: 640px;
         ">
@@ -491,42 +493,7 @@ import SpeedInsights from '@vercel/speed-insights/astro';
             One Bull. One Night.<br/>Show Up or Regret It.
           </h1>
 
-          <!-- Subhead removed per Fahim markup — H1 is strong enough alone -->
-
-          <!-- FOMO: Free Ride Counter -->
-          <div class="fade-up fomo-rider-cap" style="
-            display: flex;
-            align-items: center;
-            gap: 14px;
-            background: rgba(250,250,250,0.08);
-            backdrop-filter: blur(8px);
-            padding: 14px 20px;
-            border-radius: 14px;
-            border: 1px solid rgba(249,115,22,0.25);
-            margin-bottom: 20px;
-            animation-delay: 0.75s;
-            max-width: 380px;
-          ">
-            <div style="flex:1;">
-              <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
-                <span style="width:8px;height:8px;border-radius:50%;background:var(--orange);display:inline-block;animation:pulse-dot 1.5s ease-in-out infinite;"></span>
-                <span id="hero-spots-left" style="font-family:var(--font-heading);font-size:22px;color:var(--orange);letter-spacing:0.5px;">22 FREE RIDES LEFT TONIGHT</span>
-              </div>
-              <!-- Temperature progress bar -->
-              <div class="fomo-bar" style="margin:8px 0 0;max-width:100%;">
-                <div id="hero-progress-bar" class="fomo-bar-fill" style="width:27%;"></div>
-              </div>
-              <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">
-                First 30 ride free · <span style="color:var(--text-body);">$5 after</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- CTAs -->
-          <div class="fade-up hero-cta-row" style="display:flex;gap:16px;flex-wrap:wrap;animation-delay:0.85s;">
-            <a href="#closer" class="btn-primary">CLAIM MY FREE RIDE</a>
-            <a href="#menu" class="btn-ghost">See the Menu</a>
-          </div>
+          <!-- FOMO bar + CTAs removed from hero — max video visibility -->
         </div>
       </section>
 
@@ -1155,54 +1122,7 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 
     </main>
 
-    <!-- ===== STICKY MOBILE CTA BAR ===== -->
-    <div id="sticky-cta" style="
-      display: none;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      z-index: 100;
-      background: var(--orange);
-      cursor: pointer;
-    ">
-      <!-- Top micro-bar: spots + countdown -->
-      <div style="
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 16px;
-        padding: 6px 16px;
-        background: rgba(0,0,0,0.3);
-        font-size: 13px;
-        font-family: var(--font-body);
-        font-weight: 600;
-        letter-spacing: 0.5px;
-        color: rgba(255,255,255,0.9);
-      ">
-        <span><span id="sticky-spots" style="font-weight:800;">22</span> FREE RIDES LEFT</span>
-        <span style="opacity:0.4;">|</span>
-        <span id="sticky-countdown">03d 02h 14m</span>
-      </div>
-      <!-- Mini progress bar -->
-      <div style="width:100%;height:4px;background:rgba(0,0,0,0.25);">
-        <div id="sticky-progress-bar" style="height:100%;width:27%;background:rgba(255,255,255,0.85);border-radius:0 2px 2px 0;transition:width 0.6s ease;"></div>
-      </div>
-      <!-- Main CTA -->
-      <a href="#closer" style="
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-        height: 48px;
-        font-family: var(--font-body);
-        font-weight: 800;
-        font-size: 16px;
-        letter-spacing: 0.5px;
-        color: #fff;
-        text-transform: uppercase;
-      ">CLAIM MY FREE RIDE</a>
-    </div>
+    <!-- Sticky CTA bar removed -->
 
     <!-- ===== FOOTER ===== -->
     <footer style="background:var(--page-bg);border-top:1px solid var(--border-subtle);padding:40px 24px;text-align:center;">
@@ -1807,32 +1727,6 @@ import SpeedInsights from '@vercel/speed-insights/astro';
 
       updateSpotCounters();
       setInterval(updateSpotCounters, 30000); // Update every 30s
-
-      // --- Sticky mobile CTA bar ---
-      const stickyCta = document.getElementById('sticky-cta');
-      const closerSection = document.getElementById('closer');
-
-      function handleStickyCta() {
-        if (window.innerWidth > 768) {
-          stickyCta.style.display = 'none';
-          return;
-        }
-
-        // Hide on hero (redundant — hero has its own CTA)
-        const heroSection = document.getElementById('hero');
-        const heroRect = heroSection ? heroSection.getBoundingClientRect() : null;
-        const heroVisible = heroRect && heroRect.bottom > window.innerHeight * 0.4;
-
-        // Hide when closer section is visible (user can see the final CTA)
-        const closerRect = closerSection.getBoundingClientRect();
-        const closerVisible = closerRect.top < window.innerHeight && closerRect.bottom > 0;
-
-        stickyCta.style.display = (heroVisible || closerVisible) ? 'none' : 'block';
-      }
-
-      window.addEventListener('scroll', handleStickyCta, { passive: true });
-      window.addEventListener('resize', handleStickyCta, { passive: true });
-      handleStickyCta();
 
       // --- Menu carousel (native touch-scroll + drag) ---
       function initCarousel(containerId) {
