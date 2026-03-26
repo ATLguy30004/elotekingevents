@@ -38,6 +38,53 @@
     <link rel="icon" href="/favicon.ico" sizes="32x32" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
 
+    <!-- ============================================================
+         TRACKING SCRIPTS — Bull Ride Night March 28
+         Placeholders to swap before going live:
+           META_PIXEL_ID_HERE   → your Facebook Pixel ID
+           G-DXC4GZ5K68         → your GA4 Measurement ID
+           CLARITY_PROJECT_ID   → your Microsoft Clarity project ID
+         ============================================================ -->
+
+    <!-- META PIXEL — Facebook / Instagram tracking -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window, document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', 'META_PIXEL_ID_HERE');
+      fbq('track', 'PageView');
+    </script>
+    <noscript>
+      <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=META_PIXEL_ID_HERE&ev=PageView&noscript=1" />
+    </noscript>
+    <!-- END META PIXEL -->
+
+    <!-- GOOGLE ANALYTICS 4 — gtag.js -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DXC4GZ5K68"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-DXC4GZ5K68');
+    </script>
+    <!-- END GA4 -->
+
+    <!-- MICROSOFT CLARITY — heatmaps + session recordings -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "vm135hc933");
+    </script>
+    <!-- END MICROSOFT CLARITY -->
+
     <!-- Font preload -->
     <link rel="preload" href="/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
@@ -403,13 +450,18 @@
       ">
         <!-- Video background -->
         <video
+          id="hero-video"
           autoplay
           muted
           loop
           playsinline
+          webkit-playsinline
           preload="auto"
           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"
         >
+          <!-- Mobile-optimized compressed version -->
+          <source src="/video/eloteking-hero-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
+          <!-- Full quality for desktop -->
           <source src="/video/eloteking-hero-v9-enhanced.mp4" type="video/mp4" />
         </video>
 
@@ -777,7 +829,8 @@
           <div class="experience-grid">
             <!-- Row 1 -->
             <div class="exp-cell fade-up" style="grid-column:1;grid-row:1;">
-              <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+              <video autoplay muted loop playsinline webkit-playsinline style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                <source src="/video/bullride-24-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
                 <source src="/video/bullride-whatsapp-video-2026-03-13-at-9-40-24-pm.mp4" type="video/mp4" />
               </video>
             </div>
@@ -815,14 +868,23 @@
                 <a href="#closer" style="
                   display: inline-flex;
                   align-items: center;
+                  justify-content: center;
                   gap: 6px;
                   margin-top: 12px;
+                  padding: 14px 32px;
                   font-family: var(--font-body);
                   font-weight: 700;
                   font-size: 14px;
                   color: var(--page-bg);
                   text-transform: uppercase;
                   letter-spacing: 0.5px;
+                  background: rgba(0,0,0,0.25);
+                  border: 2px solid var(--page-bg);
+                  border-radius: 8px;
+                  text-decoration: none;
+                  width: 100%;
+                  cursor: pointer;
+                  transition: background 0.2s;
                 ">I'M IN <span style="font-size:18px;">→</span></a>
               </div>
             </div>
@@ -830,7 +892,8 @@
               <img src="/images/bull-ride/crowd-family-picnic-day.webp" alt="Family at bull ride night" loading="lazy" />
             </div>
             <div class="exp-cell fade-up" style="grid-column:3;grid-row:3;animation-delay:0.36s;">
-              <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+              <video autoplay muted loop playsinline webkit-playsinline style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                <source src="/video/bullride-25-mobile.mp4" type="video/mp4" media="(max-width: 768px)" />
                 <source src="/video/bullride-whatsapp-video-2026-03-13-at-9-40-25-pm.mp4" type="video/mp4" />
               </video>
             </div>
@@ -1572,6 +1635,32 @@
 
     <!-- ===== JAVASCRIPT ===== -->
     <script>
+      // --- Force ALL video autoplay on mobile ---
+      (function() {
+        const vids = document.querySelectorAll('video[autoplay]');
+        if (!vids.length) return;
+
+        // Try playing all immediately
+        vids.forEach(v => v.play().catch(() => {}));
+
+        // Fallback: play all on first user interaction
+        const forceAll = () => {
+          vids.forEach(v => {
+            if (v.paused) v.play().catch(() => {});
+          });
+        };
+        document.addEventListener('touchstart', forceAll, { once: true, passive: true });
+        document.addEventListener('scroll', forceAll, { once: true, passive: true });
+
+        // Lazy-play: start videos when they scroll into view
+        const obs = new IntersectionObserver((entries) => {
+          entries.forEach(e => {
+            if (e.isIntersecting) e.target.play().catch(() => {});
+          });
+        }, { threshold: 0.25 });
+        vids.forEach(v => obs.observe(v));
+      })();
+
       // --- Nav scroll effect ---
       const navbar = document.getElementById('navbar');
       window.addEventListener('scroll', () => {
@@ -1851,6 +1940,20 @@
               formWrapper.querySelector('h3').style.display = 'none';
               formWrapper.querySelector('p').style.display = 'none';
               formSuccess.style.display = 'block';
+
+              // --- Conversion tracking — fires ONLY on successful form submission ---
+              // Meta Pixel: Lead event
+              if (typeof fbq === 'function') {
+                fbq('track', 'Lead');
+              }
+              // GA4: generate_lead event
+              if (typeof gtag === 'function') {
+                gtag('event', 'generate_lead', {
+                  event_category: 'bull_ride_march28',
+                  event_label: 'rsvp_form'
+                });
+              }
+              // --- End conversion tracking ---
             } else {
               submitBtn.textContent = 'SOMETHING WENT WRONG — TRY AGAIN';
               submitBtn.disabled = false;
