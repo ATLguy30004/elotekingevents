@@ -91,8 +91,7 @@ import SpeedInsights from '@vercel/speed-insights/astro';
     <link rel="preload" href="/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-    <!-- Hero video preload -->
-    <link rel="preload" href="/video/eloteking-hero-v9-enhanced.mp4" as="video" type="video/mp4" />
+    <!-- Hero video preload removed — preload as="video" can block autoplay on some mobile browsers -->
 
     <!-- Event Schema JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -450,26 +449,29 @@ import SpeedInsights from '@vercel/speed-insights/astro';
         overflow: hidden;
         background: var(--page-bg);
       ">
-        <!-- Video background — JS sets src based on screen width -->
+        <!-- Video background — inline src for fastest autoplay, JS swaps on desktop -->
         <video
           id="hero-video"
+          src="/video/eloteking-hero-mobile.mp4"
           autoplay
           muted
           loop
           playsinline
           webkit-playsinline
           preload="auto"
+          disablepictureinpicture
+          disableremoteplayback
+          x-webkit-airplay="deny"
           style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"
-        >
-          <source src="/video/eloteking-hero-mobile.mp4" type="video/mp4" />
-        </video>
+        ></video>
         <script>
           (function(){
             var v = document.getElementById('hero-video');
             if (v && window.innerWidth > 768) {
-              v.querySelector('source').src = '/video/eloteking-hero-v9-enhanced.mp4';
-              v.load();
+              v.src = '/video/eloteking-hero-v9-enhanced.mp4';
             }
+            // Immediate play attempt
+            if (v) { v.muted = true; v.play().catch(function(){}); }
           })();
         </script>
 
