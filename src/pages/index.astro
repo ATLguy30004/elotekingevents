@@ -1,16 +1,1867 @@
 ---
-// Event #2 is over — redirect all traffic to Event #3
+/**
+ * Bull Ride Night — March 28, 2026
+ * Standalone event landing page — no Layout.astro import
+ * Dark cinematic theme: #0A0A0A bg, 7 sections, clean rebuild
+ * Rebuilt 2026-03-25 from BUILD-BRIEF.md
+ */
+// Progress bar built inline — Starwind Progress uses Tailwind classes which don't compile on this vanilla CSS page
 ---
-<!DOCTYPE html>
+
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8" />
-<meta http-equiv="refresh" content="0;url=/event3" />
-<link rel="canonical" href="https://events.elotekingatlanta.com/event3" />
-<title>Redirecting to Event #3 — Elote King Atlanta</title>
-<script>window.location.replace('/event3');</script>
-</head>
-<body>
-<p>Event #2 has ended. Redirecting to <a href="/event3">Event #3</a>...</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Astro" />
+
+    <!-- SEO -->
+    <title>Bull Ride Night — March 28 | Elote King Atlanta | First 30 Ride FREE</title>
+    <meta name="description" content="Mechanical Bull Ride Night at Elote King Atlanta — March 28, 7PM-11PM. First 30 riders ride FREE, then $5. Hold 12 seconds for free esquite. 20 seconds for a free entree. 100% Zabiha Halal street food in Alpharetta, GA." />
+    <link rel="canonical" href="https://elotekingatlanta.com/bull-ride-march28/" />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Bull Ride Night — March 28 | Elote King Atlanta" />
+    <meta property="og:description" content="First 30 ride FREE. $5 after. Hold 12 sec for free esquite. 20 sec for a free entree. March 28, 7PM-11PM. 100% Zabiha Halal street food in Alpharetta." />
+    <meta property="og:image" content="https://elotekingatlanta.com/images/elote-king-logo-transparent.png" />
+    <meta property="og:url" content="https://elotekingatlanta.com/bull-ride-march28/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Elote King Atlanta" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Bull Ride Night — March 28 | Elote King Atlanta" />
+    <meta name="twitter:description" content="First 30 ride FREE. $5 after. Hold 12 sec for free esquite. 20 sec for a free entree. March 28, 7PM-11PM. 100% Zabiha Halal." />
+    <meta name="twitter:image" content="https://elotekingatlanta.com/images/elote-king-logo-transparent.png" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Font preload -->
+    <link rel="preload" href="/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- Hero video preload -->
+    <link rel="preload" href="/video/eloteking-hero-v9-enhanced.mp4" as="video" type="video/mp4" />
+
+    <!-- Event Schema JSON-LD -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Bull Ride Night — Elote King Atlanta",
+      "description": "Mechanical Bull Ride Night. First 30 riders ride FREE, then $5. Hold 12 seconds for free esquite. 20 seconds for a free entree. 100% Zabiha Halal Mexican street food in Alpharetta, GA.",
+      "startDate": "2026-03-28T19:00:00-04:00",
+      "endDate": "2026-03-28T23:00:00-04:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Elote King Atlanta",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "6180 Atlanta Hwy Suite A",
+          "addressLocality": "Alpharetta",
+          "addressRegion": "GA",
+          "postalCode": "30004",
+          "addressCountry": "US"
+        }
+      },
+      "organizer": {
+        "@type": "FoodEstablishment",
+        "name": "Elote King Atlanta",
+        "url": "https://elotekingatlanta.com",
+        "telephone": "+1-678-208-8774"
+      },
+      "offers": [{
+        "@type": "Offer",
+        "name": "Free Ride (First 30)",
+        "price": "0",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/LimitedAvailability",
+        "validFrom": "2026-03-20",
+        "url": "https://elotekingatlanta.com/bull-ride-march28/"
+      }, {
+        "@type": "Offer",
+        "name": "Paid Ride (After First 30)",
+        "price": "5",
+        "priceCurrency": "USD",
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-03-20",
+        "url": "https://elotekingatlanta.com/bull-ride-march28/"
+      }],
+      "image": "https://elotekingatlanta.com/images/elote-king-logo-transparent.png",
+      "isAccessibleForFree": true
+    })} />
+
+    <style is:global>
+      /* ===== DESIGN SYSTEM — Bull Ride Night ===== */
+      @font-face {
+        font-family: 'Bebas Neue';
+        src: url('/fonts/bebas-neue-latin.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'DM Sans';
+        src: url('/fonts/dm-sans-latin.woff2') format('woff2');
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --page-bg: #0A0A0A;
+        --surface: #171717;
+        --text-primary: #FAFAFA;
+        --text-body: rgba(250,250,250,0.85);
+        --text-muted: rgba(250,250,250,0.6);
+        --orange: #F97316;
+        --orange-hover: #EA580C;
+        --orange-glow: rgba(249,115,22,0.12);
+        --gold: #EAB308;
+        --gold-glow: rgba(234,179,8,0.08);
+        --trust-green: #16a34a;
+        --border-subtle: rgba(255,255,255,0.08);
+        --border-visible: rgba(255,255,255,0.15);
+        --font-heading: 'Bebas Neue', sans-serif;
+        --font-body: 'DM Sans', sans-serif;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+      html { scroll-behavior: smooth; }
+
+      body {
+        background: var(--page-bg);
+        color: var(--text-primary);
+        font-family: var(--font-body);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+      }
+
+      h1, h2, h3, h4 {
+        font-family: var(--font-heading);
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+
+      img, video { display: block; max-width: 100%; }
+
+      a { color: inherit; text-decoration: none; }
+
+      .section-padding {
+        padding: 96px 24px;
+      }
+      .section-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* ===== ANIMATIONS ===== */
+      @keyframes fadeUp {
+        from { opacity: 0; transform: translateY(24px); }
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+      }
+      @keyframes ticker {
+        from { transform: translateX(0); }
+        to { transform: translateX(-50%); }
+      }
+      @keyframes pulse-dot {
+        0%, 100% { opacity: 1; transform: scale(1); }
+        50% { opacity: 0.6; transform: scale(1.3); }
+      }
+      @keyframes countPulse {
+        0% { transform: scale(0.92); }
+        100% { transform: scale(1); }
+      }
+
+      .fade-up {
+        opacity: 0;
+        transform: translateY(24px);
+      }
+      .fade-up.visible {
+        animation: fadeUp 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+      }
+      .fade-in {
+        opacity: 0;
+      }
+      .fade-in.visible {
+        animation: fadeIn 0.4s ease forwards;
+      }
+
+      /* ===== BUTTON STYLES ===== */
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: var(--orange);
+        color: var(--page-bg);
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        padding: 16px 32px;
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        transition: background 0.15s, transform 0.15s, box-shadow 0.15s;
+        text-transform: uppercase;
+      }
+      .btn-primary:hover {
+        background: var(--orange-hover);
+        transform: translateY(-1px);
+        box-shadow: 0 4px 16px rgba(249,115,22,0.35);
+      }
+
+      .btn-ghost {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        background: transparent;
+        color: var(--text-primary);
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        padding: 16px 32px;
+        border-radius: 10px;
+        border: 1.5px solid rgba(250,250,250,0.4);
+        cursor: pointer;
+        transition: background 0.15s, border-color 0.15s;
+      }
+      .btn-ghost:hover {
+        background: rgba(250,250,250,0.06);
+        border-color: rgba(250,250,250,0.6);
+      }
+
+      /* ===== CARD STYLE ===== */
+      .card {
+        background: var(--surface);
+        border-radius: 16px;
+        border: 1px solid var(--border-subtle);
+        box-shadow: 0 4px 24px rgba(0,0,0,0.4);
+        transition: transform 0.2s ease, box-shadow 0.2s ease;
+      }
+      .card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+      }
+
+      /* Accessibility */
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      @media (max-width: 768px) {
+        .section-padding {
+          padding: 56px 20px;
+        }
+        .btn-primary, .btn-ghost {
+          width: 100%;
+          text-align: center;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Skip to content -->
+    <a href="#main-content" class="sr-only" style="position:absolute;">Skip to main content</a>
+
+    <!-- ===== NAV BAR ===== -->
+    <header id="navbar" style="
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 50;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 32px;
+      transition: background 0.3s, backdrop-filter 0.3s;
+    ">
+      <a href="/bull-ride-march28/" style="display:flex;align-items:center;">
+        <img
+          src="/images/optimized/elote-king-logo-transparent.webp"
+          alt="Elote King Atlanta"
+          width="80"
+          height="80"
+          style="width:80px;height:80px;object-fit:contain;"
+          id="nav-logo"
+        />
+      </a>
+
+      <!-- Compact countdown in navbar -->
+      <div id="nav-countdown" style="
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        font-family: var(--font-heading);
+        font-size: 20px;
+        letter-spacing: 1px;
+        color: var(--orange);
+        background: rgba(10,10,10,0.85);
+        backdrop-filter: blur(8px);
+        -webkit-backdrop-filter: blur(8px);
+        padding: 6px 14px;
+        border-radius: 100px;
+      ">
+        <span id="nav-cd-d">--</span><span style="color:var(--text-muted);font-size:14px;">d</span>
+        <span style="color:var(--text-muted);margin:0 2px;">:</span>
+        <span id="nav-cd-h">--</span><span style="color:var(--text-muted);font-size:14px;">h</span>
+        <span style="color:var(--text-muted);margin:0 2px;">:</span>
+        <span id="nav-cd-m">--</span><span style="color:var(--text-muted);font-size:14px;">m</span>
+        <span style="color:var(--text-muted);margin:0 2px;">:</span>
+        <span id="nav-cd-s">--</span><span style="color:var(--text-muted);font-size:14px;">s</span>
+      </div>
+
+      <!-- Desktop nav -->
+      <nav id="desktop-nav" style="display:flex;align-items:center;gap:32px;">
+        <a href="#challenge" style="font-family:var(--font-body);font-size:14px;font-weight:600;letter-spacing:0.5px;color:var(--text-body);transition:color 0.15s;">The Challenge</a>
+        <a href="#menu" style="font-family:var(--font-body);font-size:14px;font-weight:600;letter-spacing:0.5px;color:var(--text-body);transition:color 0.15s;">Menu</a>
+        <a href="#faq" style="font-family:var(--font-body);font-size:14px;font-weight:600;letter-spacing:0.5px;color:var(--text-body);transition:color 0.15s;">FAQ</a>
+        <a href="#closer" class="btn-primary" style="padding:10px 24px;font-size:14px;">I'M IN</a>
+      </nav>
+
+      <!-- Mobile hamburger -->
+      <button id="hamburger" aria-label="Open menu" style="
+        display: none;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+      ">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FAFAFA" stroke-width="2" stroke-linecap="round">
+          <line x1="3" y1="6" x2="21" y2="6" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="18" x2="21" y2="18" />
+        </svg>
+      </button>
+    </header>
+
+    <!-- Mobile drawer -->
+    <div id="mobile-drawer" style="
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      background: rgba(10,10,10,0.97);
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 32px;
+    ">
+      <button id="drawer-close" aria-label="Close menu" style="
+        position: absolute;
+        top: 20px;
+        right: 24px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 8px;
+      ">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FAFAFA" stroke-width="2" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18" />
+          <line x1="6" y1="6" x2="18" y2="18" />
+        </svg>
+      </button>
+      <a href="#challenge" class="drawer-link" style="font-family:var(--font-heading);font-size:36px;letter-spacing:1.5px;color:var(--text-primary);">The Challenge</a>
+      <a href="#menu" class="drawer-link" style="font-family:var(--font-heading);font-size:36px;letter-spacing:1.5px;color:var(--text-primary);">Menu</a>
+      <a href="#faq" class="drawer-link" style="font-family:var(--font-heading);font-size:36px;letter-spacing:1.5px;color:var(--text-primary);">FAQ</a>
+      <a href="#closer" class="btn-primary" style="margin-top:16px;width:240px;">I'M IN</a>
+    </div>
+
+    <main id="main-content">
+
+      <!-- ========================================= -->
+      <!-- SECTION 1 — HERO                          -->
+      <!-- ========================================= -->
+      <section id="hero" style="
+        position: relative;
+        width: 100%;
+        height: 100dvh;
+        min-height: 600px;
+        overflow: hidden;
+        background: var(--page-bg);
+      ">
+        <!-- Video background -->
+        <video
+          autoplay
+          muted
+          loop
+          playsinline
+          preload="auto"
+          style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;"
+        >
+          <source src="/video/eloteking-hero-v9-enhanced.mp4" type="video/mp4" />
+        </video>
+
+        <!-- Gradient overlay -->
+        <div style="
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          background: linear-gradient(to bottom, transparent 0%, rgba(10,10,10,0.35) 40%, rgba(10,10,10,0.82) 80%, #0A0A0A 100%);
+        "></div>
+
+        <!-- Text cluster -->
+        <div id="hero-text" style="
+          position: absolute;
+          bottom: 72px;
+          left: 64px;
+          z-index: 2;
+          max-width: 640px;
+        ">
+          <!-- Date pill -->
+          <div class="fade-in hero-date-pill" style="
+            display: inline-block;
+            background: rgba(250,250,250,0.12);
+            backdrop-filter: blur(8px);
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-family: var(--font-body);
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            color: var(--text-primary);
+            margin-bottom: 20px;
+            animation-delay: 0.3s;
+          ">
+            SATURDAY, MARCH 28 · 7PM–11PM · FREE ENTRY
+          </div>
+
+          <!-- H1 -->
+          <h1 class="fade-up" style="
+            font-size: 80px;
+            line-height: 0.95;
+            letter-spacing: 1.5px;
+            margin-bottom: 16px;
+            animation-delay: 0.5s;
+          ">
+            One Bull. One Night.<br/>Show Up or Regret It.
+          </h1>
+
+          <!-- Subhead removed per Fahim markup — H1 is strong enough alone -->
+
+          <!-- FOMO: Free Ride Counter -->
+          <div class="fade-up fomo-rider-cap" style="
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            background: rgba(250,250,250,0.08);
+            backdrop-filter: blur(8px);
+            padding: 14px 20px;
+            border-radius: 14px;
+            border: 1px solid rgba(249,115,22,0.25);
+            margin-bottom: 20px;
+            animation-delay: 0.75s;
+            max-width: 380px;
+          ">
+            <div style="flex:1;">
+              <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px;">
+                <span style="width:8px;height:8px;border-radius:50%;background:var(--orange);display:inline-block;animation:pulse-dot 1.5s ease-in-out infinite;"></span>
+                <span id="hero-spots-left" style="font-family:var(--font-heading);font-size:22px;color:var(--orange);letter-spacing:0.5px;">22 FREE RIDES LEFT TONIGHT</span>
+              </div>
+              <!-- Temperature progress bar -->
+              <div class="fomo-bar" style="margin:8px 0 0;max-width:100%;">
+                <div id="hero-progress-bar" class="fomo-bar-fill" style="width:27%;"></div>
+              </div>
+              <div style="font-size:13px;color:var(--text-muted);margin-top:4px;">
+                First 30 ride free · <span style="color:var(--text-body);">$5 after</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTAs -->
+          <div class="fade-up hero-cta-row" style="display:flex;gap:16px;flex-wrap:wrap;animation-delay:0.85s;">
+            <a href="#closer" class="btn-primary">CLAIM MY FREE RIDE</a>
+            <a href="#menu" class="btn-ghost">See the Menu</a>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ========================================= -->
+      <!-- SECTION 2 — FOMO TICKER                   -->
+      <!-- ========================================= -->
+      <section id="ticker" style="
+        width: 100%;
+        height: 96px;
+        background: var(--orange);
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+      ">
+        <div class="ticker-inner" style="
+          display: flex;
+          width: max-content;
+          animation: ticker 28s linear infinite;
+        ">
+          <!-- Two copies for seamless loop -->
+          <span class="ticker-text">FIRST 30 RIDE FREE TONIGHT&nbsp;&#9670;&nbsp;THEN $5 PER RIDE&nbsp;&#9670;&nbsp;DOORS OPEN IN <span id="ticker-cd" class="ticker-cd">3d 02h</span>&nbsp;&#9670;&nbsp;LAST EVENT PACKED THE LOT&nbsp;&#9670;&nbsp;FREE ENTRY&nbsp;&#9670;&nbsp;100% ZABIHA HALAL&nbsp;&#9670;&nbsp;WHO'S RIDING?&nbsp;&#9670;&nbsp;</span>
+          <span class="ticker-text">FIRST 30 RIDE FREE TONIGHT&nbsp;&#9670;&nbsp;THEN $5 PER RIDE&nbsp;&#9670;&nbsp;DOORS OPEN IN <span id="ticker-cd-2" class="ticker-cd">3d 02h</span>&nbsp;&#9670;&nbsp;LAST EVENT PACKED THE LOT&nbsp;&#9670;&nbsp;FREE ENTRY&nbsp;&#9670;&nbsp;100% ZABIHA HALAL&nbsp;&#9670;&nbsp;WHO'S RIDING?&nbsp;&#9670;&nbsp;</span>
+        </div>
+      </section>
+
+
+
+
+      <!-- ========================================= -->
+      <!-- SECTION 3 — THE CHALLENGE                 -->
+      <!-- ========================================= -->
+      <section id="challenge" style="background:var(--page-bg);" class="section-padding">
+        <div class="section-inner">
+
+          <!-- Part A: Two-Column Block -->
+          <div class="challenge-grid">
+            <!-- Left: Copy -->
+            <div>
+              <h2 class="fade-up" style="
+                font-size: 56px;
+                line-height: 1.0;
+                letter-spacing: 1px;
+                margin-bottom: 16px;
+              ">The Bull Decides Who Eats Free.</h2>
+
+              <p class="fade-up" style="
+                font-size: 18px;
+                line-height: 1.65;
+                color: var(--text-body);
+                margin-bottom: 16px;
+                max-width: 520px;
+              ">First 30 ride free. After that, $5. Hold on long enough and the bull feeds you.</p>
+
+              <a href="#closer" class="btn-primary fade-up" style="margin-top:24px;">CLAIM MY FREE RIDE</a>
+            </div>
+
+            <!-- Right: Photo grid -->
+            <div class="fade-up photo-collage" style="animation-delay:0.1s;">
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;">
+                <img src="/images/bull-ride/crowd-bull-rider-waving.webp" alt="Bull rider waving to the crowd" style="border-radius:12px;width:100%;height:200px;object-fit:cover;" loading="lazy" />
+                <img src="/images/bull-ride/crowd-01-squad-clean.webp" alt="Squad enjoying bull ride night" style="border-radius:12px;width:100%;height:200px;object-fit:cover;" loading="lazy" />
+                <img src="/images/bull-ride/food-birria-taco.webp" alt="Birria tacos being served" style="border-radius:12px;width:100%;height:200px;object-fit:cover;" loading="lazy" />
+                <img src="/images/bull-ride/crowd-crowd-families.webp" alt="Families at the event" style="border-radius:12px;width:100%;height:200px;object-fit:cover;" loading="lazy" />
+              </div>
+            </div>
+          </div>
+
+          <!-- Part B: Tier Cards -->
+          <div class="tier-cards fade-up" style="
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 24px;
+            margin-top: 64px;
+          ">
+            <!-- Consolation: 8 Seconds -->
+            <div class="card" style="padding:32px;text-align:center;position:relative;">
+              <span style="font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:1px;color:var(--text-muted);text-transform:uppercase;">Consolation</span>
+              <div style="font-family:var(--font-heading);font-size:48px;letter-spacing:0;margin:12px 0 8px;color:var(--text-primary);">8 SEC</div>
+              <div style="width:100%;height:1px;background:var(--border-subtle);margin:8px 0 16px;"></div>
+              <div style="font-family:var(--font-heading);font-size:28px;letter-spacing:0.5px;color:var(--text-primary);">FREE DRINK UPGRADE</div>
+              <p style="font-size:14px;color:var(--text-muted);margin-top:8px;">Hold 8 seconds. Walk away with something.</p>
+            </div>
+
+            <!-- Tier 1: 12 Seconds -->
+            <div class="card" style="padding:32px;text-align:center;position:relative;">
+              <span style="font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:1px;color:var(--text-muted);text-transform:uppercase;">Tier 1</span>
+              <div style="font-family:var(--font-heading);font-size:48px;letter-spacing:0;margin:12px 0 8px;color:var(--text-primary);">12 SEC</div>
+              <div style="width:100%;height:1px;background:var(--border-subtle);margin:8px 0 16px;"></div>
+              <div style="font-family:var(--font-heading);font-size:28px;letter-spacing:0.5px;color:var(--text-primary);">FREE ESQUITE</div>
+              <p style="font-size:14px;color:var(--text-muted);margin-top:8px;">Hang on long enough and the street feeds you.</p>
+            </div>
+
+            <!-- Tier 2: 20 Seconds (hero card) -->
+            <div class="card" style="
+              padding: 32px;
+              text-align: center;
+              position: relative;
+              border: 1px solid rgba(249,115,22,0.4);
+              box-shadow: 0 0 0 1px rgba(249,115,22,0.4), 0 8px 40px rgba(249,115,22,0.12);
+            ">
+              <!-- MOST RIDERS FAIL badge -->
+              <div style="
+                position: absolute;
+                top: -1px;
+                right: -1px;
+                background: var(--orange);
+                color: var(--page-bg);
+                font-family: var(--font-body);
+                font-size: 13px;
+                font-weight: 700;
+                letter-spacing: 0.5px;
+                padding: 5px 10px;
+                border-radius: 0 16px 0 12px;
+                text-transform: uppercase;
+              ">MOST RIDERS FAIL</div>
+              <span style="font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:1px;color:var(--text-muted);text-transform:uppercase;">Tier 2</span>
+              <div style="font-family:var(--font-heading);font-size:48px;letter-spacing:0;margin:12px 0 8px;color:var(--orange);">20 SEC</div>
+              <div style="width:100%;height:1px;background:var(--border-subtle);margin:8px 0 16px;"></div>
+              <div style="font-family:var(--font-heading);font-size:28px;letter-spacing:0.5px;color:var(--orange);">FREE ENTREE</div>
+              <p style="font-size:14px;color:var(--text-muted);margin-top:8px;">Twenty seconds is a lifetime on a mechanical bull. Make it, and dinner is on us.</p>
+            </div>
+
+          </div>
+
+          <!-- Pricing small print -->
+          <p class="fade-up" style="
+            text-align: center;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-top: 24px;
+            letter-spacing: 0.3px;
+          ">First 30 riders tonight ride free. After that, $5 per ride. Prizes open to all riders.</p>
+
+          <!-- Schedule strip removed per Fahim markup -->
+
+        </div>
+      </section>
+
+
+      <!-- ========================================= -->
+      <!-- SECTION 4 — THE MENU                      -->
+      <!-- ========================================= -->
+      <section id="menu" style="background:var(--surface);" class="section-padding">
+        <div class="section-inner" style="text-align:center;">
+          <h2 class="fade-up" style="font-size:56px;line-height:1.0;letter-spacing:1px;margin-bottom:8px;">The Street Menu</h2>
+          <p class="fade-up" style="font-size:18px;color:var(--text-body);margin-bottom:48px;">100% Zabiha Halal. All night. Every item.</p>
+        </div>
+
+        <!-- Embla Carousel -->
+        <div class="menu-carousel" id="menu-carousel" style="overflow:hidden;cursor:grab;">
+          <div class="menu-carousel-inner" style="display:flex;gap:20px;padding:0 24px;">
+            <!-- Card 1: Birria Tacos — 3 per order -->
+            <div class="menu-card">
+              <div class="menu-card-img"><img src="/images/bull-ride/food-birria-taco.webp" alt="Birria Tacos — 3 cheesy birria tacos with consomé" loading="lazy" /></div>
+              <div class="menu-card-info">
+                <div class="menu-card-name">Birria Tacos</div>
+                <div class="menu-card-price">$15.99</div>
+              </div>
+            </div>
+            <!-- Card 2: Smash Burger w/ Fries -->
+            <div class="menu-card">
+              <div class="menu-card-img"><img src="/images/bull-ride/food-burger.webp" alt="Halal Smash Burger with fries" loading="lazy" /></div>
+              <div class="menu-card-info">
+                <div class="menu-card-name">Smash Burger</div>
+                <div class="menu-card-price">$13.99</div>
+              </div>
+            </div>
+            <!-- Card 3: Elote Nacho — corn on stick + nachos -->
+            <div class="menu-card">
+              <div class="menu-card-img"><img src="/images/bull-ride/food-elote-corn.webp" alt="Elote Nacho — corn on a stick with nachos" loading="lazy" /></div>
+              <div class="menu-card-info">
+                <div class="menu-card-name">Elote Nacho</div>
+                <div class="menu-card-price">$12</div>
+              </div>
+            </div>
+            <!-- Card 4: Tostilocos — large loaded bag -->
+            <div class="menu-card">
+              <div class="menu-card-img"><img src="/images/bull-ride/food-tostilocos-bag.webp" alt="Tostilocos — large loaded bag of Mexican chips" loading="lazy" /></div>
+              <div class="menu-card-info">
+                <div class="menu-card-name">Tostilocos</div>
+                <div class="menu-card-price">$15</div>
+              </div>
+            </div>
+            <!-- Card 5: Mangonada King — large with candy -->
+            <div class="menu-card">
+              <div class="menu-card-img"><img src="/images/bull-ride/food-king-mangnada.webp" alt="Mangonada King — large mango with Mexican candy" loading="lazy" /></div>
+              <div class="menu-card-info">
+                <div class="menu-card-name">Mangonada King</div>
+                <div class="menu-card-price">$14</div>
+              </div>
+            </div>
+            <!-- Card 6: Chicharrones — plain with lime & Valentina -->
+            <div class="menu-card">
+              <div class="menu-card-img"><img src="/images/bull-ride/food-chicaron.webp" alt="Chicharrones — deep fried wheat snack with lime and Valentina" loading="lazy" /></div>
+              <div class="menu-card-info">
+                <div class="menu-card-name">Chicharrones</div>
+                <div class="menu-card-price">$4</div>
+              </div>
+            </div>
+            <!-- Card 7: Mangonada — regular -->
+            <div class="menu-card">
+              <div class="menu-card-img"><img src="/images/bull-ride/food-regular-mango-nada.webp" alt="Mangonada — mango ice cream with chamoy and tajín" loading="lazy" /></div>
+              <div class="menu-card-info">
+                <div class="menu-card-name">Mangonada</div>
+                <div class="menu-card-price">$8</div>
+              </div>
+            </div>
+            <!-- Card 8: Esquite — S/L -->
+            <div class="menu-card">
+              <div class="menu-card-img"><img src="/images/bull-ride/food-esquite.webp" alt="Esquite — Mexican street corn in a cup" loading="lazy" /></div>
+              <div class="menu-card-info">
+                <div class="menu-card-name">Esquite</div>
+                <div class="menu-card-price">from $5.99</div>
+              </div>
+            </div>
+            <!-- Card 9: Tornado Potato -->
+            <div class="menu-card">
+              <div class="menu-card-img"><img src="/images/bull-ride/food-tornado-potato.webp" alt="Tornado Potato — spiral fried potato with sauces" loading="lazy" /></div>
+              <div class="menu-card-info">
+                <div class="menu-card-name">Tornado Potato</div>
+                <div class="menu-card-price">$5.99</div>
+              </div>
+            </div>
+            <!-- Card 10: Aguas Frescas -->
+            <div class="menu-card">
+              <div class="menu-card-img"><img src="/images/bull-ride/food-aggua-frescas.webp" alt="Aguas Frescas — Horchata, Jamaica, Mango" loading="lazy" /></div>
+              <div class="menu-card-info">
+                <div class="menu-card-name">Aguas Frescas</div>
+                <div class="menu-card-price">$3.99</div>
+              </div>
+            </div>
+            <!-- Card 11: Mexican Coke -->
+            <div class="menu-card">
+              <div class="menu-card-img"><img src="/images/bull-ride/food-mexican-coke.webp" alt="Mexican Coke — Coke, Sprite, Orange Fanta" loading="lazy" /></div>
+              <div class="menu-card-info">
+                <div class="menu-card-name">Mexican Coke</div>
+                <div class="menu-card-price">$3.50</div>
+              </div>
+            </div>
+            <!-- Card 12: Paleta -->
+            <div class="menu-card">
+              <div class="menu-card-img"><img src="/images/bull-ride/food-pospicle.webp" alt="Paleta — Mexican fruit popsicle" loading="lazy" /></div>
+              <div class="menu-card-info">
+                <div class="menu-card-name">Paleta</div>
+                <div class="menu-card-price">$3</div>
+              </div>
+            </div>
+            <!-- Card 11: Halal Trust Card -->
+            <div class="menu-card" style="
+              background: linear-gradient(135deg, #0f1f0f, #0A1A0A);
+              border: 1px solid rgba(22,163,74,0.3);
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              text-align: center;
+              padding: 32px 24px;
+            ">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-bottom:16px;">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <div style="font-family:var(--font-heading);font-size:32px;color:var(--trust-green);letter-spacing:0.5px;margin-bottom:8px;">100% ZABIHA HALAL</div>
+              <p style="font-size:15px;color:var(--text-muted);line-height:1.5;">Every item. Every time.<br/>No exceptions.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Dot indicators (mobile) -->
+        <div id="menu-dots" style="display:none;justify-content:center;gap:8px;margin-top:24px;"></div>
+      </section>
+
+
+      <!-- ========================================= -->
+      <!-- SECTION 5 — THE EXPERIENCE                -->
+      <!-- ========================================= -->
+      <section id="experience" style="background:var(--page-bg);" class="section-padding">
+        <div class="section-inner">
+          <h2 class="fade-up" style="font-size:56px;line-height:1.0;letter-spacing:1px;text-align:center;margin-bottom:48px;">Last Time Was a Movie.</h2>
+
+          <div class="experience-grid">
+            <!-- Row 1 -->
+            <div class="exp-cell fade-up" style="grid-column:1;grid-row:1;">
+              <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                <source src="/video/bullride-whatsapp-video-2026-03-13-at-9-40-24-pm.mp4" type="video/mp4" />
+              </video>
+            </div>
+            <div class="exp-cell fade-up" style="grid-column:2;grid-row:1;animation-delay:0.06s;">
+              <img src="/images/bull-ride/crowd-crowd-selfie-golden-hour.webp" alt="Crowd selfie at golden hour" loading="lazy" />
+            </div>
+            <div class="exp-cell fade-up" style="grid-column:3;grid-row:1;animation-delay:0.12s;">
+              <img src="/images/bull-ride/crowd-bull-sider-smiliing.webp" alt="Bull rider smiling" loading="lazy" />
+            </div>
+
+            <!-- Row 2 -->
+            <div class="exp-cell fade-up" style="grid-column:1;grid-row:2;animation-delay:0.12s;">
+              <img src="/images/bull-ride/crowd-community-eating-together.webp" alt="Community eating together" loading="lazy" />
+            </div>
+            <div class="exp-cell fade-up exp-wide" style="grid-column:2/4;grid-row:2;animation-delay:0.18s;">
+              <img src="/images/bull-ride/crowd-trunk-crew.webp" alt="Crew at the event" loading="lazy" />
+            </div>
+
+            <!-- Row 3 -->
+            <div class="exp-cell exp-cta fade-up" style="grid-column:1;grid-row:3;animation-delay:0.24s;">
+              <div style="
+                width: 100%;
+                height: 100%;
+                background: linear-gradient(135deg, #F97316, #EA580C);
+                border-radius: 12px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                text-align: center;
+                padding: 24px;
+              ">
+                <div style="font-family:var(--font-heading);font-size:32px;color:var(--page-bg);line-height:1.1;">THIS COULD BE YOU.</div>
+                <div style="font-family:var(--font-heading);font-size:28px;color:var(--page-bg);margin-top:4px;">MARCH 28.</div>
+                <a href="#closer" style="
+                  display: inline-flex;
+                  align-items: center;
+                  gap: 6px;
+                  margin-top: 12px;
+                  font-family: var(--font-body);
+                  font-weight: 700;
+                  font-size: 14px;
+                  color: var(--page-bg);
+                  text-transform: uppercase;
+                  letter-spacing: 0.5px;
+                ">I'M IN <span style="font-size:18px;">→</span></a>
+              </div>
+            </div>
+            <div class="exp-cell fade-up" style="grid-column:2;grid-row:3;animation-delay:0.3s;">
+              <img src="/images/bull-ride/crowd-family-picnic-day.webp" alt="Family at bull ride night" loading="lazy" />
+            </div>
+            <div class="exp-cell fade-up" style="grid-column:3;grid-row:3;animation-delay:0.36s;">
+              <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;border-radius:12px;">
+                <source src="/video/bullride-whatsapp-video-2026-03-13-at-9-40-25-pm.mp4" type="video/mp4" />
+              </video>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ========================================= -->
+      <!-- SECTION 6 — SOCIAL PROOF                  -->
+      <!-- ========================================= -->
+      <section id="social-proof" style="background:var(--surface);" class="section-padding">
+        <div class="section-inner" style="text-align:center;">
+          <h2 class="fade-up" style="font-size:56px;line-height:1.0;letter-spacing:1px;margin-bottom:48px;">Don't Take Our Word for It.</h2>
+        </div>
+
+        <!-- Polaroid carousel -->
+        <div class="polaroid-carousel" id="polaroid-carousel" style="overflow:hidden;cursor:grab;">
+          <div class="polaroid-carousel-inner" style="display:flex;gap:24px;padding:0 24px;">
+            <div class="polaroid-card" style="transform:rotate(-1.5deg);"><img src="/images/bull-ride/social-social-1.webp" alt="Customer review screenshot" loading="lazy" /></div>
+            <div class="polaroid-card" style="transform:rotate(1.2deg);"><img src="/images/bull-ride/social-social-2.webp" alt="Customer review screenshot" loading="lazy" /></div>
+            <div class="polaroid-card" style="transform:rotate(-0.8deg);"><img src="/images/bull-ride/social-social-3.webp" alt="Customer review screenshot" loading="lazy" /></div>
+            <div class="polaroid-card" style="transform:rotate(1.8deg);"><img src="/images/bull-ride/social-social-4.webp" alt="Customer review screenshot" loading="lazy" /></div>
+            <div class="polaroid-card" style="transform:rotate(-1.2deg);"><img src="/images/bull-ride/social-social-5.webp" alt="Customer review screenshot" loading="lazy" /></div>
+            <div class="polaroid-card" style="transform:rotate(0.6deg);"><img src="/images/bull-ride/social-social-6.webp" alt="Customer review screenshot" loading="lazy" /></div>
+            <div class="polaroid-card" style="transform:rotate(-1.8deg);"><img src="/images/bull-ride/social-social-7.webp" alt="Customer review screenshot" loading="lazy" /></div>
+            <div class="polaroid-card" style="transform:rotate(1deg);"><img src="/images/bull-ride/social-social-8.webp" alt="Customer review screenshot" loading="lazy" /></div>
+            <div class="polaroid-card" style="transform:rotate(-0.5deg);"><img src="/images/bull-ride/social-social-9.webp" alt="Customer review screenshot" loading="lazy" /></div>
+            <div class="polaroid-card" style="transform:rotate(1.5deg);"><img src="/images/bull-ride/social-social-10.webp" alt="Customer review screenshot" loading="lazy" /></div>
+            <div class="polaroid-card" style="transform:rotate(-1deg);"><img src="/images/bull-ride/social-social-11.webp" alt="Customer review screenshot" loading="lazy" /></div>
+          </div>
+        </div>
+      </section>
+
+
+      <!-- ========================================= -->
+      <!-- SECTION 7 — THE CLOSER                    -->
+      <!-- ========================================= -->
+
+      <!-- Sub-block A: Countdown -->
+      <section id="closer" style="background:var(--page-bg);padding:80px 24px 48px;">
+        <div class="section-inner" style="text-align:center;">
+          <!-- Countdown -->
+          <div id="countdown" class="fade-up" style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:24px;">
+            <div class="countdown-unit">
+              <span id="cd-days" style="font-family:var(--font-heading);font-size:80px;line-height:1;color:var(--text-primary);">--</span>
+              <span style="display:block;font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-top:4px;">Days</span>
+            </div>
+            <span style="font-family:var(--font-heading);font-size:64px;color:rgba(255,255,255,0.3);line-height:1;margin-top:-20px;">:</span>
+            <div class="countdown-unit">
+              <span id="cd-hours" style="font-family:var(--font-heading);font-size:80px;line-height:1;color:var(--text-primary);">--</span>
+              <span style="display:block;font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-top:4px;">Hours</span>
+            </div>
+            <span style="font-family:var(--font-heading);font-size:64px;color:rgba(255,255,255,0.3);line-height:1;margin-top:-20px;">:</span>
+            <div class="countdown-unit">
+              <span id="cd-mins" style="font-family:var(--font-heading);font-size:80px;line-height:1;color:var(--text-primary);">--</span>
+              <span style="display:block;font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-top:4px;">Minutes</span>
+            </div>
+            <span style="font-family:var(--font-heading);font-size:64px;color:rgba(255,255,255,0.3);line-height:1;margin-top:-20px;">:</span>
+            <div class="countdown-unit">
+              <span id="cd-secs" style="font-family:var(--font-heading);font-size:80px;line-height:1;color:var(--text-primary);">--</span>
+              <span style="display:block;font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-top:4px;">Seconds</span>
+            </div>
+          </div>
+
+          <!-- Free ride counter + temperature bar -->
+          <div class="fade-up" style="display:flex;flex-direction:column;align-items:center;gap:6px;">
+            <div style="display:flex;align-items:center;gap:8px;font-size:15px;color:var(--text-muted);">
+              <span style="width:8px;height:8px;border-radius:50%;background:var(--orange);display:inline-block;animation:pulse-dot 1.5s ease-in-out infinite;"></span>
+              <span id="closer-left" style="font-family:var(--font-heading);font-size:22px;color:var(--orange);letter-spacing:0.5px;">22 FREE RIDES LEFT TONIGHT</span>
+            </div>
+            <div class="fomo-bar">
+              <div id="closer-progress-bar" class="fomo-bar-fill" style="width:27%;"></div>
+            </div>
+            <span style="font-size:13px;color:var(--text-muted);">$5 per ride · win the same prizes</span>
+          </div>
+
+          <!-- Registration Form -->
+          <div id="registration-form-wrapper" class="fade-up" style="
+            width: 100%;
+            max-width: 420px;
+            margin: 40px auto 0;
+            background: var(--surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 32px 24px;
+          ">
+            <h3 style="font-family:var(--font-heading);font-size:28px;letter-spacing:0.5px;color:var(--text-primary);margin-bottom:6px;">CLAIM YOUR FREE RIDE</h3>
+            <p style="font-size:14px;color:var(--text-muted);margin-bottom:24px;">Reserve your spot. We'll text you a confirmation.</p>
+
+            <form id="bull-ride-form" action="https://formspree.io/f/mbdzzloe" method="POST" style="display:flex;flex-direction:column;gap:14px;">
+              <input type="hidden" name="_subject" value="Bull Ride Night — Free Ride Claim" />
+              <input type="hidden" name="event" value="Bull Ride Night March 28 2026" />
+              <input
+                type="text"
+                name="name"
+                placeholder="Your name"
+                required
+                autocomplete="name"
+                style="
+                  width: 100%;
+                  padding: 15px 16px;
+                  border-radius: 10px;
+                  border: 1px solid var(--border-visible);
+                  background: rgba(255,255,255,0.06);
+                  color: var(--text-primary);
+                  font-family: var(--font-body);
+                  font-size: 16px;
+                  outline: none;
+                  transition: border-color 0.15s;
+                "
+              />
+              <input
+                type="email"
+                name="email"
+                placeholder="Email"
+                required
+                autocomplete="email"
+                style="
+                  width: 100%;
+                  padding: 15px 16px;
+                  border-radius: 10px;
+                  border: 1px solid var(--border-visible);
+                  background: rgba(255,255,255,0.06);
+                  color: var(--text-primary);
+                  font-family: var(--font-body);
+                  font-size: 16px;
+                  outline: none;
+                  transition: border-color 0.15s;
+                "
+              />
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone number"
+                required
+                autocomplete="tel"
+                style="
+                  width: 100%;
+                  padding: 15px 16px;
+                  border-radius: 10px;
+                  border: 1px solid var(--border-visible);
+                  background: rgba(255,255,255,0.06);
+                  color: var(--text-primary);
+                  font-family: var(--font-body);
+                  font-size: 16px;
+                  outline: none;
+                  transition: border-color 0.15s;
+                "
+              />
+              <button type="submit" class="btn-primary" style="width:100%;margin-top:4px;">
+                CLAIM MY FREE RIDE
+              </button>
+            </form>
+
+            <!-- Success state -->
+            <div id="form-success" style="display:none;text-align:center;padding:24px 0;">
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin:0 auto 16px;">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+                <polyline points="22 4 12 14.01 9 11.01" />
+              </svg>
+              <div style="font-family:var(--font-heading);font-size:28px;color:var(--trust-green);letter-spacing:0.5px;margin-bottom:8px;">YOU'RE IN!</div>
+              <p style="font-size:15px;color:var(--text-body);line-height:1.6;">We'll send you a confirmation.<br/>Show up early — first 30 ride free.</p>
+              <p style="font-size:13px;color:var(--text-muted);margin-top:12px;">Saturday, March 28 · 7PM · 6180 Atlanta Hwy, Alpharetta</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sub-block B: Map + Details -->
+      <section style="background:var(--page-bg);padding:64px 24px;">
+        <div class="section-inner closer-grid">
+          <!-- Left: Details -->
+          <div>
+            <h2 class="fade-up" style="font-size:56px;line-height:1.0;letter-spacing:1px;margin-bottom:20px;">One Night. Don't Let It Pass You By.</h2>
+
+            <p class="fade-up" style="font-size:16px;color:var(--text-body);margin-bottom:8px;">
+              6180 Atlanta Hwy Suite A, Alpharetta, GA 30004
+            </p>
+            <p class="fade-up" style="margin-bottom:20px;">
+              <a href="tel:+16782088774" style="font-size:18px;color:var(--orange);font-weight:600;">1-678-208-8774</a>
+            </p>
+
+            <!-- Trust strip -->
+            <div class="fade-up" style="
+              display: flex;
+              flex-wrap: wrap;
+              gap: 12px;
+              margin-bottom: 28px;
+            ">
+              <span style="font-size:13px;font-weight:600;letter-spacing:0.5px;color:var(--text-muted);text-transform:uppercase;">FREE Entry</span>
+              <span style="color:var(--border-subtle);">·</span>
+              <span style="font-size:13px;font-weight:600;letter-spacing:0.5px;color:var(--text-muted);text-transform:uppercase;">Free Parking</span>
+              <span style="color:var(--border-subtle);">·</span>
+              <span style="font-size:13px;font-weight:600;letter-spacing:0.5px;color:var(--text-muted);text-transform:uppercase;">100% Zabiha Halal</span>
+              <span style="color:var(--border-subtle);">·</span>
+              <span style="font-size:13px;font-weight:600;letter-spacing:0.5px;color:var(--text-muted);text-transform:uppercase;">All Ages Welcome</span>
+            </div>
+
+            <a href="#closer" class="btn-primary fade-up">CLAIM MY FREE RIDE — SEE YOU SATURDAY</a>
+          </div>
+
+          <!-- Right: Map -->
+          <div class="fade-up" style="animation-delay:0.1s;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3303.5!2d-84.2537!3d34.0923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f59a0e0e0e0e0e%3A0x0!2s6180+Atlanta+Hwy+Suite+A%2C+Alpharetta%2C+GA+30004!5e0!3m2!1sen!2sus!4v1"
+              width="100%"
+              height="400"
+              style="border:0;border-radius:16px;filter:invert(90%) hue-rotate(180deg);"
+              allowfullscreen=""
+              loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade"
+              title="Elote King Atlanta location map"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sub-block C: FAQ -->
+      <section id="faq" style="background:var(--surface);padding:64px 24px;">
+        <div style="max-width:800px;margin:0 auto;">
+          <h2 class="fade-up" style="font-size:56px;line-height:1.0;letter-spacing:1px;text-align:center;margin-bottom:48px;">FAQ</h2>
+
+          <div class="faq-list">
+            <details class="faq-item fade-up">
+              <summary class="faq-question">Is this event free?</summary>
+              <div class="faq-answer">Yes. Free entry. No cover charge, no ticket, no catch. Just show up and eat.</div>
+            </details>
+            <details class="faq-item fade-up">
+              <summary class="faq-question">Where do I park?</summary>
+              <div class="faq-answer">Free parking lot right on-site. Pull into 6180 Atlanta Hwy Suite A, Alpharetta.</div>
+            </details>
+            <details class="faq-item fade-up">
+              <summary class="faq-question">Can kids ride the bull?</summary>
+              <div class="faq-answer">Yes. The bull has settings for all ages. Parents sign a quick waiver on-site.</div>
+            </details>
+            <details class="faq-item fade-up">
+              <summary class="faq-question">Is the food halal?</summary>
+              <div class="faq-answer">100% Zabiha Halal. Every item, every time. No exceptions.</div>
+            </details>
+            <details class="faq-item fade-up">
+              <summary class="faq-question">Are the free rides really limited?</summary>
+              <div class="faq-answer">Yes. Tonight we're running 30 free rides. One per person. First come, first up. After the first 30 rides are claimed, it's $5 per ride for the rest of the night. The bull doesn't stop — the free window does. We run roughly one ride every 2-3 minutes. If you're here by 7:30, you're almost certainly in the free window. Show up early.</div>
+            </details>
+            <details class="faq-item fade-up">
+              <summary class="faq-question">Are there restrooms?</summary>
+              <div class="faq-answer">There are no restrooms on site. Plan accordingly.</div>
+            </details>
+            <details class="faq-item fade-up">
+              <summary class="faq-question">How do the free food prizes work?</summary>
+              <div class="faq-answer">You ride the bull. Hold 8 seconds — free drink upgrade. Hold 12 seconds — free esquite. Hold 20 seconds — pick any entree on the menu, free. Prizes apply to every rider, whether your ride was free or $5. The bull is the gatekeeper.</div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sub-block D: Share -->
+      <section id="share" style="background:var(--page-bg);padding:64px 24px;">
+        <div class="section-inner" style="text-align:center;">
+          <h2 class="fade-up" style="font-size:56px;line-height:1.0;letter-spacing:1px;margin-bottom:12px;">Don't Come Alone.</h2>
+          <p class="fade-up" style="font-size:18px;color:var(--text-body);margin-bottom:36px;">Send this to someone who talks too much.</p>
+
+          <div class="share-buttons fade-up">
+            <a
+              href="https://wa.me/?text=Bro%20there%E2%80%99s%20a%20mechanical%20bull%20at%20Elote%20King%20this%20Saturday.%20First%2030%20ride%20FREE.%20Hold%2012%20sec%20%3D%20free%20food.%20I%E2%80%99m%20going%20%E2%80%94%20you%20in%3F%20https%3A%2F%2Felotekingatlanta.com%2Fbull-ride-march28%2F"
+              target="_blank"
+              rel="noopener"
+              class="share-btn"
+              style="background:#25D366;color:#fff;"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Send on WhatsApp
+            </a>
+            <a
+              href="sms:?body=Bull%20Ride%20Night%20%40%20Elote%20King%20Atlanta%20%E2%80%94%20March%2028%2C%207PM.%20First%2030%20ride%20FREE%2C%20then%20%245.%20I%E2%80%99m%20going%3A%20https%3A%2F%2Felotekingatlanta.com%2Fbull-ride-march28%2F"
+              class="share-btn"
+              style="background:#0A84FF;color:#fff;"
+            >
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+              Send via Text
+            </a>
+            <button id="copy-link-btn" class="share-btn btn-ghost" style="padding:14px 28px;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+              Copy the Link
+            </button>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <!-- ===== STICKY MOBILE CTA BAR ===== -->
+    <div id="sticky-cta" style="
+      display: none;
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--orange);
+      cursor: pointer;
+    ">
+      <!-- Top micro-bar: spots + countdown -->
+      <div style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 16px;
+        padding: 6px 16px;
+        background: rgba(0,0,0,0.3);
+        font-size: 13px;
+        font-family: var(--font-body);
+        font-weight: 600;
+        letter-spacing: 0.5px;
+        color: rgba(255,255,255,0.9);
+      ">
+        <span><span id="sticky-spots" style="font-weight:800;">22</span> FREE RIDES LEFT</span>
+        <span style="opacity:0.4;">|</span>
+        <span id="sticky-countdown">03d 02h 14m</span>
+      </div>
+      <!-- Mini progress bar -->
+      <div style="width:100%;height:4px;background:rgba(0,0,0,0.25);">
+        <div id="sticky-progress-bar" style="height:100%;width:27%;background:rgba(255,255,255,0.85);border-radius:0 2px 2px 0;transition:width 0.6s ease;"></div>
+      </div>
+      <!-- Main CTA -->
+      <a href="#closer" style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 48px;
+        font-family: var(--font-body);
+        font-weight: 800;
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        color: #fff;
+        text-transform: uppercase;
+      ">CLAIM MY FREE RIDE</a>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer style="background:var(--page-bg);border-top:1px solid var(--border-subtle);padding:40px 24px;text-align:center;">
+      <img
+        src="/images/optimized/elote-king-logo-transparent.webp"
+        alt="Elote King Atlanta"
+        width="56"
+        height="56"
+        style="width:56px;height:56px;object-fit:contain;margin:0 auto 16px;"
+      />
+      <p style="font-size:14px;color:var(--text-muted);margin-bottom:8px;">© 2026 Elote King Atlanta. All rights reserved.</p>
+      <p style="font-size:13px;color:var(--text-muted);">100% Zabiha Halal Mexican Street Food · Alpharetta, GA</p>
+    </footer>
+
+
+    <!-- ===== COMPONENT STYLES ===== -->
+    <style is:global>
+
+      /* --- Ticker --- */
+      .ticker-text {
+        font-family: var(--font-heading);
+        font-size: 30px;
+        letter-spacing: 2px;
+        color: var(--page-bg);
+        text-transform: uppercase;
+        white-space: nowrap;
+        padding: 0 10px;
+      }
+      .ticker-cd {
+        font-family: var(--font-heading);
+        color: var(--page-bg);
+      }
+
+      /* --- Temperature Progress Bar --- */
+      .fomo-bar {
+        width: 100%;
+        max-width: 400px;
+        height: 12px;
+        background: rgba(255,255,255,0.1);
+        border-radius: 100px;
+        overflow: hidden;
+        margin: 12px auto 0;
+      }
+      .fomo-bar-fill {
+        height: 100%;
+        border-radius: 100px;
+        background: linear-gradient(90deg, var(--orange), #EF4444);
+        transition: width 0.6s ease;
+        box-shadow: 0 0 8px rgba(249,115,22,0.4);
+      }
+
+      /* --- Hero responsive --- */
+      @media (max-width: 768px) {
+        #hero {
+          height: 100svh !important;
+          min-height: 550px !important;
+        }
+        #hero-text {
+          left: 0 !important;
+          right: 0 !important;
+          bottom: 110px !important;
+          transform: none !important;
+          text-align: center;
+          padding: 0 20px !important;
+          max-width: 100% !important;
+        }
+        #hero-text h1 {
+          font-size: 46px !important;
+          line-height: 0.92 !important;
+          margin-bottom: 12px !important;
+        }
+        #hero-text p {
+          font-size: 15px !important;
+          margin-bottom: 20px !important;
+        }
+        /* FOMO counter: show streamlined version on mobile */
+        .fomo-rider-cap {
+          max-width: 100% !important;
+          margin-left: auto !important;
+          margin-right: auto !important;
+        }
+        /* Single CTA on mobile — ghost hides, primary goes full-width */
+        #hero-text .hero-cta-row {
+          flex-direction: column !important;
+          gap: 0 !important;
+        }
+        #hero-text .hero-cta-row .btn-ghost {
+          display: none !important;
+        }
+        #hero-text .hero-cta-row .btn-primary {
+          width: 100% !important;
+          justify-content: center !important;
+          padding: 18px 32px !important;
+          font-size: 17px !important;
+        }
+        #hero-text .fade-up:last-child {
+          justify-content: center;
+        }
+        /* Date pill mobile */
+        #hero-text .hero-date-pill {
+          font-size: 13px !important;
+          padding: 6px 16px !important;
+          margin-bottom: 14px !important;
+        }
+        #desktop-nav { display: none !important; }
+        #hamburger { display: block !important; }
+        .ticker-text { font-size: 24px !important; }
+        .ticker-inner { animation-duration: 32s !important; }
+        #ticker { height: 80px !important; }
+        /* Navbar countdown mobile */
+        #nav-countdown { font-size: 16px !important; }
+        #nav-logo { width: 72px !important; height: 72px !important; }
+
+        /* Countdown responsive */
+        .countdown-unit span:first-child {
+          font-size: 56px !important;
+        }
+        #countdown > span {
+          font-size: 40px !important;
+        }
+      }
+
+      /* --- Challenge Grid --- */
+      .challenge-grid {
+        display: grid;
+        grid-template-columns: 55% 45%;
+        gap: 64px;
+        align-items: center;
+      }
+      @media (max-width: 768px) {
+        .challenge-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .photo-collage { order: 2; }
+        .tier-cards {
+          grid-template-columns: 1fr !important;
+        }
+        .schedule-strip {
+          flex-wrap: wrap !important;
+          gap: 24px !important;
+        }
+        .schedule-item {
+          flex: 0 0 calc(50% - 12px) !important;
+        }
+        .schedule-divider { display: none !important; }
+        .challenge-grid h2 { font-size: 40px !important; }
+      }
+
+      /* --- Menu Carousel --- */
+      .menu-card {
+        flex: 0 0 280px;
+        width: 280px;
+        height: 360px;
+        background: var(--page-bg);
+        border-radius: 20px;
+        border: 1px solid var(--border-subtle);
+        overflow: hidden;
+        transition: transform 0.2s ease;
+      }
+      .menu-card:hover { transform: scale(1.02); }
+      .menu-card-img {
+        height: 220px;
+        overflow: hidden;
+      }
+      .menu-card-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .menu-card-info {
+        padding: 20px;
+      }
+      .menu-card-name {
+        font-family: var(--font-heading);
+        font-size: 28px;
+        letter-spacing: 0.5px;
+        color: var(--text-primary);
+      }
+      .menu-card-price {
+        font-family: var(--font-heading);
+        font-size: 24px;
+        letter-spacing: 0.5px;
+        color: var(--orange);
+        margin-top: 4px;
+      }
+      @media (max-width: 768px) {
+        .menu-card {
+          flex: 0 0 260px;
+          width: 260px;
+          height: 340px;
+        }
+        .menu-card-img { height: 200px; }
+        #menu-dots { display: flex !important; }
+        #menu h2 { font-size: 40px !important; }
+      }
+
+      /* --- Experience Grid --- */
+      .experience-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto;
+        gap: 12px;
+      }
+      .exp-cell {
+        aspect-ratio: 1/1;
+        overflow: hidden;
+        border-radius: 12px;
+      }
+      .exp-cell img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+      }
+      .exp-cell:hover img, .exp-cell:hover video {
+        transform: scale(1.03);
+      }
+      .exp-wide { aspect-ratio: 2/1; }
+      @media (max-width: 768px) {
+        .experience-grid {
+          grid-template-columns: 1fr 1fr !important;
+          gap: 8px;
+        }
+        /* Row 1: video + selfie */
+        .exp-cell:nth-child(1) { grid-column: 1 !important; grid-row: 1 !important; }
+        .exp-cell:nth-child(2) { grid-column: 2 !important; grid-row: 1 !important; }
+        /* Row 2: bull rider smiling + community eating (SHOW the hidden one) */
+        .exp-cell:nth-child(3) { grid-column: 1 !important; grid-row: 2 !important; display: block !important; }
+        .exp-cell:nth-child(4) { grid-column: 2 !important; grid-row: 2 !important; }
+        /* Row 3: wide trunk crew photo */
+        .exp-wide { grid-column: 1 / -1 !important; aspect-ratio: 3/2 !important; grid-row: 3 !important; }
+        /* Row 4: family + second video (children 7 and 8, CTA is child 6) */
+        .exp-cell:nth-child(7) { grid-column: 1 !important; grid-row: 4 !important; }
+        .exp-cell:nth-child(8) { grid-column: 2 !important; grid-row: 4 !important; }
+        /* Row 5: CTA card at the END — photos flow uninterrupted */
+        .exp-cta {
+          grid-column: 1 / -1 !important;
+          aspect-ratio: auto !important;
+          grid-row: 5 !important;
+          min-height: 140px;
+          overflow: visible !important;
+        }
+        .exp-cta > div {
+          min-height: 140px;
+        }
+        #experience h2 { font-size: 40px !important; }
+      }
+
+      /* --- Polaroid Cards --- */
+      .polaroid-card {
+        flex: 0 0 280px;
+        width: 280px;
+        background: #FAFAFA;
+        border-radius: 4px;
+        padding: 12px 12px 40px;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.5), 0 2px 6px rgba(0,0,0,0.3);
+        transition: transform 0.3s ease, box-shadow 0.3s ease, z-index 0s;
+        cursor: grab;
+      }
+      .polaroid-card img {
+        width: 100%;
+        height: auto;
+        border-radius: 2px;
+      }
+      .polaroid-card:hover {
+        transform: rotate(0deg) scale(1.04) !important;
+        box-shadow: 0 16px 48px rgba(0,0,0,0.6), 0 4px 12px rgba(0,0,0,0.4);
+        z-index: 10;
+      }
+      @media (max-width: 768px) {
+        .polaroid-card {
+          flex: 0 0 240px;
+          width: 240px;
+        }
+        #social-proof h2 { font-size: 40px !important; }
+      }
+
+      /* --- Closer Grid --- */
+      .closer-grid {
+        display: grid;
+        grid-template-columns: 40% 60%;
+        gap: 48px;
+        align-items: start;
+      }
+      @media (max-width: 768px) {
+        .closer-grid {
+          grid-template-columns: 1fr;
+          gap: 32px;
+        }
+        .closer-grid iframe {
+          height: 240px !important;
+        }
+        .closer-grid h2 { font-size: 40px !important; }
+      }
+
+      /* --- FAQ --- */
+      .faq-item {
+        border-bottom: 1px solid var(--border-subtle);
+      }
+      .faq-question {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        cursor: pointer;
+        padding: 20px 0;
+        font-family: var(--font-body);
+        font-size: 17px;
+        font-weight: 600;
+        color: var(--text-primary);
+        list-style: none;
+      }
+      .faq-question::-webkit-details-marker { display: none; }
+      .faq-question::after {
+        content: '+';
+        font-size: 24px;
+        font-weight: 300;
+        color: var(--text-muted);
+        transition: transform 0.2s;
+        flex-shrink: 0;
+        margin-left: 16px;
+      }
+      details[open] .faq-question::after {
+        content: '×';
+      }
+      details[open] .faq-item,
+      .faq-item:has([open]) {
+        border-left: 3px solid var(--trust-green);
+        padding-left: 16px;
+      }
+      details[open] {
+        border-left: 3px solid var(--trust-green);
+        padding-left: 16px;
+      }
+      .faq-answer {
+        padding: 0 0 20px;
+        font-family: var(--font-body);
+        font-size: 16px;
+        line-height: 1.7;
+        color: var(--text-muted);
+      }
+      @media (max-width: 768px) {
+        .faq-question { font-size: 15px; }
+        #faq h2 { font-size: 40px !important; }
+      }
+
+      /* --- Share Buttons --- */
+      .share-buttons {
+        display: flex;
+        gap: 16px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+      .share-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 28px;
+        border-radius: 10px;
+        font-family: var(--font-body);
+        font-weight: 700;
+        font-size: 15px;
+        letter-spacing: 0.3px;
+        cursor: pointer;
+        transition: transform 0.15s, opacity 0.15s;
+        border: none;
+        text-decoration: none;
+      }
+      .share-btn:hover {
+        transform: translateY(-1px);
+        opacity: 0.92;
+      }
+      @media (max-width: 768px) {
+        .share-buttons {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .share-btn { justify-content: center; width: 100%; }
+        #share h2 { font-size: 40px !important; }
+      }
+
+      /* --- Form inputs --- */
+      #bull-ride-form input:focus {
+        border-color: var(--orange) !important;
+        box-shadow: 0 0 0 3px rgba(249,115,22,0.15);
+      }
+      #bull-ride-form input::placeholder {
+        color: var(--text-muted);
+      }
+
+      /* --- Nav scroll state --- */
+      #navbar.scrolled {
+        background: rgba(10,10,10,0.92);
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+      }
+    </style>
+
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script>
+      // --- Nav scroll effect ---
+      const navbar = document.getElementById('navbar');
+      window.addEventListener('scroll', () => {
+        navbar.classList.toggle('scrolled', window.scrollY > 40);
+      }, { passive: true });
+
+      // --- Mobile drawer ---
+      const hamburger = document.getElementById('hamburger');
+      const drawer = document.getElementById('mobile-drawer');
+      const drawerClose = document.getElementById('drawer-close');
+      const drawerLinks = drawer.querySelectorAll('a');
+
+      hamburger.addEventListener('click', () => {
+        drawer.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+      });
+      drawerClose.addEventListener('click', closeDrawer);
+      drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+      function closeDrawer() {
+        drawer.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+
+      // --- Intersection Observer for fade animations ---
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+
+      document.querySelectorAll('.fade-up, .fade-in').forEach(el => observer.observe(el));
+
+      // --- Countdown timer (synced across all locations) ---
+      const eventDate = new Date('2026-03-28T19:00:00-04:00').getTime();
+      const cdDays = document.getElementById('cd-days');
+      const cdHours = document.getElementById('cd-hours');
+      const cdMins = document.getElementById('cd-mins');
+      const cdSecs = document.getElementById('cd-secs');
+
+      // Ticker countdown elements
+      const tickerCd = document.getElementById('ticker-cd');
+      const tickerCd2 = document.getElementById('ticker-cd-2');
+      const stickyCountdown = document.getElementById('sticky-countdown');
+
+      // Navbar countdown elements
+      const navD = document.getElementById('nav-cd-d');
+      const navH = document.getElementById('nav-cd-h');
+      const navM = document.getElementById('nav-cd-m');
+      const navS = document.getElementById('nav-cd-s');
+
+      function updateCountdown() {
+        const now = Date.now();
+        const diff = eventDate - now;
+
+        if (diff <= 0) {
+          cdDays.textContent = '0';
+          cdHours.textContent = '0';
+          cdMins.textContent = '0';
+          cdSecs.textContent = '0';
+          if (tickerCd) tickerCd.textContent = 'NOW';
+          if (tickerCd2) tickerCd2.textContent = 'NOW';
+          if (navD) navD.textContent = '0';
+          if (navH) navH.textContent = '00';
+          if (navM) navM.textContent = '00';
+          if (navS) navS.textContent = '00';
+          if (stickyCountdown) stickyCountdown.textContent = 'HAPPENING NOW';
+          return;
+        }
+
+        const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const h = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const m = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+        const s = Math.floor((diff % (1000 * 60)) / 1000);
+
+        // Main countdown (closer section)
+        cdDays.textContent = d;
+        cdHours.textContent = h;
+        cdMins.textContent = m;
+
+        // Pulse animation on seconds
+        if (cdSecs.textContent !== String(s)) {
+          cdSecs.style.animation = 'countPulse 0.1s ease';
+          setTimeout(() => { cdSecs.style.animation = ''; }, 100);
+        }
+        cdSecs.textContent = s;
+
+        // Ticker countdown
+        const tickerStr = d > 0
+          ? `${d}d ${String(h).padStart(2,'0')}h`
+          : `${h}h ${String(m).padStart(2,'0')}m`;
+        if (tickerCd) tickerCd.textContent = tickerStr;
+        if (tickerCd2) tickerCd2.textContent = tickerStr;
+
+        // Navbar countdown
+        if (navD) navD.textContent = d;
+        if (navH) navH.textContent = String(h).padStart(2, '0');
+        if (navM) navM.textContent = String(m).padStart(2, '0');
+        if (navS) navS.textContent = String(s).padStart(2, '0');
+
+        // Sticky bar compact countdown
+        if (stickyCountdown) {
+          stickyCountdown.textContent = d > 0
+            ? `${d}d ${h}h ${m}m`
+            : `${h}h ${m}m ${s}s`;
+        }
+      }
+
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // --- Free ride counter (deterministic based on time, not random) ---
+      // Creates believable progression: starts at 8 claimed out of 30, increases as event approaches
+      // Same number for every visitor at the same time (no refresh abuse)
+      function getRiderSpots() {
+        const totalFreeRides = 30;
+        const now = Date.now();
+        const eventTime = eventDate;
+        const launchTime = new Date('2026-03-25T12:00:00-04:00').getTime(); // page went live
+        const elapsed = now - launchTime;
+        const totalWindow = eventTime - launchTime;
+
+        if (elapsed <= 0) return { claimed: 8, left: 22 };
+        if (elapsed >= totalWindow) return { claimed: 30, left: 0 };
+
+        // S-curve: slow start, fast middle, slow at end
+        const progress = elapsed / totalWindow;
+        const sCurve = 1 / (1 + Math.exp(-10 * (progress - 0.5)));
+        const claimed = Math.min(totalFreeRides, Math.max(8, Math.floor(8 + (totalFreeRides - 8) * sCurve)));
+        return { claimed, left: totalFreeRides - claimed };
+      }
+
+      function updateSpotCounters() {
+        const { claimed, left } = getRiderSpots();
+        const pct = Math.round((claimed / 30) * 100);
+
+        // Hero counter — "X FREE RIDES LEFT TONIGHT"
+        const heroLeft = document.getElementById('hero-spots-left');
+        const heroBar = document.getElementById('hero-progress-bar');
+        if (heroLeft) heroLeft.textContent = left + ' FREE RIDE' + (left !== 1 ? 'S' : '') + ' LEFT TONIGHT';
+        if (heroBar) heroBar.style.width = pct + '%';
+
+        // Closer section — "X FREE RIDES LEFT TONIGHT" + progress bar
+        const closerLeft = document.getElementById('closer-left');
+        const closerBar = document.getElementById('closer-progress-bar');
+        if (closerLeft) closerLeft.textContent = left + ' FREE RIDE' + (left !== 1 ? 'S' : '') + ' LEFT TONIGHT';
+        if (closerBar) closerBar.style.width = pct + '%';
+
+        // Sticky bar — number + mini bar
+        const stickySpots = document.getElementById('sticky-spots');
+        if (stickySpots) stickySpots.textContent = left;
+        const stickyBar = document.getElementById('sticky-progress-bar');
+        if (stickyBar) stickyBar.style.width = pct + '%';
+
+        // Color shift: orange → red as free rides run low
+        if (left <= 5) {
+          document.querySelectorAll('#hero-spots-left, #sticky-spots, #closer-left').forEach(el => {
+            el.style.color = '#EF4444';
+          });
+          document.querySelectorAll('.fomo-bar-fill').forEach(bar => {
+            bar.style.background = 'linear-gradient(90deg, #EF4444, #DC2626)';
+            bar.style.boxShadow = '0 0 12px rgba(239,68,68,0.5)';
+          });
+        }
+      }
+
+      updateSpotCounters();
+      setInterval(updateSpotCounters, 30000); // Update every 30s
+
+      // --- Sticky mobile CTA bar ---
+      const stickyCta = document.getElementById('sticky-cta');
+      const closerSection = document.getElementById('closer');
+
+      function handleStickyCta() {
+        if (window.innerWidth > 768) {
+          stickyCta.style.display = 'none';
+          return;
+        }
+
+        // Hide on hero (redundant — hero has its own CTA)
+        const heroSection = document.getElementById('hero');
+        const heroRect = heroSection ? heroSection.getBoundingClientRect() : null;
+        const heroVisible = heroRect && heroRect.bottom > window.innerHeight * 0.4;
+
+        // Hide when closer section is visible (user can see the final CTA)
+        const closerRect = closerSection.getBoundingClientRect();
+        const closerVisible = closerRect.top < window.innerHeight && closerRect.bottom > 0;
+
+        stickyCta.style.display = (heroVisible || closerVisible) ? 'none' : 'block';
+      }
+
+      window.addEventListener('scroll', handleStickyCta, { passive: true });
+      window.addEventListener('resize', handleStickyCta, { passive: true });
+      handleStickyCta();
+
+      // --- Menu carousel (native touch-scroll + drag) ---
+      function initCarousel(containerId) {
+        const container = document.getElementById(containerId);
+        if (!container) return;
+        const inner = container.querySelector('[style*="display:flex"]') || container.firstElementChild;
+        let isDown = false, startX, scrollLeft;
+
+        container.addEventListener('mousedown', (e) => {
+          isDown = true;
+          container.style.cursor = 'grabbing';
+          startX = e.pageX - container.offsetLeft;
+          scrollLeft = container.scrollLeft;
+        });
+        container.addEventListener('mouseleave', () => { isDown = false; container.style.cursor = 'grab'; });
+        container.addEventListener('mouseup', () => { isDown = false; container.style.cursor = 'grab'; });
+        container.addEventListener('mousemove', (e) => {
+          if (!isDown) return;
+          e.preventDefault();
+          const x = e.pageX - container.offsetLeft;
+          container.scrollLeft = scrollLeft - (x - startX) * 1.5;
+        });
+
+        // Enable native horizontal scroll
+        container.style.overflowX = 'auto';
+        container.style.scrollSnapType = 'x mandatory';
+        container.style.webkitOverflowScrolling = 'touch';
+        container.style.scrollbarWidth = 'none';
+        container.style.msOverflowStyle = 'none';
+      }
+
+      initCarousel('menu-carousel');
+      initCarousel('polaroid-carousel');
+
+      // --- Copy link button ---
+      const copyBtn = document.getElementById('copy-link-btn');
+      if (copyBtn) {
+        copyBtn.addEventListener('click', async () => {
+          try {
+            await navigator.clipboard.writeText('https://elotekingatlanta.com/bull-ride-march28/');
+            copyBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!';
+            setTimeout(() => {
+              copyBtn.innerHTML = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg> Copy the Link';
+            }, 2000);
+          } catch(e) {
+            // Fallback
+            const input = document.createElement('input');
+            input.value = 'https://elotekingatlanta.com/bull-ride-march28/';
+            document.body.appendChild(input);
+            input.select();
+            document.execCommand('copy');
+            document.body.removeChild(input);
+            copyBtn.textContent = 'Copied!';
+          }
+        });
+      }
+
+      // --- Registration form submission ---
+      const bullForm = document.getElementById('bull-ride-form');
+      const formWrapper = document.getElementById('registration-form-wrapper');
+      const formSuccess = document.getElementById('form-success');
+
+      if (bullForm) {
+        bullForm.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const submitBtn = bullForm.querySelector('button[type="submit"]');
+          submitBtn.textContent = 'SENDING...';
+          submitBtn.disabled = true;
+
+          try {
+            const formData = new FormData(bullForm);
+            const res = await fetch(bullForm.action, {
+              method: 'POST',
+              body: formData,
+              headers: { 'Accept': 'application/json' }
+            });
+
+            if (res.ok) {
+              bullForm.style.display = 'none';
+              formWrapper.querySelector('h3').style.display = 'none';
+              formWrapper.querySelector('p').style.display = 'none';
+              formSuccess.style.display = 'block';
+            } else {
+              submitBtn.textContent = 'SOMETHING WENT WRONG — TRY AGAIN';
+              submitBtn.disabled = false;
+            }
+          } catch (err) {
+            submitBtn.textContent = 'SOMETHING WENT WRONG — TRY AGAIN';
+            submitBtn.disabled = false;
+          }
+        });
+      }
+    </script>
+
+  </body>
 </html>
