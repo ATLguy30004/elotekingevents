@@ -552,10 +552,10 @@ import SpeedInsights from '@vercel/speed-insights/astro';
               <div class="fade-up" style="display:flex;flex-direction:column;align-items:flex-start;gap:6px;margin-top:20px;max-width:400px;">
                 <div style="display:flex;align-items:center;gap:8px;font-size:15px;color:var(--text-muted);">
                   <span style="width:8px;height:8px;border-radius:50%;background:var(--orange);display:inline-block;animation:pulse-dot 1.5s ease-in-out infinite;"></span>
-                  <span id="challenge-left" style="font-family:var(--font-heading);font-size:20px;color:var(--orange);letter-spacing:0.5px;">9 FREE RIDES LEFT TONIGHT</span>
+                  <span id="challenge-left" style="font-family:var(--font-heading);font-size:20px;color:var(--orange);letter-spacing:0.5px;">3 FREE RIDES LEFT TONIGHT</span>
                 </div>
                 <div class="fomo-bar" style="margin:0;">
-                  <div id="challenge-progress-bar" class="fomo-bar-fill" style="width:70%;"></div>
+                  <div id="challenge-progress-bar" class="fomo-bar-fill" style="width:90%;"></div>
                 </div>
                 <span style="font-size:13px;color:var(--text-muted);">First 30 ride free · $5 after</span>
               </div>
@@ -912,10 +912,10 @@ import SpeedInsights from '@vercel/speed-insights/astro';
           <div class="fade-up" style="display:flex;flex-direction:column;align-items:center;gap:6px;">
             <div style="display:flex;align-items:center;gap:8px;font-size:15px;color:var(--text-muted);">
               <span style="width:8px;height:8px;border-radius:50%;background:var(--orange);display:inline-block;animation:pulse-dot 1.5s ease-in-out infinite;"></span>
-              <span id="closer-left" style="font-family:var(--font-heading);font-size:22px;color:var(--orange);letter-spacing:0.5px;">9 FREE RIDES LEFT TONIGHT</span>
+              <span id="closer-left" style="font-family:var(--font-heading);font-size:22px;color:var(--orange);letter-spacing:0.5px;">3 FREE RIDES LEFT TONIGHT</span>
             </div>
             <div class="fomo-bar">
-              <div id="closer-progress-bar" class="fomo-bar-fill" style="width:70%;"></div>
+              <div id="closer-progress-bar" class="fomo-bar-fill" style="width:90%;"></div>
             </div>
             <span style="font-size:13px;color:var(--text-muted);">$5 per ride · win the same prizes</span>
           </div>
@@ -1686,7 +1686,7 @@ import SpeedInsights from '@vercel/speed-insights/astro';
       setInterval(updateCountdown, 1000);
 
       // --- Free ride counter (deterministic based on time, not random) ---
-      // Creates believable progression: starts at 21 claimed out of 30, increases as event approaches
+      // Creates believable progression: starts at 27 claimed out of 30, increases as event approaches
       // Same number for every visitor at the same time (no refresh abuse)
       function getRiderSpots() {
         const totalFreeRides = 30;
@@ -1696,13 +1696,13 @@ import SpeedInsights from '@vercel/speed-insights/astro';
         const elapsed = now - launchTime;
         const totalWindow = eventTime - launchTime;
 
-        if (elapsed <= 0) return { claimed: 21, left: 9 };
+        if (elapsed <= 0) return { claimed: 27, left: 3 };
         if (elapsed >= totalWindow) return { claimed: 30, left: 0 };
 
         // S-curve: slow start, fast middle, slow at end
         const progress = elapsed / totalWindow;
         const sCurve = 1 / (1 + Math.exp(-10 * (progress - 0.5)));
-        const claimed = Math.min(totalFreeRides, Math.max(21, Math.floor(21 + (totalFreeRides - 21) * sCurve)));
+        const claimed = Math.min(totalFreeRides, Math.max(27, Math.floor(27 + (totalFreeRides - 27) * sCurve)));
         return { claimed, left: totalFreeRides - claimed };
       }
 
