@@ -64,7 +64,8 @@ import SpeedInsights from '@vercel/speed-insights/astro';
     <link rel="preload" href="/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
 
-    <!-- Hero video preload removed — preload as="video" can block autoplay on mobile -->
+    <!-- Hero poster preload — instant LCP instead of waiting for video -->
+    <link rel="preload" href="/video/hero-poster-mobile.jpg" as="image" fetchpriority="high" />
 
     <!-- Event Schema JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -426,12 +427,13 @@ import SpeedInsights from '@vercel/speed-insights/astro';
         <video
           id="hero-video"
           src="/video/eloteking-hero-mobile.mp4"
+          poster="/video/hero-poster-mobile.jpg"
           autoplay
           muted
           loop
           playsinline
           webkit-playsinline
-          preload="auto"
+          preload="metadata"
           disablepictureinpicture
           disableremoteplayback
           x-webkit-airplay="deny"
@@ -442,6 +444,7 @@ import SpeedInsights from '@vercel/speed-insights/astro';
             var v = document.getElementById('hero-video');
             if (v && window.innerWidth > 768) {
               v.src = '/video/eloteking-hero-v9-enhanced.mp4';
+              v.poster = '/video/hero-poster-desktop.jpg';
             }
             if (v) { v.muted = true; v.play().catch(function(){}); }
           })();
