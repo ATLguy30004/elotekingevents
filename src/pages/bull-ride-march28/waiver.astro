@@ -1,0 +1,639 @@
+---
+/**
+ * Bull Ride Waiver — March 28, 2026
+ * QR code → opens on phone → sign waiver → submit
+ * Standalone page, dark cinematic theme matching bull-ride-march28
+ */
+import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content="Astro" />
+
+    <title>Bull Ride Waiver — Elote King Atlanta | March 28</title>
+    <meta name="description" content="Sign the liability waiver for Bull Ride Night at Elote King Atlanta — March 28, 2026. Required before riding." />
+    <meta name="robots" content="noindex, nofollow" />
+
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Font preload -->
+    <link rel="preload" href="/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <style is:global>
+      @font-face {
+        font-family: 'Bebas Neue';
+        src: url('/fonts/bebas-neue-latin.woff2') format('woff2');
+        font-weight: 400;
+        font-style: normal;
+        font-display: swap;
+      }
+      @font-face {
+        font-family: 'DM Sans';
+        src: url('/fonts/dm-sans-latin.woff2') format('woff2');
+        font-weight: 100 900;
+        font-style: normal;
+        font-display: swap;
+      }
+
+      :root {
+        --page-bg: #0A0A0A;
+        --surface: #171717;
+        --text-primary: #FAFAFA;
+        --text-body: rgba(250,250,250,0.85);
+        --text-muted: rgba(250,250,250,0.6);
+        --orange: #F97316;
+        --orange-hover: #EA580C;
+        --trust-green: #16a34a;
+        --border-subtle: rgba(255,255,255,0.08);
+        --border-visible: rgba(255,255,255,0.15);
+        --font-heading: 'Bebas Neue', sans-serif;
+        --font-body: 'DM Sans', sans-serif;
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        background: var(--page-bg);
+        color: var(--text-primary);
+        font-family: var(--font-body);
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        overflow-x: hidden;
+        min-height: 100dvh;
+      }
+
+      h1, h2, h3 {
+        font-family: var(--font-heading);
+        font-weight: 400;
+        text-transform: uppercase;
+      }
+
+      /* ===== WAIVER PAGE ===== */
+      .waiver-page {
+        max-width: 480px;
+        margin: 0 auto;
+        padding: 24px 20px 48px;
+      }
+
+      /* Header */
+      .waiver-header {
+        text-align: center;
+        padding: 16px 0 24px;
+        border-bottom: 1px solid var(--border-subtle);
+        margin-bottom: 28px;
+      }
+      .waiver-logo {
+        height: 44px;
+        margin: 0 auto 12px;
+      }
+      .waiver-header h1 {
+        font-size: 32px;
+        letter-spacing: 1px;
+        line-height: 1.1;
+        color: var(--orange);
+      }
+      .waiver-header p {
+        font-size: 14px;
+        color: var(--text-muted);
+        margin-top: 6px;
+      }
+
+      /* Trust badge */
+      .trust-badge {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        background: var(--surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: 8px;
+        padding: 10px 16px;
+        margin-bottom: 28px;
+        font-size: 13px;
+        color: var(--text-muted);
+      }
+      .trust-badge svg {
+        flex-shrink: 0;
+        color: var(--trust-green);
+      }
+
+      /* Waiver text */
+      .waiver-text {
+        background: var(--surface);
+        border: 1px solid var(--border-subtle);
+        border-radius: 12px;
+        padding: 20px;
+        margin-bottom: 28px;
+        max-height: 240px;
+        overflow-y: auto;
+        font-size: 14px;
+        line-height: 1.65;
+        color: var(--text-body);
+      }
+      .waiver-text h2 {
+        font-size: 20px;
+        letter-spacing: 0.5px;
+        color: var(--text-primary);
+        margin-bottom: 12px;
+      }
+      .waiver-text p {
+        margin-bottom: 12px;
+      }
+      .waiver-text p:last-child {
+        margin-bottom: 0;
+      }
+      .waiver-text::-webkit-scrollbar {
+        width: 4px;
+      }
+      .waiver-text::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .waiver-text::-webkit-scrollbar-thumb {
+        background: rgba(255,255,255,0.15);
+        border-radius: 4px;
+      }
+
+      /* Form */
+      .waiver-form {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .form-group label {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-body);
+      }
+      .form-group input[type="text"] {
+        background: var(--surface);
+        border: 1px solid var(--border-visible);
+        border-radius: 10px;
+        padding: 14px 16px;
+        font-size: 16px;
+        color: var(--text-primary);
+        font-family: var(--font-body);
+        outline: none;
+        transition: border-color 0.2s;
+      }
+      .form-group input[type="text"]:focus {
+        border-color: var(--orange);
+      }
+      .form-group input[type="text"]::placeholder {
+        color: var(--text-muted);
+      }
+
+      /* Checkbox rows */
+      .checkbox-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        cursor: pointer;
+      }
+      .checkbox-row input[type="checkbox"] {
+        appearance: none;
+        -webkit-appearance: none;
+        width: 22px;
+        height: 22px;
+        min-width: 22px;
+        border: 2px solid var(--border-visible);
+        border-radius: 6px;
+        background: var(--surface);
+        cursor: pointer;
+        position: relative;
+        margin-top: 1px;
+        transition: all 0.15s;
+      }
+      .checkbox-row input[type="checkbox"]:checked {
+        background: var(--orange);
+        border-color: var(--orange);
+      }
+      .checkbox-row input[type="checkbox"]:checked::after {
+        content: '';
+        position: absolute;
+        left: 6px;
+        top: 2px;
+        width: 6px;
+        height: 11px;
+        border: solid #fff;
+        border-width: 0 2.5px 2.5px 0;
+        transform: rotate(45deg);
+      }
+      .checkbox-row span {
+        font-size: 15px;
+        line-height: 1.45;
+        color: var(--text-body);
+      }
+
+      /* Signature */
+      .signature-section {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+      }
+      .signature-section label {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text-body);
+      }
+      .signature-canvas-wrap {
+        position: relative;
+        background: #1a1a1a;
+        border: 1px solid var(--border-visible);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .signature-canvas-wrap canvas {
+        display: block;
+        width: 100%;
+        height: 150px;
+        touch-action: none;
+      }
+      .signature-placeholder {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 14px;
+        color: var(--text-muted);
+        pointer-events: none;
+        transition: opacity 0.2s;
+      }
+      .signature-placeholder.hidden {
+        opacity: 0;
+      }
+      .clear-sig {
+        align-self: flex-end;
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        font-size: 13px;
+        font-family: var(--font-body);
+        cursor: pointer;
+        padding: 4px 0;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+      }
+      .clear-sig:hover {
+        color: var(--text-primary);
+      }
+
+      /* Submit */
+      .submit-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        padding: 16px;
+        background: var(--orange);
+        color: #fff;
+        font-family: var(--font-heading);
+        font-size: 22px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background 0.2s;
+      }
+      .submit-btn:hover {
+        background: var(--orange-hover);
+      }
+      .submit-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      /* Error */
+      .form-error {
+        background: rgba(220,38,38,0.12);
+        border: 1px solid rgba(220,38,38,0.3);
+        border-radius: 8px;
+        padding: 12px 16px;
+        font-size: 14px;
+        color: #fca5a5;
+        display: none;
+      }
+      .form-error.show {
+        display: block;
+      }
+
+      /* Success state */
+      .waiver-success {
+        display: none;
+        text-align: center;
+        padding: 48px 20px;
+      }
+      .waiver-success.show {
+        display: block;
+      }
+      .waiver-form.hidden {
+        display: none;
+      }
+      .success-icon {
+        width: 72px;
+        height: 72px;
+        background: var(--trust-green);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+      }
+      .success-icon svg {
+        width: 36px;
+        height: 36px;
+        color: #fff;
+      }
+      .waiver-success h2 {
+        font-size: 36px;
+        letter-spacing: 1px;
+        color: var(--trust-green);
+        margin-bottom: 8px;
+      }
+      .waiver-success p {
+        font-size: 16px;
+        color: var(--text-body);
+        line-height: 1.5;
+      }
+      .waiver-success .rider-name {
+        color: var(--orange);
+        font-weight: 600;
+      }
+      .waiver-success .timestamp {
+        font-size: 13px;
+        color: var(--text-muted);
+        margin-top: 16px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="waiver-page">
+      <!-- Header -->
+      <div class="waiver-header">
+        <img src="/images/elote-king-logo-transparent.png" alt="Elote King Atlanta" class="waiver-logo" />
+        <h1>Bull Ride Waiver</h1>
+        <p>March 28, 2026 &bull; Alpharetta, GA</p>
+      </div>
+
+      <!-- Trust badge -->
+      <div class="trust-badge">
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 0L10 5.5L16 6L11.5 10L13 16L8 12.5L3 16L4.5 10L0 6L6 5.5L8 0Z" fill="currentColor"/></svg>
+        Required before riding &bull; Takes 30 seconds
+      </div>
+
+      <!-- Waiver text (scrollable) -->
+      <div class="waiver-text">
+        <h2>Liability Waiver, Release &amp; Indemnification Agreement</h2>
+
+        <p><strong>EVENT:</strong> Bull Ride Night — March 28, 2026, hosted by Elote King Atlanta LLC ("Organizer") at 6180 Atlanta Hwy Suite A, Alpharetta, GA 30004.</p>
+
+        <p><strong>1. ASSUMPTION OF RISK.</strong> I understand and acknowledge that riding a mechanical bull is an inherently dangerous activity. Risks include but are not limited to: falls, impacts with the bull or surrounding surfaces, broken bones, concussions, sprains, strains, bruises, lacerations, spinal injuries, paralysis, traumatic brain injury, and in rare cases death. I voluntarily and knowingly assume ALL risks of injury, illness, damage, or loss that may result from my participation, whether foreseeable or not.</p>
+
+        <p><strong>2. RELEASE OF LIABILITY.</strong> I hereby release, waive, discharge, and covenant not to sue Elote King Atlanta LLC, its owners, officers, members, managers, employees, contractors, agents, volunteers, the mechanical bull operator, the equipment supplier, the property owner/landlord, and all affiliated parties (collectively "Released Parties") from any and all liability, claims, demands, actions, or causes of action arising out of or related to any loss, damage, injury, or death that may be sustained by me as a result of my participation in the mechanical bull ride or any related event activities, whether caused by negligence or otherwise.</p>
+
+        <p><strong>3. INDEMNIFICATION.</strong> I agree to indemnify, defend, and hold harmless all Released Parties from any loss, liability, damage, cost, or expense (including attorney's fees and court costs) that they may incur as a result of any claim, demand, or action brought by me, my family, my estate, or any third party arising out of my participation.</p>
+
+        <p><strong>4. MEDICAL ACKNOWLEDGMENT.</strong> I certify that I am physically fit and able to participate in the mechanical bull ride. I have no medical, physical, or mental conditions that would make my participation dangerous to myself or others. I am not under the influence of alcohol, drugs, or any substances that could impair my judgment, balance, coordination, or physical ability. I understand that the mechanical bull operator and Organizer reserve the right to refuse participation to anyone at their sole discretion for any safety reason.</p>
+
+        <p><strong>5. MEDICAL TREATMENT AUTHORIZATION.</strong> In the event of injury, I authorize the Organizer and its agents to secure emergency medical treatment, transportation, and care on my behalf if I am unable to do so. I agree to be financially responsible for all costs of emergency medical treatment and transportation.</p>
+
+        <p><strong>6. PHOTO/VIDEO RELEASE.</strong> I grant the Organizer permission to use any photographs, videos, or recordings taken of me during the event for promotional, marketing, social media, or any other lawful purpose without compensation or further notice.</p>
+
+        <p><strong>7. EQUIPMENT & RULES.</strong> I agree to follow all safety instructions provided by the mechanical bull operator and event staff. I understand that failure to follow safety instructions may result in removal from the activity without refund. I will not attempt to use the equipment in any manner other than as instructed.</p>
+
+        <p><strong>8. NO WARRANTY OF SAFETY.</strong> I understand that the Released Parties make no representations or warranties, express or implied, regarding the safety of the premises, equipment, or activity. The presence of safety mats, padding, or staff does not guarantee my safety.</p>
+
+        <p><strong>9. BINDING EFFECT.</strong> This waiver shall be binding upon me, my heirs, executors, administrators, personal representatives, assigns, and next of kin. I understand that this is a legal document and I am waiving substantial legal rights by signing it.</p>
+
+        <p><strong>10. GOVERNING LAW.</strong> This agreement shall be governed by and construed in accordance with the laws of the State of Georgia. Any disputes arising from this agreement or my participation shall be resolved exclusively in the courts of Fulton County, Georgia. I waive any right to a jury trial.</p>
+
+        <p><strong>11. SEVERABILITY.</strong> If any provision of this waiver is found to be unenforceable, the remaining provisions shall remain in full force and effect.</p>
+
+        <p><strong>I HAVE READ THIS WAIVER IN ITS ENTIRETY, FULLY UNDERSTAND ITS TERMS, AND SIGN IT VOLUNTARILY AND WITHOUT INDUCEMENT.</strong></p>
+      </div>
+
+      <!-- Error message -->
+      <div class="form-error" id="formError"></div>
+
+      <!-- Waiver Form -->
+      <form class="waiver-form" id="waiverForm" action="https://formspree.io/f/xdkonzqp" method="POST">
+        <!-- Hidden fields for Formspree -->
+        <input type="hidden" name="_subject" value="Bull Ride Waiver — March 28" />
+        <input type="hidden" name="signature_data" id="signatureData" />
+        <input type="hidden" name="signed_at" id="signedAt" />
+
+        <!-- Full Name -->
+        <div class="form-group">
+          <label for="fullName">Full Name</label>
+          <input type="text" id="fullName" name="full_name" placeholder="Your full legal name" required autocomplete="name" />
+        </div>
+
+        <!-- Age Confirmation -->
+        <label class="checkbox-row">
+          <input type="checkbox" id="ageConfirm" name="age_confirmed" value="yes" required />
+          <span>I am <strong>18 years or older</strong> (or have parent/guardian present)</span>
+        </label>
+
+        <!-- Signature -->
+        <div class="signature-section">
+          <label>Your Signature</label>
+          <div class="signature-canvas-wrap">
+            <canvas id="signatureCanvas"></canvas>
+            <div class="signature-placeholder" id="sigPlaceholder">Sign here with your finger</div>
+          </div>
+          <button type="button" class="clear-sig" id="clearSig">Clear signature</button>
+        </div>
+
+        <!-- Accept terms -->
+        <label class="checkbox-row">
+          <input type="checkbox" id="acceptTerms" name="terms_accepted" value="yes" required />
+          <span>I have read and agree to the <strong>liability waiver</strong> above</span>
+        </label>
+
+        <!-- Submit -->
+        <button type="submit" class="submit-btn" id="submitBtn">
+          Sign Waiver
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </form>
+
+      <!-- Success state -->
+      <div class="waiver-success" id="waiverSuccess">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h2>You're Cleared to Ride</h2>
+        <p>Thanks <span class="rider-name" id="riderName"></span>! Show this screen to the bull operator.</p>
+        <p class="timestamp" id="signTimestamp"></p>
+      </div>
+    </div>
+
+    <Analytics />
+    <SpeedInsights />
+
+    <script>
+      // ===== SIGNATURE PAD =====
+      const canvas = document.getElementById('signatureCanvas');
+      const ctx = canvas.getContext('2d');
+      const placeholder = document.getElementById('sigPlaceholder');
+      let isDrawing = false;
+      let hasSigned = false;
+
+      function resizeCanvas() {
+        const rect = canvas.getBoundingClientRect();
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = rect.width * dpr;
+        canvas.height = rect.height * dpr;
+        ctx.scale(dpr, dpr);
+        ctx.strokeStyle = '#FAFAFA';
+        ctx.lineWidth = 2.5;
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+      }
+      resizeCanvas();
+      window.addEventListener('resize', resizeCanvas);
+
+      function getPos(e) {
+        const rect = canvas.getBoundingClientRect();
+        const touch = e.touches ? e.touches[0] : e;
+        return {
+          x: touch.clientX - rect.left,
+          y: touch.clientY - rect.top
+        };
+      }
+
+      function startDraw(e) {
+        e.preventDefault();
+        isDrawing = true;
+        hasSigned = true;
+        placeholder.classList.add('hidden');
+        const pos = getPos(e);
+        ctx.beginPath();
+        ctx.moveTo(pos.x, pos.y);
+      }
+
+      function draw(e) {
+        if (!isDrawing) return;
+        e.preventDefault();
+        const pos = getPos(e);
+        ctx.lineTo(pos.x, pos.y);
+        ctx.stroke();
+      }
+
+      function stopDraw() {
+        isDrawing = false;
+      }
+
+      canvas.addEventListener('mousedown', startDraw);
+      canvas.addEventListener('mousemove', draw);
+      canvas.addEventListener('mouseup', stopDraw);
+      canvas.addEventListener('mouseleave', stopDraw);
+      canvas.addEventListener('touchstart', startDraw, { passive: false });
+      canvas.addEventListener('touchmove', draw, { passive: false });
+      canvas.addEventListener('touchend', stopDraw);
+
+      document.getElementById('clearSig').addEventListener('click', () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        hasSigned = false;
+        placeholder.classList.remove('hidden');
+      });
+
+      // ===== FORM SUBMISSION =====
+      const form = document.getElementById('waiverForm');
+      const errorEl = document.getElementById('formError');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        errorEl.classList.remove('show');
+
+        // Validate
+        const name = document.getElementById('fullName').value.trim();
+        const ageOk = document.getElementById('ageConfirm').checked;
+        const termsOk = document.getElementById('acceptTerms').checked;
+
+        if (!name) {
+          showError('Please enter your full name.');
+          return;
+        }
+        if (!ageOk) {
+          showError('Please confirm you are 18 or older.');
+          return;
+        }
+        if (!hasSigned) {
+          showError('Please sign the waiver with your finger.');
+          return;
+        }
+        if (!termsOk) {
+          showError('Please accept the liability waiver.');
+          return;
+        }
+
+        // Capture signature as data URL
+        const sigData = canvas.toDataURL('image/png');
+        document.getElementById('signatureData').value = sigData;
+
+        // Timestamp
+        const now = new Date();
+        const ts = now.toLocaleString('en-US', {
+          timeZone: 'America/New_York',
+          year: 'numeric', month: 'short', day: 'numeric',
+          hour: 'numeric', minute: '2-digit', hour12: true
+        });
+        document.getElementById('signedAt').value = ts;
+
+        // Disable button
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.textContent = 'Submitting...';
+
+        try {
+          const formData = new FormData(form);
+          const res = await fetch(form.action, {
+            method: 'POST',
+            body: formData,
+            headers: { 'Accept': 'application/json' }
+          });
+
+          if (res.ok) {
+            // Show success
+            form.classList.add('hidden');
+            document.querySelector('.waiver-text').style.display = 'none';
+            document.querySelector('.trust-badge').style.display = 'none';
+            const success = document.getElementById('waiverSuccess');
+            success.classList.add('show');
+            document.getElementById('riderName').textContent = name;
+            document.getElementById('signTimestamp').textContent = 'Signed: ' + ts;
+          } else {
+            throw new Error('Submit failed');
+          }
+        } catch (err) {
+          btn.disabled = false;
+          btn.textContent = 'Sign Waiver';
+          showError('Something went wrong. Please try again.');
+        }
+      });
+
+      function showError(msg) {
+        errorEl.textContent = msg;
+        errorEl.classList.add('show');
+        errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    </script>
+  </body>
+</html>
