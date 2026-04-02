@@ -1,2 +1,14 @@
 import { defineConfig } from 'astro/config';
-export default defineConfig({ site: 'https://elotekingevents.com' });
+import tailwindcss from '@tailwindcss/vite';
+
+export default defineConfig({
+  site: 'https://elotekingevents.com',
+  vite: {
+    plugins: [tailwindcss()],
+    resolve: {
+      alias: {
+        '@': '/src',
+      },
+    },
+  },
+});

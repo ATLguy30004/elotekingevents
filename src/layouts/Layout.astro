@@ -1,0 +1,598 @@
+---
+/**
+ * Layout.astro — Global layout for Elote King Atlanta
+ * Redesign: "THE DRIP" — 2026-03-16
+ * Navbar: transparent → dark on scroll, 72px → 60px height compression
+ * Mobile drawer: full-screen overlay, Bebas Neue 36px nav items
+ * Sticky CTA: slides in at 1s, hides when waitlist form visible, NO pricing
+ */
+
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  schema?: string;
+}
+
+const {
+  title,
+  description,
+  canonical = Astro.url.href,
+  ogImage = '/images/elote-king-logo-transparent.png',
+  schema,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Open Graph -->
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Elote King Atlanta" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" sizes="32x32" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+
+    <!-- Font preload — Bebas Neue first (hero headline) -->
+    <link rel="preload" href="/fonts/bebas-neue-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin />
+
+    <!-- CSS -->
+    <style>
+      @import "@/styles/starwind.css";
+    </style>
+
+    <!-- Per-page JSON-LD schema -->
+    {schema && <script type="application/ld+json" set:html={schema} />}
+  </head>
+
+  <body class="min-h-screen flex flex-col">
+    <!-- Skip to content -->
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-md"
+    >
+      Skip to main content
+    </a>
+
+    <!-- Navigation — transparent on load, dark on scroll, 72px → 60px -->
+    <header
+      id="site-header"
+      class="fixed top-0 left-0 right-0 z-50"
+      style="height: 72px; background-color: transparent; transition: height 200ms ease, background-color 200ms ease, backdrop-filter 200ms ease;"
+    >
+      <nav
+        class="container-brand flex items-center justify-between h-full px-6"
+        aria-label="Main navigation"
+        style="padding-left: clamp(1rem, 4vw, 2rem); padding-right: clamp(1rem, 4vw, 2rem);"
+      >
+        <!-- Logo -->
+        <a href="/" class="flex items-center gap-3 min-h-0" aria-label="Elote King Atlanta — Home">
+          <img
+            src="/images/optimized/elote-king-logo-transparent.webp"
+            alt="Elote King Atlanta logo"
+            width="48"
+            height="48"
+            class="object-contain"
+            style="height: 48px; width: auto;"
+          />
+          <span
+            class="text-white hidden sm:inline"
+            style="font-family: var(--font-heading); font-size: 20px; letter-spacing: 1.5px;"
+          >
+            ELOTE KING
+          </span>
+        </a>
+
+        <!-- Desktop nav links -->
+        <div class="hidden md:flex items-center" style="gap: 24px;">
+          <a href="/"       class="nav-link">Home</a>
+          <a href="/menu/"      class="nav-link">Menu</a>
+          <a href="/catering/"  class="nav-link">Catering</a>
+          <a href="/events/"    class="nav-link">Events</a>
+          <a href="/about/"     class="nav-link">About</a>
+          <!-- Ghost pill -->
+          <a
+            href="/events/"
+            class="nav-pill-ghost"
+          >
+            Lock In Your Spot
+          </a>
+          <!-- Solid green pill -->
+          <a
+            href="/catering/"
+            class="nav-pill-green"
+          >
+            Book Now
+          </a>
+        </div>
+
+        <!-- Mobile hamburger — 44x44px tap target -->
+        <button
+          type="button"
+          id="mobile-menu-toggle"
+          class="md:hidden flex flex-col justify-center items-center min-h-0"
+          aria-label="Open menu"
+          aria-expanded="false"
+          style="width: 44px; height: 44px; background: none; border: none; cursor: pointer; gap: 5px;"
+        >
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+      </nav>
+    </header>
+
+    <!-- Mobile drawer — full-screen overlay, slides from right -->
+    <div
+      id="mobile-drawer"
+      aria-hidden="true"
+      style="
+        position: fixed;
+        inset: 0;
+        z-index: 60;
+        background: rgba(17,17,17,0.96);
+        backdrop-filter: blur(12px);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        transform: translateX(100%);
+        transition: transform 300ms ease;
+        padding: 2rem;
+      "
+    >
+      <!-- Close button -->
+      <button
+        id="mobile-drawer-close"
+        type="button"
+        aria-label="Close menu"
+        style="
+          position: absolute;
+          top: 24px;
+          right: 24px;
+          background: none;
+          border: none;
+          color: white;
+          cursor: pointer;
+          width: 44px;
+          height: 44px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        "
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round">
+          <line x1="18" y1="6" x2="6" y2="18"/>
+          <line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+
+      <!-- Drawer nav items — Bebas Neue 36px, 40px gap -->
+      <nav style="display: flex; flex-direction: column; align-items: center; gap: 40px;">
+        <a href="/"          class="drawer-link">Home</a>
+        <a href="/menu/"     class="drawer-link">Menu</a>
+        <a href="/catering/" class="drawer-link">Catering</a>
+        <a href="/events/"   class="drawer-link">Events</a>
+        <a href="/about/"    class="drawer-link">About</a>
+      </nav>
+
+      <!-- Green BOOK NOW — full-width, 56px -->
+      <a
+        href="/catering/"
+        style="
+          display: block;
+          width: 100%;
+          max-width: 320px;
+          margin-top: 48px;
+          background: #16a34a;
+          color: white;
+          text-align: center;
+          font-family: var(--font-body);
+          font-weight: 700;
+          font-size: 16px;
+          letter-spacing: 1px;
+          text-transform: uppercase;
+          height: 56px;
+          line-height: 56px;
+          border-radius: 10px;
+          text-decoration: none;
+        "
+      >
+        BOOK NOW
+      </a>
+    </div>
+
+    <!-- Main content — padding-top accounts for 72px fixed nav -->
+    <main id="main-content" class="flex-1" style="padding-top: 72px;">
+      <slot />
+    </main>
+
+    <!-- Footer -->
+    <footer class="section-dark">
+      <div class="container-brand section-padding">
+
+        <!-- Close headline — last brand impression, large -->
+        <p
+          class="text-white text-center"
+          style="
+            font-family: var(--font-heading);
+            font-size: clamp(2rem, 3vw + 1rem, 4.5rem);
+            letter-spacing: 1px;
+            line-height: 0.9;
+            margin-bottom: 64px;
+          "
+        >
+          COME HUNGRY. LEAVE CONVERTED.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 mb-12">
+
+          <!-- Col 1: Brand -->
+          <div>
+            <img
+              src="/images/optimized/elote-king-logo-transparent.webp"
+              alt="Elote King Atlanta"
+              width="44"
+              height="44"
+              style="height: 44px; width: auto; margin-bottom: 16px;"
+            />
+            <address class="not-italic" style="font-family: var(--font-body); font-size: 14px; color: rgba(255,255,255,0.55); line-height: 1.7; margin-top: 0;">
+              6180 Atlanta Hwy Suite A<br />
+              Alpharetta, GA 30004<br />
+              <a href="tel:+16782088774" style="color: rgba(255,255,255,0.55); text-decoration: none;" class="hover:text-white transition-colors">(678) 208-8774</a><br />
+              <a href="mailto:info@elotekingatlanta.com" style="color: rgba(255,255,255,0.55); text-decoration: none;" class="hover:text-white transition-colors">info@elotekingatlanta.com</a>
+            </address>
+            <!-- Social icons -->
+            <div style="display: flex; align-items: center; gap: 20px; margin-top: 20px;">
+              <a href="https://www.instagram.com/elotekingatlanta/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="color: rgba(255,255,255,0.6);" class="hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+              </a>
+              <a href="https://www.facebook.com/elotekingatlanta" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="color: rgba(255,255,255,0.6);" class="hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
+              </a>
+              <a href="https://wa.me/16782088774" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp" style="color: rgba(255,255,255,0.6);" class="hover:text-white transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- Col 2: Navigate -->
+          <div>
+            <p style="font-family: var(--font-body); font-size: 12px; color: #16a34a; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 16px; font-weight: 600;">NAVIGATE</p>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+              <li><a href="/"          class="footer-link">Home</a></li>
+              <li><a href="/menu/"     class="footer-link">Menu</a></li>
+              <li><a href="/catering/" class="footer-link">Catering</a></li>
+              <li><a href="/events/"   class="footer-link">Events</a></li>
+              <li><a href="/about/"    class="footer-link">About</a></li>
+              <li><a href="/catering/" class="footer-link">Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Col 3: Get Started -->
+          <div>
+            <p style="font-family: var(--font-body); font-size: 12px; color: #16a34a; text-transform: uppercase; letter-spacing: 2.5px; margin-bottom: 16px; font-weight: 600;">GET STARTED</p>
+            <ul style="list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px;">
+              <li><a href="/catering/"                    class="footer-link">Catering Inquiry</a></li>
+              <li><a href="/events/"                      class="footer-link">Upcoming Events</a></li>
+              <li><a href="https://wa.me/16782088774" target="_blank" rel="noopener noreferrer" class="footer-link">WhatsApp Us</a></li>
+            </ul>
+            <!-- Trust badges -->
+            <p style="font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.45); margin-top: 24px; line-height: 1.7;">
+              100% Zabiha Halal &nbsp;·&nbsp; Muslim-Owned &nbsp;·&nbsp; Zero Alcohol
+            </p>
+            <p style="font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.35); margin-top: 6px;">
+              Serving Greater Atlanta, GA
+            </p>
+          </div>
+        </div>
+
+        <!-- Bottom bar -->
+        <div style="border-top: 1px solid rgba(255,255,255,0.10); padding-top: 24px; display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 12px;">
+          <p style="font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.30); margin: 0;">
+            &copy; 2026 Elote King Atlanta
+          </p>
+          <div style="display: flex; gap: 16px;">
+            <a href="/privacy/" style="font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.30); text-decoration: none;" class="hover:text-white transition-colors">Privacy Policy</a>
+            <a href="/terms/"   style="font-family: var(--font-body); font-size: 12px; color: rgba(255,255,255,0.30); text-decoration: none;" class="hover:text-white transition-colors">Terms of Service</a>
+          </div>
+        </div>
+
+      </div>
+    </footer>
+
+    <!-- Mobile Sticky CTA Bar — NO PRICING, WhatsApp, slides in at 1s -->
+    <div
+      id="sticky-cta"
+      class="md:hidden"
+      aria-hidden="true"
+      style="
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 40;
+        padding-bottom: env(safe-area-inset-bottom);
+        transform: translateY(100%);
+        transition: transform 300ms ease-out;
+      "
+    >
+      <a
+        href="https://wa.me/16782088774"
+        target="_blank"
+        rel="noopener noreferrer"
+        style="
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          background: #16a34a;
+          height: 60px;
+          padding: 0 20px;
+          text-decoration: none;
+        "
+        aria-label="Book us on WhatsApp"
+      >
+        <!-- WhatsApp icon left -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        <!-- Text right -->
+        <span style="color: white; font-family: var(--font-body); font-size: 14px; font-weight: 700; letter-spacing: 0.5px;">
+          BOOK NOW →
+        </span>
+      </a>
+    </div>
+
+    <script>
+      // ─── Navbar: transparent → dark, 72px → 60px on scroll ──────────────────
+      const header = document.getElementById('site-header');
+      let scrolled = false;
+
+      function handleNavScroll() {
+        const y = window.scrollY;
+        if (y > 20 && !scrolled) {
+          scrolled = true;
+          if (header) {
+            header.style.height = '60px';
+            header.style.backgroundColor = 'rgba(17,17,17,0.96)';
+            header.style.backdropFilter = 'blur(12px)';
+          }
+        } else if (y <= 20 && scrolled) {
+          scrolled = false;
+          if (header) {
+            header.style.height = '72px';
+            header.style.backgroundColor = 'transparent';
+            header.style.backdropFilter = 'none';
+          }
+        }
+      }
+
+      window.addEventListener('scroll', handleNavScroll, { passive: true });
+
+      // ─── Mobile drawer ────────────────────────────────────────────────────────
+      const toggleBtn = document.getElementById('mobile-menu-toggle');
+      const closeBtn  = document.getElementById('mobile-drawer-close');
+      const drawer    = document.getElementById('mobile-drawer');
+
+      function openDrawer() {
+        if (!drawer || !toggleBtn) return;
+        drawer.style.transform = 'translateX(0)';
+        drawer.setAttribute('aria-hidden', 'false');
+        toggleBtn.setAttribute('aria-expanded', 'true');
+        toggleBtn.setAttribute('aria-label', 'Close menu');
+        document.body.style.overflow = 'hidden';
+      }
+
+      function closeDrawer() {
+        if (!drawer || !toggleBtn) return;
+        drawer.style.transform = 'translateX(100%)';
+        drawer.setAttribute('aria-hidden', 'true');
+        toggleBtn.setAttribute('aria-expanded', 'false');
+        toggleBtn.setAttribute('aria-label', 'Open menu');
+        document.body.style.overflow = '';
+      }
+
+      if (toggleBtn) toggleBtn.addEventListener('click', openDrawer);
+      if (closeBtn)  closeBtn.addEventListener('click', closeDrawer);
+
+      // Close on drawer link click
+      if (drawer) {
+        drawer.querySelectorAll('a').forEach(link => {
+          link.addEventListener('click', closeDrawer);
+        });
+      }
+
+      // ─── Sticky CTA: slide in at 1s, hide when waitlist form visible ─────────
+      const stickyCta   = document.getElementById('sticky-cta');
+      const waitlistForm = document.getElementById('waitlist-form');
+
+      if (stickyCta) {
+        // Slide in after 1 second
+        setTimeout(() => {
+          stickyCta.style.transform = 'translateY(0)';
+          stickyCta.setAttribute('aria-hidden', 'false');
+          document.body.style.paddingBottom = '60px';
+        }, 1000);
+
+        // Hide when waitlist form enters viewport
+        if (waitlistForm) {
+          const formObserver = new IntersectionObserver(
+            ([entry]) => {
+              if (entry.isIntersecting) {
+                stickyCta.style.opacity = '0';
+                stickyCta.style.pointerEvents = 'none';
+                document.body.style.paddingBottom = '0';
+              } else {
+                stickyCta.style.opacity = '1';
+                stickyCta.style.pointerEvents = 'auto';
+                document.body.style.paddingBottom = '60px';
+              }
+            },
+            { threshold: 0.1 }
+          );
+          formObserver.observe(waitlistForm);
+        }
+      }
+
+      // ─── Scroll reveal — all [data-reveal] elements ───────────────────────────
+      const revealEls = document.querySelectorAll('[data-reveal]');
+      if (revealEls.length > 0) {
+        const revealObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                (entry.target as HTMLElement).style.opacity = '1';
+                (entry.target as HTMLElement).style.transform = 'translateY(0)';
+                revealObserver.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.15 }
+        );
+        revealEls.forEach(el => revealObserver.observe(el));
+      }
+
+      // ─── Stat count-up — [data-count] elements ────────────────────────────────
+      const countEls = document.querySelectorAll('[data-count]');
+      if (countEls.length > 0) {
+        const countObserver = new IntersectionObserver(
+          (entries) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const el = entry.target as HTMLElement;
+                const target = parseInt(el.getAttribute('data-count') || '0', 10);
+                const suffix = el.getAttribute('data-suffix') || '';
+                const duration = 1200;
+                const start = performance.now();
+                function tick(now: number) {
+                  const elapsed = now - start;
+                  const progress = Math.min(elapsed / duration, 1);
+                  // ease-out
+                  const value = Math.floor(progress * (1 - Math.pow(1 - progress, 3)) * target + progress * target) ;
+                  el.textContent = Math.min(value, target) + suffix;
+                  if (progress < 1) requestAnimationFrame(tick);
+                  else el.textContent = target + suffix;
+                }
+                requestAnimationFrame(tick);
+                countObserver.unobserve(el);
+              }
+            });
+          },
+          { threshold: 0.4 }
+        );
+        countEls.forEach(el => countObserver.observe(el));
+      }
+    </script>
+
+  </body>
+</html>
+
+<style>
+  /* ─── Navbar component styles ─────────────────────────────────── */
+  .nav-link {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: rgba(255,255,255,0.80);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 150ms ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .nav-link:hover { color: #ffffff; }
+
+  .nav-pill-ghost {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    border: 1px solid rgba(255,255,255,0.50);
+    border-radius: 9999px;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: background-color 150ms ease;
+    white-space: nowrap;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .nav-pill-ghost:hover { background-color: rgba(255,255,255,0.10); }
+
+  .nav-pill-green {
+    font-family: var(--font-body);
+    font-size: 14px;
+    font-weight: 600;
+    color: white;
+    background: #16a34a;
+    border-radius: 9999px;
+    padding: 8px 20px;
+    text-decoration: none;
+    transition: background-color 150ms ease;
+    white-space: nowrap;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .nav-pill-green:hover { background: #15803d; }
+
+  /* Mobile hamburger lines */
+  .hamburger-line {
+    display: block;
+    width: 22px;
+    height: 3px;
+    background: white;
+    border-radius: 2px;
+  }
+
+  /* Mobile drawer links — Bebas Neue 36px */
+  .drawer-link {
+    font-family: var(--font-heading);
+    font-size: 36px;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 150ms ease;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+  .drawer-link:hover { color: #16a34a; }
+
+  /* Footer links */
+  .footer-link {
+    font-family: var(--font-body);
+    font-size: 14px;
+    color: rgba(255,255,255,0.70);
+    text-decoration: none;
+    transition: color 150ms ease;
+  }
+  .footer-link:hover { color: #ffffff; }
+
+  /* Sticky CTA transition for opacity hide */
+  #sticky-cta {
+    transition: transform 300ms ease-out, opacity 200ms ease;
+  }
+</style>

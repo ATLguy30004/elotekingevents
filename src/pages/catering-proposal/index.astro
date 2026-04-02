@@ -1,0 +1,593 @@
+---
+/**
+ * Elote King Atlanta — Catering Proposal Landing Page
+ * Direction 1: "THE SPREAD" — Full-bleed food photography, editorial layout
+ * Visual ref: Sweetgreen catering page structure + Elote King brand energy
+ * Mobile-first. Opened via WhatsApp link.
+ */
+
+import Layout from "@/layouts/Layout.astro";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/starwind/card";
+import { Badge } from "@/components/starwind/badge";
+import { Button } from "@/components/starwind/button";
+import { Collapsible, CollapsibleTrigger, CollapsibleContent } from "@/components/starwind/collapsible";
+import { Separator } from "@/components/starwind/separator";
+import { Carousel, CarouselContent, CarouselItem } from "@/components/starwind/carousel";
+
+const title = "Elote King Atlanta — Taco Catering for Your Next Event";
+const description = "Build-your-own taco bar catering for parties, weddings, and corporate events in Cumming, GA & Metro Atlanta. 100% Zabiha Halal. Starting at $20/person.";
+
+const faqs = [
+  {
+    q: "What exactly shows up at my door?",
+    a: "Everything arrives in foil trays, ready to serve or heat. Protein, rice, beans, salsas — all separate. Soft tortillas come in foil wraps (packs of 2). Hard shells come unwrapped and ready to fill. Esquite comes in a tray your guests scoop from. You set it out. They go to town."
+  },
+  {
+    q: "Do I need to cook anything?",
+    a: "Nope. Everything arrives ready to serve. Want it extra hot? You can warm the trays — but it's not required. Zero cooking on your end."
+  },
+  {
+    q: "How do guests actually make their tacos?",
+    a: "Think buffet, but better. Guests grab a tortilla (soft or hard), pile on the protein, then load up with rice, beans, salsa, cilantro, lime — whatever they want. Everyone builds their plate their way. Kids love it. Adults love it. It just works."
+  },
+  {
+    q: "How many tacos per person?",
+    a: "We prep 3 tacos per guest. That's a full meal for most adults. Got a lot of kids coming who won't eat that much? Just lower the guest count you order for. Simple."
+  },
+  {
+    q: "Adults and kids — is there a kids' price?",
+    a: "One price per guest. Since we prep 3 tacos per person, if half your crowd is little ones who'll eat one taco max — just adjust your headcount. 80 guests but lots of kids? Order for 60 or 70. You know your people."
+  },
+  {
+    q: "What does the $300 live service include?",
+    a: "One of our crew shows up for 3 hours — 1.5 hours for setup and cleanup, 1.5 hours making tacos and fresh esquite live in front of your guests. It's a show. Works with either package."
+  },
+  {
+    q: "Can I get both chicken and beef?",
+    a: "Each package includes one protein. Want both? Text us — we'll make it happen."
+  },
+  {
+    q: "Never done Mexican catering — will my guests like it?",
+    a: "Tacos are universally loved. The build-your-own setup means everyone customizes to their taste. And the esquite (street corn cup)? Most people have never tried it. They go crazy for it. Trust us on this one."
+  },
+  {
+    q: "Do you serve Cumming, GA?",
+    a: "Yes. Cumming and the greater Metro Atlanta area. That's our home turf."
+  },
+  {
+    q: "How do I book?",
+    a: "Text us on WhatsApp with your package, date, and guest count. We confirm everything and lock in your party. That's it."
+  }
+];
+---
+
+<Layout
+  title={title}
+  description={description}
+  canonical="https://elotekingatlanta.com/catering-proposal/"
+>
+
+  <!-- ════════════════════════════════════════════════════════════════
+       HERO — Full-bleed food photo, dark overlay, massive headline
+       ════════════════════════════════════════════════════════════════ -->
+  <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden">
+    <!-- Background image -->
+    <img
+      src="/catering/hero-food.webp"
+      alt="Elote King Atlanta catering spread with tacos, esquite, and fresh toppings"
+      width="1600"
+      height="1200"
+      class="absolute inset-0 w-full h-full object-cover"
+      loading="eager"
+      fetchpriority="high"
+      decoding="sync"
+    />
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 bg-black/60"></div>
+
+    <!-- Content -->
+    <div class="relative z-10 text-center px-6 py-16 max-w-3xl mx-auto">
+      <Badge variant="outline" class="mb-6 border-white/40 text-white bg-white/10 text-sm px-4 py-1.5">
+        100% Zabiha Halal &nbsp;·&nbsp; Muslim-Owned &nbsp;·&nbsp; Zero Alcohol
+      </Badge>
+
+      <h1
+        class="text-white mb-4"
+        style="font-family: var(--font-heading); font-size: clamp(3rem, 8vw, 5.5rem); letter-spacing: 2px; line-height: 0.95;"
+      >
+        YOUR PARTY.<br />OUR TACOS.
+      </h1>
+
+      <p
+        class="text-white/80 mb-3 max-w-lg mx-auto"
+        style="font-family: var(--font-body); font-size: clamp(1rem, 2.5vw, 1.25rem); line-height: 1.6;"
+      >
+        Build-your-own taco bar catering that makes your event unforgettable. We bring everything — you take the credit.
+      </p>
+
+      <p
+        class="text-white/60 mb-8"
+        style="font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;"
+      >
+        Serving Cumming, GA &amp; Metro Atlanta
+      </p>
+
+      <Button
+        variant="primary"
+        href="https://wa.me/16782088774?text=Hi!%20I%27m%20interested%20in%20catering%20for%20my%20event."
+        class="text-lg px-8 py-4 rounded-xl"
+        style="font-weight: 700;"
+      >
+        Lock In Your Date
+      </Button>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       HOW IT WORKS — 4 numbered steps, clean and scannable
+       ════════════════════════════════════════════════════════════════ -->
+  <section class="bg-white py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <p
+        class="text-center mb-3"
+        style="font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; color: #16a34a; text-transform: uppercase; letter-spacing: 2.5px;"
+      >
+        How It Works
+      </p>
+      <h2
+        class="text-center mb-14"
+        style="font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3.5rem); color: #111; letter-spacing: 1px;"
+      >
+        TACO BAR, EXPLAINED
+      </h2>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          { num: "01", title: "We deliver everything", desc: "Protein, rice, beans, salsas, tortillas — all in foil trays, ready to serve. Nothing for you to cook." },
+          { num: "02", title: "Tortillas come ready", desc: "Soft tortillas in foil wraps (packs of 2). Hard shells unwrapped and ready to fill. Your call." },
+          { num: "03", title: "Guests build their own", desc: "Pick a shell, add the protein, load up on toppings. Everyone makes it their way." },
+          { num: "04", title: "It's a party, not a meal", desc: "Interactive, fun for all ages, and zero stress for you. Like a buffet — but better." },
+        ].map(step => (
+          <Card class="border-0 ring-0 shadow-none bg-transparent">
+            <CardContent class="pt-0">
+              <span
+                style="font-family: var(--font-heading); font-size: 3rem; color: #16a34a; line-height: 1; display: block; margin-bottom: 8px;"
+              >
+                {step.num}
+              </span>
+              <h3
+                style="font-family: var(--font-heading); font-size: 1.35rem; color: #111; letter-spacing: 0.5px; margin-bottom: 8px;"
+              >
+                {step.title}
+              </h3>
+              <p style="font-family: var(--font-body); font-size: 1rem; color: #555; line-height: 1.65;">
+                {step.desc}
+              </p>
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       INLINE FOOD PHOTO — breaks up text, builds appetite
+       ════════════════════════════════════════════════════════════════ -->
+  <section class="w-full">
+    <img
+      src="/catering/food-spread.webp"
+      alt="Elote King taco catering spread with fresh toppings and sides"
+      width="1200"
+      height="900"
+      class="w-full h-64 md:h-96 object-cover"
+      loading="lazy"
+    />
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       GUEST COUNT TIP — green accent callout
+       ════════════════════════════════════════════════════════════════ -->
+  <section class="bg-white py-16 px-6">
+    <div class="max-w-3xl mx-auto">
+      <Card class="border-l-4 border-l-primary ring-1 ring-border rounded-xl overflow-hidden">
+        <CardContent>
+          <h3
+            style="font-family: var(--font-heading); font-size: 1.5rem; color: #111; letter-spacing: 0.5px; margin-bottom: 8px;"
+          >
+            HOW TO CHOOSE YOUR GUEST COUNT
+          </h3>
+          <p style="font-family: var(--font-body); font-size: 1rem; color: #444; line-height: 1.7;">
+            We prepare <strong style="color: #16a34a;">3 tacos per guest</strong>. Got a mix of adults and kids?
+            If some of your guests won't eat 3 full tacos, just adjust the headcount down.
+            80 guests but lots of little ones? Order for 60–70 instead.
+            <strong>You decide the count — we prepare accordingly.</strong>
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       PACKAGES — Two cards, photo-driven, side by side on desktop
+       ════════════════════════════════════════════════════════════════ -->
+  <section class="bg-secondary py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <p
+        class="text-center mb-3"
+        style="font-family: var(--font-body); font-size: 0.85rem; font-weight: 600; color: #16a34a; text-transform: uppercase; letter-spacing: 2.5px;"
+      >
+        Choose Your Package
+      </p>
+      <h2
+        class="text-center mb-14"
+        style="font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3.5rem); color: #111; letter-spacing: 1px;"
+      >
+        TWO WAYS TO FEAST
+      </h2>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+        <!-- TACO DROP -->
+        <Card class="overflow-hidden rounded-2xl ring-1 ring-border">
+          <img
+            src="/catering/catering-trays.webp"
+            alt="Elote King taco drop catering — foil trays with rice, beans, and fajita chicken ready to serve"
+            width="1200"
+            height="900"
+            class="w-full h-56 md:h-64 object-cover"
+            loading="lazy"
+          />
+          <CardHeader class="pb-2">
+            <CardTitle
+              style="font-family: var(--font-heading); font-size: 1.75rem; letter-spacing: 1px; color: #111;"
+            >
+              TACO DROP
+            </CardTitle>
+            <p style="font-family: var(--font-body); font-size: 0.85rem; color: #555;">
+              Buffet-Style Drop-Off
+            </p>
+          </CardHeader>
+          <CardContent class="pt-0">
+            <div class="flex items-baseline gap-1 mb-4">
+              <span style="font-family: var(--font-heading); font-size: 3.5rem; color: #16a34a; line-height: 1;">$20</span>
+              <span style="font-family: var(--font-body); font-size: 1rem; color: #555;">/ person</span>
+            </div>
+            <Badge variant="secondary" class="mb-5 text-xs">80 guests = $1,600</Badge>
+
+            <Separator class="mb-5" />
+
+            <div class="space-y-4">
+              <div>
+                <p style="font-family: var(--font-heading); font-size: 0.85rem; color: #16a34a; letter-spacing: 1px; margin-bottom: 4px;">APPETIZER</p>
+                <p style="font-family: var(--font-body); font-size: 0.95rem; color: #333;">Esquite Clasico — Mexican street corn cup</p>
+              </div>
+              <div>
+                <p style="font-family: var(--font-heading); font-size: 0.85rem; color: #16a34a; letter-spacing: 1px; margin-bottom: 4px;">CHOOSE 1 PROTEIN</p>
+                <ul class="space-y-1" style="font-family: var(--font-body); font-size: 0.95rem; color: #333; list-style: none; padding: 0;">
+                  <li>Pollo Fajita — grilled fajita chicken</li>
+                  <li>Carne Molida — seasoned ground beef</li>
+                </ul>
+              </div>
+              <div>
+                <p style="font-family: var(--font-heading); font-size: 0.85rem; color: #16a34a; letter-spacing: 1px; margin-bottom: 4px;">SIDES</p>
+                <p style="font-family: var(--font-body); font-size: 0.95rem; color: #333;">Mexican rice, refried beans, warm tortillas, salsa verde & roja, fresh salad</p>
+              </div>
+            </div>
+
+            <p style="font-family: var(--font-body); font-size: 0.85rem; color: #555; font-style: italic; margin-top: 16px; text-align: center;">
+              Dessert &amp; agua fresca not included — available as add-ons
+            </p>
+          </CardContent>
+        </Card>
+
+        <!-- LA FIESTA COMPLETA -->
+        <Card class="overflow-hidden rounded-2xl ring-2 ring-primary relative">
+          <!-- Most Popular Badge -->
+          <div class="absolute top-4 right-4 z-10">
+            <Badge variant="primary" class="text-sm px-3 py-1 font-bold shadow-lg">
+              MOST POPULAR
+            </Badge>
+          </div>
+          <img
+            src="/catering/esquite-cups.webp"
+            alt="Elote King La Fiesta Completa — branded esquite cups lined up for a catering event"
+            width="1200"
+            height="900"
+            class="w-full h-56 md:h-64 object-cover"
+            loading="lazy"
+          />
+          <CardHeader class="pb-2">
+            <CardTitle
+              style="font-family: var(--font-heading); font-size: 1.75rem; letter-spacing: 1px; color: #111;"
+            >
+              LA FIESTA COMPLETA
+            </CardTitle>
+            <p style="font-family: var(--font-body); font-size: 0.85rem; color: #555;">
+              The Complete Party Experience
+            </p>
+          </CardHeader>
+          <CardContent class="pt-0">
+            <div class="flex items-baseline gap-1 mb-4">
+              <span style="font-family: var(--font-heading); font-size: 3.5rem; color: #16a34a; line-height: 1;">$25</span>
+              <span style="font-family: var(--font-body); font-size: 1rem; color: #555;">/ person</span>
+            </div>
+            <Badge variant="secondary" class="mb-5 text-xs">80 guests = $2,000</Badge>
+
+            <Separator class="mb-5" />
+
+            <div class="space-y-4">
+              <div>
+                <p style="font-family: var(--font-heading); font-size: 0.85rem; color: #16a34a; letter-spacing: 1px; margin-bottom: 4px;">APPETIZERS</p>
+                <ul class="space-y-1" style="font-family: var(--font-body); font-size: 0.95rem; color: #333; list-style: none; padding: 0;">
+                  <li>Esquite Supremo — street corn with Takis + Cheetos crunch</li>
+                  <li>Chips & Salsa Fresca — house-made chips</li>
+                </ul>
+              </div>
+              <div>
+                <p style="font-family: var(--font-heading); font-size: 0.85rem; color: #16a34a; letter-spacing: 1px; margin-bottom: 4px;">CHOOSE 1 PROTEIN</p>
+                <ul class="space-y-1" style="font-family: var(--font-body); font-size: 0.95rem; color: #333; list-style: none; padding: 0;">
+                  <li>Pollo Fajita — grilled fajita chicken</li>
+                  <li>Carne Molida — seasoned ground beef</li>
+                </ul>
+              </div>
+              <div>
+                <p style="font-family: var(--font-heading); font-size: 0.85rem; color: #16a34a; letter-spacing: 1px; margin-bottom: 4px;">SIDES</p>
+                <p style="font-family: var(--font-body); font-size: 0.95rem; color: #333;">Mexican rice, refried beans, warm tortillas, salsa verde & roja, fresh salad, cilantro, lime, onions</p>
+              </div>
+              <div>
+                <p style="font-family: var(--font-heading); font-size: 0.85rem; color: #16a34a; letter-spacing: 1px; margin-bottom: 4px;">DESSERT — CHOOSE ONE</p>
+                <ul class="space-y-1" style="font-family: var(--font-body); font-size: 0.95rem; color: #333; list-style: none; padding: 0;">
+                  <li>Churros Calientes — warm cinnamon churros</li>
+                  <li>Flan de la Casa — creamy caramel custard</li>
+                </ul>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       LIVE SERVICE ADD-ON — Premium highlight
+       ════════════════════════════════════════════════════════════════ -->
+  <section class="bg-white py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <Card class="overflow-hidden rounded-2xl ring-2 ring-amber-400 bg-gradient-to-br from-amber-50 to-orange-50">
+        <CardContent class="text-center py-10 px-8">
+          <Badge variant="warning" class="mb-4 text-sm px-4 py-1">PREMIUM ADD-ON</Badge>
+          <h2
+            style="font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3rem); color: #111; letter-spacing: 1px; margin-bottom: 4px;"
+          >
+            WANT US THERE LIVE?
+          </h2>
+          <p
+            style="font-family: var(--font-heading); font-size: 3.5rem; color: #16a34a; line-height: 1; margin-bottom: 16px;"
+          >
+            +$300
+          </p>
+          <p
+            style="font-family: var(--font-body); font-size: 1.05rem; color: #444; line-height: 1.7; max-width: 500px; margin: 0 auto 20px;"
+          >
+            One of our crew comes to your party and <strong>makes tacos live</strong> for your guests — plus fresh esquite made right in front of them.
+          </p>
+
+          <div class="flex flex-wrap justify-center gap-3 mb-4">
+            <Badge variant="outline" class="text-sm px-4 py-1.5">1.5 hrs Setup & Cleanup</Badge>
+            <Badge variant="outline" class="text-sm px-4 py-1.5">1.5 hrs Live Serving</Badge>
+          </div>
+
+          <p style="font-family: var(--font-body); font-size: 0.85rem; color: #555;">
+            Works with either package. 3 hours total on-site.
+          </p>
+        </CardContent>
+      </Card>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       MEDIA GALLERY — Videos + food photography
+       ════════════════════════════════════════════════════════════════ -->
+  <section class="bg-secondary py-20 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2
+        class="text-center mb-12"
+        style="font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3rem); color: #111; letter-spacing: 1px;"
+      >
+        SEE THE VIBE
+      </h2>
+
+      <!-- Trimmed food loops — autoplay silently -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="rounded-2xl overflow-hidden">
+          <video
+            src="/catering/esquite-loop.mp4"
+            muted
+            loop
+            autoplay
+            playsinline
+            width="720"
+            height="1280"
+            class="w-full h-72 md:h-96 object-cover"
+            preload="auto"
+            poster="/catering/esquite-cups.webp"
+          >
+          </video>
+        </div>
+        <div class="rounded-2xl overflow-hidden">
+          <video
+            src="/catering/catering-spread-loop.mp4"
+            muted
+            loop
+            autoplay
+            playsinline
+            width="720"
+            height="1280"
+            class="w-full h-72 md:h-96 object-cover"
+            preload="auto"
+            poster="/catering/catering-trays.webp"
+          >
+          </video>
+        </div>
+      </div>
+
+      <!-- Photo carousel -->
+      <div class="mt-8">
+        <Carousel opts={{ loop: true, align: "start" }} class="w-full">
+          <CarouselContent class="-ml-4">
+            <CarouselItem class="pl-4 basis-4/5 md:basis-1/2">
+              <img
+                src="/catering/esquite-cups.webp"
+                alt="Branded Elote King esquite cups lined up for catering"
+                width="1200"
+                height="900"
+                class="rounded-xl w-full h-56 md:h-72 object-cover"
+                loading="lazy"
+              />
+            </CarouselItem>
+            <CarouselItem class="pl-4 basis-4/5 md:basis-1/2">
+              <img
+                src="/catering/catering-trays.webp"
+                alt="Foil trays with rice, beans, and fajita chicken ready to serve"
+                width="1200"
+                height="900"
+                class="rounded-xl w-full h-56 md:h-72 object-cover"
+                loading="lazy"
+              />
+            </CarouselItem>
+            <CarouselItem class="pl-4 basis-4/5 md:basis-1/2">
+              <img
+                src="/catering/brand-display.webp"
+                alt="Elote King catering display with banner and esquite cups"
+                width="1200"
+                height="900"
+                class="rounded-xl w-full h-56 md:h-72 object-cover"
+                loading="lazy"
+              />
+            </CarouselItem>
+            <CarouselItem class="pl-4 basis-4/5 md:basis-1/2">
+              <img
+                src="/catering/catering-photo-2.webp"
+                alt="Guests gathered around a fire pit after an Elote King catered party"
+                width="1200"
+                height="900"
+                class="rounded-xl w-full h-56 md:h-72 object-cover"
+                loading="lazy"
+              />
+            </CarouselItem>
+            <CarouselItem class="pl-4 basis-4/5 md:basis-1/2">
+              <img
+                src="/catering/party-guests.webp"
+                alt="Young guests enjoying an Elote King catered event"
+                width="1200"
+                height="900"
+                class="rounded-xl w-full h-56 md:h-72 object-cover"
+                loading="lazy"
+              />
+            </CarouselItem>
+          </CarouselContent>
+        </Carousel>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       FAQs — Collapsible accordion
+       ════════════════════════════════════════════════════════════════ -->
+  <section class="bg-white py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h2
+        class="text-center mb-12"
+        style="font-family: var(--font-heading); font-size: clamp(2rem, 5vw, 3rem); color: #111; letter-spacing: 1px;"
+      >
+        GOT QUESTIONS?
+      </h2>
+
+      <div class="space-y-3">
+        {faqs.map((faq, i) => (
+          <Collapsible class="rounded-xl ring-1 ring-border bg-card overflow-hidden">
+            <CollapsibleTrigger
+              class="w-full flex items-center justify-between px-5 py-4 cursor-pointer hover:bg-secondary/50 transition-colors"
+            >
+              <span
+                class="text-left pr-4"
+                style="font-family: var(--font-body); font-size: 1rem; font-weight: 600; color: #111;"
+              >
+                {faq.q}
+              </span>
+              <svg
+                class="size-5 shrink-0 text-primary transition-transform duration-200 data-[panel-open]:rotate-45"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.5"
+                stroke-linecap="round"
+              >
+                <line x1="12" y1="5" x2="12" y2="19" />
+                <line x1="5" y1="12" x2="19" y2="12" />
+              </svg>
+            </CollapsibleTrigger>
+            <CollapsibleContent class="px-5 pb-4">
+              <p style="font-family: var(--font-body); font-size: 1rem; color: #555; line-height: 1.7;">
+                {faq.a}
+              </p>
+            </CollapsibleContent>
+          </Collapsible>
+        ))}
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ════════════════════════════════════════════════════════════════
+       CTA FOOTER — WhatsApp, trust badges, done
+       ════════════════════════════════════════════════════════════════ -->
+  <section
+    class="py-20 px-6 text-center bg-primary"
+  >
+    <div class="max-w-2xl mx-auto">
+      <h2
+        class="text-white mb-4"
+        style="font-family: var(--font-heading); font-size: clamp(2.5rem, 6vw, 4rem); letter-spacing: 1.5px; line-height: 0.95;"
+      >
+        LET'S MAKE IT HAPPEN
+      </h2>
+      <p
+        class="text-white/80 mb-8"
+        style="font-family: var(--font-body); font-size: 1.1rem; line-height: 1.6;"
+      >
+        Text us your date, guest count, and package. We'll lock it in.
+      </p>
+
+      <a
+        href="https://wa.me/16782088774?text=Hi!%20I%27m%20interested%20in%20catering.%20Here%27s%20my%20info%3A%0ADate%3A%20%0AGuest%20Count%3A%20%0APackage%3A%20"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-3 bg-white text-green-700 font-bold rounded-xl px-8 py-4 text-lg shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
+        style="font-family: var(--font-body);"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="#16a34a">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Text Us on WhatsApp
+      </a>
+
+      <p
+        class="text-white/50 mt-6"
+        style="font-family: var(--font-body); font-size: 0.85rem;"
+      >
+        100% Zabiha Halal &nbsp;·&nbsp; Muslim-Owned &nbsp;·&nbsp; Zero Alcohol
+      </p>
+    </div>
+  </section>
+
+</Layout>
