@@ -1,0 +1,732 @@
+---
+// Baby Shower Catering Proposal — Mariana
+// Template ported from Manus reference site
+---
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mariana's Baby Shower — Elote King Atlanta Catering Proposal</title>
+    <meta name="description" content="Personalized catering proposal for Mariana's baby shower. 60 guests. Esquite + Churros from $8.99/person. 100% Zabiha Halal. Elote King Atlanta.">
+    <meta property="og:title" content="Mariana's Baby Shower — Elote King Catering">
+    <meta property="og:description" content="Personalized catering proposal. 60 guests. From $8.99/person. 100% Zabiha Halal.">
+    <meta property="og:image" content="/catering/hero-food.webp">
+    <meta property="og:type" content="website">
+    <link rel="canonical" href="https://events.elotekingatlanta.com/baby-shower/">
+    <link rel="icon" type="image/png" href="/images/elote-king-logo-transparent.png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'elote-green': '#16a34a',
+                        'elote-green-dark': '#15803d',
+                        'elote-yellow': '#FFD700',
+                        'elote-yellow-light': '#FFF8DC',
+                        'elote-orange': '#FF8C00',
+                        'elote-dark': '#2D2D2D',
+                    },
+                    fontFamily: {
+                        'script': ['Pacifico', 'cursive'],
+                        'body': ['Poppins', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Poppins', sans-serif; }
+        .font-script { font-family: 'Pacifico', cursive; }
+        .hero-gradient { background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%); }
+        .btn-primary { background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); transition: all 0.3s ease; }
+        .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(22, 163, 74, 0.3); }
+        .btn-secondary { background: linear-gradient(135deg, #FFD700 0%, #FFC107 100%); transition: all 0.3s ease; }
+        .btn-secondary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(255, 215, 0, 0.3); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .sticky-cta { animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.02); } }
+        .faq-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease; }
+        .faq-item.active .faq-content { max-height: 500px; }
+        .faq-item.active .faq-icon { transform: rotate(180deg); }
+        .faq-icon { transition: transform 0.3s ease; }
+        html { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-white text-elote-dark">
+
+    <!-- STICKY HEADER -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm shadow-md">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="/images/elote-king-logo-transparent.png" alt="Elote King Atlanta" class="h-12 w-auto">
+                <span class="font-script text-elote-green text-xl hidden sm:block">Mariana's Baby Shower</span>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="tel:16782088774" class="hidden md:flex items-center gap-2 text-gray-600 hover:text-elote-green transition-colors">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    <span class="font-medium">1-678-208-8774</span>
+                </a>
+                <a href="tel:16782088774" class="btn-primary text-white font-bold px-6 py-2 rounded-full text-sm">Call to Book</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-screen flex items-center justify-center pt-16">
+        <div class="absolute inset-0">
+            <img src="/catering/hero-food.webp" alt="Elote King Catering Spread" class="w-full h-full object-cover">
+            <div class="hero-gradient absolute inset-0"></div>
+        </div>
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+            <p class="text-elote-yellow font-medium text-lg mb-4 tracking-wide">A Personalized Proposal for Your Celebration</p>
+            <h1 class="font-script text-5xl md:text-7xl text-white mb-6 leading-tight">Mariana, Let's Make It Legendary.</h1>
+            <p class="text-white/90 text-xl md:text-2xl mb-10 max-w-2xl mx-auto">Your baby shower. 60 guests. Authentic Mexican street food they'll never forget.</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="tel:16782088774" class="btn-primary text-white font-bold px-8 py-4 rounded-full text-lg inline-flex items-center justify-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    Call to Book — (678) 208-8774
+                </a>
+                <a href="#packages" class="btn-secondary text-elote-dark font-bold px-8 py-4 rounded-full text-lg inline-flex items-center justify-center gap-2">View Packages ↓</a>
+            </div>
+            <div class="mt-12 flex items-center justify-center gap-8 text-white/80">
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    <span class="text-sm font-medium">100% Zabiha Halal</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <svg class="w-5 h-5 text-elote-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    <span class="text-sm font-medium">Muslim-Owned</span>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+            <svg class="w-8 h-8 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path></svg>
+        </div>
+    </section>
+
+    <!-- WHY THIS WINS SECTION -->
+    <section class="py-20 bg-elote-yellow-light">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-script text-4xl md:text-5xl text-elote-green-dark mb-4">Why Elote King for Your Shower</h2>
+                <p class="text-gray-600 text-lg max-w-2xl mx-auto">We handle the food. You enjoy every moment with Mariana.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Card 1 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+                    <div class="w-14 h-14 bg-elote-green/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-elote-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">Zero Stress for You</h3>
+                    <p class="text-gray-600">We deliver everything ready to serve. No cooking, no setup stress. Just open and enjoy.</p>
+                </div>
+                <!-- Card 2 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+                    <div class="w-14 h-14 bg-elote-orange/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-elote-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">Perfect for 60 Guests</h3>
+                    <p class="text-gray-600">Portions calculated for your exact headcount. No waste, no running out.</p>
+                </div>
+                <!-- Card 3 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+                    <div class="w-14 h-14 bg-elote-green/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-elote-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">Instagram-Worthy Spread</h3>
+                    <p class="text-gray-600">Our esquite cups and churros look as good as they taste. Your guests will be posting.</p>
+                </div>
+                <!-- Card 4 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+                    <div class="w-14 h-14 bg-elote-orange/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-elote-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">100% Zabiha Halal</h3>
+                    <p class="text-gray-600">Every ingredient, every dish. No compromises. Your family eats with complete confidence.</p>
+                </div>
+                <!-- Card 5 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+                    <div class="w-14 h-14 bg-elote-green/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-elote-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">Trusted by Atlanta Families</h3>
+                    <p class="text-gray-600">Baby showers, birthday parties, weddings — we've catered them all across the metro.</p>
+                </div>
+                <!-- Card 6 -->
+                <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
+                    <div class="w-14 h-14 bg-elote-orange/20 rounded-xl flex items-center justify-center mb-4">
+                        <svg class="w-7 h-7 text-elote-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"></path></svg>
+                    </div>
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">Flexible Add-Ons</h3>
+                    <p class="text-gray-600">Agua fresca, exotic toppings, live service — build the experience you want.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PACKAGES SECTION -->
+    <section id="packages" class="py-20 bg-elote-dark text-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-script text-4xl md:text-5xl text-elote-yellow mb-4">Choose Your Package</h2>
+                <p class="text-gray-300 text-lg max-w-2xl mx-auto">Two ways to celebrate. Both delivered hot and ready.</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <!-- Package 1 — FEATURED -->
+                <div class="bg-white rounded-3xl shadow-2xl overflow-hidden card-hover border-4 border-elote-green relative">
+                    <div class="absolute top-4 right-4 bg-elote-green text-white text-sm font-bold px-3 py-1 rounded-full z-10">MOST POPULAR</div>
+                    <div class="bg-gradient-to-r from-elote-green to-elote-green-dark p-6 text-white">
+                        <h3 class="font-script text-3xl mb-1">The Classic</h3>
+                        <p class="text-white/80">Esquite + Churros</p>
+                        <div class="mt-4">
+                            <span class="text-5xl font-bold">$8.99</span>
+                            <span class="text-xl">/person</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <p class="font-bold text-elote-orange mb-2">What's Included:</p>
+                            <div class="space-y-2">
+                                <div class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-elote-green mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span class="text-gray-700"><strong>Esquite Clasico</strong> — Mexican street corn cup with mayo, lime, cotija cheese</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-elote-green mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span class="text-gray-700"><strong>Churros Calientes</strong> — warm cinnamon churros, served fresh</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="font-bold text-gray-800 mb-1">For 60 Guests:</p>
+                            <p class="text-gray-600 italic">60 &times; $8.99 = $539.40 total</p>
+                        </div>
+                        <div class="mb-6">
+                            <p class="font-bold text-gray-800 mb-1">Available Add-On:</p>
+                            <div class="flex items-start gap-2">
+                                <svg class="w-5 h-5 text-elote-green mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                <span class="text-gray-700"><strong>Agua Fresca Dispenser</strong> — $60 flat (5-gallon)</span>
+                            </div>
+                        </div>
+                        <a href="tel:16782088774" class="block w-full btn-primary text-white text-center font-bold py-4 rounded-full text-lg">Book Package 1 — Call Now</a>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="bg-white rounded-3xl shadow-xl overflow-hidden card-hover">
+                    <div class="bg-gradient-to-r from-elote-yellow to-elote-orange p-6 text-elote-dark">
+                        <h3 class="font-script text-3xl mb-1">The Upgrade</h3>
+                        <p class="text-elote-dark/80">Esquite + Chicharron Preparado</p>
+                        <div class="mt-4">
+                            <span class="text-5xl font-bold">$14.99</span>
+                            <span class="text-xl">/person</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="mb-4">
+                            <p class="font-bold text-elote-orange mb-2">What's Included:</p>
+                            <div class="space-y-2">
+                                <div class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-elote-green mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span class="text-gray-700"><strong>Esquite Clasico</strong> — Mexican street corn cup with mayo, lime, cotija cheese</span>
+                                </div>
+                                <div class="flex items-start gap-2">
+                                    <svg class="w-5 h-5 text-elote-green mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg>
+                                    <span class="text-gray-700"><strong>Chicharron Preparado</strong> — crispy pork rinds dressed with lime, chile, and fresh toppings</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-4">
+                            <p class="font-bold text-gray-800 mb-1">For 60 Guests:</p>
+                            <p class="text-gray-600 italic">60 &times; $14.99 = $899.40 total</p>
+                        </div>
+                        <a href="tel:16782088774" class="block w-full btn-secondary text-elote-dark text-center font-bold py-4 rounded-full text-lg">Book Package 2 — Call Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADD-ONS / LIVE STATION SECTION -->
+    <section class="py-20 bg-elote-yellow-light">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Left side — Content -->
+                <div>
+                    <span class="inline-block bg-red-500 text-white text-sm font-bold px-4 py-1 rounded-full mb-4">PREMIUM ADD-ONS</span>
+                    <h2 class="font-script text-4xl md:text-5xl text-elote-green-dark mb-6">Level Up Your Shower</h2>
+                    <div class="grid sm:grid-cols-2 gap-4 mb-8">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-elote-green/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-elote-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-800">Exotic Esquite — +$1/person</p>
+                                <p class="text-gray-500 text-sm">Cheetos + Takis toppings</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-elote-green/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-elote-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-800">Agua Fresca — $60 flat</p>
+                                <p class="text-gray-500 text-sm">5-gallon dispenser</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-elote-green/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-elote-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-800">Additional Hour — $60/hour</p>
+                                <p class="text-gray-500 text-sm">Extended service time</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 bg-elote-green/20 rounded-full flex items-center justify-center flex-shrink-0">
+                                <svg class="w-5 h-5 text-elote-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="font-bold text-gray-800">Onsite Live Option — $300</p>
+                                <p class="text-gray-500 text-sm">2 Elote King staff come to your event, set up, and serve fresh</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a href="tel:16782088774" class="btn-primary text-white font-bold px-8 py-4 rounded-full text-lg inline-flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                        Add When You Call
+                    </a>
+                </div>
+                <!-- Right side — Image -->
+                <div class="relative">
+                    <img src="/catering/esquite-cups.webp" alt="Esquite Cups" class="rounded-2xl shadow-2xl w-full">
+                    <div class="absolute -bottom-6 -left-6 bg-elote-yellow text-elote-dark p-4 rounded-xl shadow-lg">
+                        <p class="font-bold text-2xl">$300</p>
+                        <p class="text-sm">Live Option</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MENU HIGHLIGHTS SECTION -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-script text-4xl md:text-5xl text-elote-green-dark mb-4">What We're Bringing</h2>
+                <p class="text-gray-600 text-lg">Fresh. Hot. Ready to serve.</p>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Menu Item 1 -->
+                <div class="text-center card-hover">
+                    <div class="rounded-2xl overflow-hidden shadow-lg mb-4">
+                        <img src="/images/esquite-fresh.jpg" alt="Esquite Clasico" class="w-full aspect-square object-cover">
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-1">Esquite Clasico</h3>
+                    <p class="text-elote-orange font-medium text-sm mb-2">Mexican Street Corn Cup</p>
+                    <p class="text-gray-600 text-sm">Tender corn kernels tossed in creamy mayo, tangy lime, and cotija cheese. The crowd favorite.</p>
+                </div>
+                <!-- Menu Item 2 -->
+                <div class="text-center card-hover">
+                    <div class="rounded-2xl overflow-hidden shadow-lg mb-4">
+                        <img src="/images/gold-flan-royale-branded-final.jpg" alt="Churros Calientes" class="w-full aspect-square object-cover">
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-1">Churros Calientes</h3>
+                    <p class="text-elote-orange font-medium text-sm mb-2">Warm Cinnamon Churros</p>
+                    <p class="text-gray-600 text-sm">Golden, crispy on the outside, soft inside — dusted with cinnamon sugar.</p>
+                </div>
+                <!-- Menu Item 3 -->
+                <div class="text-center card-hover">
+                    <div class="rounded-2xl overflow-hidden shadow-lg mb-4">
+                        <img src="/images/chorizo-drip-fries-branded-final.jpg" alt="Chicharron Preparado" class="w-full aspect-square object-cover">
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-1">Chicharron Preparado</h3>
+                    <p class="text-elote-orange font-medium text-sm mb-2">Package 2 Upgrade</p>
+                    <p class="text-gray-600 text-sm">Crispy pork rinds dressed with lime, chile, cucumber, and jicama.</p>
+                </div>
+                <!-- Menu Item 4 -->
+                <div class="text-center card-hover">
+                    <div class="rounded-2xl overflow-hidden shadow-lg mb-4">
+                        <img src="/images/jamaica-fresh.jpg" alt="Agua Fresca" class="w-full aspect-square object-cover">
+                    </div>
+                    <h3 class="font-bold text-lg text-gray-800 mb-1">Agua Fresca</h3>
+                    <p class="text-elote-orange font-medium text-sm mb-2">Add-On &middot; $60</p>
+                    <p class="text-gray-600 text-sm">Five-gallon dispenser of refreshing Jamaica agua fresca. Serves the whole party.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SPOTLIGHT / GREEN GRADIENT SECTION -->
+    <section class="py-20 bg-gradient-to-r from-elote-green to-elote-green-dark text-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="order-2 lg:order-1">
+                    <img src="/catering/food-spread.webp" alt="Food Spread" class="rounded-2xl shadow-2xl max-w-md mx-auto w-full">
+                </div>
+                <div class="order-1 lg:order-2">
+                    <p class="text-elote-yellow font-medium mb-2">The Onsite Live Experience</p>
+                    <h2 class="font-script text-4xl md:text-5xl mb-4">Make It Unforgettable</h2>
+                    <p class="text-3xl font-bold text-elote-yellow mb-6">+$300 — Two Staff. Live Service.</p>
+                    <p class="text-white/90 text-lg mb-8">Our crew arrives, sets up a professional live station, and serves fresh esquite and churros right in front of your guests. This isn't just food — this is the moment everyone remembers.</p>
+                    <div class="bg-white/10 backdrop-blur-sm rounded-xl p-6">
+                        <p class="text-elote-yellow font-script text-2xl italic">Setup. Serve. Clean up. You enjoy the party.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY / "SEE US IN ACTION" SECTION -->
+    <section class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-script text-4xl md:text-5xl text-elote-green-dark mb-4">Real Events. Real Reactions.</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Gallery Card 1 -->
+                <div class="card-hover">
+                    <div class="relative rounded-2xl overflow-hidden shadow-xl">
+                        <img src="/catering/catering-trays.webp" alt="Professional Catering Setup" class="w-full aspect-video object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <h3 class="text-white font-bold text-xl mb-1">Professional Catering Setup</h3>
+                            <p class="text-white/80 text-sm">Everything arrives hot, portioned, and presentation-ready.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Card 2 -->
+                <div class="card-hover">
+                    <div class="relative rounded-2xl overflow-hidden shadow-xl">
+                        <img src="/catering/party-guests.webp" alt="Happy Guests" class="w-full aspect-video object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <h3 class="text-white font-bold text-xl mb-1">Happy Guests, Every Time</h3>
+                            <p class="text-white/80 text-sm">From baby showers to birthday parties — the reaction is always the same.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Gallery Card 3 -->
+                <div class="card-hover">
+                    <div class="relative rounded-2xl overflow-hidden shadow-xl">
+                        <img src="/catering/brand-display.webp" alt="Elote King Experience" class="w-full aspect-video object-cover">
+                        <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
+                            <h3 class="text-white font-bold text-xl mb-1">The Elote King Experience</h3>
+                            <p class="text-white/80 text-sm">Branded setup, premium food, unforgettable memories.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="text-center mt-12">
+                <p class="text-gray-600 text-lg mb-4">Ready to make your event legendary?</p>
+                <a href="tel:16782088774" class="btn-primary text-white font-bold px-8 py-4 rounded-full text-lg inline-flex items-center gap-2">
+                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+                    Call to Book Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING SNAPSHOT SECTION -->
+    <section class="py-20 bg-elote-yellow-light">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-script text-4xl md:text-5xl text-elote-green-dark mb-4">Your Pricing at a Glance</h2>
+                <p class="text-gray-600 text-lg">Pricing snapshot for 60 guests</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-8 mb-12 max-w-4xl mx-auto">
+                <!-- Pricing Card 1 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8 border-2 border-elote-green">
+                    <h3 class="font-script text-2xl text-elote-green-dark mb-4">The Classic</h3>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">60 guests &times; $8.99</span>
+                            <span class="font-bold text-gray-800">$539.40</span>
+                        </div>
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">+ Agua Fresca (optional)</span>
+                            <span class="font-bold text-gray-800">$60.00</span>
+                        </div>
+                        <div class="border-t pt-3 flex justify-between">
+                            <span class="font-bold text-gray-800">Total Range</span>
+                            <span class="font-bold text-elote-green text-xl">$539.40–$599.40</span>
+                        </div>
+                    </div>
+                    <div class="bg-elote-green/10 rounded-xl p-4">
+                        <p class="text-sm text-gray-600">50% Deposit to Book</p>
+                        <p class="font-bold text-elote-green text-lg">$269.70–$299.70</p>
+                    </div>
+                </div>
+                <!-- Pricing Card 2 -->
+                <div class="bg-white rounded-2xl shadow-lg p-8">
+                    <h3 class="font-script text-2xl text-elote-green-dark mb-4">The Upgrade</h3>
+                    <div class="space-y-3 mb-6">
+                        <div class="flex justify-between">
+                            <span class="text-gray-600">60 guests &times; $14.99</span>
+                            <span class="font-bold text-gray-800">$899.40</span>
+                        </div>
+                        <div class="border-t pt-3 flex justify-between">
+                            <span class="font-bold text-gray-800">Total</span>
+                            <span class="font-bold text-elote-orange text-xl">$899.40</span>
+                        </div>
+                    </div>
+                    <div class="bg-elote-yellow/20 rounded-xl p-4">
+                        <p class="text-sm text-gray-600">50% Deposit to Book</p>
+                        <p class="font-bold text-elote-orange text-lg">$449.70</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Booking Steps -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 border-2 border-dashed border-elote-green max-w-3xl mx-auto">
+                <h3 class="font-bold text-xl text-gray-800 text-center mb-8">How Booking Works</h3>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-elote-green rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-white font-bold text-xl">1</span>
+                        </div>
+                        <p class="font-bold text-gray-800">50% Deposit</p>
+                        <p class="text-gray-500 text-sm">Due when you book</p>
+                    </div>
+                    <div class="hidden md:block">
+                        <svg class="w-8 h-8 text-elote-green" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-elote-yellow rounded-full flex items-center justify-center mx-auto mb-3">
+                            <span class="text-elote-dark font-bold text-xl">2</span>
+                        </div>
+                        <p class="font-bold text-gray-800">Remaining 50%</p>
+                        <p class="text-gray-500 text-sm">Due 2 days before event</p>
+                    </div>
+                </div>
+                <p class="text-center text-gray-500 italic mt-6">Your deposit locks in your date. Once it's gone, it's gone.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS SECTION -->
+    <section class="py-20 bg-elote-dark text-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-script text-4xl md:text-5xl text-elote-yellow mb-4">What Atlanta Families Say</h2>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 card-hover">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-elote-green rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">S</span>
+                        </div>
+                        <div>
+                            <p class="font-bold">Samira T.</p>
+                            <p class="text-white/60 text-sm">Baby Shower Host</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 mb-3">
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-white/90">The esquite was the star of the whole shower. Everyone kept coming back for more. Mariana's going to love this.</p>
+                </div>
+                <!-- Testimonial 2 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 card-hover">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-elote-orange rounded-full flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">R</span>
+                        </div>
+                        <div>
+                            <p class="font-bold">Rania K.</p>
+                            <p class="text-white/60 text-sm">Family Event</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 mb-3">
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-white/90">We had 55 guests and zero leftovers. The churros were gone in minutes. Best catering decision we ever made.</p>
+                </div>
+                <!-- Testimonial 3 -->
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 card-hover">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-elote-yellow rounded-full flex items-center justify-center">
+                            <span class="text-elote-dark font-bold text-lg">A</span>
+                        </div>
+                        <div>
+                            <p class="font-bold">Aisha M.</p>
+                            <p class="text-white/60 text-sm">60 Guests</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 mb-3">
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                        <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+                    </div>
+                    <p class="text-white/90">Booked them for a baby shower last month. The food was hot, the portions were perfect, and the setup was so easy.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ SECTION -->
+    <section class="py-20 bg-white">
+        <div class="max-w-3xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="font-script text-4xl md:text-5xl text-elote-green-dark mb-4">Got Questions?</h2>
+            </div>
+            <div class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span class="font-bold text-gray-800">What exactly gets delivered?</span>
+                        <svg class="w-5 h-5 text-gray-500 faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-5 pb-5 text-gray-600">Foil trays, portioned per person, ready to serve. Esquite cups and churros arrive hot. No cooking needed — just open and set out.</div>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span class="font-bold text-gray-800">How does drop-off work?</span>
+                        <svg class="w-5 h-5 text-gray-500 faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-5 pb-5 text-gray-600">We deliver to your door at the time you choose. You set it out, guests serve themselves. It's that simple.</div>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span class="font-bold text-gray-800">Is the food still warm when it arrives?</span>
+                        <svg class="w-5 h-5 text-gray-500 faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-5 pb-5 text-gray-600">Yes — packed hot in insulated containers. You have about a 1-hour serving window for optimal temperature.</div>
+                    </div>
+                </div>
+                <!-- FAQ 4 -->
+                <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span class="font-bold text-gray-800">What is Chicharron Preparado?</span>
+                        <svg class="w-5 h-5 text-gray-500 faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-5 pb-5 text-gray-600">Crispy pork rinds dressed with lime juice, Valentina hot sauce, cucumber, jicama, and fresh toppings. A Mexican street food classic.</div>
+                    </div>
+                </div>
+                <!-- FAQ 5 -->
+                <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span class="font-bold text-gray-800">What is the Onsite Live Option?</span>
+                        <svg class="w-5 h-5 text-gray-500 faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-5 pb-5 text-gray-600">Two Elote King staff come to your event, set up a live station, and serve fresh food directly to your guests for up to 3 hours. It's the premium experience.</div>
+                    </div>
+                </div>
+                <!-- FAQ 6 -->
+                <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span class="font-bold text-gray-800">Can I add the Agua Fresca later?</span>
+                        <svg class="w-5 h-5 text-gray-500 faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-5 pb-5 text-gray-600">Absolutely — just mention it when you call to confirm your booking.</div>
+                    </div>
+                </div>
+                <!-- FAQ 7 -->
+                <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span class="font-bold text-gray-800">How far in advance should I book?</span>
+                        <svg class="w-5 h-5 text-gray-500 faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-5 pb-5 text-gray-600">As soon as possible. We take limited dates each month — once your date is gone, it's gone. Weekend slots fill fastest.</div>
+                    </div>
+                </div>
+                <!-- FAQ 8 -->
+                <div class="faq-item border border-gray-200 rounded-xl overflow-hidden">
+                    <button onclick="toggleFaq(this)" class="w-full flex items-center justify-between p-5 text-left bg-gray-50 hover:bg-gray-100 transition-colors">
+                        <span class="font-bold text-gray-800">What areas do you serve?</span>
+                        <svg class="w-5 h-5 text-gray-500 faq-icon flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div class="faq-content">
+                        <div class="px-5 pb-5 text-gray-600">Metro Atlanta including Alpharetta, Roswell, Cumming, Marietta, Decatur, Buckhead, and surrounding areas.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA SECTION -->
+    <section class="py-20 bg-gradient-to-br from-elote-green-dark to-elote-green text-white">
+        <div class="max-w-3xl mx-auto px-4 text-center">
+            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+                <h2 class="font-bold text-3xl md:text-4xl text-elote-dark mb-4">Mariana's Shower Deserves This.</h2>
+                <p class="text-gray-600 text-lg mb-6">We're booking fast for spring. Once your date is taken, we can't bring it back. Call now to lock it in.</p>
+                <p class="text-gray-500 italic mb-8">Limited dates available April–June. Don't sleep on this.</p>
+                <a href="tel:16782088774" class="block w-full btn-primary text-white font-bold py-4 rounded-full text-xl sticky-cta">Call to Book — (678) 208-8774</a>
+            </div>
+            <div class="mt-8">
+                <p class="text-2xl font-bold text-elote-yellow">(678) 208-8774</p>
+                <a href="mailto:elotekingatlanta@gmail.com" class="text-white/80 hover:text-white transition-colors">elotekingatlanta@gmail.com</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-elote-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <img src="/images/elote-king-logo-transparent.png" alt="Elote King Atlanta" class="h-16 mx-auto mb-4">
+            <p class="font-script text-xl text-elote-yellow mb-2">Elote King Atlanta</p>
+            <p class="text-gray-400 mb-4">100% Zabiha Halal &middot; Muslim-Owned &middot; Zero Alcohol</p>
+            <p class="text-gray-400 text-sm mb-2">Serving Metro Atlanta — Alpharetta, Roswell, Cumming, Marietta, Decatur, Buckhead</p>
+            <p class="text-gray-400 text-sm mb-2">
+                <a href="tel:16782088774" class="hover:text-white transition-colors">(678) 208-8774</a> &middot;
+                <a href="mailto:elotekingatlanta@gmail.com" class="hover:text-white transition-colors">elotekingatlanta@gmail.com</a>
+            </p>
+            <p class="text-gray-500 text-sm mt-6">&copy; 2026 Elote King Atlanta. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING MOBILE CTA -->
+    <div class="fixed bottom-6 right-6 z-50 md:hidden">
+        <a href="tel:16782088774" class="btn-primary text-white font-bold px-6 py-4 rounded-full shadow-2xl flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+            Call Now
+        </a>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        function toggleFaq(button) {
+            const faqItem = button.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            document.querySelectorAll('.faq-item').forEach(item => { item.classList.remove('active'); });
+            if (!isActive) { faqItem.classList.add('active'); }
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        });
+    </script>
+
+</body>
+</html>
