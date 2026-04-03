@@ -8,40 +8,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mariana's Baby Shower — Elote King Atlanta Catering Proposal</title>
-    <meta name="description" content="Personalized catering proposal for Mariana's baby shower. 60 guests. Esquite + Churros from $8.99/person. 100% Zabiha Halal. Elote King Atlanta.">
+    <meta name="description" content="Personalized catering proposal for Mariana's baby shower. 60 guests. Esquite + Churros from $8.99/person. Elote King Atlanta.">
     <meta property="og:title" content="Mariana's Baby Shower — Elote King Catering">
-    <meta property="og:description" content="Personalized catering proposal. 60 guests. From $8.99/person. 100% Zabiha Halal.">
+    <meta property="og:description" content="Personalized catering proposal. 60 guests. From $8.99/person. Elote King Atlanta.">
     <meta property="og:image" content="/catering/hero-food.webp">
     <meta property="og:type" content="website">
     <link rel="canonical" href="https://events.elotekingatlanta.com/baby-shower/">
     <link rel="icon" type="image/png" href="/images/elote-king-logo-transparent.png">
-    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'elote-green': '#16a34a',
-                        'elote-green-dark': '#15803d',
-                        'elote-yellow': '#FFD700',
-                        'elote-yellow-light': '#FFF8DC',
-                        'elote-orange': '#FF8C00',
-                        'elote-dark': '#2D2D2D',
-                    },
-                    fontFamily: {
-                        'script': ['Pacifico', 'cursive'],
-                        'body': ['Poppins', 'sans-serif'],
-                    }
-                }
-            }
-        }
-    </script>
     <style>
+        @import "@/styles/starwind.css";
+
+        /* Manus custom colors as Tailwind v4 theme extensions */
+        @theme {
+            --color-elote-green: #16a34a;
+            --color-elote-green-dark: #15803d;
+            --color-elote-yellow: #FFD700;
+            --color-elote-yellow-light: #FFF8DC;
+            --color-elote-orange: #FF8C00;
+            --color-elote-dark: #2D2D2D;
+        }
+
+        /* Manus fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@400;500;600;700;800&display=swap');
+
         body { font-family: 'Poppins', sans-serif; }
         .font-script { font-family: 'Pacifico', cursive; }
+
+        /* Manus design patterns */
         .hero-gradient { background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 100%); }
         .btn-primary { background: linear-gradient(135deg, #16a34a 0%, #15803d 100%); transition: all 0.3s ease; }
         .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(22, 163, 74, 0.3); }
@@ -97,11 +92,11 @@
             <div class="mt-12 flex items-center justify-center gap-8 text-white/80">
                 <div class="flex items-center gap-2">
                     <svg class="w-5 h-5 text-elote-yellow" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
-                    <span class="text-sm font-medium">100% Zabiha Halal</span>
+                    <span class="text-sm font-medium">5+ Years Trusted</span>
                 </div>
                 <div class="flex items-center gap-2">
                     <svg class="w-5 h-5 text-elote-yellow" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                    <span class="text-sm font-medium">Muslim-Owned</span>
+                    <span class="text-sm font-medium">Atlanta Metro</span>
                 </div>
             </div>
         </div>
@@ -147,8 +142,8 @@
                     <div class="w-14 h-14 bg-elote-orange/20 rounded-xl flex items-center justify-center mb-4">
                         <svg class="w-7 h-7 text-elote-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path></svg>
                     </div>
-                    <h3 class="font-bold text-xl text-gray-800 mb-2">100% Zabiha Halal</h3>
-                    <p class="text-gray-600">Every ingredient, every dish. No compromises. Your family eats with complete confidence.</p>
+                    <h3 class="font-bold text-xl text-gray-800 mb-2">Made Fresh, Every Time</h3>
+                    <p class="text-gray-600">Every dish is prepared fresh for your event. No frozen, no reheated. Just real food made with care.</p>
                 </div>
                 <!-- Card 5 -->
                 <div class="bg-white p-6 rounded-2xl shadow-lg card-hover">
@@ -692,7 +687,7 @@
         <div class="max-w-7xl mx-auto px-4 text-center">
             <img src="/images/elote-king-logo-transparent.png" alt="Elote King Atlanta" class="h-16 mx-auto mb-4">
             <p class="font-script text-xl text-elote-yellow mb-2">Elote King Atlanta</p>
-            <p class="text-gray-400 mb-4">100% Zabiha Halal &middot; Muslim-Owned &middot; Zero Alcohol</p>
+            <p class="text-gray-400 mb-4">Authentic Mexican Street Food &middot; Serving Metro Atlanta</p>
             <p class="text-gray-400 text-sm mb-2">Serving Metro Atlanta — Alpharetta, Roswell, Cumming, Marietta, Decatur, Buckhead</p>
             <p class="text-gray-400 text-sm mb-2">
                 <a href="tel:16782088774" class="hover:text-white transition-colors">(678) 208-8774</a> &middot;
